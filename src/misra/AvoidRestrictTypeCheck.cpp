@@ -23,7 +23,7 @@ void AvoidRestrictTypeCheck::registerMatchers(MatchFinder *Finder) {
 
 void AvoidRestrictTypeCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedTypeLoc =
-          Result.Nodes.getNodeAs<TypeLoc>("restrictTypeLoc"))
+      Result.Nodes.getNodeAs<TypeLoc>("restrictTypeLoc");
 
   if (MatchedTypeLoc) {
     SourceLocation Loc = MatchedTypeLoc->getBeginLoc();
