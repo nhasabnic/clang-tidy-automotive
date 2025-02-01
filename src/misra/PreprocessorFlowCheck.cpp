@@ -1,0 +1,43 @@
+//===--- PreprocessorFlowCheck.cpp - clang-tidy ---------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
+
+#include "PreprocessorFlowCheck.h"
+#include "clang/Lex/PPCallbacks.h"
+#include "clang/Lex/Preprocessor.h"
+
+using namespace clang::ast_matchers;
+
+namespace clang::tidy::misra {
+
+class AvoidUndefPPCallbacks : public PPCallbacks {
+public:
+  AvoidUndefPPCallbacks(ClangTidyCheck &Check) : Check(Check) {}
+
+  virtual void MacroUndefined (const Token &MacroNameTok, 
+                               const MacroDefinition &MD, 
+                               const MacroDirective *Undef) override;
+
+private:
+  ClangTidyCheck &Check;
+};
+
+void AvoidUndefPPCallbacks::MacroUndefined(const Token &MacroNameTok,
+                                           const MacroDefinition &MD,
+                                           const MacroDirective *Undef) {
+  if (Undef) {
+    Check.diag(Undef->getLocation(), "avoid #undef");
+  }
+}
+
+void PreprocessorFlowCheck::registerPPCallbacks(const SourceManager &SM,
+                                          Preprocessor *PP,
+                                          Preprocessor *ModuleExpanderPP) {
+  PP->addPPCallbacks(::std::make_unique<AvoidUndefPPCallbacks>(*this));
+}
+
+} // namespace clang::tidy::misra

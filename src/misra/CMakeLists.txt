@@ -1,0 +1,61 @@
+set(LLVM_LINK_COMPONENTS
+  FrontendOpenMP
+  support
+  )
+
+add_clang_library(clangTidyMISRAModule
+  CheckApiPPCallbacks.cpp
+  AbstractAvoidApiCheck.cpp
+  AbstractLabelCheck.cpp
+  AvoidBitfieldsInUnionsCheck.cpp
+  AvoidCommaOperatorCheck.cpp
+  AvoidGotoCheck.cpp
+  AvoidLinesplicingWithinCommentCheck.cpp
+  AvoidOctalNumberCheck.cpp
+  AvoidSignalHeaderCheck.cpp
+  AvoidStdargHeaderCheck.cpp
+  AvoidAssignmentInExpressionCheck.cpp
+  AvoidAtomicVoidPointerCheck.cpp
+  AvoidNonBooleanConditionCheck.cpp
+  AvoidRestrictTypeCheck.cpp
+  AvoidstdlibsystemcallCheck.cpp
+  AvoidStdlibRandCheck.cpp
+  MissingbreakinswitchCheck.cpp
+  MissingreturnvaluehandlingCheck.cpp
+  NoreturnvoidCheck.cpp
+  AtoXCheck.cpp
+  AvoidSignedSingleBitFieldsCheck.cpp
+  AvoidUndefCheck.cpp
+  AvoidUnionCheck.cpp
+  CommentWithinCommentCheck.cpp
+  ExitCheck.cpp
+  ForwardGotoLabelCheck.cpp
+  MISRATidyModule.cpp
+  MissingCompoundCheck.cpp
+  MissingDefaultInSwitchStatementCheck.cpp
+  MissingElseCheck.cpp
+  MultipleReturnStmtCheck.cpp
+  PreprocessorFlowCheck.cpp
+  StaticInlineCheck.cpp
+  UnstructuredcaseCheck.cpp
+  UnusedlabelCheck.cpp
+  WrongorderdefaultinswitchstatementCheck.cpp
+
+  LINK_LIBS
+  clangTidy
+  clangTidyUtils
+  clangTidyMiscModule
+  clangTidyCERTModule
+
+  DEPENDS
+  ClangDriverOptions
+  )
+
+clang_target_link_libraries(clangTidyMISRAModule
+  PRIVATE
+  clangAnalysis
+  clangAST
+  clangASTMatchers
+  clangBasic
+  clangLex
+  )
