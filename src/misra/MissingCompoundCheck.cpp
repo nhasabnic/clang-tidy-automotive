@@ -7,6 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "MissingCompoundCheck.h"
+#include "ASTMatchers.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 #include "clang/ASTMatchers/ASTMatchers.h"
@@ -15,37 +16,32 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-namespace custom {
-
-AST_MATCHER_P(SwitchStmt, hasBody, clang::ast_matchers::internal::Matcher<Stmt>,
-              InnerMatcher) {
-  const Stmt *const Body = Node.getBody();
-  return (Body != nullptr && InnerMatcher.matches(*Body, Finder, Builder));
-}
-
-} // namespace custom
-
 void MissingCompoundCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
       ifStmt(hasThen(stmt(unless(compoundStmt())).bind("body"))).bind("parent"),
       this);
+
   Finder->addMatcher(
       ifStmt(
           hasElse(stmt(unless(anyOf(compoundStmt(), ifStmt()))).bind("body")))
           .bind("parent"),
       this);
+
   Finder->addMatcher(forStmt(hasBody(stmt(unless(compoundStmt())).bind("body")))
                          .bind("parent"),
                      this);
+
   Finder->addMatcher(
       whileStmt(hasBody(stmt(unless(compoundStmt())).bind("body")))
           .bind("parent"),
       this);
+
   Finder->addMatcher(
       doStmt(hasBody(stmt(unless(compoundStmt())).bind("body"))).bind("parent"),
       this);
+
   Finder->addMatcher(
-      switchStmt(custom::hasBody(stmt(unless(compoundStmt())).bind("body")))
+      switchStmt(misra::hasBody(stmt(unless(compoundStmt())).bind("body")))
           .bind("parent"),
       this);
 }

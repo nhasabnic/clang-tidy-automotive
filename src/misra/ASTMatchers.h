@@ -49,6 +49,12 @@ AST_MATCHER(BinaryOperator, isAssignmentResultUsed) {
   return isa<Expr>(Parent);
 }
 
+AST_MATCHER_P(SwitchStmt, hasBody, clang::ast_matchers::internal::Matcher<Stmt>,
+              InnerMatcher) {
+  const Stmt *const Body = Node.getBody();
+  return (Body != nullptr && InnerMatcher.matches(*Body, Finder, Builder));
+}
+
 } // namespace ast_matchers
 
 namespace misra = ast_matchers;
