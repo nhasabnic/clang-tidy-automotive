@@ -22,13 +22,13 @@ void AvoidRestrictTypeCheck::registerMatchers(MatchFinder *Finder) {
 }
 
 void AvoidRestrictTypeCheck::check(const MatchFinder::MatchResult &Result) {
-  if (const auto *TypeLocNode =
-          Result.Nodes.getNodeAs<TypeLoc>("restrictTypeLoc")) {
-    // Hitta källkodsplatsen för `restrict`-kvalificeraren
-    SourceLocation Loc = TypeLocNode->getBeginLoc();
+  const auto *MatchedTypeLoc =
+          Result.Nodes.getNodeAs<TypeLoc>("restrictTypeLoc"))
+
+  if (MatchedTypeLoc) {
+    SourceLocation Loc = MatchedTypeLoc->getBeginLoc();
     if (Loc.isValid()) {
-      // Rapportera ett fel
-      diag(Loc, "Avoid restrict type");
+      diag(Loc, "avoid restrict type");
     }
   }
 }
