@@ -21,7 +21,8 @@ void AvoidGotoCheck::registerMatchers(MatchFinder *Finder) {
 
 void AvoidGotoCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<GotoStmt>("goto");
-  diag(MatchedDecl->getGotoLoc(), "avoid goto statement", DiagnosticIDs::Warning);
+  diag(MatchedDecl->getGotoLoc(), "avoid goto statement",
+       DiagnosticIDs::Warning);
 }
 
 } // namespace clang::tidy::misra

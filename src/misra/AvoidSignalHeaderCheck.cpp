@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidSignalHeaderCheck.h"
-//#include "AvoidApiPPCallbacks.h"
+// #include "AvoidApiPPCallbacks.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
@@ -16,40 +16,18 @@ namespace clang::tidy::misra {
 using namespace clang::ast_matchers;
 
 static const StringRef ForbiddenFunctionNames[] = {
-    "bsd_signal",
-    "kill",
-    "killpg",
-    "pthread_kill",
-    "pthread_sigmask",
-    "raise",
-    "sigaction",
-    "sigaddset",
-    "sigaltstack",
-    "sigdelset",
-    "sigemptyset",
-    "sigfillset",
-    "sighold",
-    "sigignore",
-    "siginterrupt",
-    "sigismember",
-    "signal",
-    "sigpause",
-    "sigpending",
-    "sigprocmask",
-    "sigqueue",
-    "sigrelse",
-    "sigset",
-    "sigsuspend",
-    "sigtimedwait",
-    "sigwait",
-    "sigwaitinfo" };
+    "bsd_signal",  "kill",       "killpg",    "pthread_kill", "pthread_sigmask",
+    "raise",       "sigaction",  "sigaddset", "sigaltstack",  "sigdelset",
+    "sigemptyset", "sigfillset", "sighold",   "sigignore",    "siginterrupt",
+    "sigismember", "signal",     "sigpause",  "sigpending",   "sigprocmask",
+    "sigqueue",    "sigrelse",   "sigset",    "sigsuspend",   "sigtimedwait",
+    "sigwait",     "sigwaitinfo"};
 
-void AvoidSignalHeaderCheck::registerPPCallbacks(const SourceManager &SM,
-                                                 Preprocessor *PP,
-                                                 Preprocessor *ModuleExpanderPP) {
+void AvoidSignalHeaderCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
   // Registrera vår PPCallbacks-klass med den förbjudna headern och namnen
-//  PP->addPPCallbacks(std::make_unique<AvoidApiPPCallbacks>(
-//      *this, *PP, "signal.h", ForbiddenFunctionNames));
+  //  PP->addPPCallbacks(std::make_unique<AvoidApiPPCallbacks>(
+  //      *this, *PP, "signal.h", ForbiddenFunctionNames));
 }
 
 void AvoidSignalHeaderCheck::registerMatchers(MatchFinder *Finder) {
@@ -62,10 +40,12 @@ void AvoidSignalHeaderCheck::registerMatchers(MatchFinder *Finder) {
 
 void AvoidSignalHeaderCheck::check(const MatchFinder::MatchResult &Result) {
   // Hantera matchningar från AST-matchern
-  if (const auto *Call = Result.Nodes.getNodeAs<CallExpr>("forbiddenFunctionCall")) {
+  if (const auto *Call =
+          Result.Nodes.getNodeAs<CallExpr>("forbiddenFunctionCall")) {
     const FunctionDecl *Func = Call->getDirectCallee();
     if (Func) {
-      diag(Call->getBeginLoc(), "Avoid function '%0' from <signal.h>") << Func->getName();
+      diag(Call->getBeginLoc(), "Avoid function '%0' from <signal.h>")
+          << Func->getName();
     }
   }
 }

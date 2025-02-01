@@ -23,11 +23,11 @@ private:
   ClangTidyCheck &Check;
 };
 
-bool CommentWithinCommentHandler::HandleComment(Preprocessor &PP, SourceRange Comment)
-{
-  StringRef CommentText = Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
-                                               PP.getSourceManager(),
-                                               PP.getLangOpts());
+bool CommentWithinCommentHandler::HandleComment(Preprocessor &PP,
+                                                SourceRange Comment) {
+  StringRef CommentText =
+      Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
+                           PP.getSourceManager(), PP.getLangOpts());
 
   if (CommentText.starts_with("//")) {
     SourceLocation StartLoc = Comment.getBegin();
@@ -42,9 +42,8 @@ bool CommentWithinCommentHandler::HandleComment(Preprocessor &PP, SourceRange Co
   return false;
 }
 
-void CommentWithinCommentCheck::registerPPCallbacks(const SourceManager &SM,
-                                                    Preprocessor *PP,
-                                                    Preprocessor *ModuleExpanderPP) {
+void CommentWithinCommentCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
   static CommentWithinCommentHandler Handler(*this);
   PP->addCommentHandler(&Handler);
 }

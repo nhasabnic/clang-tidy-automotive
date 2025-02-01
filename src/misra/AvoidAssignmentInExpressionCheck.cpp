@@ -7,25 +7,29 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidAssignmentInExpressionCheck.h"
+#include "ASTMatchers.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
-#include "ASTMatchers.h"
 
 using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
 void AvoidAssignmentInExpressionCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(binaryOperator(isAssignmentOperator(),
-                     misra::isAssignmentResultUsed()).bind("assignment"), this);
+  Finder->addMatcher(
+      binaryOperator(isAssignmentOperator(), misra::isAssignmentResultUsed())
+          .bind("assignment"),
+      this);
 }
 
-void AvoidAssignmentInExpressionCheck::check(const MatchFinder::MatchResult &Result) {
+void AvoidAssignmentInExpressionCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *Assignment = Result.Nodes.getNodeAs<BinaryOperator>("assignment");
 
   if (Assignment) {
-    diag(Assignment->getOperatorLoc(), "Avoid using the result of an assignment operator '%0'")
-         << Assignment->getOpcodeStr();
+    diag(Assignment->getOperatorLoc(),
+         "Avoid using the result of an assignment operator '%0'")
+        << Assignment->getOpcodeStr();
   }
 }
 

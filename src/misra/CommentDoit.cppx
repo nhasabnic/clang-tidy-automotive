@@ -1,0 +1,40 @@
+#include "clang/AST/ASTContext.h"
+#include "clang/ASTMatchers/ASTMatchers.h"
+#include "clang/ASTMatchers/ASTMatchFinder.h"
+#include "clang/Lex/Lexer.h"
+#include "clang/Basic/SourceManager.h"
+
+using namespace clang;
+using namespace clang::ast_matchers;
+
+bool hasCommentBetween(const Stmt *Start, const Stmt *End, const SourceManager &SM, const LangOptions &LangOpts) {
+  if (!Start || !End) {
+    return false;
+  }
+
+  SourceLocation StartLoc = Start->getEndLoc(); 
+  SourceLocation EndLoc = End->getBeginLoc();   
+
+  if (StartLoc.isInvalid() || EndLoc.isInvalid() || !SM.isBeforeInTranslationUnit(StartLoc, EndLoc)) {
+    return false; // Invalid or improper range
+  }
+
+  // Traverse the source range
+  SourceLocation Current = StartLoc;
+  while (Current.isValid() && SM.isBeforeInTranslationUnit(Current, EndLoc)) {
+    Token Tok;
+    bool Valid = Lexer::getRawToken(Current, Tok, SM, LangOpts);
+    if (!Valid) {
+      break; // Error fetching the token
+    }
+
+    if (Tok.is(tok::comment)) {
+      return true; // Found a comment
+    }
+
+    // Move to the next token
+    Current = Tok.getEndLoc();
+  }
+
+  return false; // No comment found
+}

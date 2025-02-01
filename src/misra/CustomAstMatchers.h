@@ -14,7 +14,8 @@
 namespace clang::tidy::misra::custom {
 
 AST_MATCHER(SwitchStmt, hasDefaultStmt) {
-  for (const SwitchCase *SC = Node.getSwitchCaseList(); SC; SC = SC->getNextSwitchCase()) {
+  for (const SwitchCase *SC = Node.getSwitchCaseList(); SC;
+       SC = SC->getNextSwitchCase()) {
     if (llvm::isa<DefaultStmt>(SC)) {
       return true;
     }
@@ -23,7 +24,8 @@ AST_MATCHER(SwitchStmt, hasDefaultStmt) {
 }
 
 AST_MATCHER(SwitchStmt, hasCaseStmt) {
-  for (const SwitchCase *SC = Node.getSwitchCaseList(); SC; SC = SC->getNextSwitchCase()) {
+  for (const SwitchCase *SC = Node.getSwitchCaseList(); SC;
+       SC = SC->getNextSwitchCase()) {
     if (llvm::isa<CaseStmt>(SC)) {
       return true;
     }
@@ -34,4 +36,3 @@ AST_MATCHER(SwitchStmt, hasCaseStmt) {
 } // namespace clang::tidy::misra::custom
 
 #endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_CUSTOMASTMATCHERS_H
-

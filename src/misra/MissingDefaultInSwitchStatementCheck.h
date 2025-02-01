@@ -19,7 +19,8 @@ namespace clang::tidy::misra {
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/missing-default-in-switch-statement.html
 class MissingDefaultInSwitchStatementCheck : public ClangTidyCheck {
 public:
-  MissingDefaultInSwitchStatementCheck(StringRef Name, ClangTidyContext *Context)
+  MissingDefaultInSwitchStatementCheck(StringRef Name,
+                                       ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;

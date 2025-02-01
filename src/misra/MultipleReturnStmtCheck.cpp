@@ -16,7 +16,10 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void MultipleReturnStmtCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(functionDecl(forEachDescendant(returnStmt().bind("returnStmt"))).bind("func"), this);
+  Finder->addMatcher(
+      functionDecl(forEachDescendant(returnStmt().bind("returnStmt")))
+          .bind("func"),
+      this);
 }
 
 void MultipleReturnStmtCheck::check(const MatchFinder::MatchResult &Result) {
@@ -31,13 +34,13 @@ void MultipleReturnStmtCheck::check(const MatchFinder::MatchResult &Result) {
     } else {
       if (PreviousReturn) {
         diag(PreviousReturn->getBeginLoc(), "avoid multiple return statment");
-        diag(MatchedFunc->getBeginLoc(), "multiple return statement within function", DiagnosticIDs::Note);
+        diag(MatchedFunc->getBeginLoc(),
+             "multiple return statement within function", DiagnosticIDs::Note);
         PreviousReturn = nullptr;
       }
       diag(MatchedReturn->getBeginLoc(), "avoid multiple return statment");
     }
   }
 }
-
 
 } // namespace clang::tidy::misra

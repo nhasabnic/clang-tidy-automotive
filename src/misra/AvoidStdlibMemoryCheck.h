@@ -20,9 +20,9 @@ namespace clang::tidy::misra {
 class AvoidStdlibMemoryCheck : public AbstractAvoidApiCheck {
 public:
   AvoidStdlibMemoryCheck(StringRef Name, ClangTidyContext *Context)
-      : AbstractAvoidApiCheck(Name, Context, "pelle.h", {"calloc", "malloc", "realloc",
-                                              "aligned_alloc", "free"}) {
-  }
+      : AbstractAvoidApiCheck(
+            Name, Context, "pelle.h",
+            {"calloc", "malloc", "realloc", "aligned_alloc", "free"}) {}
 };
 
 } // namespace clang::tidy::misra

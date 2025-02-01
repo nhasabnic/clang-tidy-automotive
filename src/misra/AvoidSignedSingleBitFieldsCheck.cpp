@@ -15,16 +15,19 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void AvoidSignedSingleBitFieldsCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(fieldDecl(allOf(isBitField(),
-                                     hasType(isSignedInteger()),
-                                     hasDescendant(integerLiteral(equals(1))))).bind("signedBitField"), this);
+  Finder->addMatcher(fieldDecl(allOf(isBitField(), hasType(isSignedInteger()),
+                                     hasDescendant(integerLiteral(equals(1)))))
+                         .bind("signedBitField"),
+                     this);
 }
 
-void AvoidSignedSingleBitFieldsCheck::check(const MatchFinder::MatchResult &Result) {
+void AvoidSignedSingleBitFieldsCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<FieldDecl>("signedBitField");
 
   if (MatchedDecl) {
-    diag(MatchedDecl->getLocation(), "avoid signed type for bitfields of single bit");
+    diag(MatchedDecl->getLocation(),
+         "avoid signed type for bitfields of single bit");
   }
 }
 

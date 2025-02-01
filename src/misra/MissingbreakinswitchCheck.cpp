@@ -20,11 +20,13 @@ void MissingbreakinswitchCheck::registerMatchers(MatchFinder *Finder) {
 
 void MissingbreakinswitchCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *Switch = Result.Nodes.getNodeAs<SwitchStmt>("switchStmt");
-  if (!Switch) return;
+  if (!Switch)
+    return;
 
   // Hämta CompoundStmt som innehåller alla satser i switch-satsen
   const auto *Body = dyn_cast<CompoundStmt>(Switch->getBody());
-  if (!Body) return;
+  if (!Body)
+    return;
 
   // Iterera genom alla satser i switch-satsen
   for (auto It = Body->body_begin(); It != Body->body_end(); ++It) {
@@ -39,8 +41,10 @@ void MissingbreakinswitchCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-void MissingbreakinswitchCheck::checkCase(const Stmt *Case, CompoundStmt::const_body_iterator It,
-               const CompoundStmt *Body, ASTContext *Context) {
+void MissingbreakinswitchCheck::checkCase(const Stmt *Case,
+                                          CompoundStmt::const_body_iterator It,
+                                          const CompoundStmt *Body,
+                                          ASTContext *Context) {
   // Hoppa över tomma fall-throughs
   if (isa<CaseStmt>(Case) && Case->children().empty()) {
     return;
@@ -69,7 +73,5 @@ void MissingbreakinswitchCheck::checkCase(const Stmt *Case, CompoundStmt::const_
          "Every non-empty switch case must end with a break statement");
   }
 }
-
-
 
 } // namespace clang::tidy::misra

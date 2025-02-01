@@ -25,8 +25,8 @@ public:
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
 
 private:
-  const FunctionDecl* CurrentFunc = nullptr;
-  const ReturnStmt* PreviousReturn = nullptr;
+  const FunctionDecl *CurrentFunc = nullptr;
+  const ReturnStmt *PreviousReturn = nullptr;
 };
 
 } // namespace clang::tidy::misra

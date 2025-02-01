@@ -15,15 +15,17 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void AvoidAtomicVoidPointerCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(varDecl(hasType(pointerType(pointee(atomicType())))).bind("atomicPointer"), this);
+  Finder->addMatcher(varDecl(hasType(pointerType(pointee(atomicType()))))
+                         .bind("atomicPointer"),
+                     this);
 }
 
-void AvoidAtomicVoidPointerCheck::check(const MatchFinder::MatchResult &Result) {
-    if (const auto *Var = Result.Nodes.getNodeAs<VarDecl>("atomicPointer")) {
-        diag(Var->getLocation(), "Variable '%0' is a pointer to a _Atomic type")
-             << Var->getName();
-    }
-
+void AvoidAtomicVoidPointerCheck::check(
+    const MatchFinder::MatchResult &Result) {
+  if (const auto *Var = Result.Nodes.getNodeAs<VarDecl>("atomicPointer")) {
+    diag(Var->getLocation(), "Variable '%0' is a pointer to a _Atomic type")
+        << Var->getName();
+  }
 }
 
 } // namespace clang::tidy::misra

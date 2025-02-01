@@ -22,7 +22,8 @@ AST_MATCHER(QualType, isRestrictType) {
 }
 
 AST_MATCHER(SwitchStmt, hasDefaultStmt) {
-  for (const SwitchCase *SC = Node.getSwitchCaseList(); SC; SC = SC->getNextSwitchCase()) {
+  for (const SwitchCase *SC = Node.getSwitchCaseList(); SC;
+       SC = SC->getNextSwitchCase()) {
     if (llvm::isa<DefaultStmt>(SC)) {
       return true;
     }
@@ -48,23 +49,7 @@ AST_MATCHER(BinaryOperator, isAssignmentResultUsed) {
   return isa<Expr>(Parent);
 }
 
-/*
-ast_matchers::internal::Matcher<clang::NamedDecl>
-hasAnyFunctionNames(const llvm::StringSet<> &FunctionNames);
-
-
-
-ast_matchers::internal::Matcher<clang::NamedDecl>
-hasAnyFunctionNames(const llvm::StringSet<> &FunctionNames) {
-  llvm::SmallVector<llvm::StringRef, 8> Names;
-  for (const auto &Name : FunctionNames) {
-    Names.push_back(Name.getKey());
-  }
-  return functionDecl(hasAnyName(Names));
-}
-*/
-
-} //namespace ast_matchers
+} // namespace ast_matchers
 
 namespace misra = ast_matchers;
 

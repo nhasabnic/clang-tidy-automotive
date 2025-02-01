@@ -14,11 +14,15 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-void WrongorderdefaultinswitchstatementCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(switchStmt(forEachSwitchCase(switchCase().bind("case"))).bind("switch"), this);
+void WrongorderdefaultinswitchstatementCheck::registerMatchers(
+    MatchFinder *Finder) {
+  Finder->addMatcher(
+      switchStmt(forEachSwitchCase(switchCase().bind("case"))).bind("switch"),
+      this);
 }
 
-void WrongorderdefaultinswitchstatementCheck::check(const MatchFinder::MatchResult &Result) {
+void WrongorderdefaultinswitchstatementCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *MatchSwitch = Result.Nodes.getNodeAs<SwitchStmt>("switch");
   const auto *MatchCase = Result.Nodes.getNodeAs<SwitchCase>("case");
   const auto *MatchDefault = llvm::dyn_cast<DefaultStmt>(MatchCase);

@@ -16,8 +16,9 @@ namespace clang::tidy::misra {
 
 void AtoXCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(callExpr(callee(functionDecl(
-      hasAnyName("atof", "atoi", "atol", "atoll")
-      ))).bind("func"), this);
+                                  hasAnyName("atof", "atoi", "atol", "atoll"))))
+                         .bind("func"),
+                     this);
 }
 
 void AtoXCheck::check(const MatchFinder::MatchResult &Result) {

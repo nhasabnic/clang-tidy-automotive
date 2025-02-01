@@ -15,14 +15,17 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void NoreturnvoidCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(functionDecl(isNoReturn(), unless(hasReturnTypeLoc(loc(asString("void"))))).bind("x"), this);
+  Finder->addMatcher(functionDecl(isNoReturn(), unless(hasReturnTypeLoc(
+                                                    loc(asString("void")))))
+                         .bind("x"),
+                     this);
 }
 
 void NoreturnvoidCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<FunctionDecl>("x");
   if (MatchedDecl->getIdentifier()) {
-  diag(MatchedDecl->getLocation(), "Use 'void' as return type")
-      << MatchedDecl;
+    diag(MatchedDecl->getLocation(), "Use 'void' as return type")
+        << MatchedDecl;
   }
 }
 

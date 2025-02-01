@@ -15,8 +15,10 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void AbstractLabelCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(labelStmt(hasAncestor(functionDecl().bind("func"))).bind("label"), this);
-  Finder->addMatcher(gotoStmt(hasAncestor(functionDecl().bind("func"))).bind("goto"), this);
+  Finder->addMatcher(
+      labelStmt(hasAncestor(functionDecl().bind("func"))).bind("label"), this);
+  Finder->addMatcher(
+      gotoStmt(hasAncestor(functionDecl().bind("func"))).bind("goto"), this);
 }
 
 void AbstractLabelCheck::check(const MatchFinder::MatchResult &Result) {

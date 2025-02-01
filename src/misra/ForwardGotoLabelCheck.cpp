@@ -14,7 +14,7 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-static const LabelStmt* getLabelStmt(const GotoStmt* Goto);
+static const LabelStmt *getLabelStmt(const GotoStmt *Goto);
 
 void ForwardGotoLabelCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(gotoStmt().bind("goto"), this);
@@ -30,17 +30,17 @@ void ForwardGotoLabelCheck::check(const MatchFinder::MatchResult &Result) {
     const auto LabelLoc = MatchedLabel->getBeginLoc();
 
     if (SM.isBeforeInTranslationUnit(LabelLoc, GotoLoc)) {
-       diag(GotoLoc, "goto statement jumps backward to label '%0'")
-            << MatchedLabel->getName();
-       diag(LabelLoc, "location of label '%0'", DiagnosticIDs::Note)
-            << MatchedLabel->getName();
+      diag(GotoLoc, "goto statement jumps backward to label '%0'")
+          << MatchedLabel->getName();
+      diag(LabelLoc, "location of label '%0'", DiagnosticIDs::Note)
+          << MatchedLabel->getName();
     }
   }
 }
 
-static const LabelStmt* getLabelStmt(const GotoStmt* Goto) {
+static const LabelStmt *getLabelStmt(const GotoStmt *Goto) {
   if (Goto) {
-    const auto* Label = Goto->getLabel();
+    const auto *Label = Goto->getLabel();
 
     if (Label) {
       return Label->getStmt();

@@ -30,10 +30,10 @@ void AvoidOctalNumberCheck::check(const MatchFinder::MatchResult &Result) {
     const LangOptions &LangOpts = Result.Context->getLangOpts();
     const llvm::Regex RE("^0[0-9]+[luLU]?$");
 
-    StringRef Token = Lexer::getSourceText(CharSourceRange::getTokenRange(
-                                           MatchedDecl->getBeginLoc(),
-                                           MatchedDecl->getEndLoc()),
-                                           SM, LangOpts);
+    StringRef Token = Lexer::getSourceText(
+        CharSourceRange::getTokenRange(MatchedDecl->getBeginLoc(),
+                                       MatchedDecl->getEndLoc()),
+        SM, LangOpts);
 
     if (RE.match(Token)) {
       diag(MatchedDecl->getBeginLoc(), "Avoid octal number");

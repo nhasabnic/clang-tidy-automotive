@@ -15,13 +15,11 @@ public:
   const bool IsAngled;
 };
 
-
 class MatchMacroInfo {
   const MatchHeaderInfo *Header;
   const Token &Tok;
   const StringRef Name;
 };
-
 
 class AbstractCheckApiHandler {
 public:

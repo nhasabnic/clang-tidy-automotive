@@ -7,20 +7,23 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidRestrictTypeCheck.h"
+#include "ASTMatchers.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
-#include "ASTMatchers.h"
 
 using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
 void AvoidRestrictTypeCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(typeLoc(loc(qualType(misra::isRestrictType()))).bind("restrictTypeLoc"), this);
+  Finder->addMatcher(
+      typeLoc(loc(qualType(misra::isRestrictType()))).bind("restrictTypeLoc"),
+      this);
 }
 
 void AvoidRestrictTypeCheck::check(const MatchFinder::MatchResult &Result) {
-  if (const auto *TypeLocNode = Result.Nodes.getNodeAs<TypeLoc>("restrictTypeLoc")) {
+  if (const auto *TypeLocNode =
+          Result.Nodes.getNodeAs<TypeLoc>("restrictTypeLoc")) {
     // Hitta källkodsplatsen för `restrict`-kvalificeraren
     SourceLocation Loc = TypeLocNode->getBeginLoc();
     if (Loc.isValid()) {

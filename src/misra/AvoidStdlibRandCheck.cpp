@@ -14,16 +14,15 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-
 void AvoidStdlibRandCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(callExpr(callee(functionDecl(hasName("rand")))).bind("func"), this);
+  Finder->addMatcher(
+      callExpr(callee(functionDecl(hasName("rand")))).bind("func"), this);
 }
 
 void AvoidStdlibRandCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedCall = Result.Nodes.getNodeAs<CallExpr>("func");
   if (MatchedCall) {
-    diag(MatchedCall->getBeginLoc(),
-         "Avoid '%0' call from stdlib")
+    diag(MatchedCall->getBeginLoc(), "Avoid '%0' call from stdlib")
         << MatchedCall->getDirectCallee()->getNameAsString();
   }
 }

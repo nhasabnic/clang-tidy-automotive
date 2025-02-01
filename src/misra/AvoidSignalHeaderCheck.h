@@ -20,7 +20,7 @@ namespace clang::tidy::misra {
 class AvoidSignalHeaderCheck : public ClangTidyCheck {
 public:
   AvoidSignalHeaderCheck(StringRef Name, ClangTidyContext *Context)
-    : ClangTidyCheck(Name, Context) {}
+      : ClangTidyCheck(Name, Context) {}
 
   void registerPPCallbacks(const SourceManager &SM, Preprocessor *PP,
                            Preprocessor *ModuleExpanderPP) override;

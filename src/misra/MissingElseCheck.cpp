@@ -15,7 +15,9 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void MissingElseCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(ifStmt(hasElse(ifStmt(unless(hasElse(anything()))).bind("ifStmt"))), this);
+  Finder->addMatcher(
+      ifStmt(hasElse(ifStmt(unless(hasElse(anything()))).bind("ifStmt"))),
+      this);
 }
 
 void MissingElseCheck::check(const MatchFinder::MatchResult &Result) {

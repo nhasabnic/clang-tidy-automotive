@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AbstractAvoidApiCheck.h"
-//#include "AvoidApiPPCallbacks.h"
+// #include "AvoidApiPPCallbacks.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
@@ -15,17 +15,16 @@ namespace clang::tidy::misra {
 
 using namespace clang::ast_matchers;
 
-void AbstractAvoidApiCheck::registerPPCallbacks(const SourceManager &SM,
-                                                 Preprocessor *PP,
-                                                 Preprocessor *ModuleExpanderPP) {
-//  PP->addPPCallbacks(std::make_unique<AvoidApiPPCallbacks>(
-//      *this, *PP, Header, FunctionNames));
+void AbstractAvoidApiCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
+  //  PP->addPPCallbacks(std::make_unique<AvoidApiPPCallbacks>(
+  //      *this, *PP, Header, FunctionNames));
 }
 
 void AbstractAvoidApiCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(
-      callExpr(callee(functionDecl(hasAnyName(FunctionNames))))
-      .bind("functionCall"), this);
+  Finder->addMatcher(callExpr(callee(functionDecl(hasAnyName(FunctionNames))))
+                         .bind("functionCall"),
+                     this);
 }
 
 void AbstractAvoidApiCheck::check(const MatchFinder::MatchResult &Result) {

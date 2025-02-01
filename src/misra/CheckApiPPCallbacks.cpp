@@ -10,18 +10,20 @@ void AvoidApiPPCallbacks::InclusionDirective(
     SrcMgr::CharacteristicKind FileType) {
   // Kolla om den inkluderade headern matchar den förbjudna headern
   if (!HeaderFile.empty() && FileName.equals(HeaderFile)) {
-//    Handler.handleInclusionDirective(HashLoc, FileName, IsAngled);
+    //    Handler.handleInclusionDirective(HashLoc, FileName, IsAngled);
   }
 }
 
 void AvoidApiPPCallbacks::MacroExpands(const Token &MacroNameTok,
                                        const MacroDefinition &MD,
-                                       SourceRange Range, const MacroArgs *Args) {
+                                       SourceRange Range,
+                                       const MacroArgs *Args) {
   // Kolla om det expanderade makrot finns i listan över förbjudna makron
-//  StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
-//  if (llvm::is_contained(ForbiddenMacros, MacroName)) {
-//    Handler.handleMacroExpansion(MacroNameTok.getLocation(), MacroName, HeaderFile);
-//  }
+  //  StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
+  //  if (llvm::is_contained(ForbiddenMacros, MacroName)) {
+  //    Handler.handleMacroExpansion(MacroNameTok.getLocation(), MacroName,
+  //    HeaderFile);
+  //  }
 }
 
 } // namespace clang::tidy::misra

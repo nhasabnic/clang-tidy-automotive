@@ -20,10 +20,10 @@ UnusedlabelCheck::~UnusedlabelCheck() {
     if (!Info.MatchedGoto && Info.MatchedLabel) {
       diag(Info.MatchedLabel->getBeginLoc(), "unused label '%0'") << LabelName;
     }
-/*else if (Info.LabelFunction != Info.GotoFunction) {
-      diag(Info.MatchedLabel->getBeginLoc(), "label and goto in different functions");
-    } else {
-    }*/
+    /*else if (Info.LabelFunction != Info.GotoFunction) {
+          diag(Info.MatchedLabel->getBeginLoc(), "label and goto in different
+       functions"); } else {
+        }*/
   }
 }
 

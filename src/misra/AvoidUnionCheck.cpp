@@ -15,7 +15,10 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void AvoidUnionCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(recordDecl(isUnion(), hasDeclContext(translationUnitDecl())).bind("union"), this);
+  Finder->addMatcher(
+      recordDecl(isUnion(), hasDeclContext(translationUnitDecl()))
+          .bind("union"),
+      this);
 }
 
 void AvoidUnionCheck::check(const MatchFinder::MatchResult &Result) {

@@ -15,16 +15,16 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void ExitCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(callExpr(callee(functionDecl(
-      hasAnyName("abort", "exit", "_Exit", "quick_exit")
-      ))).bind("func"), this);
+  Finder->addMatcher(callExpr(callee(functionDecl(hasAnyName(
+                                  "abort", "exit", "_Exit", "quick_exit"))))
+                         .bind("func"),
+                     this);
 }
 
 void ExitCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedCall = Result.Nodes.getNodeAs<CallExpr>("func");
   if (MatchedCall) {
-    diag(MatchedCall->getBeginLoc(),
-         "Avoid termination function '%0'")
+    diag(MatchedCall->getBeginLoc(), "Avoid termination function '%0'")
         << MatchedCall->getDirectCallee()->getNameAsString();
   }
 }

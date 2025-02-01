@@ -25,12 +25,16 @@ public:
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
 
 protected:
-  AbstractAvoidApiCheck(StringRef Name, ClangTidyContext *Context, StringRef Header,
-                        const std::initializer_list<llvm::StringRef> &FunctionNames)
-    : ClangTidyCheck(Name, Context), FunctionNames(FunctionNames), Header(Header) {}
-  AbstractAvoidApiCheck(StringRef Name, ClangTidyContext *Context,
-                        const std::initializer_list<llvm::StringRef> &FunctionNames)
-    : ClangTidyCheck(Name, Context), FunctionNames(FunctionNames), Header("") {}
+  AbstractAvoidApiCheck(
+      StringRef Name, ClangTidyContext *Context, StringRef Header,
+      const std::initializer_list<llvm::StringRef> &FunctionNames)
+      : ClangTidyCheck(Name, Context), FunctionNames(FunctionNames),
+        Header(Header) {}
+  AbstractAvoidApiCheck(
+      StringRef Name, ClangTidyContext *Context,
+      const std::initializer_list<llvm::StringRef> &FunctionNames)
+      : ClangTidyCheck(Name, Context), FunctionNames(FunctionNames),
+        Header("") {}
 
 private:
   const std::initializer_list<llvm::StringRef> &FunctionNames;

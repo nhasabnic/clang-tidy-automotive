@@ -10,8 +10,8 @@
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_ABSTRACTLABELCHECK_H
 
 #include "../ClangTidyCheck.h"
-#include "llvm/ADT/DenseMap.h"
 #include "clang/Basic/SourceLocation.h"
+#include "llvm/ADT/DenseMap.h"
 
 namespace clang::tidy::misra {
 

@@ -18,9 +18,9 @@ class AvoidUndefPPCallbacks : public PPCallbacks {
 public:
   AvoidUndefPPCallbacks(ClangTidyCheck &Check) : Check(Check) {}
 
-  virtual void MacroUndefined (const Token &MacroNameTok, 
-                               const MacroDefinition &MD, 
-                               const MacroDirective *Undef) override;
+  virtual void MacroUndefined(const Token &MacroNameTok,
+                              const MacroDefinition &MD,
+                              const MacroDirective *Undef) override;
 
 private:
   ClangTidyCheck &Check;
@@ -34,9 +34,8 @@ void AvoidUndefPPCallbacks::MacroUndefined(const Token &MacroNameTok,
   }
 }
 
-void PreprocessorFlowCheck::registerPPCallbacks(const SourceManager &SM,
-                                          Preprocessor *PP,
-                                          Preprocessor *ModuleExpanderPP) {
+void PreprocessorFlowCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
   PP->addPPCallbacks(::std::make_unique<AvoidUndefPPCallbacks>(*this));
 }
 

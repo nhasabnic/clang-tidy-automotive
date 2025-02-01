@@ -15,8 +15,10 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void StaticInlineCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(functionDecl(allOf(isInline(), 
-                                  unless(isStaticStorageClass()))).bind("inline"), this);
+  Finder->addMatcher(
+      functionDecl(allOf(isInline(), unless(isStaticStorageClass())))
+          .bind("inline"),
+      this);
 }
 
 void StaticInlineCheck::check(const MatchFinder::MatchResult &Result) {

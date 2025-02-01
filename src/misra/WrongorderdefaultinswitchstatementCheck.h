@@ -19,14 +19,15 @@ namespace clang::tidy::misra {
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/WrongOrderDefaultInSwitchStatement.html
 class WrongorderdefaultinswitchstatementCheck : public ClangTidyCheck {
 public:
-  WrongorderdefaultinswitchstatementCheck(StringRef Name, ClangTidyContext *Context)
+  WrongorderdefaultinswitchstatementCheck(StringRef Name,
+                                          ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
 
 private:
-  const SwitchStmt* PrevSwitch = nullptr;
-  const DefaultStmt* PrevDefault = nullptr;
+  const SwitchStmt *PrevSwitch = nullptr;
+  const DefaultStmt *PrevDefault = nullptr;
 };
 
 } // namespace clang::tidy::misra

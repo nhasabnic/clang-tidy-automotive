@@ -10,11 +10,11 @@
 
 namespace clang::tidy::misra {
 
-bool AvoidLinesplicingWithinCommentHandler::HandleComment(Preprocessor &PP, SourceRange Comment)
-{
-  StringRef CommentText = Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
-                                               PP.getSourceManager(),
-                                               PP.getLangOpts());
+bool AvoidLinesplicingWithinCommentHandler::HandleComment(Preprocessor &PP,
+                                                          SourceRange Comment) {
+  StringRef CommentText =
+      Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
+                           PP.getSourceManager(), PP.getLangOpts());
 
   if (CommentText.starts_with("//")) {
     SourceLocation StartLoc = Comment.getBegin();
@@ -29,9 +29,8 @@ bool AvoidLinesplicingWithinCommentHandler::HandleComment(Preprocessor &PP, Sour
   return false;
 }
 
-void AvoidLinesplicingWithinCommentCheck::registerPPCallbacks(const SourceManager &SM,
-                                                    Preprocessor *PP,
-                                                    Preprocessor *ModuleExpanderPP) {
+void AvoidLinesplicingWithinCommentCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
 
   PP->addCommentHandler(&Handler);
 }

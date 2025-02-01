@@ -17,20 +17,37 @@ namespace clang::tidy::misra {
 
 namespace custom {
 
-AST_MATCHER_P(SwitchStmt, hasBody, clang::ast_matchers::internal::Matcher<Stmt>, InnerMatcher) {
+AST_MATCHER_P(SwitchStmt, hasBody, clang::ast_matchers::internal::Matcher<Stmt>,
+              InnerMatcher) {
   const Stmt *const Body = Node.getBody();
   return (Body != nullptr && InnerMatcher.matches(*Body, Finder, Builder));
 }
 
-} // namespcae custom
+} // namespace custom
 
 void MissingCompoundCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(ifStmt(hasThen(stmt(unless(compoundStmt())).bind("body"))).bind("parent"), this);
-  Finder->addMatcher(ifStmt(hasElse(stmt(unless(anyOf(compoundStmt(), ifStmt()))).bind("body"))).bind("parent"), this);
-  Finder->addMatcher(forStmt(hasBody(stmt(unless(compoundStmt())).bind("body"))).bind("parent"), this);
-  Finder->addMatcher(whileStmt(hasBody(stmt(unless(compoundStmt())).bind("body"))).bind("parent"), this);
-  Finder->addMatcher(doStmt(hasBody(stmt(unless(compoundStmt())).bind("body"))).bind("parent"), this);
-  Finder->addMatcher(switchStmt(custom::hasBody(stmt(unless(compoundStmt())).bind("body"))).bind("parent"), this);
+  Finder->addMatcher(
+      ifStmt(hasThen(stmt(unless(compoundStmt())).bind("body"))).bind("parent"),
+      this);
+  Finder->addMatcher(
+      ifStmt(
+          hasElse(stmt(unless(anyOf(compoundStmt(), ifStmt()))).bind("body")))
+          .bind("parent"),
+      this);
+  Finder->addMatcher(forStmt(hasBody(stmt(unless(compoundStmt())).bind("body")))
+                         .bind("parent"),
+                     this);
+  Finder->addMatcher(
+      whileStmt(hasBody(stmt(unless(compoundStmt())).bind("body")))
+          .bind("parent"),
+      this);
+  Finder->addMatcher(
+      doStmt(hasBody(stmt(unless(compoundStmt())).bind("body"))).bind("parent"),
+      this);
+  Finder->addMatcher(
+      switchStmt(custom::hasBody(stmt(unless(compoundStmt())).bind("body")))
+          .bind("parent"),
+      this);
 }
 
 void MissingCompoundCheck::check(const MatchFinder::MatchResult &Result) {
@@ -38,13 +55,12 @@ void MissingCompoundCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedBody = Result.Nodes.getNodeAs<Stmt>("body");
 
   if (MatchedParent && MatchedBody) {
-    diag(MatchedBody->getBeginLoc(), "missing compound statement", DiagnosticIDs::Warning);
-    //diag(MatchedParent->getEndLoc(), "parent node", DiagnosticIDs::Note);
+    diag(MatchedBody->getBeginLoc(), "missing compound statement",
+         DiagnosticIDs::Warning);
+    // diag(MatchedParent->getEndLoc(), "parent node", DiagnosticIDs::Note);
   }
 }
 
-void MissingCompoundCheck::diagBody(const Stmt *Body)
-{
-}
+void MissingCompoundCheck::diagBody(const Stmt *Body) {}
 
 } // namespace clang::tidy::misra

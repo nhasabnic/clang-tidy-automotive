@@ -15,11 +15,15 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void AvoidBitfieldsInUnionsCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(recordDecl(allOf(isUnion(), has(fieldDecl(isBitField())))).bind("unionWithBitfield"), this);
+  Finder->addMatcher(recordDecl(allOf(isUnion(), has(fieldDecl(isBitField()))))
+                         .bind("unionWithBitfield"),
+                     this);
 }
 
-void AvoidBitfieldsInUnionsCheck::check(const MatchFinder::MatchResult &Result) {
-  const auto *MatchedDecl = Result.Nodes.getNodeAs<RecordDecl>("unionWithBitfield");
+void AvoidBitfieldsInUnionsCheck::check(
+    const MatchFinder::MatchResult &Result) {
+  const auto *MatchedDecl =
+      Result.Nodes.getNodeAs<RecordDecl>("unionWithBitfield");
 
   if (MatchedDecl) {
     diag(MatchedDecl->getLocation(), "avoid bitfield in union");

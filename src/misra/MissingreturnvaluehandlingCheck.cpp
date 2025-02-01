@@ -15,14 +15,19 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void MissingreturnvaluehandlingCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(callExpr(hasParent(compoundStmt()), callee(functionDecl(unless(returns(voidType()))))).bind("missingReturn"), this);
+  Finder->addMatcher(callExpr(hasParent(compoundStmt()),
+                              callee(functionDecl(unless(returns(voidType())))))
+                         .bind("missingReturn"),
+                     this);
 }
 
-void MissingreturnvaluehandlingCheck::check(const MatchFinder::MatchResult &Result) {
+void MissingreturnvaluehandlingCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<CallExpr>("missingReturn");
 
   if (MatchedDecl) {
-    diag(MatchedDecl->getBeginLoc(), "returned value from function is not used");
+    diag(MatchedDecl->getBeginLoc(),
+         "returned value from function is not used");
   }
 }
 

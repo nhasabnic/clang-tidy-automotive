@@ -20,8 +20,8 @@ namespace clang::tidy::misra {
 class AvoidSetjmpHeaderCheck : public AbstractAvoidApiCheck {
 public:
   AvoidSetjmpHeaderCheck(StringRef Name, ClangTidyContext *Context)
-      : AbstractAvoidApiCheck(Name, Context, "setjmp.h", {"setjmp", "longjmp"}) {
-  }
+      : AbstractAvoidApiCheck(Name, Context, "setjmp.h",
+                              {"setjmp", "longjmp"}) {}
 };
 
 } // namespace clang::tidy::misra

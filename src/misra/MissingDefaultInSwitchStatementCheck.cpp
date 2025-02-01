@@ -7,22 +7,26 @@
 //===----------------------------------------------------------------------===//
 
 #include "MissingDefaultInSwitchStatementCheck.h"
+#include "ASTMatchers.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
-#include "ASTMatchers.h"
 
 using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-void MissingDefaultInSwitchStatementCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(switchStmt(unless(misra::hasDefaultStmt())).bind("switchStmt"), this);
+void MissingDefaultInSwitchStatementCheck::registerMatchers(
+    MatchFinder *Finder) {
+  Finder->addMatcher(
+      switchStmt(unless(misra::hasDefaultStmt())).bind("switchStmt"), this);
 }
 
-void MissingDefaultInSwitchStatementCheck::check(const MatchFinder::MatchResult &Result) {
+void MissingDefaultInSwitchStatementCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<SwitchStmt>("switchStmt");
   if (MatchedDecl) {
-    diag(MatchedDecl->getSwitchLoc(), "missing default statement in switch statement");
+    diag(MatchedDecl->getSwitchLoc(),
+         "missing default statement in switch statement");
   }
 }
 
