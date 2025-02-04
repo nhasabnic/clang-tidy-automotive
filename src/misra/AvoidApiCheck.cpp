@@ -15,8 +15,9 @@ namespace clang::tidy::misra {
 
 using namespace clang::ast_matchers;
 
-void AvoidApiCheck::registerPPCallbacks(
-    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
+void AvoidApiCheck::registerPPCallbacks(const SourceManager &SM,
+                                        Preprocessor *PP,
+                                        Preprocessor *ModuleExpanderPP) {
   //  PP->addPPCallbacks(std::make_unique<AvoidApiPPCallbacks>(
   //      *this, *PP, Header, FunctionNames));
 }

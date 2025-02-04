@@ -10,6 +10,7 @@
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDAPICHECK_H
 
 #include "../ClangTidyCheck.h"
+#include "AvoidApiHandler.h"
 
 namespace clang::tidy::misra {
 
@@ -17,7 +18,7 @@ namespace clang::tidy::misra {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/Avoid-Stdarg-Header.html
-class AvoidApiCheck : public ClangTidyCheck {
+class AvoidApiCheck : public ClangTidyCheck, public AvoidApiHandler {
 public:
   void registerPPCallbacks(const SourceManager &SM, Preprocessor *PP,
                            Preprocessor *ModuleExpanderPP) override;
@@ -25,14 +26,12 @@ public:
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
 
 protected:
-  AvoidApiCheck(
-      StringRef Name, ClangTidyContext *Context, StringRef Header,
-      const std::initializer_list<llvm::StringRef> &FunctionNames)
+  AvoidApiCheck(StringRef Name, ClangTidyContext *Context, StringRef Header,
+                const std::initializer_list<llvm::StringRef> &FunctionNames)
       : ClangTidyCheck(Name, Context), FunctionNames(FunctionNames),
         Header(Header) {}
-  AvoidApiCheck(
-      StringRef Name, ClangTidyContext *Context,
-      const std::initializer_list<llvm::StringRef> &FunctionNames)
+  AvoidApiCheck(StringRef Name, ClangTidyContext *Context,
+                const std::initializer_list<llvm::StringRef> &FunctionNames)
       : ClangTidyCheck(Name, Context), FunctionNames(FunctionNames),
         Header("") {}
 

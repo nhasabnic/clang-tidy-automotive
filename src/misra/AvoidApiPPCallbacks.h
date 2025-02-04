@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDAPIPPCALLBACKS_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDAPIPPCALLBACKS_H
 
-//#include "AvoidApiHandler.h"
+// #include "AvoidApiHandler.h"
 #include "clang/Lex/PPCallbacks.h"
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/StringRef.h"
@@ -30,7 +30,6 @@ public:
 
   void MacroExpands(const Token &MacroNameTok, const MacroDefinition &MD,
                     SourceRange Range, const MacroArgs *Args) override;
-
 };
 
 } // namespace clang::tidy::misra
