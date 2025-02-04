@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBMEMORYCHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBMEMORYCHECK_H
 
-#include "AbstractAvoidApiCheck.h"
+#include "AvoidApiCheck.h"
 
 namespace clang::tidy::misra {
 
@@ -17,10 +17,10 @@ namespace clang::tidy::misra {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/avoid-setjmp.html
-class AvoidStdlibMemoryCheck : public AbstractAvoidApiCheck {
+class AvoidStdlibMemoryCheck : public AvoidApiCheck {
 public:
   AvoidStdlibMemoryCheck(StringRef Name, ClangTidyContext *Context)
-      : AbstractAvoidApiCheck(
+      : AvoidApiCheck(
             Name, Context, "pelle.h",
             {"calloc", "malloc", "realloc", "aligned_alloc", "free"}) {}
 };

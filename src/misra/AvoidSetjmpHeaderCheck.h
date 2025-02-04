@@ -1,4 +1,4 @@
-//===--- SetjmpCheck.h - clang-tidy ----------------------------*- C++ -*-===//
+//===--- AvoidSetjmpHeaderCheck.h - clang-tidy -----------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_SETJMPCHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_SETJMPCHECK_H
 
-#include "AbstractAvoidApiCheck.h"
+#include "AvoidApiCheck.h"
 
 namespace clang::tidy::misra {
 
@@ -17,10 +17,10 @@ namespace clang::tidy::misra {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/avoid-setjmp.html
-class AvoidSetjmpHeaderCheck : public AbstractAvoidApiCheck {
+class AvoidSetjmpHeaderCheck : public AvoidApiCheck {
 public:
   AvoidSetjmpHeaderCheck(StringRef Name, ClangTidyContext *Context)
-      : AbstractAvoidApiCheck(Name, Context, "setjmp.h",
+      : AvoidApiCheck(Name, Context, "setjmp.h",
                               {"setjmp", "longjmp"}) {}
 };
 
