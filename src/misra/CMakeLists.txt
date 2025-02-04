@@ -4,7 +4,7 @@ set(LLVM_LINK_COMPONENTS
   )
 
 add_clang_library(clangTidyMISRAModule
-  CheckApiPPCallbacks.cpp
+  AvoidApiPPCallbacks.cpp
   AbstractAvoidApiCheck.cpp
   AbstractLabelCheck.cpp
   AvoidBitfieldsInUnionsCheck.cpp
