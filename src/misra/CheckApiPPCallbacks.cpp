@@ -3,15 +3,17 @@
 
 namespace clang::tidy::misra {
 
-void AvoidApiPPCallbacks::InclusionDirective(
-    SourceLocation HashLoc, const Token &IncludeTok, StringRef FileName,
-    bool IsAngled, CharSourceRange FilenameRange, OptionalFileEntryRef File,
-    StringRef SearchPath, StringRef RelativePath, const Module *Imported,
-    SrcMgr::CharacteristicKind FileType) {
-  // Kolla om den inkluderade headern matchar den förbjudna headern
-  if (!HeaderFile.empty() && FileName.equals(HeaderFile)) {
+  void InclusionDirective(SourceLocation DirectiveLoc,
+                          const Token &IncludeToken, StringRef IncludedFilename,
+                          bool IsAngled, CharSourceRange FilenameRange,
+                          OptionalFileEntryRef IncludedFile,
+                          StringRef SearchPath, StringRef RelativePath,
+                          const Module *SuggestedModule, bool ModuleImported,
+                          SrcMgr::CharacteristicKind FileType) {
+
+/*  if (!HeaderFile.empty() && FileName.equals(HeaderFile)) {
     //    Handler.handleInclusionDirective(HashLoc, FileName, IsAngled);
-  }
+  }*/
 }
 
 void AvoidApiPPCallbacks::MacroExpands(const Token &MacroNameTok,

@@ -18,11 +18,12 @@ public:
       : Handler(Handler), ForbiddenMacros(ForbiddenMacros),
         HeaderFile(HeaderFile) {}
 
-  void InclusionDirective(SourceLocation HashLoc, const Token &IncludeTok,
-                          StringRef FileName, bool IsAngled,
-                          CharSourceRange FilenameRange,
-                          OptionalFileEntryRef File, StringRef SearchPath,
-                          StringRef RelativePath, const Module *Imported,
+  void InclusionDirective(SourceLocation DirectiveLoc,
+                          const Token &IncludeToken, StringRef IncludedFilename,
+                          bool IsAngled, CharSourceRange FilenameRange,
+                          OptionalFileEntryRef IncludedFile,
+                          StringRef SearchPath, StringRef RelativePath,
+                          const Module *SuggestedModule, bool ModuleImported,
                           SrcMgr::CharacteristicKind FileType) override;
 
   void MacroExpands(const Token &MacroNameTok, const MacroDefinition &MD,
