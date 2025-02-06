@@ -17,17 +17,17 @@ namespace clang::tidy::misra {
 
 class MatchHeaderInfo {
 public:
+  const StringRef Name;
   const clang::SourceLocation Location;
   const Token &Tok;
-  const StringRef Name;
   const bool IsAngled;
 };
 
 class MatchMacroInfo {
 public:
+  const StringRef Name;
   const MatchHeaderInfo *Header;
   const Token &Tok;
-  const StringRef Name;
 };
 
 class AvoidApiHandler {
@@ -37,6 +37,8 @@ public:
   virtual void checkHeader(const MatchHeaderInfo &Result) {}
 
   virtual void checkMacro(const MatchMacroInfo &Result) {}
+
+  virtual void checkFunction(const MatchMacroInfo &Result) {}
 };
 
 } // namespace clang::tidy::misra
