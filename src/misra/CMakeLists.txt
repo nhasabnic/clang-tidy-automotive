@@ -4,8 +4,8 @@ set(LLVM_LINK_COMPONENTS
   )
 
 add_clang_library(clangTidyMISRAModule
-  AvoidApiPPCallbacks.cpp
   AvoidApiCheck.cpp
+  AvoidSetjmpHeaderCheck.cpp
   AbstractLabelCheck.cpp
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidCommaOperatorCheck.cpp
@@ -21,7 +21,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
   MissingbreakinswitchCheck.cpp
-  MissingreturnvaluehandlingCheck.cpp
+  MissingReturnValueHandlingCheck.cpp
   NoreturnvoidCheck.cpp
   AtoXCheck.cpp
   AvoidSignedSingleBitFieldsCheck.cpp
