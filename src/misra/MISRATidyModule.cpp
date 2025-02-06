@@ -1,3 +1,4 @@
+
 //===--- MISRATidyModule.cpp - clang-tidy --------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
@@ -38,7 +39,7 @@
 #include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
 #include "MissingbreakinswitchCheck.h"
-#include "MissingreturnvaluehandlingCheck.h"
+#include "MissingReturnValueHandlingCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
@@ -51,11 +52,15 @@
 namespace clang::tidy {
 namespace misra {
 
+/* ----------------------------------------------------------------- */
+/* MISRA C 2023                                                      */
+/* ----------------------------------------------------------------- */
 class MISRAC2023Module : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
     /* 1. Standard environment */
+    /* ------------------------------------------------------------- */
     /* 1.1 */
     /* 1.2 */
     /* 1.3 */
@@ -63,6 +68,7 @@ public:
     /* 1.5 */
 
     /* Unused code */
+    /* ------------------------------------------------------------- */
     /* 2.1 */
     /* 2.2 */
     /* 2.3 */
@@ -163,7 +169,7 @@ public:
         "misra-c2023-req-17.1");
     CheckFactories.registerCheck<misc::NoRecursionCheck>(
         "misra-c2023-req-17.2");
-    CheckFactories.registerCheck<MissingreturnvaluehandlingCheck>(
+    CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
         "misra-c2023-req-17.7");
     CheckFactories.registerCheck<NoreturnvoidCheck>("misra-c2023-req-17.10");
     /* 18. Pointers and arrays */
@@ -199,33 +205,111 @@ public:
 
     // CheckFactories.registerCheck<FoobarCheck>(
     //     "misra-foobar");
-
-    /* TODO:
-          Switch statment without default
-          m switchStmt(forEachSwitchCase(unless(defaultStmt())))
-
-          Switch without break
-          m switchStmt(forEachSwitchCase(unless(has(breakStmt()))))
-
-
-         8.10
-         8.11
-         8.14
-        15.7
-        16.3
-        16.4
-        16.6
-
-
-   */
   }
 };
 
+/* ----------------------------------------------------------------- */
+/* MISRA C 2012                                                      */
+/* ----------------------------------------------------------------- */
 class MISRAC2012Module : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
+
+    /* 1. Standard environment */
+    /* ------------------------------------------------------------- */
+    /* 1.1 */
+    /* 1.2 */
+    /* 1.3 */
+    /* 1.4 */
+    /* 1.5 */
+
+    /* Unused code */
+    /* ------------------------------------------------------------- */
+    /* 2.1 */
+    /* 2.2 */
+    /* 2.3 */
+    /* 2.4 */
+    /* 2.5 */
+    CheckFactories.registerCheck<UnusedlabelCheck>("misra-c2012-adv-2.6");
+    CheckFactories.registerCheck<misc::UnusedParametersCheck>(
+        "misra-c2012-adv-2.7");
+    /* 2.8 */
+
+    /* 3. Comments */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<CommentWithinCommentCheck>(
+        "misra-c2012-req-3.1");
+    CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
+        "misra-c2012-req-3.2");
+
+    /* 4. Character sets and lexical conventions */
+    /* ------------------------------------------------------------- */
+    /* req-4.2: -Wtrigraphs */
+
+    /* 5. Identifiers */
+    /* ------------------------------------------------------------- */
+
+    /* 6. Types */
+    /* ------------------------------------------------------------- */
+    /* 6.1. TODO */
+    CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
+        "misra-c2012-req-6.2");
+
+    /* 7. Literals and constants */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2012-req-7.1");
+
+    /* 8. Declarations and definitions */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
+    /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
+     * hasExternalFormalLinkage())) */
+    CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
+        "misra-c2012-req-8.14");
+
+    /* 9. Initialization */
+    /* ------------------------------------------------------------- */
+
+    /* 10. The essential type model */
+    /* ------------------------------------------------------------- */
+
+    /* 11. Pointer type conversions */
+    /* ------------------------------------------------------------- */
+    /* 11.10: Diagnostic error */
+
+    /* 12. Expressions */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
+        "misra-c2012-adv-12.3");
+
+    /* 13. Side effects */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
+        "misra-c2012-adv-13.4");
+
+    /* 14. Control statement expressions */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<cert::FloatLoopCounter>(
+        "misra-c2012-req-14.1");
+    CheckFactories.registerCheck<AvoidNonBooleanConditionCheck>(
+        "misra-c2012-req-14.4");
+
+    /* 15. Control Flow */
+    /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2012-adv-15.1");
+    CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2012-req-15.2");
+    CheckFactories.registerCheck<MultipleReturnStmtCheck>(
+        "misra-c2012-adv-15.5");
     CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2012-req-15.6");
+    CheckFactories.registerCheck<MissingElseCheck>("misra-c2012-req-15.7");
+
+    /* 16. Switch Statements */
+    /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-c2012-req-16.2");
+    CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
+        "misra-c2012-req-16.4");
+    CheckFactories.registerCheck<WrongorderdefaultinswitchstatementCheck>(
+        "misra-c2012-req-16.5");
   }
 };
 
