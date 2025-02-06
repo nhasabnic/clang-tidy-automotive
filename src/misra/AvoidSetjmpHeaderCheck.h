@@ -19,11 +19,7 @@ namespace clang::tidy::misra {
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/avoid-setjmp.html
 class AvoidSetjmpHeaderCheck : public AvoidApiCheck {
 public:
-  AvoidSetjmpHeaderCheck(StringRef Name, ClangTidyContext *Context)
-      : AvoidApiCheck(Name, Context, "setjmp.h", {"setjmp", "longjmp"}) {}
-
-  void checkHeader(const MatchHeaderInfo &Result) override {}
-  void checkMacro(const MatchMacroInfo &Result) override {}
+  AvoidSetjmpHeaderCheck(StringRef Name, ClangTidyContext *Context);
 };
 
 } // namespace clang::tidy::misra
