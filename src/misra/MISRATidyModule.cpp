@@ -45,6 +45,7 @@
 #include "StaticInlineCheck.h"
 #include "UnstructuredcaseCheck.h"
 #include "UnusedLabelCheck.h"
+#include "UnusedTypeCheck.h"
 #include "WrongorderdefaultinswitchstatementCheck.h"
 
 // using namespace clang::ast_matchers;
@@ -73,7 +74,7 @@ public:
     /* ------------------------------------------------------------- */
     /* 2.1 */
     /* 2.2 */
-    /* 2.3 */
+    CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
     /* 2.4 */
     /* 2.5 */
     CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
