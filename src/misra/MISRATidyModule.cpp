@@ -38,13 +38,14 @@
 #include "MissingCompoundCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
-#include "MissingbreakinswitchCheck.h"
 #include "MissingReturnValueHandlingCheck.h"
+#include "MissingbreakinswitchCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
 #include "UnstructuredcaseCheck.h"
 #include "UnusedLabelCheck.h"
+#include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
 #include "WrongorderdefaultinswitchstatementCheck.h"
 
@@ -75,6 +76,7 @@ public:
     /* 2.1 */
     /* 2.2 */
     CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
+    CheckFactories.registerCheck<UnusedTagCheck>("misra-c2023-adv-2.4");
     /* 2.4 */
     /* 2.5 */
     CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");

@@ -38,6 +38,7 @@ add_clang_library(clangTidyMISRAModule
   StaticInlineCheck.cpp
   UnstructuredcaseCheck.cpp
   UnusedLabelCheck.cpp
+  UnusedTagCheck.cpp
   UnusedTypeCheck.cpp
   WrongorderdefaultinswitchstatementCheck.cpp
 
