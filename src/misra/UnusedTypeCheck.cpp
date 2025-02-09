@@ -29,7 +29,7 @@ void UnusedTypeCheck::check(const MatchFinder::MatchResult &Result) {
   }
 
   diag(MatchedDecl->getLocation(), "unused type declaration '%0'")
-       << MatchedDecl->getName();
+      << MatchedDecl->getName();
 }
 
 } // namespace clang::tidy::misra

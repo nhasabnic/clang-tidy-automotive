@@ -29,7 +29,7 @@ void UnusedLabelCheck::check(const MatchFinder::MatchResult &Result) {
   }
 
   diag(MatchedLabel->getBeginLoc(), "unused label '%0'")
-       << MatchedLabel->getName();
+      << MatchedLabel->getName();
 }
 
 } // namespace clang::tidy::misra
