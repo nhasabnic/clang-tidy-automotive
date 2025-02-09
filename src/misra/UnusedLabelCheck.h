@@ -1,4 +1,4 @@
-//===--- UnusedlabelCheck.h - clang-tidy ------------------------*- C++ -*-===//
+//===--- UnusedLabelCheck.h - clang-tidy ------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -9,21 +9,22 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDLABELCHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDLABELCHECK_H
 
-#include "AbstractLabelCheck.h"
+#include "../ClangTidyCheck.h"
 
 namespace clang::tidy::misra {
 
 /// FIXME: Write a short description.
 ///
 /// For the user-facing documentation see:
-/// http://clang.llvm.org/extra/clang-tidy/checks/misra/UnusedLabel.html
-class UnusedlabelCheck : public AbstractLabelCheck {
+/// http://clang.llvm.org/extra/clang-tidy/checks/misra/Standard-C.html
+class UnusedLabelCheck : public ClangTidyCheck {
 public:
-  UnusedlabelCheck(StringRef Name, ClangTidyContext *Context)
-      : AbstractLabelCheck(Name, Context) {}
-  ~UnusedlabelCheck();
+  UnusedLabelCheck(StringRef Name, ClangTidyContext *Context)
+      : ClangTidyCheck(Name, Context) {}
+  void registerMatchers(ast_matchers::MatchFinder *Finder) override;
+  void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
 };
 
 } // namespace clang::tidy::misra
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDLABELCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_STANDARDCLANGUAGECHECK_H

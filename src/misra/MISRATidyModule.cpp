@@ -44,7 +44,7 @@
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
 #include "UnstructuredcaseCheck.h"
-#include "UnusedlabelCheck.h"
+#include "UnusedLabelCheck.h"
 #include "WrongorderdefaultinswitchstatementCheck.h"
 
 // using namespace clang::ast_matchers;
@@ -59,9 +59,11 @@ class MISRAC2023Module : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
+    /* Directive */
+    /* ------------------------------------------------------------- */
+
     /* 1. Standard environment */
     /* ------------------------------------------------------------- */
-    /* 1.1 */
     /* 1.2 */
     /* 1.3 */
     /* 1.4 */
@@ -74,7 +76,7 @@ public:
     /* 2.3 */
     /* 2.4 */
     /* 2.5 */
-    CheckFactories.registerCheck<UnusedlabelCheck>("misra-c2023-adv-2.6");
+    CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
         "misra-c2023-adv-2.7");
     /* 2.8 */
@@ -230,7 +232,7 @@ public:
     /* 2.3 */
     /* 2.4 */
     /* 2.5 */
-    CheckFactories.registerCheck<UnusedlabelCheck>("misra-c2012-adv-2.6");
+    CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2012-adv-2.6");
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
         "misra-c2012-adv-2.7");
     /* 2.8 */

@@ -6,7 +6,6 @@ set(LLVM_LINK_COMPONENTS
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
-  AbstractLabelCheck.cpp
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
@@ -38,7 +37,7 @@ add_clang_library(clangTidyMISRAModule
   PreprocessorFlowCheck.cpp
   StaticInlineCheck.cpp
   UnstructuredcaseCheck.cpp
-  UnusedlabelCheck.cpp
+  UnusedLabelCheck.cpp
   WrongorderdefaultinswitchstatementCheck.cpp
 
   LINK_LIBS
