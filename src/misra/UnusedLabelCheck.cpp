@@ -28,7 +28,7 @@ void UnusedLabelCheck::check(const MatchFinder::MatchResult &Result) {
     return;
   }
 
-  diag(MatchedLabel->getBeginLoc(), "unused label: '%0'")
+  diag(MatchedLabel->getBeginLoc(), "unused label '%0'")
        << MatchedLabel->getName();
 }
 
