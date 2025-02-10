@@ -18,14 +18,15 @@ void UniqueEnumValuesCheck::registerMatchers(MatchFinder *Finder) {
 }
 
 void UniqueEnumValuesCheck::check(const MatchFinder::MatchResult &Result) {
-  if (const auto *Enum = Result.Nodes.getNodeAs<EnumDecl>("enum")) {
+  const auto *MatchedEnum = Result.Nodes.getNodeAs<EnumDecl>("enum");
+
+  if (MatchedEnum) {
     llvm::DenseMap<int64_t, const EnumConstantDecl *> usedValues;
     int64_t lastValue = -1;
 
-    for (const auto *EnumConst : Enum->enumerators()) {
+    for (const auto *EnumConst : MatchedEnum->enumerators()) {
       int64_t currentValue;
 
-      // Kontrollera om explicit initialisering finns
       if (EnumConst->getInitExpr()) {
         currentValue = EnumConst->getInitVal().getSExtValue();
       } else {
@@ -35,6 +36,7 @@ void UniqueEnumValuesCheck::check(const MatchFinder::MatchResult &Result) {
       auto it = usedValues.find(currentValue);
       if (it != usedValues.end()) {
         const EnumConstantDecl *previousEnum = it->second;
+
         diag(EnumConst->getLocation(), "duplicate enum value '%0' from '%1'")
             << currentValue << previousEnum->getName();
         diag(previousEnum->getLocation(), "declaration of '%0'",
