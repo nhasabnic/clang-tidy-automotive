@@ -43,6 +43,7 @@
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
+#include "UniqueEnumValuesCheck.h"
 #include "UnstructuredcaseCheck.h"
 #include "UnusedLabelCheck.h"
 #include "UnusedTagCheck.h"
@@ -115,6 +116,8 @@ public:
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2023-req-8.10");
     /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
      * hasExternalFormalLinkage())) */
+    CheckFactories.registerCheck<UniqueEnumValuesCheck>(
+        "misra-c2023-req-8.12");
     CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
         "misra-c2023-req-8.14");
 

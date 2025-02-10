@@ -36,6 +36,7 @@ add_clang_library(clangTidyMISRAModule
   MultipleReturnStmtCheck.cpp
   PreprocessorFlowCheck.cpp
   StaticInlineCheck.cpp
+  UniqueEnumValuesCheck.cpp
   UnstructuredcaseCheck.cpp
   UnusedLabelCheck.cpp
   UnusedTagCheck.cpp
