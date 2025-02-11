@@ -19,6 +19,8 @@ add_clang_library(clangTidyMISRAModule
   AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
+  MissingExternalArraySizeCheck.cpp
+  MissingStaticInternalLinkageCheck.cpp
   MissingbreakinswitchCheck.cpp
   MissingReturnValueHandlingCheck.cpp
   NoreturnvoidCheck.cpp
@@ -36,8 +38,10 @@ add_clang_library(clangTidyMISRAModule
   MultipleReturnStmtCheck.cpp
   PreprocessorFlowCheck.cpp
   StaticInlineCheck.cpp
+  UncompleteFunctionPrototypeCheck.cpp
   UniqueEnumValuesCheck.cpp
   UnstructuredcaseCheck.cpp
+  UnterminatedEscapeSequenceCheck.cpp
   UnusedLabelCheck.cpp
   UnusedTagCheck.cpp
   UnusedTypeCheck.cpp

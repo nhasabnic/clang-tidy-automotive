@@ -38,11 +38,14 @@
 #include "MissingCompoundCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
+#include "MissingExternalArraySizeCheck.h"
 #include "MissingReturnValueHandlingCheck.h"
+#include "MissingStaticInternalLinkageCheck.h"
 #include "MissingbreakinswitchCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
+#include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
 #include "UnstructuredcaseCheck.h"
 #include "UnusedLabelCheck.h"
@@ -76,6 +79,8 @@ public:
     /* ------------------------------------------------------------- */
     /* 2.1 */
     /* 2.2 */
+    CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
+        "misra-Missing-Static-Internal-Linkage");
     CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
     CheckFactories.registerCheck<UnusedTagCheck>("misra-c2023-adv-2.4");
     /* 2.4 */
@@ -113,11 +118,12 @@ public:
 
     /* 8. Declarations and definitions */
     /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
+        "misra-c2023-req-8.2");
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2023-req-8.10");
-    /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
-     * hasExternalFormalLinkage())) */
-    CheckFactories.registerCheck<UniqueEnumValuesCheck>(
-        "misra-c2023-req-8.12");
+    CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
+        "misra-c2023-adv-8.11");
+    CheckFactories.registerCheck<UniqueEnumValuesCheck>("misra-c2023-req-8.12");
     CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
         "misra-c2023-req-8.14");
 
