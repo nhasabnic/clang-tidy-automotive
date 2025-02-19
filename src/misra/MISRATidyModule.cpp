@@ -49,6 +49,7 @@
 #include "UniqueEnumValuesCheck.h"
 #include "UnstructuredcaseCheck.h"
 #include "UnusedLabelCheck.h"
+#include "UnusedObjectDefinitionCheck.h"
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
 #include "WrongorderdefaultinswitchstatementCheck.h"
@@ -88,7 +89,8 @@ public:
     CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
         "misra-c2023-adv-2.7");
-    /* 2.8 */
+    CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
+        "misra-c2023-adv-2.8");
 
     /* 3. Comments */
     /* ------------------------------------------------------------- */

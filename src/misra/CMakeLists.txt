@@ -43,6 +43,7 @@ add_clang_library(clangTidyMISRAModule
   UnstructuredcaseCheck.cpp
   UnterminatedEscapeSequenceCheck.cpp
   UnusedLabelCheck.cpp
+  UnusedObjectDefinitionCheck.cpp
   UnusedTagCheck.cpp
   UnusedTypeCheck.cpp
   WrongorderdefaultinswitchstatementCheck.cpp
