@@ -48,7 +48,9 @@
 #include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
 #include "UnstructuredcaseCheck.h"
+#include "UnterminatedEscapeSequenceCheck.h"
 #include "UnusedLabelCheck.h"
+#include "UnusedMacroCheck.h"
 #include "UnusedObjectDefinitionCheck.h"
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
@@ -66,6 +68,10 @@ class MISRAC2023Module : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
+    /* TODO: Move this and name it properly. */
+    CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
+        "misra-Missing-Static-Internal-Linkage");
+
     /* Directive */
     /* ------------------------------------------------------------- */
 
@@ -78,14 +84,9 @@ public:
 
     /* Unused code */
     /* ------------------------------------------------------------- */
-    /* 2.1 */
-    /* 2.2 */
-    CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
-        "misra-Missing-Static-Internal-Linkage");
     CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
     CheckFactories.registerCheck<UnusedTagCheck>("misra-c2023-adv-2.4");
-    /* 2.4 */
-    /* 2.5 */
+    CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
     CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
         "misra-c2023-adv-2.7");
@@ -101,6 +102,8 @@ public:
 
     /* 4. Character sets and lexical conventions */
     /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
+        "misra-c2023-req-4.1");
     /* req-4.2: -Wtrigraphs */
 
     /* 5. Identifiers */
