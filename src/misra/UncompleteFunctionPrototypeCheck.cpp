@@ -13,8 +13,7 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-void UncompleteFunctionPrototypeCheck::registerMatchers(
-    MatchFinder *Finder) {
+void UncompleteFunctionPrototypeCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(functionDecl().bind("func"), this);
 }
 
@@ -33,7 +32,8 @@ void UncompleteFunctionPrototypeCheck::check(
       }
     }
 
-    if (MatchedFunc->parameters().empty() && !MatchedFunc->hasWrittenPrototype()) {
+    if (MatchedFunc->parameters().empty() &&
+        !MatchedFunc->hasWrittenPrototype()) {
       diag(MatchedFunc->getLocation(),
            "function with no parameters must use 'void' in prototype");
     }

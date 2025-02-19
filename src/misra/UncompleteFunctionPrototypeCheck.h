@@ -20,8 +20,7 @@ namespace clang::tidy::misra {
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/Function-Prototype-With-Named-Parameters.html
 class UncompleteFunctionPrototypeCheck : public ClangTidyCheck {
 public:
-  UncompleteFunctionPrototypeCheck(StringRef Name,
-                                            ClangTidyContext *Context)
+  UncompleteFunctionPrototypeCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
