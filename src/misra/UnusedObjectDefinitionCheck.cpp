@@ -14,17 +14,28 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void UnusedObjectDefinitionCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(varDecl(isDefinition(), hasLocalStorage()).bind("unusedVar"), this);
+  Finder->addMatcher(varDecl(isDefinition(), hasLocalStorage(),
+                             unless(parmVarDecl()), unless(isImplicit()))
+                         .bind("unusedVar"),
+                     this);
+
+    Finder->addMatcher(varDecl(hasGlobalStorage(),
+                               isStaticStorageClass()).bind("unusedStaticVar"), this);
 }
 
-void UnusedObjectDefinitionCheck::check(const MatchFinder::MatchResult &Result) {
-    const auto *Var = Result.Nodes.getNodeAs<VarDecl>("unusedVar");
+void UnusedObjectDefinitionCheck::check(
+    const MatchFinder::MatchResult &Result) {
+  const auto *Var = Result.Nodes.getNodeAs<VarDecl>("unusedVar");
+  const auto *StaticVar = Result.Nodes.getNodeAs<VarDecl>("unusedStaticVar");
 
-    if (!Var || Var->isUsed() || Var->hasExternalStorage()) {
-        return;
-    }
-
+  if (Var && !Var->isUsed()) {
     diag(Var->getLocation(), "unused object definition '%0'") << Var->getName();
+  }
+
+  if (StaticVar && !StaticVar->isUsed()) {
+    diag(StaticVar->getLocation(), "unused static object definition '%0'")
+        << StaticVar->getName();
+  }
 }
 
 } // namespace clang::tidy::misra
