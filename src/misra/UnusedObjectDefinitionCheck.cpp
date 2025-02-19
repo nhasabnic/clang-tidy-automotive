@@ -19,8 +19,9 @@ void UnusedObjectDefinitionCheck::registerMatchers(MatchFinder *Finder) {
                          .bind("unusedVar"),
                      this);
 
-    Finder->addMatcher(varDecl(hasGlobalStorage(),
-                               isStaticStorageClass()).bind("unusedStaticVar"), this);
+  Finder->addMatcher(varDecl(hasGlobalStorage(), isStaticStorageClass())
+                         .bind("unusedStaticVar"),
+                     this);
 }
 
 void UnusedObjectDefinitionCheck::check(
