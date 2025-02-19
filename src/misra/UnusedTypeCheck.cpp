@@ -25,7 +25,7 @@ void UnusedTypeCheck::check(const MatchFinder::MatchResult &Result) {
   }
 
   if (MatchedDecl->isImplicit()) {
-     return;
+    return;
   }
 
   if (MatchedDecl->getMostRecentDecl()->isReferenced()) {
