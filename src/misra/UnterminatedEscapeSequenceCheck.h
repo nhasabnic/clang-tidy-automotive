@@ -10,6 +10,8 @@
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNTERMINATEDESCAPESEQUENCECHECK_H
 
 #include "../ClangTidyCheck.h"
+#include "clang/Basic/SourceLocation.h"
+#include "llvm/ADT/StringRef.h"
 
 namespace clang::tidy::misra {
 
@@ -23,6 +25,9 @@ public:
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
+
+private:
+  void checkEscapeSequences(StringRef Str, SourceLocation Loc);
 };
 
 } // namespace clang::tidy::misra

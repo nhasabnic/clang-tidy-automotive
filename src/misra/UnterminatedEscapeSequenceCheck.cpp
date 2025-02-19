@@ -8,32 +8,36 @@
 
 #include "UnterminatedEscapeSequenceCheck.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
+#include "llvm/Support/Regex.h"
 
 using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
 void UnterminatedEscapeSequenceCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(stringLiteral().bind("string"), this);
-  Finder->addMatcher(characterLiteral().bind("char"), this);
+  Finder->addMatcher(stringLiteral().bind("stringLiteral"), this);
+  Finder->addMatcher(characterLiteral().bind("charLiteral"), this);
 }
 
 void UnterminatedEscapeSequenceCheck::check(
-    const MatchFinder::MatchResult &Result) {
-  const auto *MatchedStringLiteral =
-      Result.Nodes.getNodeAs<StringLiteral>("string");
-  const auto *MatchedCharLiteral =
-      Result.Nodes.getNodeAs<CharacterLiteral>("char");
+    const ast_matchers::MatchFinder::MatchResult &Result) {
+  if (const auto *MatchString =
+          Result.Nodes.getNodeAs<StringLiteral>("stringLiteral")) {
+    checkEscapeSequences(MatchString->getString(), MatchString->getBeginLoc());
 
-  if (MatchedStringLiteral) {
-    StringRef MatchedStringRef = MatchedStringLiteral->getBytes();
-    // TODO
-  }
+  } else if (const auto *MatchChar =
+                 Result.Nodes.getNodeAs<CharacterLiteral>("charLiteral")) {
+    char Value = MatchChar->getValue();
+    checkEscapeSequences(StringRef(&Value, 1), MatchChar->getBeginLoc());
 
-  if (MatchedCharLiteral) {
-    char CharValue = MatchedCharLiteral->getValue();
-    // TODO
+  } else {
+    /* Intentionally left empty. */
   }
+}
+
+void UnterminatedEscapeSequenceCheck::checkEscapeSequences(StringRef Str,
+                                                           SourceLocation Loc) {
+  // TODO
 }
 
 } // namespace clang::tidy::misra
