@@ -36,6 +36,8 @@
 #include "CommentWithinCommentCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
+#include "ImplicitFunctionDeclCheck.h"
+#include "InvariantControlCheck.h"
 #include "MissingCompoundCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
@@ -159,6 +161,8 @@ public:
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
         "misra-c2023-req-14.1");
+    CheckFactories.registerCheck<InvariantControlCheck>(
+        "misra-c2023-req-14.3");
     CheckFactories.registerCheck<AvoidNonBooleanConditionCheck>(
         "misra-c2023-req-14.4");
 
@@ -190,6 +194,8 @@ public:
         "misra-c2023-req-17.1");
     CheckFactories.registerCheck<misc::NoRecursionCheck>(
         "misra-c2023-req-17.2");
+    CheckFactories.registerCheck<ImplicitFunctionDeclCheck>(
+        "misra-c2023-man-17.3");
     CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
         "misra-c2023-req-17.7");
     CheckFactories.registerCheck<NoreturnvoidCheck>("misra-c2023-req-17.10");

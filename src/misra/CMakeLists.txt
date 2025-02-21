@@ -20,6 +20,8 @@ add_clang_library(clangTidyMISRAModule
   AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
+  ImplicitFunctionDeclCheck.cpp
+  InvariantControlCheck.cpp
   MissingExternalArraySizeCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
   MissingbreakinswitchCheck.cpp
