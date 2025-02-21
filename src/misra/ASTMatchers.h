@@ -17,6 +17,8 @@ namespace ast_matchers {
 
 using namespace clang::ast_matchers;
 
+static bool isEssentiallyBooleanHelper(const Expr &Node);
+
 AST_MATCHER(QualType, isRestrictType) {
   return Node.getLocalQualifiers().hasRestrict();
 }
@@ -31,14 +33,43 @@ AST_MATCHER(SwitchStmt, hasDefaultStmt) {
   return false;
 }
 
-AST_MATCHER(Expr, isEssentiallyBoolean) {
-  if (Node.getType()->isBooleanType()) {
+static bool isEssentiallyBooleanHelper(const Expr &Node) {
+  QualType Type = Node.getType();
+
+  // Direct Boolean type check (_Bool in C99+).
+  if (Type->isBooleanType()) {
     return true;
-  } else if (const auto *BinaryOp = dyn_cast<BinaryOperator>(&Node)) {
-    return BinaryOp->isComparisonOp() || BinaryOp->isLogicalOp();
-  } else {
-    return false;
   }
+
+  // Handle binary operators that inherently return boolean values.
+  // This includes comparison operators (==, !=, <, >, <=, >=)
+  // and logical operators (&&, ||), which are commonly used in conditions.
+  if (const auto *BinaryOp = dyn_cast<BinaryOperator>(&Node)) {
+    return BinaryOp->isComparisonOp() || BinaryOp->isLogicalOp();
+  }
+
+  // Handle logical negation (!x), which is commonly used in conditional expressions.
+  if (const auto *UnaryOp = dyn_cast<UnaryOperator>(&Node)) {
+    return UnaryOp->getOpcode() == UO_LNot;
+  }
+
+  // Handle parenthesized expressions, such as switch ((x == 0)).
+  // Recursively check the inner expression.
+  if (const auto *Paren = dyn_cast<ParenExpr>(&Node)) {
+    return isEssentiallyBooleanHelper(*Paren->getSubExpr());
+  }
+
+  // Handle implicit casts to boolean, such as (bool)x.
+  if (const auto *Cast = dyn_cast<ImplicitCastExpr>(&Node)) {
+    return isEssentiallyBooleanHelper(*Cast->getSubExpr());
+  }
+
+  // If none of the above conditions match, the expression is not essentially Boolean.
+  return false;
+}
+
+AST_MATCHER(Expr, isEssentiallyBoolean) {
+  return isEssentiallyBooleanHelper(Node);
 }
 
 AST_MATCHER(BinaryOperator, isAssignmentResultUsed) {

@@ -17,6 +17,7 @@
 #include "AvoidAssignmentInExpressionCheck.h"
 #include "AvoidAtomicVoidPointerCheck.h"
 #include "AvoidBitfieldsInUnionsCheck.h"
+#include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidCommaOperatorCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
@@ -177,7 +178,8 @@ public:
         "misra-c2023-req-16.4");
     CheckFactories.registerCheck<WrongorderdefaultinswitchstatementCheck>(
         "misra-c2023-req-16.5");
-    /* req-16.7: -Wswitch-bool */
+    CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
+        "misra-c2023-req-16.7");
 
     /* 16.2 Inspiration: m
      * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
