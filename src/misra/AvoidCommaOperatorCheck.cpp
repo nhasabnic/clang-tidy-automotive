@@ -15,13 +15,14 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void AvoidCommaOperatorCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(binaryOperator(hasOperatorName(",")).bind("comma"), this);
+  Finder->addMatcher(binaryOperator(hasOperatorName(",")).bind("commaOp"), this);
 }
 
 void AvoidCommaOperatorCheck::check(const MatchFinder::MatchResult &Result) {
-  const auto *CommaOp = Result.Nodes.getNodeAs<BinaryOperator>("commaOp");
-  if (CommaOp) {
-    diag(CommaOp->getExprLoc(), "Comma operator detected");
+  const auto *MatchedCommaOp = Result.Nodes.getNodeAs<BinaryOperator>("commaOp");
+
+  if (MatchedCommaOp) {
+    diag(MatchedCommaOp->getOperatorLoc(), "avoid comma operator");
   }
 }
 
