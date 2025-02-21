@@ -72,8 +72,6 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
     /* TODO: Move this and name it properly. */
-    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
-        "misra-Avoid-Non-Boolean-In-Condition");
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-Missing-Static-Internal-Linkage");
 
@@ -163,9 +161,8 @@ public:
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
         "misra-c2023-req-14.1");
-    CheckFactories.registerCheck<InvariantControlCheck>(
-        "misra-c2023-req-14.3");
-    CheckFactories.registerCheck<AvoidNonBooleanConditionCheck>(
+    CheckFactories.registerCheck<InvariantControlCheck>("misra-c2023-req-14.3");
+    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "misra-c2023-req-14.4");
 
     /* 15. Control Flow */
@@ -320,7 +317,7 @@ public:
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
         "misra-c2012-req-14.1");
-    CheckFactories.registerCheck<AvoidNonBooleanConditionCheck>(
+    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "misra-c2012-req-14.4");
 
     /* 15. Control Flow */
