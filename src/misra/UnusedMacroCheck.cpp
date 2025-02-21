@@ -40,7 +40,10 @@ public:
     for (const auto &Entry : MacroUsage) {
       if (!Entry.getValue().first) {
         SourceLocation Loc = Entry.getValue().second;
-        Check.diag(Loc, "unused macro definition '%0'") << Entry.getKey();
+
+        if (SM.isWrittenInMainFile(Loc) && !SM.isInSystemHeader(Loc)) {
+          Check.diag(Loc, "unused macro definition '%0'") << Entry.getKey();
+        }
       }
     }
   }
