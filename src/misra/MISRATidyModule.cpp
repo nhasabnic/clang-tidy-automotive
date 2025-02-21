@@ -21,7 +21,7 @@
 #include "AvoidCommaOperatorCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
-#include "AvoidNonBooleanConditionCheck.h"
+#include "AvoidNonBooleanInConditionCheck.h"
 #include "AvoidOctalNumberCheck.h"
 #include "AvoidRestrictTypeCheck.h"
 #include "AvoidSetjmpHeaderCheck.h"
@@ -72,6 +72,8 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
     /* TODO: Move this and name it properly. */
+    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
+        "misra-Avoid-Non-Boolean-In-Condition");
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-Missing-Static-Internal-Linkage");
 

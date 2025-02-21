@@ -6,6 +6,7 @@ set(LLVM_LINK_COMPONENTS
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidBooleanInSwitchCheck.cpp
+  AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidCommaOperatorCheck.cpp
@@ -16,11 +17,12 @@ add_clang_library(clangTidyMISRAModule
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
   AvoidAtomicVoidPointerCheck.cpp
-  AvoidNonBooleanConditionCheck.cpp
   AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
+  BitfieldTypeCheck.cpp
   ImplicitFunctionDeclCheck.cpp
+  ImplicitIntCheck.cpp
   InvariantControlCheck.cpp
   MissingExternalArraySizeCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
