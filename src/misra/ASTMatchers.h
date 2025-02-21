@@ -48,7 +48,8 @@ static bool isEssentiallyBooleanHelper(const Expr &Node) {
     return BinaryOp->isComparisonOp() || BinaryOp->isLogicalOp();
   }
 
-  // Handle logical negation (!x), which is commonly used in conditional expressions.
+  // Handle logical negation (!x), which is commonly used in conditional
+  // expressions.
   if (const auto *UnaryOp = dyn_cast<UnaryOperator>(&Node)) {
     return UnaryOp->getOpcode() == UO_LNot;
   }
@@ -64,7 +65,8 @@ static bool isEssentiallyBooleanHelper(const Expr &Node) {
     return isEssentiallyBooleanHelper(*Cast->getSubExpr());
   }
 
-  // If none of the above conditions match, the expression is not essentially Boolean.
+  // If none of the above conditions match, the expression is not essentially
+  // Boolean.
   return false;
 }
 

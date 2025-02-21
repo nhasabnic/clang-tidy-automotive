@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidBooleanInSwitchCheck.h"
-#include "clang/ASTMatchers/ASTMatchFinder.h"
 #include "ASTMatchers.h"
+#include "clang/ASTMatchers/ASTMatchFinder.h"
 
 using namespace clang::ast_matchers;
 
@@ -16,9 +16,9 @@ namespace clang::tidy::misra {
 
 void AvoidBooleanInSwitchCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
-    switchStmt(hasCondition(expr(misra::isEssentiallyBoolean())))
-        .bind("switchExpr"),
-    this);
+      switchStmt(hasCondition(expr(misra::isEssentiallyBoolean())))
+          .bind("switchExpr"),
+      this);
 }
 
 void AvoidBooleanInSwitchCheck::check(const MatchFinder::MatchResult &Result) {
