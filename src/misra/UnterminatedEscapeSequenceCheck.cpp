@@ -7,6 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "UnterminatedEscapeSequenceCheck.h"
+#include "TokenRange.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 #include "llvm/Support/Regex.h"
 
@@ -21,23 +22,28 @@ void UnterminatedEscapeSequenceCheck::registerMatchers(MatchFinder *Finder) {
 
 void UnterminatedEscapeSequenceCheck::check(
     const ast_matchers::MatchFinder::MatchResult &Result) {
-  if (const auto *MatchString =
-          Result.Nodes.getNodeAs<StringLiteral>("stringLiteral")) {
-    checkEscapeSequences(MatchString->getString(), MatchString->getBeginLoc());
 
-  } else if (const auto *MatchChar =
-                 Result.Nodes.getNodeAs<CharacterLiteral>("charLiteral")) {
+  const auto *MatchString =
+      Result.Nodes.getNodeAs<StringLiteral>("stringLiteral");
+  if (MatchString) {
+    checkEscapeSequences(MatchString->getEndLoc(), MatchString->getBeginLoc(),
+                         MatchString->getString());
+    return;
+  }
+
+  const auto *MatchChar =
+      Result.Nodes.getNodeAs<CharacterLiteral>("charLiteral");
+  if (MatchChar) {
     char Value = MatchChar->getValue();
-    checkEscapeSequences(StringRef(&Value, 1), MatchChar->getBeginLoc());
-
-  } else {
-    /* Intentionally left empty. */
+    checkEscapeSequences(MatchChar->getBeginLoc(), MatchChar->getEndLoc(),
+                         StringRef(&Value, 1));
+    return;
   }
 }
 
-void UnterminatedEscapeSequenceCheck::checkEscapeSequences(StringRef Str,
-                                                           SourceLocation Loc) {
-  // TODO
+void UnterminatedEscapeSequenceCheck::checkEscapeSequences(
+    SourceLocation StartLoc, SourceLocation EndLoc, StringRef Str) {
+  diag(StartLoc, "'%0'") << Str;
 }
 
 } // namespace clang::tidy::misra

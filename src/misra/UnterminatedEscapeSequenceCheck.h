@@ -27,7 +27,8 @@ public:
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
 
 private:
-  void checkEscapeSequences(StringRef Str, SourceLocation Loc);
+  void checkEscapeSequences(SourceLocation StartLoc, SourceLocation EndLoc,
+                            StringRef Str);
 };
 
 } // namespace clang::tidy::misra
