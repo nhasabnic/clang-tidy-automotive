@@ -33,10 +33,12 @@
 #include "AvoidUndefCheck.h"
 #include "AvoidUnionCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
+#include "BitfieldTypeCheck.h"
 #include "CommentWithinCommentCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
 #include "ImplicitFunctionDeclCheck.h"
+#include "ImplicitIntCheck.h"
 #include "InvariantControlCheck.h"
 #include "MissingCompoundCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
@@ -72,6 +74,9 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
     /* TODO: Move this and name it properly. */
+    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
+        "misra-Avoid-Non-Boolean-In-Condition");
+    CheckFactories.registerCheck<BitfieldTypeCheck>("misra-Bitfield-Type");
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-Missing-Static-Internal-Linkage");
 
@@ -126,6 +131,7 @@ public:
 
     /* 8. Declarations and definitions */
     /* ------------------------------------------------------------- */
+    CheckFactories.registerCheck<ImplicitIntCheck>("misra-c2023-req-8.1");
     CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
         "misra-c2023-req-8.2");
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2023-req-8.10");
@@ -287,6 +293,7 @@ public:
 
     /* 8. Declarations and definitions */
     /* ------------------------------------------------------------- */
+    // CheckFactories.registerCheck<ImplicitIntCheck>("misra-c2012-req-8.1");
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
     /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
      * hasExternalFormalLinkage())) */

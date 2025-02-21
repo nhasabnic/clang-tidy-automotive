@@ -16,8 +16,8 @@ namespace clang::tidy::misra {
 namespace utils {
 
 static bool isLanguageC90(const LangOptions &LangOpts) {
-  return !LangOpts.C99 && !LangOpts.C11 && !LangOpts.C17 &&
-         !LangOpts.C23 && !LangOpts.CPlusPlus;
+  return !LangOpts.C99 && !LangOpts.C11 && !LangOpts.C17 && !LangOpts.C23 &&
+         !LangOpts.CPlusPlus;
 }
 
 } // namespace utils

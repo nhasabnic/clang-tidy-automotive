@@ -14,7 +14,8 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void ImplicitFunctionDeclCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(callExpr(callee(functionDecl().bind("func"))).bind("call"), this);
+  Finder->addMatcher(callExpr(callee(functionDecl().bind("func"))).bind("call"),
+                     this);
 }
 
 void ImplicitFunctionDeclCheck::check(const MatchFinder::MatchResult &Result) {
@@ -28,8 +29,8 @@ void ImplicitFunctionDeclCheck::check(const MatchFinder::MatchResult &Result) {
     return;
 
   diag(MatchedCall->getBeginLoc(),
-       "function '%0' is called without a prior declaration") << 
-       MatchedFunc->getName();
+       "function '%0' is called without a prior declaration")
+      << MatchedFunc->getName();
 }
 
 } // namespace clang::tidy::misra
