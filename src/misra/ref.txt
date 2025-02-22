@@ -1,2 +1,0 @@
-https://docs.zephyrproject.org/latest/contribute/coding_guidelines/index.html
-
