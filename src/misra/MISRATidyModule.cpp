@@ -33,7 +33,6 @@
 #include "AvoidUndefCheck.h"
 #include "AvoidUnionCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
-#include "BitfieldTypeCheck.h"
 #include "CommentWithinCommentCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
@@ -59,6 +58,7 @@
 #include "UnusedObjectDefinitionCheck.h"
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
+#include "WrongBitfieldTypeCheck.h"
 #include "WrongorderdefaultinswitchstatementCheck.h"
 
 // using namespace clang::ast_matchers;
@@ -116,7 +116,7 @@ public:
 
     /* 6. Types */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<BitfieldTypeCheck>("misra-c2023-req-6.1");
+    CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2023-req-6.1");
     CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
         "misra-c2023-req-6.2");
     CheckFactories.registerCheck<AvoidBitfieldsInUnionsCheck>(

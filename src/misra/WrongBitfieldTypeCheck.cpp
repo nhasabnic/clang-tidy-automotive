@@ -1,4 +1,4 @@
-//===--- BitfieldTypeCheck.cpp - clang-tidy -------------------------------===//
+//===--- WrongBitfieldTypeCheck.cpp - clang-tidy --------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "BitfieldTypeCheck.h"
+#include "WrongBitfieldTypeCheck.h"
 #include "Utils.h"
 #include "clang/AST/Decl.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
@@ -15,7 +15,7 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-void BitfieldTypeCheck::registerMatchers(MatchFinder *Finder) {
+void WrongBitfieldTypeCheck::registerMatchers(MatchFinder *Finder) {
   if (utils::isLanguageC90(getLangOpts())) {
     Finder->addMatcher(
         fieldDecl(allOf(isBitField(), unless(hasType(qualType(hasCanonicalType(
@@ -35,7 +35,7 @@ void BitfieldTypeCheck::registerMatchers(MatchFinder *Finder) {
   }
 }
 
-void BitfieldTypeCheck::check(const MatchFinder::MatchResult &Result) {
+void WrongBitfieldTypeCheck::check(const MatchFinder::MatchResult &Result) {
 
   const auto *MatchedBitField = Result.Nodes.getNodeAs<FieldDecl>("bitField");
 
