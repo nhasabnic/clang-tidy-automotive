@@ -9,26 +9,24 @@
 #include "BitfieldTypeCheck.h"
 #include "clang/AST/Decl.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
+#include "Utils.h"
 
 using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-// static bool isCompliantBitFieldType(QualType Type, const LangOptions
-// &LangOpts);
-
 void BitfieldTypeCheck::registerMatchers(MatchFinder *Finder) {
-  if (!getLangOpts().C99) {
+  if (utils::isLanguageC90(getLangOpts())) {
     Finder->addMatcher(
-        fieldDecl(allOf(isBitField(), hasType(hasCanonicalType(anyOf(
-                                          isInteger(), isUnsignedInteger())))))
+        fieldDecl(allOf(isBitField(), unless(hasType(hasCanonicalType(anyOf(
+                                          isInteger(), isUnsignedInteger()))))))
             .bind("bitField"),
         this);
   } else {
     Finder->addMatcher(
         fieldDecl(allOf(isBitField(),
-                        hasType(hasCanonicalType(anyOf(
-                            isInteger(), isUnsignedInteger(), booleanType())))))
+                        unless(hasType(hasCanonicalType(anyOf(
+                            isInteger(), isUnsignedInteger(), booleanType()))))))
             .bind("bitField"),
         this);
   }
