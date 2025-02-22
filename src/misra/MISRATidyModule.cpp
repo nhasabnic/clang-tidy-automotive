@@ -74,9 +74,6 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
     /* TODO: Move this and name it properly. */
-    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
-        "misra-Avoid-Non-Boolean-In-Condition");
-    CheckFactories.registerCheck<BitfieldTypeCheck>("misra-Bitfield-Type");
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-Missing-Static-Internal-Linkage");
 
@@ -119,7 +116,7 @@ public:
 
     /* 6. Types */
     /* ------------------------------------------------------------- */
-    /* 6.1. TODO */
+    CheckFactories.registerCheck<BitfieldTypeCheck>("misra-c2023-req-6.1");
     CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
         "misra-c2023-req-6.2");
     CheckFactories.registerCheck<AvoidBitfieldsInUnionsCheck>(
