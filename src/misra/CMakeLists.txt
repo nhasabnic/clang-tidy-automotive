@@ -26,7 +26,7 @@ add_clang_library(clangTidyMISRAModule
   InvariantControlCheck.cpp
   MissingExternalArraySizeCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
-  MissingbreakinswitchCheck.cpp
+  MissingBreakInSwitchCheck.cpp
   MissingReturnValueHandlingCheck.cpp
   NoreturnvoidCheck.cpp
   AtoXCheck.cpp

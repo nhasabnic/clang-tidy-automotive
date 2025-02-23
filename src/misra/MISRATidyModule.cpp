@@ -45,7 +45,7 @@
 #include "MissingExternalArraySizeCheck.h"
 #include "MissingReturnValueHandlingCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
-#include "MissingbreakinswitchCheck.h"
+#include "MissingBreakInSwitchCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
@@ -146,7 +146,7 @@ public:
 
     /* 11. Pointer type conversions */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingbreakinswitchCheck>(
+    CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
         "misra-c2023-req-11.2");
     /* 11.10: Diagnostic error */
 
