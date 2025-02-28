@@ -27,24 +27,24 @@ public:
 
   TokenRange(SourceLocation StartLoc, SourceLocation EndLoc,
              const SourceManager &SM, const LangOptions &LangOpts)
-      : Context(SM, LangOpts), 
-        StartIterator(
-          TokenIterator(StartLoc.getLocWithOffset(-1), &Context)),
+      : Context(SM, LangOpts),
+        StartIterator(TokenIterator(StartLoc.getLocWithOffset(-1), &Context)),
         EndIterator(TokenIterator(EndLoc)) {}
 
   class TokenContext {
   public:
-    TokenContext(const SourceManager &SM, const LangOptions &LangOpts) : 
-                 SM(SM), LangOpts(LangOpts) { }
+    TokenContext(const SourceManager &SM, const LangOptions &LangOpts)
+        : SM(SM), LangOpts(LangOpts) {}
 
     std::optional<Token> findNextToken(SourceLocation CurrentLoc) {
       return Lexer::findNextToken(CurrentLoc, SM, LangOpts);
     }
 
-    bool isBeforeInTranslationUnit(SourceLocation StartLoc, SourceLocation EndLoc) {
+    bool isBeforeInTranslationUnit(SourceLocation StartLoc,
+                                   SourceLocation EndLoc) {
       return SM.isBeforeInTranslationUnit(StartLoc, EndLoc);
     }
-   
+
   private:
     const SourceManager &SM;
     const LangOptions &LangOpts;
@@ -54,18 +54,14 @@ public:
   public:
     using iterator_category = std::input_iterator_tag;
 
-    TokenIterator(SourceLocation StartLoc, TokenContext* Context)
+    TokenIterator(SourceLocation StartLoc, TokenContext *Context)
         : CurrentLoc(StartLoc), Context(Context) {
       advance();
     }
- 
-    TokenIterator(SourceLocation EndLoc)
-        : CurrentLoc(EndLoc) {
-    }
 
-    std::optional<Token> operator*() const {
-      return Tok;
-    }
+    TokenIterator(SourceLocation EndLoc) : CurrentLoc(EndLoc) {}
+
+    std::optional<Token> operator*() const { return Tok; }
 
     TokenIterator &operator++() {
       advance();
@@ -78,7 +74,7 @@ public:
 
   protected:
     SourceLocation CurrentLoc;
-    TokenContext* Context = nullptr;
+    TokenContext *Context = nullptr;
     std::optional<Token> Tok;
 
   private:
