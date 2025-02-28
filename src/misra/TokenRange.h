@@ -22,52 +22,79 @@ namespace clang::tidy::misra {
 
 class TokenRange {
 public:
+  class TokenContext;
   class TokenIterator;
 
   TokenRange(SourceLocation StartLoc, SourceLocation EndLoc,
              const SourceManager &SM, const LangOptions &LangOpts)
-      : StartIterator(
-            TokenIterator(StartLoc.getLocWithOffset(-1), SM, LangOpts)),
-        EndIterator(TokenIterator(EndLoc, SM, LangOpts)) {}
+      : Context(SM, LangOpts), 
+        StartIterator(
+          TokenIterator(StartLoc.getLocWithOffset(-1), &Context)),
+        EndIterator(TokenIterator(EndLoc)) {}
+
+  class TokenContext {
+  public:
+    TokenContext(const SourceManager &SM, const LangOptions &LangOpts) : 
+                 SM(SM), LangOpts(LangOpts) { }
+
+    std::optional<Token> findNextToken(SourceLocation CurrentLoc) {
+      return Lexer::findNextToken(CurrentLoc, SM, LangOpts);
+    }
+
+    bool isBeforeInTranslationUnit(SourceLocation StartLoc, SourceLocation EndLoc) {
+      return SM.isBeforeInTranslationUnit(StartLoc, EndLoc);
+    }
+   
+  private:
+    const SourceManager &SM;
+    const LangOptions &LangOpts;
+  };
 
   class TokenIterator {
   public:
     using iterator_category = std::input_iterator_tag;
 
-    TokenIterator(SourceLocation CurrentLoc, const SourceManager &SM,
-                  const LangOptions &LangOpts)
-        : SM(SM), LangOpts(LangOpts), CurrentLoc(CurrentLoc) {}
+    TokenIterator(SourceLocation StartLoc, TokenContext* Context)
+        : CurrentLoc(StartLoc), Context(Context) {
+      advance();
+    }
+ 
+    TokenIterator(SourceLocation EndLoc)
+        : CurrentLoc(EndLoc) {
+    }
 
     std::optional<Token> operator*() const {
-      auto Tok = Lexer::findNextToken(CurrentLoc, SM, LangOpts);
-      if (Tok) {
-        NextLoc = Tok->getLocation();
-      } else {
-        NextLoc = SourceLocation();
-      }
       return Tok;
     }
 
     TokenIterator &operator++() {
-      CurrentLoc = NextLoc;
+      advance();
       return *this;
     }
 
     bool operator!=(const TokenIterator &Other) const {
-      return SM.isBeforeInTranslationUnit(NextLoc, Other.CurrentLoc);
+      return Context->isBeforeInTranslationUnit(CurrentLoc, Other.CurrentLoc);
     }
 
   protected:
-    const SourceManager &SM;
-    const LangOptions &LangOpts;
     SourceLocation CurrentLoc;
-    mutable SourceLocation NextLoc;
+    TokenContext* Context = nullptr;
+    std::optional<Token> Tok;
+
+  private:
+    void advance(void) {
+      Tok = Context->findNextToken(CurrentLoc);
+      if (Tok) {
+        CurrentLoc = Tok->getEndLoc();
+      }
+    }
   };
 
   TokenIterator begin() const { return StartIterator; }
   TokenIterator end() const { return EndIterator; }
 
 private:
+  TokenContext Context;
   TokenIterator StartIterator;
   TokenIterator EndIterator;
 };
