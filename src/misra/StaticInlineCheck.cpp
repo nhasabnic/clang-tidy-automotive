@@ -25,7 +25,8 @@ void StaticInlineCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<FunctionDecl>("inline");
 
   if (MatchedDecl) {
-    diag(MatchedDecl->getLocation(), "inline function shall be static");
+    diag(MatchedDecl->getBeginLoc(), "inline function shall be static")
+        << FixItHint::CreateInsertion(MatchedDecl->getBeginLoc(), "static ");
   }
 }
 
