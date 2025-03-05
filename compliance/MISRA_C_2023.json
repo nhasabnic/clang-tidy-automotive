@@ -252,7 +252,7 @@
           "id": "2.4",
           "level": "Advisory",
           "languages": ["C90", "C99", "C11"],
-          "status": "Implemented"
+          "status": "Partial implemented"
         },
         {
           "type": "Rule",
@@ -266,7 +266,7 @@
           "id": "2.6",
           "level": "Advisory",
           "languages": ["C90", "C99", "C11"],
-          "status": "implemented"
+          "status": "Implemented"
         },
         {
           "type": "Rule",
@@ -809,7 +809,7 @@
           "id": "12.3",
           "level": "Advisory",
           "languages": ["C90", "C99", "C11"],
-          "status": "To be analyzed"
+          "status": "Implemented"
         },
         {
           "type": "Rule",
@@ -925,7 +925,7 @@
           "id": "15.1",
           "level": "Advisory",
           "languages": ["C90", "C99", "C11"],
-          "status": "To be analyzed"
+          "status": "Implemented"
         },
         {
           "type": "Rule",
