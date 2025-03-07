@@ -36,16 +36,17 @@
 #include "CommentWithinCommentCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
+#include "FunctionDeclarationMismatchCheck.h"
 #include "ImplicitFunctionDeclCheck.h"
 #include "ImplicitIntCheck.h"
 #include "InvariantControlCheck.h"
+#include "MissingBreakInSwitchCheck.h"
 #include "MissingCompoundCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
 #include "MissingExternalArraySizeCheck.h"
 #include "MissingReturnValueHandlingCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
-#include "MissingBreakInSwitchCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
 #include "StaticInlineCheck.h"
@@ -76,7 +77,6 @@ public:
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-Missing-Static-Internal-Linkage");
-
     /* Directive */
     /* ------------------------------------------------------------- */
 
@@ -131,6 +131,8 @@ public:
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-c2023-req-8.1");
     CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
         "misra-c2023-req-8.2");
+    CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
+        "misra-c2023-req-8.3");
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2023-req-8.10");
     CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
         "misra-c2023-adv-8.11");

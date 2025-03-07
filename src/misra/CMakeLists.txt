@@ -20,6 +20,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
+  FunctionDeclarationMismatchCheck.cpp
   WrongBitfieldTypeCheck.cpp
   ImplicitFunctionDeclCheck.cpp
   ImplicitIntCheck.cpp
