@@ -5,4 +5,8 @@ Invoke these temporary scripts to build Clang-Tidy with MISRA support:
 2. ./configure.sh
 3. ./build.sh
 
+The assumed compiler version is Clang 19
+
 Note: The temporary scripts needs to be changed to a docker container in the future but that is on the TODO list.
+
+License is kept towards LLVM to make it easier to get it upstreams when or if it happens. :)
