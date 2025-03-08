@@ -60,6 +60,7 @@
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
 #include "WrongBitfieldTypeCheck.h"
+#include "WrongNullPointerValueCheck.h"
 #include "WrongorderdefaultinswitchstatementCheck.h"
 
 // using namespace clang::ast_matchers;
@@ -150,6 +151,9 @@ public:
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
         "misra-c2023-req-11.2");
+    CheckFactories.registerCheck<WrongNullPointerValueCheck>(
+        "misra-c2023-req-11.9");
+
     /* 11.10: Diagnostic error */
 
     /* 12. Expressions */

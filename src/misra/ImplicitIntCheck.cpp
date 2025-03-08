@@ -36,7 +36,7 @@ void ImplicitIntCheck::check(const MatchFinder::MatchResult &Result) {
     return;
 
   SourceLocation StartLoc = MatchedVar->getBeginLoc();
-  SourceLocation EndLoc = MatchedVar->getBeginLoc();
+  SourceLocation EndLoc = MatchedVar->getEndLoc();
 
   checkImplicitInt(StartLoc, EndLoc, *Result.SourceManager, *Result.Context);
 }
@@ -51,7 +51,7 @@ void ImplicitIntCheck::checkImplicitInt(SourceLocation StartLoc,
                        tok::kw_const);
   };
 
-  //  bool OnlyQualifiers = llvm::all_of(TokenRange(StartLoc, EndLoc, SM,
+#if 0 //  bool OnlyQualifiers = llvm::all_of(TokenRange(StartLoc, EndLoc, SM,
   //  getLangOpts()),
   //                                     IsStorageOrQualifier);
 
@@ -59,19 +59,20 @@ void ImplicitIntCheck::checkImplicitInt(SourceLocation StartLoc,
 
   for (auto Tok : TokenRange(StartLoc, EndLoc, SM, getLangOpts())) {
 
-    if (Tok->is(tok::raw_identifier)) {
-      IdentifierInfo &Info = IdentTable->get(Tok->getRawIdentifier());
-      Tok->setIdentifierInfo(&Info);
-      Tok->setKind(Info.getTokenID());
-      llvm::outs() << Tok->getName() << "\n";
+    if (Tok.is(tok::raw_identifier)) {
+      IdentifierInfo &Info = IdentTable->get(Tok.getRawIdentifier());
+      Tok.setIdentifierInfo(&Info);
+      Tok.setKind(Info.getTokenID());
     }
-
-    OnlyQualifiers &= IsStorageOrQualifier(*Tok);
+    llvm::outs() << Tok.getName() << "\n";
+    OnlyQualifiers &= IsStorageOrQualifier(Tok);
   }
 
   if (OnlyQualifiers) {
     diag(StartLoc, "implicit int");
   }
+#endif
+  llvm::outs() << "--------------\n";
 }
 
 } // namespace clang::tidy::misra
