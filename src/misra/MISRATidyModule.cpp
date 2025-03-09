@@ -69,15 +69,25 @@ namespace clang::tidy {
 namespace misra {
 
 /* ----------------------------------------------------------------- */
+/* MISRA Experimental support                                        */
+/* ----------------------------------------------------------------- */
+class MISRAExperimentalModule : public ClangTidyModule {
+public:
+  void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
+
+    /* TODO: Move this and name it properly. */
+    CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
+        "misra-x-Missing-Static-Internal-Linkage");
+  }
+};
+
+/* ----------------------------------------------------------------- */
 /* MISRA C 2023                                                      */
 /* ----------------------------------------------------------------- */
 class MISRAC2023Module : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
-    /* TODO: Move this and name it properly. */
-    CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
-        "misra-Missing-Static-Internal-Linkage");
     /* Directive */
     /* ------------------------------------------------------------- */
 
@@ -237,9 +247,6 @@ public:
     CheckFactories.registerCheck<AvoidstdlibsystemcallCheck>(
         "misra-c2023-req-21.21");
     CheckFactories.registerCheck<AvoidStdlibRandCheck>("misra-c2023-req-21.24");
-
-    // CheckFactories.registerCheck<FoobarCheck>(
-    //     "misra-foobar");
   }
 };
 
@@ -351,13 +358,18 @@ public:
 
 } // namespace misra
 
+// Register the MISRA Experimental Module using this statically initialized
+// variable.
+static ClangTidyModuleRegistry::Add<misra::MISRAExperimentalModule>
+    X("misra-x-module", "Adds MISRA experimental lint checks.");
+
 // Register the MISRA C2023 Module using this statically initialized variable.
 static ClangTidyModuleRegistry::Add<misra::MISRAC2023Module>
-    X("misra-c2023-module", "Adds MISRA C 2023 lint checks.");
+    Y("misra-c2023-module", "Adds MISRA C 2023 lint checks.");
 
 // Register the MISRA C2023 Module using this statically initialized variable.
 static ClangTidyModuleRegistry::Add<misra::MISRAC2012Module>
-    Y("misra-c2012-module", "Adds MISRA C 2012 lint checks.");
+    Z("misra-c2012-module", "Adds MISRA C 2012 lint checks.");
 
 // This anchor is used to force the linker to link in the generated object file
 // and thus register the MisraModule.
