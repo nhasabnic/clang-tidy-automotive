@@ -54,7 +54,7 @@ add_clang_library(clangTidyMISRAModule
   UnusedTagCheck.cpp
   UnusedTypeCheck.cpp
   WrongNullPointerValueCheck.cpp
-  WrongorderdefaultinswitchstatementCheck.cpp
+  WrongOrderDefaultInSwitchStatementCheck.cpp
 
   LINK_LIBS
   clangTidy

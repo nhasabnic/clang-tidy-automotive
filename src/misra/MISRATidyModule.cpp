@@ -61,7 +61,7 @@
 #include "UnusedTypeCheck.h"
 #include "WrongBitfieldTypeCheck.h"
 #include "WrongNullPointerValueCheck.h"
-#include "WrongorderdefaultinswitchstatementCheck.h"
+#include "WrongOrderDefaultInSwitchStatementCheck.h"
 
 // using namespace clang::ast_matchers;
 
@@ -198,7 +198,7 @@ public:
     CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-c2023-req-16.2");
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2023-req-16.4");
-    CheckFactories.registerCheck<WrongorderdefaultinswitchstatementCheck>(
+    CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
         "misra-c2023-req-16.5");
     CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
         "misra-c2023-req-16.7");
@@ -342,7 +342,7 @@ public:
     CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-c2012-req-16.2");
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2012-req-16.4");
-    CheckFactories.registerCheck<WrongorderdefaultinswitchstatementCheck>(
+    CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
         "misra-c2012-req-16.5");
   }
 };
