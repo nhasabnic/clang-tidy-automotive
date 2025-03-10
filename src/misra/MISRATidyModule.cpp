@@ -78,6 +78,7 @@ public:
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
+    CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
   }
 };
 
@@ -101,7 +102,6 @@ public:
     /* Unused code */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
-    CheckFactories.registerCheck<UnusedTagCheck>("misra-c2023-adv-2.4");
     CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
     CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
