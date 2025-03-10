@@ -2,6 +2,7 @@
 // RUN: %check_clang_tidy %s misra-c2023-adv-2.4 %t -- -- -std=c99
 // RUN: %check_clang_tidy %s misra-c2023-adv-2.4 %t -- -- -std=c11
 
+enum color2 { RED2, GREEN2, BLUE2 }; /* Not compliant */
 
 void f_enum(void) {
   enum color { RED, GREEN, BLUE }; /* Not compliant */
@@ -21,4 +22,6 @@ void f_enum(void) {
   ready_t r = INIT;
 }
 
+void f(enum color2 *c) {
+}
 

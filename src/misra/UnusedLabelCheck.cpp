@@ -24,7 +24,7 @@ void UnusedLabelCheck::check(const MatchFinder::MatchResult &Result) {
     return;
   }
 
-  if (MatchedLabel->getDecl()->isReferenced()) {
+  if (MatchedLabel->getDecl()->isUsed()) {
     return;
   }
 
