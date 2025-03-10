@@ -79,6 +79,9 @@ public:
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
     CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
+
+    CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
+    CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-x-req-16.2");
   }
 };
 
@@ -139,7 +142,6 @@ public:
 
     /* 8. Declarations and definitions */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<ImplicitIntCheck>("misra-c2023-req-8.1");
     CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
         "misra-c2023-req-8.2");
     CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
@@ -195,7 +197,6 @@ public:
 
     /* 16. Switch Statements */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-c2023-req-16.2");
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2023-req-16.4");
     CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
@@ -294,7 +295,6 @@ public:
 
     /* 8. Declarations and definitions */
     /* ------------------------------------------------------------- */
-    // CheckFactories.registerCheck<ImplicitIntCheck>("misra-c2012-req-8.1");
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
     /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
      * hasExternalFormalLinkage())) */
@@ -339,7 +339,6 @@ public:
 
     /* 16. Switch Statements */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-c2012-req-16.2");
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2012-req-16.4");
     CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
