@@ -259,23 +259,14 @@ public:
 
     /* 1. Standard environment */
     /* ------------------------------------------------------------- */
-    /* 1.1 */
-    /* 1.2 */
-    /* 1.3 */
-    /* 1.4 */
-    /* 1.5 */
 
     /* Unused code */
     /* ------------------------------------------------------------- */
-    /* 2.1 */
-    /* 2.2 */
-    /* 2.3 */
-    /* 2.4 */
-    /* 2.5 */
+    CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2012-adv-2.3");
+    CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2012-adv-2.5");
     CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2012-adv-2.6");
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
         "misra-c2012-adv-2.7");
-    /* 2.8 */
 
     /* 3. Comments */
     /* ------------------------------------------------------------- */
