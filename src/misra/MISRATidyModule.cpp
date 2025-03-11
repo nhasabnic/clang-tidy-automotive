@@ -49,6 +49,7 @@
 #include "MissingStaticInternalLinkageCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoreturnvoidCheck.h"
+#include "PreprocessorFlowCheck.h"
 #include "StaticInlineCheck.h"
 #include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
@@ -78,6 +79,9 @@ public:
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
+    CheckFactories.registerCheck<PreprocessorFlowCheck>(
+        "misra-x-req-20.14");
+
     CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
 
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
