@@ -29,7 +29,7 @@ add_clang_library(clangTidyMISRAModule
   MissingStaticInternalLinkageCheck.cpp
   MissingBreakInSwitchCheck.cpp
   MissingReturnValueHandlingCheck.cpp
-  NoreturnvoidCheck.cpp
+  NoReturnVoidCheck.cpp
   AtoXCheck.cpp
   AvoidSignedSingleBitFieldsCheck.cpp
   AvoidUndefCheck.cpp

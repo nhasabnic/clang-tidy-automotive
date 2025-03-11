@@ -1,4 +1,4 @@
-//===--- NoreturnvoidCheck.h - clang-tidy -----------------------*- C++ -*-===//
+//===--- NoReturnVoidCheck.h - clang-tidy -----------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -17,9 +17,9 @@ namespace clang::tidy::misra {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/NoReturnVoid.html
-class NoreturnvoidCheck : public ClangTidyCheck {
+class NoReturnVoidCheck : public ClangTidyCheck {
 public:
-  NoreturnvoidCheck(StringRef Name, ClangTidyContext *Context)
+  NoReturnVoidCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;

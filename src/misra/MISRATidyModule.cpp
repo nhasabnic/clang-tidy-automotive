@@ -48,7 +48,7 @@
 #include "MissingReturnValueHandlingCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
 #include "MultipleReturnStmtCheck.h"
-#include "NoreturnvoidCheck.h"
+#include "NoReturnVoidCheck.h"
 #include "PreprocessorFlowCheck.h"
 #include "StaticInlineCheck.h"
 #include "UncompleteFunctionPrototypeCheck.h"
@@ -221,7 +221,8 @@ public:
         "misra-c2023-man-17.3");
     CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
         "misra-c2023-req-17.7");
-    CheckFactories.registerCheck<NoreturnvoidCheck>("misra-c2023-req-17.10");
+    CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
+
     /* 18. Pointers and arrays */
     /* ------------------------------------------------------------- */
     /* 18.7 m Inspiration:
