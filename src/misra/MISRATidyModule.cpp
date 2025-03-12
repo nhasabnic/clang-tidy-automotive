@@ -53,7 +53,7 @@
 #include "StaticInlineCheck.h"
 #include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
-#include "UnstructuredcaseCheck.h"
+#include "UnstructuredSwitchCaseCheck.h"
 #include "UnterminatedEscapeSequenceCheck.h"
 #include "UnusedLabelCheck.h"
 #include "UnusedMacroCheck.h"
@@ -85,7 +85,7 @@ public:
     CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
 
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
-    CheckFactories.registerCheck<UnstructuredcaseCheck>("misra-x-req-16.2");
+    CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>("misra-x-req-16.2");
   }
 };
 
