@@ -26,7 +26,8 @@ void UnstructuredSwitchCaseCheck::registerMatchers(MatchFinder *Finder) {
                      this);
 }
 
-void UnstructuredSwitchCaseCheck::check(const MatchFinder::MatchResult &Result) {
+void UnstructuredSwitchCaseCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *MatchedCase = Result.Nodes.getNodeAs<CaseStmt>("case");
   const auto *MatchedDefault = Result.Nodes.getNodeAs<DefaultStmt>("default");
   const auto *ExpectedCompound =

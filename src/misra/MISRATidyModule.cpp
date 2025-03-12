@@ -79,13 +79,13 @@ public:
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
-    CheckFactories.registerCheck<PreprocessorFlowCheck>(
-        "misra-x-req-20.14");
+    CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
 
     CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
 
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
-    CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>("misra-x-req-16.2");
+    CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>(
+        "misra-x-req-16.2");
   }
 };
 
