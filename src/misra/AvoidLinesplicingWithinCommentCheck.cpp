@@ -22,7 +22,7 @@ bool AvoidLinesplicingWithinCommentHandler::HandleComment(Preprocessor &PP,
 
     while ((Pos = CommentText.find("\\\n", Pos)) != StringRef::npos) {
       SourceLocation LineSpliceLoc = StartLoc.getLocWithOffset(Pos);
-      Check.diag(LineSpliceLoc, "Avoid line-spliceing within a // comment");
+      Check.diag(LineSpliceLoc, "avoid line-spliceing within a // comment");
       Pos += 2;
     }
   }
