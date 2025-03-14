@@ -34,7 +34,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidSignedSingleBitFieldsCheck.cpp
   AvoidUndefCheck.cpp
   AvoidUnionCheck.cpp
-  CommentWithinCommentCheck.cpp
+  AvoidCommentWithinCommentCheck.cpp
   ExitCheck.cpp
   ForwardGotoLabelCheck.cpp
   MISRATidyModule.cpp

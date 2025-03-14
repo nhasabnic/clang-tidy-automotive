@@ -19,6 +19,7 @@
 #include "AvoidBitfieldsInUnionsCheck.h"
 #include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidCommaOperatorCheck.h"
+#include "AvoidCommentWithinCommentCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
@@ -33,7 +34,6 @@
 #include "AvoidUndefCheck.h"
 #include "AvoidUnionCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
-#include "CommentWithinCommentCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
 #include "FunctionDeclarationMismatchCheck.h"
@@ -101,10 +101,6 @@ public:
 
     /* 1. Standard environment */
     /* ------------------------------------------------------------- */
-    /* 1.2 */
-    /* 1.3 */
-    /* 1.4 */
-    /* 1.5 */
 
     /* Unused code */
     /* ------------------------------------------------------------- */
@@ -118,7 +114,7 @@ public:
 
     /* 3. Comments */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<CommentWithinCommentCheck>(
+    CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
         "misra-c2023-req-3.1");
     CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
         "misra-c2023-req-3.2");
@@ -276,7 +272,7 @@ public:
 
     /* 3. Comments */
     /* ------------------------------------------------------------- */
-    CheckFactories.registerCheck<CommentWithinCommentCheck>(
+    CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
         "misra-c2012-req-3.1");
     CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
         "misra-c2012-req-3.2");
