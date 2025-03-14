@@ -14,15 +14,6 @@
 
 namespace clang::tidy::misra {
 
-class AvoidLinesplicingWithinCommentHandler : public CommentHandler {
-public:
-  AvoidLinesplicingWithinCommentHandler(ClangTidyCheck &Check) : Check(Check) {}
-  virtual bool HandleComment(Preprocessor &PP, SourceRange Comment) override;
-
-private:
-  ClangTidyCheck &Check;
-};
-
 /// FIXME: Write a short description.
 ///
 /// For the user-facing documentation see:
@@ -36,7 +27,16 @@ public:
                            Preprocessor *ModuleExpanderPP) override;
 
 private:
-  AvoidLinesplicingWithinCommentHandler Handler;
+  class InternalCommentHandler : public CommentHandler {
+  public:
+    InternalCommentHandler(ClangTidyCheck &Check) : Check(Check) {}
+    virtual bool HandleComment(Preprocessor &PP, SourceRange Comment) override;
+
+  private:
+    ClangTidyCheck &Check;
+  };
+
+  InternalCommentHandler Handler;
 };
 
 } // namespace clang::tidy::misra

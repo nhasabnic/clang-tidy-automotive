@@ -10,8 +10,8 @@
 
 namespace clang::tidy::misra {
 
-bool AvoidLinesplicingWithinCommentHandler::HandleComment(Preprocessor &PP,
-                                                          SourceRange Comment) {
+bool AvoidLinesplicingWithinCommentCheck::InternalCommentHandler::HandleComment(
+    Preprocessor &PP, SourceRange Comment) {
   StringRef CommentText =
       Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
                            PP.getSourceManager(), PP.getLangOpts());
