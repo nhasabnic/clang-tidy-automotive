@@ -28,12 +28,8 @@ static State StateExpectCommentStart(char Ch);
 static State StateExpectCommentEnd(char Ch);
 
 static constexpr StateFunc_t StateTable[] = {
-  &StateNormal,
-  &StateExpectCommentStart,
-  &StateExpectCommentEnd,
-  &StateNormal,
-  &StateNormal
-};
+    &StateNormal, &StateExpectCommentStart, &StateExpectCommentEnd,
+    &StateNormal, &StateNormal};
 
 bool AvoidCommentWithinCommentCheck::InternalCommentHandler::HandleComment(
     Preprocessor &PP, SourceRange Comment) {
@@ -41,8 +37,9 @@ bool AvoidCommentWithinCommentCheck::InternalCommentHandler::HandleComment(
   StringRef CommentText =
       Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
                            PP.getSourceManager(), PP.getLangOpts());
-  
-  unsigned int Size = CommentText[1] == '*' ? CommentText.size() - 2 : CommentText.size();
+
+  unsigned int Size =
+      CommentText[1] == '*' ? CommentText.size() - 2 : CommentText.size();
   unsigned int Index = 2;
   State CurrentState = State::Normal;
   SourceLocation Location;
@@ -53,19 +50,19 @@ bool AvoidCommentWithinCommentCheck::InternalCommentHandler::HandleComment(
 
     switch (CurrentState) {
     case State::CommentSingleLine:
-      Location = Comment.getBegin().getLocWithOffset(Index-1);
+      Location = Comment.getBegin().getLocWithOffset(Index - 1);
       Check.diag(Location, "avoid '//' within comment");
       break;
 
     case State::CommentStart:
-      Location = Comment.getBegin().getLocWithOffset(Index-1);
+      Location = Comment.getBegin().getLocWithOffset(Index - 1);
       Check.diag(Location, "avoid '/*' within comment");
       break;
 
     case State::CommentEnd:
-      Location = Comment.getBegin().getLocWithOffset(Index-1);
+      Location = Comment.getBegin().getLocWithOffset(Index - 1);
       Check.diag(Location, "avoid '*/' within comment");
-      
+
     default:
       break;
     }
@@ -80,20 +77,20 @@ void AvoidCommentWithinCommentCheck::registerPPCallbacks(
 }
 
 static State StateNormal(char Ch) {
-  switch(Ch) {
-  case '/': 
+  switch (Ch) {
+  case '/':
     return State::ExpectCommentStart;
 
   case '*':
     return State::ExpectCommentEnd;
 
-  default: 
+  default:
     return State::Normal;
   }
 }
 
 static State StateExpectCommentStart(char Ch) {
-  switch(Ch) {
+  switch (Ch) {
   case '/':
     return State::CommentSingleLine;
 
@@ -106,7 +103,7 @@ static State StateExpectCommentStart(char Ch) {
 }
 
 static State StateExpectCommentEnd(char Ch) {
-  switch(Ch) {
+  switch (Ch) {
   case '/':
     return State::CommentEnd;
 
