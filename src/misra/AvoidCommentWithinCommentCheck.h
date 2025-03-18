@@ -11,6 +11,7 @@
 
 #include "../ClangTidyCheck.h"
 #include "clang/Lex/Preprocessor.h"
+#include "llvm/ADT/StringSet.h"
 
 namespace clang::tidy::misra {
 
@@ -29,11 +30,12 @@ public:
 private:
   class InternalCommentHandler : public CommentHandler {
   public:
-    InternalCommentHandler(ClangTidyCheck &Check) : Check(Check) {}
+    InternalCommentHandler(ClangTidyCheck &Check);
     virtual bool HandleComment(Preprocessor &PP, SourceRange Comment) override;
 
   private:
     ClangTidyCheck &Check;
+    llvm::StringSet<> Protocols;
   };
 
   InternalCommentHandler Handler;

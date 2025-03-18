@@ -12,10 +12,15 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
+static constexpr std::initializer_list<const char *> DefaultProtocols = {
+    "http", "https", "ftp", "ftps", "ssh", "file", "sftp", "svn", "git"};
+
 enum State {
   Normal = 0,
+  NormalSpace,
   ExpectCommentStart,
   ExpectCommentEnd,
+  ExpectURLPattern,
   CommentSingleLine,
   CommentStart,
   CommentEnd
@@ -23,13 +28,20 @@ enum State {
 
 typedef State (*StateFunc_t)(char Ch);
 
-static State StateNormal(char Ch);
-static State StateExpectCommentStart(char Ch);
-static State StateExpectCommentEnd(char Ch);
+static constexpr State getNextState(State CurrentState, char Ch);
 
-static constexpr StateFunc_t StateTable[] = {
-    &StateNormal, &StateExpectCommentStart, &StateExpectCommentEnd,
-    &StateNormal, &StateNormal};
+static constexpr State stateDefault(char Ch);
+static constexpr State stateNormal(char Ch);
+static constexpr State stateExpectCommentStart(char Ch);
+static constexpr State stateExpectCommentEnd(char Ch);
+
+AvoidCommentWithinCommentCheck::InternalCommentHandler::InternalCommentHandler(
+    ClangTidyCheck &Check)
+    : Check(Check) {
+  for (const char *Protocol : DefaultProtocols) {
+    Protocols.insert(Protocol);
+  }
+}
 
 bool AvoidCommentWithinCommentCheck::InternalCommentHandler::HandleComment(
     Preprocessor &PP, SourceRange Comment) {
@@ -39,34 +51,67 @@ bool AvoidCommentWithinCommentCheck::InternalCommentHandler::HandleComment(
                            PP.getSourceManager(), PP.getLangOpts());
 
   unsigned int Size =
-      CommentText[1] == '*' ? CommentText.size() - 2 : CommentText.size();
+      CommentText[1] == '*' ? CommentText.size() - 1 : CommentText.size();
   unsigned int Index = 2;
+  unsigned int IndexSpace = 2;
+  unsigned int Offset = 1;
+
   State CurrentState = State::Normal;
   SourceLocation Location;
 
   while (Index < Size) {
     char Ch = CommentText[Index];
-    CurrentState = StateTable[CurrentState](Ch);
+    char ChNext = CommentText[Index + 1];
 
-    switch (CurrentState) {
-    case State::CommentSingleLine:
-      Location = Comment.getBegin().getLocWithOffset(Index - 1);
-      Check.diag(Location, "avoid '//' within comment");
-      break;
+    if (Ch != '\\' && ChNext != '\n') {
+      CurrentState = getNextState(CurrentState, Ch);
 
-    case State::CommentStart:
-      Location = Comment.getBegin().getLocWithOffset(Index - 1);
-      Check.diag(Location, "avoid '/*' within comment");
-      break;
+      switch (CurrentState) {
+      case State::NormalSpace:
+        IndexSpace = Index;
+        break;
 
-    case State::CommentEnd:
-      Location = Comment.getBegin().getLocWithOffset(Index - 1);
-      Check.diag(Location, "avoid '*/' within comment");
+      case State::CommentSingleLine:
+        Location = Comment.getBegin().getLocWithOffset(Index - Offset);
+        Check.diag(Location, "avoid '//' within comment");
+        break;
 
-    default:
-      break;
+      case State::CommentStart:
+        Location = Comment.getBegin().getLocWithOffset(Index - Offset);
+        Check.diag(Location, "avoid '/*' within comment");
+        break;
+
+      case State::CommentEnd:
+        Location = Comment.getBegin().getLocWithOffset(Index - Offset);
+        Check.diag(Location, "avoid '*/' within comment");
+        break;
+
+      case ExpectURLPattern:
+        if (CommentText.substr(Index, 3) == "://") {
+          unsigned int IndexWord = IndexSpace + 1;
+          StringRef Protocol = CommentText.substr(IndexWord, Index - IndexWord);
+
+          if (!Protocols.contains(Protocol)) {
+            Location = Comment.getBegin().getLocWithOffset(Index + 1);
+            Check.diag(Location, "avoid '//' within comment");
+            Location = Comment.getBegin().getLocWithOffset(IndexWord);
+            Check.diag(Location, "unknown protocol '%0'", DiagnosticIDs::Note)
+                << Protocol;
+          }
+          Index += 2;
+        }
+        break;
+
+      default:
+        Offset = 1;
+        break;
+      }
+      Index++;
+
+    } else {
+      Index += 2;
+      Offset += 2;
     }
-    Index++;
   }
   return false;
 }
@@ -76,7 +121,31 @@ void AvoidCommentWithinCommentCheck::registerPPCallbacks(
   PP->addCommentHandler(&Handler);
 }
 
-static State StateNormal(char Ch) {
+static constexpr State getNextState(State CurrentState, char Ch) {
+  switch (CurrentState) {
+  case State::ExpectCommentStart:
+    return stateExpectCommentStart(Ch);
+
+  case State::ExpectCommentEnd:
+    return stateExpectCommentEnd(Ch);
+
+  default:
+    return stateNormal(Ch);
+  }
+}
+
+static constexpr State stateDefault(char Ch) {
+  switch (Ch) {
+  case ' ':
+  case '\t':
+    return State::NormalSpace;
+
+  default:
+    return State::Normal;
+  }
+}
+
+static constexpr State stateNormal(char Ch) {
   switch (Ch) {
   case '/':
     return State::ExpectCommentStart;
@@ -84,12 +153,15 @@ static State StateNormal(char Ch) {
   case '*':
     return State::ExpectCommentEnd;
 
+  case ':':
+    return State::ExpectURLPattern;
+
   default:
-    return State::Normal;
+    return stateDefault(Ch);
   }
 }
 
-static State StateExpectCommentStart(char Ch) {
+static constexpr State stateExpectCommentStart(char Ch) {
   switch (Ch) {
   case '/':
     return State::CommentSingleLine;
@@ -98,17 +170,17 @@ static State StateExpectCommentStart(char Ch) {
     return State::CommentStart;
 
   default:
-    return State::Normal;
+    return stateDefault(Ch);
   }
 }
 
-static State StateExpectCommentEnd(char Ch) {
+static constexpr State stateExpectCommentEnd(char Ch) {
   switch (Ch) {
   case '/':
     return State::CommentEnd;
 
   default:
-    return State::Normal;
+    return stateDefault(Ch);
   }
 }
 
