@@ -30,11 +30,13 @@ public:
 private:
   class InternalCommentHandler : public CommentHandler {
   public:
-    InternalCommentHandler(ClangTidyCheck &Check);
+    InternalCommentHandler(AvoidCommentWithinCommentCheck &Check);
     virtual bool HandleComment(Preprocessor &PP, SourceRange Comment) override;
 
   private:
-    ClangTidyCheck &Check;
+    void CheckComment(SourceLocation CommentLoc, StringRef CommentText);
+
+    AvoidCommentWithinCommentCheck &Check;
     llvm::StringSet<> Protocols;
   };
 

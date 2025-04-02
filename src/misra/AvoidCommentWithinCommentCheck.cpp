@@ -7,6 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidCommentWithinCommentCheck.h"
+#include "IgnoreLineSpliceRef.h"
 
 using namespace clang::ast_matchers;
 
@@ -14,6 +15,8 @@ namespace clang::tidy::misra {
 
 static constexpr std::initializer_list<const char *> DefaultProtocols = {
     "http", "https", "ftp", "ftps", "ssh", "file", "sftp", "svn", "git"};
+
+namespace {
 
 enum State {
   Normal = 0,
@@ -26,7 +29,16 @@ enum State {
   CommentEnd
 };
 
+struct CommentPosition {
+  size_t Index;
+  size_t Size;
+};
+
 typedef State (*StateFunc_t)(char Ch);
+
+}; // Anonymous namespace
+
+static CommentPosition findCommentPosition(StringRef CommentText);
 
 static constexpr State getNextState(State CurrentState, char Ch);
 
@@ -35,8 +47,13 @@ static constexpr State stateNormal(char Ch);
 static constexpr State stateExpectCommentStart(char Ch);
 static constexpr State stateExpectCommentEnd(char Ch);
 
+void AvoidCommentWithinCommentCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
+  PP->addCommentHandler(&Handler);
+}
+
 AvoidCommentWithinCommentCheck::InternalCommentHandler::InternalCommentHandler(
-    ClangTidyCheck &Check)
+    AvoidCommentWithinCommentCheck &Check)
     : Check(Check) {
   for (const char *Protocol : DefaultProtocols) {
     Protocols.insert(Protocol);
@@ -50,75 +67,92 @@ bool AvoidCommentWithinCommentCheck::InternalCommentHandler::HandleComment(
       Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
                            PP.getSourceManager(), PP.getLangOpts());
 
-  unsigned int Size =
-      CommentText[1] == '*' ? CommentText.size() - 1 : CommentText.size();
-  unsigned int Index = 2;
-  unsigned int IndexSpace = 2;
-  unsigned int Offset = 1;
+  CommentPosition Position = findCommentPosition(CommentText);
+  CheckComment(Comment.getBegin().getLocWithOffset(Position.Index),
+               CommentText.substr(Position.Index, Position.Size));
 
-  State CurrentState = State::Normal;
-  SourceLocation Location;
-
-  while (Index < Size) {
-    char Ch = CommentText[Index];
-    char ChNext = CommentText[Index + 1];
-
-    if (Ch != '\\' && ChNext != '\n') {
-      CurrentState = getNextState(CurrentState, Ch);
-
-      switch (CurrentState) {
-      case State::NormalSpace:
-        IndexSpace = Index;
-        break;
-
-      case State::CommentSingleLine:
-        Location = Comment.getBegin().getLocWithOffset(Index - Offset);
-        Check.diag(Location, "avoid '//' within comment");
-        break;
-
-      case State::CommentStart:
-        Location = Comment.getBegin().getLocWithOffset(Index - Offset);
-        Check.diag(Location, "avoid '/*' within comment");
-        break;
-
-      case State::CommentEnd:
-        Location = Comment.getBegin().getLocWithOffset(Index - Offset);
-        Check.diag(Location, "avoid '*/' within comment");
-        break;
-
-      case ExpectURLPattern:
-        if (CommentText.substr(Index, 3) == "://") {
-          unsigned int IndexWord = IndexSpace + 1;
-          StringRef Protocol = CommentText.substr(IndexWord, Index - IndexWord);
-
-          if (!Protocols.contains(Protocol)) {
-            Location = Comment.getBegin().getLocWithOffset(Index + 1);
-            Check.diag(Location, "avoid '//' within comment");
-            Location = Comment.getBegin().getLocWithOffset(IndexWord);
-            Check.diag(Location, "unknown protocol '%0'", DiagnosticIDs::Note)
-                << Protocol;
-          }
-          Index += 2;
-        }
-        break;
-
-      default:
-        Offset = 1;
-        break;
-      }
-      Index++;
-
-    } else {
-      Index += 2;
-      Offset += 2;
-    }
-  }
   return false;
 }
 
-void AvoidCommentWithinCommentCheck::registerPPCallbacks(
-    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
-  PP->addCommentHandler(&Handler);
+void AvoidCommentWithinCommentCheck::InternalCommentHandler::CheckComment(
+    SourceLocation CommentLoc, StringRef CommentText) {
+
+  IgnoreLineSpliceRef FilteredText(CommentText);
+  State CurrentState = State::Normal;
+  size_t IndexWord = 0;
+
+  for (auto It = FilteredText.begin(); It != FilteredText.end(); ++It) {
+    CurrentState = getNextState(CurrentState, *It);
+    size_t Index = It.position();
+
+    switch (CurrentState) {
+    case State::CommentSingleLine:
+      Check.diag(CommentLoc.getLocWithOffset(Index - 1),
+                 "avoid '//' within comment");
+      break;
+
+    case State::CommentStart:
+      Check.diag(CommentLoc.getLocWithOffset(Index - 1),
+                 "avoid '/*' within comment");
+      break;
+
+    case State::CommentEnd:
+      Check.diag(CommentLoc.getLocWithOffset(Index),
+                 "avoid '*/' within comment");
+      break;
+
+    case ExpectURLPattern:
+      if (CommentText.substr(Index, 3) == "://") {
+        /* TODO: Fix the reverse IndexWord */
+        /*
+        StringRef Protocol = CommentText.substr(IndexWord, Index - IndexWord);
+
+        if (!Protocols.contains(Protocol)) {
+          Check.diag(CommentLoc.getLocWithOffset(Index),
+                     "unknown protocol '%0'", DiagnosticIDs::Note)
+              << Protocol;
+        }*/
+        std::advance(It, 2);
+      }
+      break;
+
+    default:
+      break;
+    }
+  }
+}
+
+static CommentPosition findCommentPosition(StringRef CommentText) {
+  CommentPosition Position = {0};
+  char PrevCh = '\0';
+
+  for (size_t Index = 0; Index < CommentText.size(); ++Index) {
+    char Ch = CommentText[Index];
+
+    switch (Ch) {
+    case '/':
+      if (PrevCh == '/') {
+        Position.Index = Index;
+        Position.Size = CommentText.size() - Index;
+        return Position;
+      }
+      PrevCh = Ch;
+      break;
+
+    case '*':
+      if (PrevCh == '/') {
+        Position.Index = Index;
+        Position.Size = CommentText.size() - Index - 2;
+        return Position;
+      }
+      PrevCh = Ch;
+      break;
+
+    default:
+      break;
+    }
+  }
+  return Position;
 }
 
 static constexpr State getNextState(State CurrentState, char Ch) {
