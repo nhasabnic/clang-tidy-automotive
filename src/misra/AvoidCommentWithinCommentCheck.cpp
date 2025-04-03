@@ -20,7 +20,6 @@ namespace {
 
 enum State {
   Normal = 0,
-  NormalSpace,
   ExpectCommentStart,
   ExpectCommentEnd,
   ExpectURLPattern,
@@ -42,7 +41,6 @@ static CommentPosition findCommentPosition(StringRef CommentText);
 
 static constexpr State getNextState(State CurrentState, char Ch);
 
-static constexpr State stateDefault(char Ch);
 static constexpr State stateNormal(char Ch);
 static constexpr State stateExpectCommentStart(char Ch);
 static constexpr State stateExpectCommentEnd(char Ch);
@@ -168,17 +166,6 @@ static constexpr State getNextState(State CurrentState, char Ch) {
   }
 }
 
-static constexpr State stateDefault(char Ch) {
-  switch (Ch) {
-  case ' ':
-  case '\t':
-    return State::NormalSpace;
-
-  default:
-    return State::Normal;
-  }
-}
-
 static constexpr State stateNormal(char Ch) {
   switch (Ch) {
   case '/':
@@ -191,7 +178,7 @@ static constexpr State stateNormal(char Ch) {
     return State::ExpectURLPattern;
 
   default:
-    return stateDefault(Ch);
+    return State::Normal;
   }
 }
 
@@ -204,7 +191,7 @@ static constexpr State stateExpectCommentStart(char Ch) {
     return State::CommentStart;
 
   default:
-    return stateDefault(Ch);
+    return State::Normal;
   }
 }
 
@@ -214,7 +201,7 @@ static constexpr State stateExpectCommentEnd(char Ch) {
     return State::CommentEnd;
 
   default:
-    return stateDefault(Ch);
+    return State::Normal;
   }
 }
 
