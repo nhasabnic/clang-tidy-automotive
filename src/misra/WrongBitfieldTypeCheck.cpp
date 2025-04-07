@@ -7,7 +7,6 @@
 //===----------------------------------------------------------------------===//
 
 #include "WrongBitfieldTypeCheck.h"
-#include "Utils.h"
 #include "clang/AST/Decl.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
@@ -16,23 +15,13 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::misra {
 
 void WrongBitfieldTypeCheck::registerMatchers(MatchFinder *Finder) {
-  if (utils::isLanguageC90(getLangOpts())) {
-    Finder->addMatcher(
-        fieldDecl(allOf(isBitField(), unless(hasType(qualType(hasCanonicalType(
-                                          anyOf(asString("signed int"),
-                                                asString("unsigned int"))))))))
-            .bind("bitField"),
-        this);
-  } else {
-    Finder->addMatcher(
-        fieldDecl(
-            allOf(isBitField(),
-                  unless(hasType(qualType(hasCanonicalType(anyOf(
-                      asString("signed int"), asString("unsigned int")))))),
-                  unless(hasType(booleanType()))))
-            .bind("bitField"),
-        this);
-  }
+  Finder->addMatcher(
+      fieldDecl(allOf(isBitField(),
+                      unless(hasType(qualType(hasCanonicalType(anyOf(
+                          asString("signed int"), asString("unsigned int")))))),
+                      unless(hasType(booleanType()))))
+          .bind("bitField"),
+      this);
 }
 
 void WrongBitfieldTypeCheck::check(const MatchFinder::MatchResult &Result) {
