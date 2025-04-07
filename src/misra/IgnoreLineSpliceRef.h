@@ -21,13 +21,14 @@ public:
   using reference = char &;
 
   IgnoreLineSpliceRefIterator(llvm::StringRef Text, size_t Index)
-      : Text(Text), Index(Index) {
+      : Text(Text), PrevIndex(Index), Index(Index) {
     skipLineSplice();
   }
 
   char operator*() const { return Text[Index]; }
 
   IgnoreLineSpliceRefIterator &operator++() {
+    PrevIndex = Index;
     ++Index;
     skipLineSplice();
     return *this;
@@ -45,11 +46,58 @@ public:
 
   size_t position() const { return Index; }
 
+  size_t prevPosition() const { return PrevIndex; }
+
 private:
   void skipLineSplice() {
     while (Index + 1 < Text.size() && Text[Index] == '\\' &&
            Text[Index + 1] == '\n') {
       Index += 2;
+    }
+  }
+
+  llvm::StringRef Text;
+  size_t PrevIndex;
+  size_t Index;
+};
+
+class IgnoreLineSpliceRefReverseIterator {
+public:
+  using iterator_category = std::forward_iterator_tag;
+  using value_type = char;
+  using difference_type = std::ptrdiff_t;
+  using pointer = char *;
+  using reference = char &;
+
+  IgnoreLineSpliceRefReverseIterator(llvm::StringRef Text, size_t Index)
+      : Text(Text), Index(Index) {
+    skipLineSplice();
+  }
+
+  char operator*() const { return Text[Index]; }
+
+  IgnoreLineSpliceRefReverseIterator &operator--() {
+    --Index;
+    skipLineSplice();
+    return *this;
+  }
+
+  IgnoreLineSpliceRefReverseIterator operator--(int) {
+    IgnoreLineSpliceRefReverseIterator temp = *this;
+    --(*this);
+    return temp;
+  }
+
+  bool operator!=(const IgnoreLineSpliceRefReverseIterator &Other) const {
+    return Index != Other.Index;
+  }
+
+  size_t position() const { return Index; }
+
+private:
+  void skipLineSplice() {
+    while (Index > 0 && Text[Index] == '\\' && Text[Index - 1] == '\n') {
+      Index -= 2;
     }
   }
 
@@ -67,6 +115,14 @@ public:
 
   IgnoreLineSpliceRefIterator end() {
     return IgnoreLineSpliceRefIterator(Text, Text.size());
+  }
+
+  IgnoreLineSpliceRefReverseIterator rbegin() {
+    return IgnoreLineSpliceRefReverseIterator(Text, Text.size() - 1);
+  }
+
+  IgnoreLineSpliceRefReverseIterator rend() {
+    return IgnoreLineSpliceRefReverseIterator(Text, size_t(-1));
   }
 
 private:
