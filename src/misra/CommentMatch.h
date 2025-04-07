@@ -49,8 +49,9 @@ inline CommentMatch matchComment(StringRef CommentText) {
     }
 
     else if (PrevCh == '/' && Ch == '/') {
-      size_t Index = It.position();
-      return {Index, CommentText.size() - Index, CommentKind::SingleLine};
+      size_t StartIndex = It.position();
+      size_t Size = CommentText.size() - StartIndex;
+      return {StartIndex, Size, CommentKind::SingleLine};
     }
   }
   return {};
