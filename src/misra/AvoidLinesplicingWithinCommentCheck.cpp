@@ -7,6 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidLinesplicingWithinCommentCheck.h"
+#include "CommentMatch.h"
 
 namespace clang::tidy::misra {
 
@@ -16,14 +17,16 @@ bool AvoidLinesplicingWithinCommentCheck::InternalCommentHandler::HandleComment(
       Lexer::getSourceText(CharSourceRange::getCharRange(Comment),
                            PP.getSourceManager(), PP.getLangOpts());
 
-  if (CommentText.starts_with("//")) {
-    SourceLocation StartLoc = Comment.getBegin();
-    size_t Pos = 0;
+  CommentMatch Match = matchComment(CommentText);
 
-    while ((Pos = CommentText.find("\\\n", Pos)) != StringRef::npos) {
+  if (Match.isSingleLine()) {
+    SourceLocation StartLoc = Comment.getBegin();
+
+    for (size_t Pos = 0;
+         (Pos = CommentText.find("\\\n", Pos)) != StringRef::npos; Pos += 2) {
       SourceLocation LineSpliceLoc = StartLoc.getLocWithOffset(Pos);
+
       Check.diag(LineSpliceLoc, "avoid line-spliceing within a // comment");
-      Pos += 2;
     }
   }
   return false;
