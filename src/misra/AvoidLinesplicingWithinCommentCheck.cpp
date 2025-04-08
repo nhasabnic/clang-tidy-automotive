@@ -18,15 +18,33 @@ bool AvoidLinesplicingWithinCommentCheck::InternalCommentHandler::HandleComment(
                            PP.getSourceManager(), PP.getLangOpts());
 
   CommentMatch Match = matchComment(CommentText);
+  bool LineSpliceExist = false;
 
   if (Match.isSingleLine()) {
     SourceLocation StartLoc = Comment.getBegin();
 
-    for (size_t Pos = 0;
-         (Pos = CommentText.find("\\\n", Pos)) != StringRef::npos; Pos += 2) {
+    for (size_t Pos = 0; (Pos = CommentText.find("\\\n", Pos)) != StringRef::npos; Pos += 2) {
       SourceLocation LineSpliceLoc = StartLoc.getLocWithOffset(Pos);
 
-      Check.diag(LineSpliceLoc, "avoid line-spliceing within a // comment");
+      Check.diag(LineSpliceLoc, "avoid line-spliceing within a // comment")
+              << FixItHint::CreateRemoval(SourceRange(LineSpliceLoc, LineSpliceLoc.getLocWithOffset(1)));
+      LineSpliceExist = true;
+    }
+
+    if (LineSpliceExist) {
+      SourceLocation EndLoc = Comment.getEnd();
+
+      for (size_t Pos = 0; (Pos = CommentText.find("*/", Pos)) != StringRef::npos; Pos += 2) {
+        SourceLocation EndBlockCommentLoc = StartLoc.getLocWithOffset(Pos);
+  
+        Check.diag(EndBlockCommentLoc, "unexpected end of block comment")
+                << FixItHint::CreateRemoval(SourceRange(EndBlockCommentLoc, EndBlockCommentLoc.getLocWithOffset(2)));
+      }
+
+      Check.diag(StartLoc, "replace single-line comment with block comment")
+                 << FixItHint::CreateReplacement(SourceRange(StartLoc, StartLoc.getLocWithOffset(Match.Index)), "/*");
+      Check.diag(EndLoc, "replace single-line comment with block comment")
+                 << FixItHint::CreateInsertion(EndLoc, " */");
     }
   }
   return false;
