@@ -21,7 +21,8 @@ namespace clang::tidy::misra {
 class AvoidLinesplicingWithinCommentCheck : public ClangTidyCheck {
 public:
   AvoidLinesplicingWithinCommentCheck(StringRef Name, ClangTidyContext *Context)
-      : ClangTidyCheck(Name, Context), Handler(*this) {}
+      : ClangTidyCheck(Name, Context),
+        Handler(*this, Options.get("FixitEnabled", false)) {}
 
   void registerPPCallbacks(const SourceManager &SM, Preprocessor *PP,
                            Preprocessor *ModuleExpanderPP) override;
@@ -29,11 +30,13 @@ public:
 private:
   class InternalCommentHandler : public CommentHandler {
   public:
-    InternalCommentHandler(ClangTidyCheck &Check) : Check(Check) {}
+    InternalCommentHandler(ClangTidyCheck &Check, bool FixitEnabled)
+        : Check(Check), FixitEnabled(FixitEnabled) {}
     virtual bool HandleComment(Preprocessor &PP, SourceRange Comment) override;
 
   private:
     ClangTidyCheck &Check;
+    bool FixitEnabled;
   };
 
   InternalCommentHandler Handler;

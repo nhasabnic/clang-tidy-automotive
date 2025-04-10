@@ -27,13 +27,17 @@ bool AvoidLinesplicingWithinCommentCheck::InternalCommentHandler::HandleComment(
          (Pos = CommentText.find("\\\n", Pos)) != StringRef::npos; Pos += 2) {
       SourceLocation LineSpliceLoc = StartLoc.getLocWithOffset(Pos);
 
-      Check.diag(LineSpliceLoc, "avoid line-spliceing within a // comment")
-          << FixItHint::CreateRemoval(
-                 SourceRange(LineSpliceLoc, LineSpliceLoc.getLocWithOffset(1)));
+      if (!FixitEnabled) {
+        Check.diag(LineSpliceLoc, "avoid line-spliceing within a '//' comment");
+      } else {
+        Check.diag(LineSpliceLoc, "avoid line-spliceing within a '//' comment")
+            << FixItHint::CreateRemoval(
+                   SourceRange(LineSpliceLoc, LineSpliceLoc.getLocWithOffset(1)));
+      }
       LineSpliceExist = true;
     }
 
-    if (LineSpliceExist) {
+    if (FixitEnabled && LineSpliceExist) {
       SourceLocation EndLoc = Comment.getEnd();
 
       for (size_t Pos = 0;
