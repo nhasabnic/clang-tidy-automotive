@@ -16,9 +16,9 @@
 /\
 /\
 printf("chrismas tree");  Not compliant
-// CHECK-MESSAGES: :[[@LINE-4]]:2: warning: avoid line-spliceing within a '//' comment [misra-c2023-req-3.2]
-// CHECK-MESSAGES: :[[@LINE-4]]:2: warning: avoid line-spliceing within a '//' comment [misra-c2023-req-3.2]
-// CHECK-MESSAGES: :[[@LINE-4]]:2: warning: avoid line-spliceing within a '//' comment [misra-c2023-req-3.2]
+// CHECK-MESSAGES: :[[@LINE-4]]:2: warning: avoid line-spliceing within a '//' comment [misra-c2012-req-3.2]
+// CHECK-MESSAGES: :[[@LINE-4]]:2: warning: avoid line-spliceing within a '//' comment [misra-c2012-req-3.2]
+// CHECK-MESSAGES: :[[@LINE-4]]:2: warning: avoid line-spliceing within a '//' comment [misra-c2012-req-3.2]
 
 /* \
                           Compliant - block comment '/*' allows line splice
