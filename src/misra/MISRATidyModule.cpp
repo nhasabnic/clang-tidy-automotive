@@ -22,6 +22,7 @@
 #include "AvoidCommentWithinCommentCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
+#include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
 #include "AvoidOctalNumberCheck.h"
 #include "AvoidRestrictTypeCheck.h"
@@ -139,6 +140,8 @@ public:
     /* 7. Literals and constants */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2023-req-7.1");
+    CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
+        "misra-c2023-req-7.3");
 
     /* 8. Declarations and definitions */
     /* ------------------------------------------------------------- */
