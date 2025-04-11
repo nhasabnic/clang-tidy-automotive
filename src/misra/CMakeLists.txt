@@ -6,6 +6,7 @@ set(LLVM_LINK_COMPONENTS
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidBooleanInSwitchCheck.cpp
+  AvoidFunctionParameterModificationCheck.cpp
   AvoidLowercaseLiteralSuffixCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp

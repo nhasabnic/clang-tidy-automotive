@@ -20,6 +20,7 @@
 #include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidCommaOperatorCheck.h"
 #include "AvoidCommentWithinCommentCheck.h"
+#include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
 #include "AvoidLowercaseLiteralSuffixCheck.h"
@@ -220,6 +221,8 @@ public:
         "misra-c2023-man-17.3");
     CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
         "misra-c2023-req-17.7");
+    CheckFactories.registerCheck<AvoidFunctionParameterModificationCheck>(
+        "misra-c2023-adv-17.8");
     CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
 
     /* 18. Pointers and arrays */
