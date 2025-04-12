@@ -40,7 +40,7 @@ Feel free to open issues or pull requests if you'd like to contribute to this pr
 
 ## Copyright Notice and MISRA Compliance
 
-This project uses MISRA C metadata (such as rule IDs, and classification of rules into "req" (Required), "adv" (Advisory), and "man" (Mandatory) categories). However, the actual MISRA rules and text are not included in this repository as they are copyrighted by the MISRA organization.
+This project uses MISRA C metadata (such as rule IDs, and classification of rules into "req" (Required), "adv" (Advisory), and "man" (Mandatory) categories. However, the actual MISRA rules and text are not included in this repository as they are copyrighted by the MISRA organization.
 
 For more information, please refer to the official MISRA documentation.
 
