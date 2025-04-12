@@ -37,3 +37,11 @@ Move setup scripts to a Docker container for easier setup and environment manage
 Feel free to open issues or pull requests if you'd like to contribute to this project. Contributions are always welcome!
 
 **Note:** This project is not officially associated with MISRA or LLVM. It is an independent initiative to develop clang-tidy checks for MISRA C 2023 and MISRA C 2012. Any contributions or code changes are not officially endorsed by MISRA or LLVM.
+
+## Copyright Notice and MISRA Compliance
+
+This project uses MISRA C metadata (such as rule IDs) to implement checks and ensure compliance. However, the actual MISRA rules and text are not included in this repository as they are copyrighted by the MISRA organization.
+
+For more information, please refer to the official MISRA documentation.
+
+The goal of this project is to provide MISRA-compliant checks without directly reproducing copyrighted text. By using only metadata (e.g., rule IDs), this project aims to comply with licensing requirements and to facilitate future contributions to the LLVM project.
