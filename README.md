@@ -40,8 +40,8 @@ Feel free to open issues or pull requests if you'd like to contribute to this pr
 
 ## Copyright Notice and MISRA Compliance
 
-This project uses MISRA C metadata (such as rule IDs) to implement checks and ensure compliance. However, the actual MISRA rules and text are not included in this repository as they are copyrighted by the MISRA organization.
+This project uses MISRA C metadata (such as rule IDs, and classification of rules into "req" (Required), "adv" (Advisory), and "man" (Mandatory) categories) to implement checks and ensure compliance. However, the actual MISRA rules and text are not included in this repository, as they are copyrighted by the MISRA organization.
 
 For more information, please refer to the official MISRA documentation.
 
-The goal of this project is to provide MISRA-compliant checks without directly reproducing copyrighted text. By using only metadata (e.g., rule IDs), this project aims to comply with licensing requirements and to facilitate future contributions to the LLVM project.
+The goal of this project is to provide MISRA-compliant checks without directly reproducing copyrighted text. By using only metadata (e.g., rule IDs and classifications), this project aims to comply with licensing requirements and to facilitate future contributions to the LLVM project.
