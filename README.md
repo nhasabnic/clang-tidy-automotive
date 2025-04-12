@@ -22,7 +22,7 @@ To build clang-tidy with MISRA support, follow these steps:
    ./configure.sh
    ./build.sh
 
-   Note: The scripts will need to be adjusted to use a Docker container in the future. This is part of the TODO list.
+**Note:** The scripts will need to be adjusted to use a Docker container in the future. This is part of the TODO list.
 
 ## License
 
