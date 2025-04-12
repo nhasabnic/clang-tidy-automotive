@@ -17,6 +17,7 @@ To build clang-tidy with MISRA support, follow these steps:
    cd clang-tidy-misra
 
 2. Run the following setup scripts to build clang-tidy with MISRA support:
+   ```bash
    ./setup.sh
    ./configure.sh
    ./build.sh
