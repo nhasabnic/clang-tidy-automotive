@@ -101,10 +101,10 @@ public:
     /* Directive */
     /* ------------------------------------------------------------- */
 
-    /* 1. Standard environment */
+    /* 1. */
     /* ------------------------------------------------------------- */
 
-    /* Unused code */
+    /* 2. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
     CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
@@ -114,23 +114,23 @@ public:
     CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
         "misra-c2023-adv-2.8");
 
-    /* 3. Comments */
+    /* 3. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
         "misra-c2023-req-3.1");
     CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
         "misra-c2023-req-3.2");
 
-    /* 4. Character sets and lexical conventions */
+    /* 4. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
         "misra-c2023-req-4.1");
     /* req-4.2: -Wtrigraphs */
 
-    /* 5. Identifiers */
+    /* 5. */
     /* ------------------------------------------------------------- */
 
-    /* 6. Types */
+    /* 6. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2023-req-6.1");
     CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
@@ -138,13 +138,13 @@ public:
     CheckFactories.registerCheck<AvoidBitfieldsInUnionsCheck>(
         "misra-c2023-req-6.3");
 
-    /* 7. Literals and constants */
+    /* 7. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2023-req-7.1");
     CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
         "misra-c2023-req-7.3");
 
-    /* 8. Declarations and definitions */
+    /* 8. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
         "misra-c2023-req-8.2");
@@ -157,32 +157,32 @@ public:
     CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
         "misra-c2023-req-8.14");
 
-    /* 9. Initialization */
+    /* 9. */
     /* ------------------------------------------------------------- */
 
-    /* 10. The essential type model */
+    /* 10. */
     /* ------------------------------------------------------------- */
 
-    /* 11. Pointer type conversions */
+    /* 11. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
         "misra-c2023-req-11.2");
     CheckFactories.registerCheck<WrongNullPointerValueCheck>(
         "misra-c2023-req-11.9");
 
-    /* 11.10: Diagnostic error */
+    /* 11. */
 
-    /* 12. Expressions */
+    /* 12. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
         "misra-c2023-adv-12.3");
 
-    /* 13. Side effects */
+    /* 13. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
         "misra-c2023-adv-13.4");
 
-    /* 14. Control statement expressions */
+    /* 14. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
         "misra-c2023-req-14.1");
@@ -190,7 +190,7 @@ public:
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "misra-c2023-req-14.4");
 
-    /* 15. Control Flow */
+    /* 15. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2023-adv-15.1");
     CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2023-req-15.2");
@@ -199,7 +199,7 @@ public:
     CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2023-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("misra-c2023-req-15.7");
 
-    /* 16. Switch Statements */
+    /* 16. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2023-req-16.4");
@@ -211,7 +211,7 @@ public:
     /* 16.2 Inspiration: m
      * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
 
-    /* 17. Functions */
+    /* 17. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidStdargHeaderCheck>(
         "misra-c2023-req-17.1");
@@ -225,23 +225,23 @@ public:
         "misra-c2023-adv-17.8");
     CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
 
-    /* 18. Pointers and arrays */
+    /* 18. */
     /* ------------------------------------------------------------- */
     /* 18.7 m Inspiration:
        varDecl(allOf(hasType(arrayType(incompleteArrayType())))) 18.8 m
        Inspiration:  varDecl(allOf(hasType(arrayType(incompleteArrayType()))))
 */
 
-    /* 19. Overlapping Storage */
+    /* 19. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidUnionCheck>("misra-c2023-adv-19.2");
 
-    /* 20. Preprocessing directives */
+    /* 20. */
     /* ------------------------------------------------------------- */
     /* 20.3 clang-native: clang-diagnostic-error */
     CheckFactories.registerCheck<AvoidUndefCheck>("misra-c2023-adv-20.5");
 
-    /* 21. Standard libraries */
+    /* 21. */
     /* ------------------------------------------------------------- */
     // CheckFactories.registerCheck<AvoidStdlibMemoryCheck>(
     //     "misra-c2023-req-21.3");
@@ -265,10 +265,10 @@ class MISRAC2012Module : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
-    /* 1. Standard environment */
+    /* 1. */
     /* ------------------------------------------------------------- */
 
-    /* Unused code */
+    /* 2. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2012-adv-2.3");
     CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2012-adv-2.5");
@@ -276,31 +276,31 @@ public:
     CheckFactories.registerCheck<misc::UnusedParametersCheck>(
         "misra-c2012-adv-2.7");
 
-    /* 3. Comments */
+    /* 3. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
         "misra-c2012-req-3.1");
     CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
         "misra-c2012-req-3.2");
 
-    /* 4. Character sets and lexical conventions */
+    /* 4. */
     /* ------------------------------------------------------------- */
     /* req-4.2: -Wtrigraphs */
 
-    /* 5. Identifiers */
+    /* 5. */
     /* ------------------------------------------------------------- */
 
-    /* 6. Types */
+    /* 6. */
     /* ------------------------------------------------------------- */
     /* 6.1. TODO */
     CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
         "misra-c2012-req-6.2");
 
-    /* 7. Literals and constants */
+    /* 7. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2012-req-7.1");
 
-    /* 8. Declarations and definitions */
+    /* 8. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
     /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
@@ -308,34 +308,34 @@ public:
     CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
         "misra-c2012-req-8.14");
 
-    /* 9. Initialization */
+    /* 9. */
     /* ------------------------------------------------------------- */
 
-    /* 10. The essential type model */
+    /* 10. */
     /* ------------------------------------------------------------- */
 
-    /* 11. Pointer type conversions */
+    /* 11. */
     /* ------------------------------------------------------------- */
     /* 11.10: Diagnostic error */
 
-    /* 12. Expressions */
+    /* 12. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
         "misra-c2012-adv-12.3");
 
-    /* 13. Side effects */
+    /* 13. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
         "misra-c2012-adv-13.4");
 
-    /* 14. Control statement expressions */
+    /* 14. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
         "misra-c2012-req-14.1");
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "misra-c2012-req-14.4");
 
-    /* 15. Control Flow */
+    /* 15. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2012-adv-15.1");
     CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2012-req-15.2");
@@ -344,7 +344,7 @@ public:
     CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2012-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("misra-c2012-req-15.7");
 
-    /* 16. Switch Statements */
+    /* 16. */
     /* ------------------------------------------------------------- */
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2012-req-16.4");
