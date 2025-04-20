@@ -11,7 +11,7 @@
         {
           "type": "Directive",
           "id": "1.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "Not supported"
         }
@@ -24,7 +24,7 @@
         {
           "type": "Directive",
           "id": "2.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -37,7 +37,7 @@
         {
           "type": "Directive",
           "id": "3.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "Not supported"
         }
@@ -50,105 +50,105 @@
         {
           "type": "Directive",
           "id": "4.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "Not supported"
         },
         {
           "type": "Directive",
           "id": "4.2",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.6",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.8",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.9",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.10",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.11",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.12",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.13",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.14",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "4.15",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -161,21 +161,21 @@
         {
           "type": "Directive",
           "id": "5.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "5.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Directive",
           "id": "5.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -188,35 +188,35 @@
         {
           "type": "Rule",
           "id": "1.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "1.2",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "1.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "Not supported"
         },
         {
           "type": "Rule",
           "id": "1.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "1.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         }
@@ -229,56 +229,56 @@
         {
           "type": "Rule",
           "id": "2.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "2.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "2.3",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         },
         {
           "type": "Rule",
           "id": "2.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Partial implemented"
         },
         {
           "type": "Rule",
           "id": "2.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         },
         {
           "type": "Rule",
           "id": "2.6",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         },
         {
           "type": "Rule",
           "id": "2.7",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         },
         {
           "type": "Rule",
           "id": "2.8",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         }
@@ -291,14 +291,14 @@
         {
           "type": "Rule",
           "id": "3.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "implemented"
         },
         {
           "type": "Rule",
           "id": "3.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "implemented"
         }
@@ -311,14 +311,14 @@
         {
           "type": "Rule",
           "id": "4.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "implemented"
         },
         {
           "type": "Rule",
           "id": "4.2",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -331,63 +331,63 @@
         {
           "type": "Rule",
           "id": "5.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "5.9",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -400,21 +400,21 @@
         {
           "type": "Rule",
           "id": "6.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "6.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "6.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -427,42 +427,42 @@
         {
           "type": "Rule",
           "id": "7.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "7.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "7.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "7.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "7.5",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "7.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         }
@@ -475,119 +475,119 @@
         {
           "type": "Rule",
           "id": "8.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.7",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.9",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.10",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.11",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.12",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.13",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.14",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.15",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.16",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "8.17",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -600,49 +600,49 @@
         {
           "type": "Rule",
           "id": "9.1",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "9.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "9.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "9.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "9.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "9.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "9.7",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -655,56 +655,56 @@
         {
           "type": "Rule",
           "id": "10.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "10.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -717,70 +717,70 @@
         {
           "type": "Rule",
           "id": "11.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.9",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "11.10",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -793,42 +793,42 @@
         {
           "type": "Rule",
           "id": "12.1",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "12.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "12.3",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         },
         {
           "type": "Rule",
           "id": "12.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "12.5",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "12.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -841,42 +841,42 @@
         {
           "type": "Rule",
           "id": "13.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "13.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "13.3",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "13.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "13.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "13.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -889,28 +889,28 @@
         {
           "type": "Rule",
           "id": "14.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "14.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "14.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "14.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -923,49 +923,49 @@
         {
           "type": "Rule",
           "id": "15.1",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "Implemented"
         },
         {
           "type": "Rule",
           "id": "15.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "15.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "15.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "15.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "15.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "15.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -978,49 +978,49 @@
         {
           "type": "Rule",
           "id": "16.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "16.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "16.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "16.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "16.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "16.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "16.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -1033,91 +1033,91 @@
         {
           "type": "Rule",
           "id": "17.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.3",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.4",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.6",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.8",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.9",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.10",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.11",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.12",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "17.13",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -1130,70 +1130,70 @@
         {
           "type": "Rule",
           "id": "18.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.4",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.9",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "18.10",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         }
@@ -1206,14 +1206,14 @@
         {
           "type": "Rule",
           "id": "19.1",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "19.2",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -1226,98 +1226,98 @@
         {
           "type": "Rule",
           "id": "20.1",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.9",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.10",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.11",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.12",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.13",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "20.14",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         }
@@ -1330,182 +1330,182 @@
         {
           "type": "Rule",
           "id": "21.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.5",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.9",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.10",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.11",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.12",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.13",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.14",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.15",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.16",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.17",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.18",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.19",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.20",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.21",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.22",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.23",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.24",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.25",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "21.26",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -1518,140 +1518,140 @@
         {
           "type": "Rule",
           "id": "22.1",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.2",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.3",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.4",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.5",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.6",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.7",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.9",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.10",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.11",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.12",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.13",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.14",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.15",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.16",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.17",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.18",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.19",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "22.20",
-          "level": "Mandatory",
+          "category": "Mandatory",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
@@ -1664,56 +1664,56 @@
         {
           "type": "Rule",
           "id": "23.1",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.2",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.3",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.4",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C90", "C99", "C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.5",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.6",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.7",
-          "level": "Advisory",
+          "category": "Advisory",
           "languages": ["C11"],
           "status": "To be analyzed"
         },
         {
           "type": "Rule",
           "id": "23.8",
-          "level": "Required",
+          "category": "Required",
           "languages": ["C11"],
           "status": "To be analyzed"
         }
