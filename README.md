@@ -40,6 +40,6 @@ Feel free to open issues or pull requests if you'd like to contribute to this pr
 
 ## Copyright Notice and MISRA Compliance
 
-This project uses MISRA C 2023 and MISRA C 2012 metadata such as rule IDs, rule categories and which languages the rule applies to (required for verification purpose). However, the actual MISRA headings and text are not included in this repository as they are copyrighted by the MISRA organization. 
+This project uses MISRA C 2023 and MISRA C 2012 metadata such as rule IDs, rule categories and the languages the rule applies to (required for verification purpose). However, the actual MISRA headings and text are not included in this repository as they are copyrighted by the MISRA organization. 
 
 The goal of this project is to provide MISRA-compliant checks without directly reproducing copyrighted headings or texts. By using only metadata this project aims make it possible to contribute to the LLVM project in the future.
