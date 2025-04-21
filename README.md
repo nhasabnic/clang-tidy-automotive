@@ -8,7 +8,9 @@ checks as possible to help developers adhere to MISRA coding standards.
 
 To build clang-tidy with MISRA support, follow these steps:
 
-### Prerequisites - Clang 19 (or compatible version)
+### Prerequisites 
+
+Clang 19 (or compatible version)
 
 ### Setup Instructions
 
@@ -49,10 +51,12 @@ by MISRA or LLVM.
 ## Copyright Notice and MISRA Compliance
 
 This project uses MISRA C 2023 and MISRA C 2012 metadata such as rule
-IDs, rule categories and the languages the rule applies to (required for
-verification purpose). However, the actual MISRA headings and text are not
-included in this repository as they are copyrighted by the MISRA organization.
+IDs, rule categories and the programming language versions the rule applies 
+to (required for verification purpose). However, the actual MISRA headings 
+and text are not included in this repository as they are copyrighted by the 
+MISRA organization.
 
 The goal of this project is to provide MISRA-compliant checks without directly
 reproducing copyrighted headings or texts. By using only metadata this
-project aims make it possible to contribute to the LLVM project in the future.
+project aims to make it possible to contribute to the LLVM project in the 
+future.
