@@ -1,4 +1,3 @@
-
 //===--- MISRATidyModule.cpp - clang-tidy --------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
@@ -239,7 +238,6 @@ public:
 
     /* 20.
     ---------------------------------------------------------------- */
-    /* 20.3 clang-native: clang-diagnostic-error */
     CheckFactories.registerCheck<AvoidUndefCheck>("misra-c2023-adv-20.5");
 
     /* 21.
