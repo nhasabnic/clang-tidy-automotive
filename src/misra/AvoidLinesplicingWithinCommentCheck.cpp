@@ -31,8 +31,8 @@ bool AvoidLinesplicingWithinCommentCheck::InternalCommentHandler::HandleComment(
         Check.diag(LineSpliceLoc, "avoid line-spliceing within a '//' comment");
       } else {
         Check.diag(LineSpliceLoc, "avoid line-spliceing within a '//' comment")
-            << FixItHint::CreateRemoval(
-                   SourceRange(LineSpliceLoc, LineSpliceLoc.getLocWithOffset(1)));
+            << FixItHint::CreateRemoval(SourceRange(
+                   LineSpliceLoc, LineSpliceLoc.getLocWithOffset(1)));
       }
       LineSpliceExist = true;
     }

@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidMacroNamedAsCkeywordCheck.h"
-#include "CKeywordSet.h"
+#include "utils/CKeywordSet.h"
 #include "clang/Lex/PPCallbacks.h"
 #include "clang/Lex/Preprocessor.h"
 using namespace clang::ast_matchers;

@@ -11,6 +11,8 @@
 
 namespace clang::tidy::misra {
 
+namespace {
+
 class UnusedMacroPPCallbacks : public PPCallbacks {
 public:
   explicit UnusedMacroPPCallbacks(UnusedMacroCheck &Check,
@@ -53,6 +55,8 @@ private:
   const SourceManager &SM;
   llvm::StringMap<std::pair<bool, SourceLocation>> MacroUsage;
 };
+
+} // anonymous namespace
 
 void UnusedMacroCheck::registerPPCallbacks(const SourceManager &SM,
                                            Preprocessor *PP,
