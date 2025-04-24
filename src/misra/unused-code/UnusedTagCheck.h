@@ -1,4 +1,4 @@
-//===--- UnusedLabelCheck.h - clang-tidy ------------------------*- C++ -*-===//
+//===--- UnusedTagCheck.h - clang-tidy --------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,20 +6,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDLABELCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDLABELCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDTAGCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDTAGCHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 
 namespace clang::tidy::misra {
 
 /// FIXME: Write a short description.
 ///
 /// For the user-facing documentation see:
-/// http://clang.llvm.org/extra/clang-tidy/checks/misra/Standard-C.html
-class UnusedLabelCheck : public ClangTidyCheck {
+/// http://clang.llvm.org/extra/clang-tidy/checks/misra/Unused-Tag.html
+class UnusedTagCheck : public ClangTidyCheck {
 public:
-  UnusedLabelCheck(StringRef Name, ClangTidyContext *Context)
+  UnusedTagCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
@@ -27,4 +27,4 @@ public:
 
 } // namespace clang::tidy::misra
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_STANDARDCLANGUAGECHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UNUSEDTAGCHECK_H

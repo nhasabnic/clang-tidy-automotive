@@ -51,13 +51,14 @@ add_clang_library(clangTidyMISRAModule
   UniqueEnumValuesCheck.cpp
   UnstructuredSwitchCaseCheck.cpp
   UnterminatedEscapeSequenceCheck.cpp
-  UnusedLabelCheck.cpp
-  UnusedMacroCheck.cpp
-  UnusedObjectDefinitionCheck.cpp
-  UnusedTagCheck.cpp
-  UnusedTypeCheck.cpp
   WrongNullPointerValueCheck.cpp
   WrongOrderDefaultInSwitchStatementCheck.cpp
+  unused-code/UnusedLabelCheck.cpp
+  unused-code/UnusedMacroCheck.cpp
+  unused-code/UnusedObjectDefinitionCheck.cpp
+  unused-code/UnusedTagCheck.cpp
+  unused-code/UnusedTypeCheck.cpp
+  utils/CKeywordSet.cpp
 
   LINK_LIBS
   clangTidy
@@ -68,12 +69,6 @@ add_clang_library(clangTidyMISRAModule
   DEPENDS
   ClangDriverOptions
   )
-
-add_subdirectory(utils)
-
-target_sources(clangTidyMISRAModule PRIVATE
-    $<TARGET_OBJECTS:MISRAUtils>
-)
 
 clang_target_link_libraries(clangTidyMISRAModule
   PRIVATE
