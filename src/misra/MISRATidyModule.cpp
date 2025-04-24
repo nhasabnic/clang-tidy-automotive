@@ -23,6 +23,7 @@
 #include "AvoidGotoCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
 #include "AvoidLowercaseLiteralSuffixCheck.h"
+#include "AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
 #include "AvoidOctalNumberCheck.h"
 #include "AvoidRestrictTypeCheck.h"
@@ -87,6 +88,8 @@ public:
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
     CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>(
         "misra-x-req-16.2");
+    CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
+        "misra-x-req-20.4");
   }
 };
 

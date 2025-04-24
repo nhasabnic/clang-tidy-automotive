@@ -8,6 +8,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidBooleanInSwitchCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
   AvoidLowercaseLiteralSuffixCheck.cpp
+  AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
   AvoidBitfieldsInUnionsCheck.cpp
@@ -22,6 +23,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
+  CKeywordSet.cpp
   FunctionDeclarationMismatchCheck.cpp
   WrongBitfieldTypeCheck.cpp
   ImplicitFunctionDeclCheck.cpp
