@@ -23,7 +23,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
-  CKeywordSet.cpp
   FunctionDeclarationMismatchCheck.cpp
   WrongBitfieldTypeCheck.cpp
   ImplicitFunctionDeclCheck.cpp
@@ -69,6 +68,12 @@ add_clang_library(clangTidyMISRAModule
   DEPENDS
   ClangDriverOptions
   )
+
+add_subdirectory(utils)
+
+target_sources(clangTidyMISRAModule PRIVATE
+    $<TARGET_OBJECTS:MISRAUtils>
+)
 
 clang_target_link_libraries(clangTidyMISRAModule
   PRIVATE
