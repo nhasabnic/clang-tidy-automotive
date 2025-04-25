@@ -15,15 +15,15 @@
 
 namespace clang::tidy::misra {
 
-void UnusedCodeModule::addCheckFactories(ClangTidyCheckFactories &Factories) {
+void UnusedCodeModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
   CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
   CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
-  CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-      "misra-c2023-adv-2.7");
+  //CheckFactories.registerCheck<misc::UnusedParametersCheck>(
+  //    "misra-c2023-adv-2.7");
   CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
       "misra-c2023-adv-2.8");
 
@@ -32,12 +32,13 @@ void UnusedCodeModule::addCheckFactories(ClangTidyCheckFactories &Factories) {
   CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2012-adv-2.3");
   CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2012-adv-2.5");
   CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2012-adv-2.6");
-  CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-      "misra-c2012-adv-2.7");
+  //CheckFactories.registerCheck<misc::UnusedParametersCheck>(
+  //    "misra-c2012-adv-2.7");
 
   /* Experimental 
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
+
 }
 
 } // namespace clang::tidy::misra

@@ -15,6 +15,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
   comments/AvoidLinesplicingWithinCommentCheck.cpp
+  comments/CommentsModule.cpp
   AvoidOctalNumberCheck.cpp
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp

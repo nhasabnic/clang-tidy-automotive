@@ -60,6 +60,7 @@
 #include "WrongBitfieldTypeCheck.h"
 #include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
+#include "comments/CommentsModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -104,6 +105,7 @@ public:
     ---------------------------------------------------------------- */
 
     UnusedCodeModule::addCheckFactories(CheckFactories);
+    CommentsModule::addCheckFactories(CheckFactories);
 
     /* 3.
     ---------------------------------------------------------------- */
@@ -265,12 +267,6 @@ public:
     /* 2.
     ---------------------------------------------------------------- */
 
-    /* 3.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
-        "misra-c2012-req-3.1");
-    CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
-        "misra-c2012-req-3.2");
 
     /* 4.
     ---------------------------------------------------------------- */
