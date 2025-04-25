@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "UnterminatedEscapeSequenceCheck.h"
-#include "TokenRange.h"
+#include "../TokenRange.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 #include "llvm/Support/Regex.h"
 

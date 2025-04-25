@@ -3,6 +3,7 @@ set(LLVM_LINK_COMPONENTS
   support
   )
 
+add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comments)
 add_subdirectory(decls-and-defs)
 add_subdirectory(types)
@@ -45,7 +46,6 @@ add_clang_library(clangTidyMISRAModule
   MultipleReturnStmtCheck.cpp
   PreprocessorFlowCheck.cpp
   UnstructuredSwitchCaseCheck.cpp
-  UnterminatedEscapeSequenceCheck.cpp
   WrongNullPointerValueCheck.cpp
   WrongOrderDefaultInSwitchStatementCheck.cpp
 
@@ -55,6 +55,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMiscModule
   clangTidyCERTModule
 
+  clangTidyMISRACharSetsAndLexicalConvsModule
   clangTidyMISRACommentsModule
   clangTidyMISRADeclsAndDefsModule
   clangTidyMISRATypesModule

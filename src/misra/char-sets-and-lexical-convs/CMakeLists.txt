@@ -1,0 +1,5 @@
+
+add_clang_library(clangTidyMISRACharSetsAndLexicalConvsModule STATIC
+  CharSetsAndLexicalConvsModule.cpp
+  UnterminatedEscapeSequenceCheck.cpp
+)

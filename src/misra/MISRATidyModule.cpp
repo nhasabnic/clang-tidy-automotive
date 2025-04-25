@@ -46,10 +46,10 @@
 #include "NoReturnVoidCheck.h"
 #include "PreprocessorFlowCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
-#include "UnterminatedEscapeSequenceCheck.h"
 #include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
 
+#include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
 #include "decls-and-defs/DeclsAndDefsModule.h"
 #include "types/TypesModule.h"
@@ -79,20 +79,11 @@ public:
     /* MISRA C 2023                                                  */
     /* ------------------------------------------------------------- */
 
+    CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
     CommentsModule::addCheckFactories(CheckFactories);
     DeclsAndDefsModule::addCheckFactories(CheckFactories);
     TypesModule::addCheckFactories(CheckFactories);
     UnusedCodeModule::addCheckFactories(CheckFactories);
-
-    /* 4.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-        "misra-c2023-req-4.1");
-    /* req-4.2: -Wtrigraphs */
-
-    /* 5.
-    ---------------------------------------------------------------- */
-
 
     /* 7.
     ---------------------------------------------------------------- */
@@ -206,21 +197,6 @@ public:
 
     /* Rules
     ================================================================ */
-
-    /* 1.
-    ---------------------------------------------------------------- */
-
-    /* 2.
-    ---------------------------------------------------------------- */
-
-
-    /* 4.
-    ---------------------------------------------------------------- */
-    /* req-4.2: -Wtrigraphs */
-
-    /* 5.
-    ---------------------------------------------------------------- */
-
 
     /* 7.
     ---------------------------------------------------------------- */
