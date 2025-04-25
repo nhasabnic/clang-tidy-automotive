@@ -3,6 +3,9 @@ set(LLVM_LINK_COMPONENTS
   support
   )
 
+add_subdirectory(comments)
+add_subdirectory(unused-code)
+
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidBooleanInSwitchCheck.cpp
@@ -14,8 +17,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
-  comments/AvoidLinesplicingWithinCommentCheck.cpp
-  comments/CommentsModule.cpp
   AvoidOctalNumberCheck.cpp
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
@@ -38,7 +39,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidSignedSingleBitFieldsCheck.cpp
   AvoidUndefCheck.cpp
   AvoidUnionCheck.cpp
-  comments/AvoidCommentWithinCommentCheck.cpp
   ExitCheck.cpp
   ForwardGotoLabelCheck.cpp
   MISRATidyModule.cpp
@@ -54,12 +54,6 @@ add_clang_library(clangTidyMISRAModule
   UnterminatedEscapeSequenceCheck.cpp
   WrongNullPointerValueCheck.cpp
   WrongOrderDefaultInSwitchStatementCheck.cpp
-  unused-code/UnusedCodeModule.cpp
-  unused-code/UnusedLabelCheck.cpp
-  unused-code/UnusedMacroCheck.cpp
-  unused-code/UnusedObjectDefinitionCheck.cpp
-  unused-code/UnusedTagCheck.cpp
-  unused-code/UnusedTypeCheck.cpp
   utils/CKeywordSet.cpp
 
   LINK_LIBS
@@ -67,6 +61,9 @@ add_clang_library(clangTidyMISRAModule
   clangTidyUtils
   clangTidyMiscModule
   clangTidyCERTModule
+
+  clangTidyMISRACommentsModule
+  clangTidyMISRAUnusedCodeModule
 
   DEPENDS
   ClangDriverOptions
