@@ -23,7 +23,6 @@
 #include "AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
 #include "AvoidOctalNumberCheck.h"
-#include "AvoidRestrictTypeCheck.h"
 #include "AvoidSetjmpHeaderCheck.h"
 #include "AvoidSignalHeaderCheck.h"
 #include "AvoidStdargHeaderCheck.h"
@@ -34,7 +33,6 @@
 #include "AvoidstdlibsystemcallCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
-#include "FunctionDeclarationMismatchCheck.h"
 #include "ImplicitFunctionDeclCheck.h"
 #include "ImplicitIntCheck.h"
 #include "InvariantControlCheck.h"
@@ -42,21 +40,18 @@
 #include "MissingCompoundCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
-#include "MissingExternalArraySizeCheck.h"
 #include "MissingReturnValueHandlingCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoReturnVoidCheck.h"
 #include "PreprocessorFlowCheck.h"
-#include "StaticInlineCheck.h"
-#include "UncompleteFunctionPrototypeCheck.h"
-#include "UniqueEnumValuesCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
 #include "UnterminatedEscapeSequenceCheck.h"
 #include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
 
 #include "comments/CommentsModule.h"
+#include "decls-and-defs/DeclsAndDefsModule.h"
 #include "types/TypesModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -85,6 +80,7 @@ public:
     /* ------------------------------------------------------------- */
 
     CommentsModule::addCheckFactories(CheckFactories);
+    DeclsAndDefsModule::addCheckFactories(CheckFactories);
     TypesModule::addCheckFactories(CheckFactories);
     UnusedCodeModule::addCheckFactories(CheckFactories);
 
@@ -104,18 +100,6 @@ public:
     CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
         "misra-c2023-req-7.3");
 
-    /* 8.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
-        "misra-c2023-req-8.2");
-    CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
-        "misra-c2023-req-8.3");
-    CheckFactories.registerCheck<StaticInlineCheck>("misra-c2023-req-8.10");
-    CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
-        "misra-c2023-adv-8.11");
-    CheckFactories.registerCheck<UniqueEnumValuesCheck>("misra-c2023-req-8.12");
-    CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
-        "misra-c2023-req-8.14");
 
     /* 9.
     ---------------------------------------------------------------- */
@@ -241,17 +225,6 @@ public:
     /* 7.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2012-req-7.1");
-
-    /* 8.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
-    /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
-     * hasExternalFormalLinkage())) */
-    CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
-        "misra-c2012-req-8.14");
-
-    /* 9.
-    ---------------------------------------------------------------- */
 
     /* 10.
     ---------------------------------------------------------------- */

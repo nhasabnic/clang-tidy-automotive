@@ -4,6 +4,7 @@ set(LLVM_LINK_COMPONENTS
   )
 
 add_subdirectory(comments)
+add_subdirectory(decls-and-defs)
 add_subdirectory(types)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
@@ -23,14 +24,11 @@ add_clang_library(clangTidyMISRAModule
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
   AvoidAtomicVoidPointerCheck.cpp
-  AvoidRestrictTypeCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
-  FunctionDeclarationMismatchCheck.cpp
   ImplicitFunctionDeclCheck.cpp
   ImplicitIntCheck.cpp
   InvariantControlCheck.cpp
-  MissingExternalArraySizeCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
   MissingBreakInSwitchCheck.cpp
   MissingReturnValueHandlingCheck.cpp
@@ -46,9 +44,6 @@ add_clang_library(clangTidyMISRAModule
   MissingElseCheck.cpp
   MultipleReturnStmtCheck.cpp
   PreprocessorFlowCheck.cpp
-  StaticInlineCheck.cpp
-  UncompleteFunctionPrototypeCheck.cpp
-  UniqueEnumValuesCheck.cpp
   UnstructuredSwitchCaseCheck.cpp
   UnterminatedEscapeSequenceCheck.cpp
   WrongNullPointerValueCheck.cpp
@@ -61,6 +56,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyCERTModule
 
   clangTidyMISRACommentsModule
+  clangTidyMISRADeclsAndDefsModule
   clangTidyMISRATypesModule
   clangTidyMISRAUnusedCodeModule
   clangTidyMISRAUtils
