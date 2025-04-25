@@ -14,7 +14,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
-  AvoidLinesplicingWithinCommentCheck.cpp
+  comments/AvoidLinesplicingWithinCommentCheck.cpp
   AvoidOctalNumberCheck.cpp
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
@@ -37,7 +37,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidSignedSingleBitFieldsCheck.cpp
   AvoidUndefCheck.cpp
   AvoidUnionCheck.cpp
-  AvoidCommentWithinCommentCheck.cpp
+  comments/AvoidCommentWithinCommentCheck.cpp
   ExitCheck.cpp
   ForwardGotoLabelCheck.cpp
   MISRATidyModule.cpp

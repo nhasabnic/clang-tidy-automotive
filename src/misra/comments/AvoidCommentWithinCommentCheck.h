@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDCOMMENTWITHINCOMMENTCHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDCOMMENTWITHINCOMMENTCHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 #include "clang/Lex/Preprocessor.h"
 #include "llvm/ADT/StringSet.h"
 

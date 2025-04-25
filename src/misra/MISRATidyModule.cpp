@@ -18,10 +18,10 @@
 #include "AvoidBitfieldsInUnionsCheck.h"
 #include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidCommaOperatorCheck.h"
-#include "AvoidCommentWithinCommentCheck.h"
+#include "comments/AvoidCommentWithinCommentCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
-#include "AvoidLinesplicingWithinCommentCheck.h"
+#include "comments/AvoidLinesplicingWithinCommentCheck.h"
 #include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
@@ -57,14 +57,10 @@
 #include "UniqueEnumValuesCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
 #include "UnterminatedEscapeSequenceCheck.h"
-#include "unused-code/UnusedLabelCheck.h"
-#include "unused-code/UnusedMacroCheck.h"
-#include "unused-code/UnusedObjectDefinitionCheck.h"
-#include "unused-code/UnusedTagCheck.h"
-#include "unused-code/UnusedTypeCheck.h"
 #include "WrongBitfieldTypeCheck.h"
 #include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
+#include "unused-code/MISRAUnusedCode.h"
 
 // using namespace clang::ast_matchers;
 
@@ -111,13 +107,6 @@ public:
 
     /* 2.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
-    CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
-    CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
-    CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-        "misra-c2023-adv-2.7");
-    CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
-        "misra-c2023-adv-2.8");
 
     /* 3.
     ---------------------------------------------------------------- */
@@ -278,11 +267,6 @@ public:
 
     /* 2.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2012-adv-2.3");
-    CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2012-adv-2.5");
-    CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2012-adv-2.6");
-    CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-        "misra-c2012-adv-2.7");
 
     /* 3.
     ---------------------------------------------------------------- */
