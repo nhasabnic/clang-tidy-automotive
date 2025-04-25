@@ -3,9 +3,10 @@ set(LLVM_LINK_COMPONENTS
   support
   )
 
-add_subdirectory(utils)
 add_subdirectory(comments)
+add_subdirectory(types)
 add_subdirectory(unused-code)
+add_subdirectory(utils)
 
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
@@ -15,7 +16,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
-  AvoidBitfieldsInUnionsCheck.cpp
   AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
   AvoidOctalNumberCheck.cpp
@@ -27,7 +27,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
   FunctionDeclarationMismatchCheck.cpp
-  WrongBitfieldTypeCheck.cpp
   ImplicitFunctionDeclCheck.cpp
   ImplicitIntCheck.cpp
   InvariantControlCheck.cpp
@@ -37,7 +36,6 @@ add_clang_library(clangTidyMISRAModule
   MissingReturnValueHandlingCheck.cpp
   NoReturnVoidCheck.cpp
   AtoXCheck.cpp
-  AvoidSignedSingleBitFieldsCheck.cpp
   AvoidUndefCheck.cpp
   AvoidUnionCheck.cpp
   ExitCheck.cpp
@@ -62,9 +60,10 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMiscModule
   clangTidyCERTModule
 
-  clangTidyMISRAUtils
   clangTidyMISRACommentsModule
+  clangTidyMISRATypesModule
   clangTidyMISRAUnusedCodeModule
+  clangTidyMISRAUtils
 
   DEPENDS
   ClangDriverOptions

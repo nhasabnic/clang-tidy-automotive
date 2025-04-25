@@ -15,13 +15,10 @@
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
 #include "AvoidAtomicVoidPointerCheck.h"
-#include "AvoidBitfieldsInUnionsCheck.h"
 #include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidCommaOperatorCheck.h"
-#include "comments/AvoidCommentWithinCommentCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
-#include "comments/AvoidLinesplicingWithinCommentCheck.h"
 #include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
@@ -29,7 +26,6 @@
 #include "AvoidRestrictTypeCheck.h"
 #include "AvoidSetjmpHeaderCheck.h"
 #include "AvoidSignalHeaderCheck.h"
-#include "AvoidSignedSingleBitFieldsCheck.h"
 #include "AvoidStdargHeaderCheck.h"
 #include "AvoidStdlibMemoryCheck.h"
 #include "AvoidStdlibRandCheck.h"
@@ -57,11 +53,11 @@
 #include "UniqueEnumValuesCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
 #include "UnterminatedEscapeSequenceCheck.h"
-#include "WrongBitfieldTypeCheck.h"
 #include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
 
 #include "comments/CommentsModule.h"
+#include "types/TypesModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -88,24 +84,9 @@ public:
     /* MISRA C 2023                                                  */
     /* ------------------------------------------------------------- */
 
-    /* Directive
-    ================================================================ */
-
-    /* Rules
-    ================================================================ */
-
-    /* 1.
-    ---------------------------------------------------------------- */
-
-    UnusedCodeModule::addCheckFactories(CheckFactories);
     CommentsModule::addCheckFactories(CheckFactories);
-
-    /* 3.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
-        "misra-c2023-req-3.1");
-    CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
-        "misra-c2023-req-3.2");
+    TypesModule::addCheckFactories(CheckFactories);
+    UnusedCodeModule::addCheckFactories(CheckFactories);
 
     /* 4.
     ---------------------------------------------------------------- */
@@ -116,13 +97,6 @@ public:
     /* 5.
     ---------------------------------------------------------------- */
 
-    /* 6.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2023-req-6.1");
-    CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
-        "misra-c2023-req-6.2");
-    CheckFactories.registerCheck<AvoidBitfieldsInUnionsCheck>(
-        "misra-c2023-req-6.3");
 
     /* 7.
     ---------------------------------------------------------------- */
@@ -263,11 +237,6 @@ public:
     /* 5.
     ---------------------------------------------------------------- */
 
-    /* 6.
-    ---------------------------------------------------------------- */
-    /* 6.1. TODO */
-    CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
-        "misra-c2012-req-6.2");
 
     /* 7.
     ---------------------------------------------------------------- */
