@@ -3,6 +3,7 @@ set(LLVM_LINK_COMPONENTS
   support
   )
 
+add_subdirectory(utils)
 add_subdirectory(comments)
 add_subdirectory(unused-code)
 
@@ -54,7 +55,6 @@ add_clang_library(clangTidyMISRAModule
   UnterminatedEscapeSequenceCheck.cpp
   WrongNullPointerValueCheck.cpp
   WrongOrderDefaultInSwitchStatementCheck.cpp
-  utils/CKeywordSet.cpp
 
   LINK_LIBS
   clangTidy
@@ -62,6 +62,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMiscModule
   clangTidyCERTModule
 
+  clangTidyMISRAUtils
   clangTidyMISRACommentsModule
   clangTidyMISRAUnusedCodeModule
 

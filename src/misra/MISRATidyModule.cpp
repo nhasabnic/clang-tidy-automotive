@@ -60,6 +60,7 @@
 #include "WrongBitfieldTypeCheck.h"
 #include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
+
 #include "comments/CommentsModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -68,10 +69,7 @@
 namespace clang::tidy {
 namespace misra {
 
-/* ----------------------------------------------------------------- */
-/* MISRA Experimental support                                        */
-/* ----------------------------------------------------------------- */
-class MISRAExperimentalModule : public ClangTidyModule {
+class MISRAModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
@@ -85,15 +83,10 @@ public:
         "misra-x-req-16.2");
     CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
         "misra-x-req-20.4");
-  }
-};
 
-/* ----------------------------------------------------------------- */
-/* MISRA C 2023                                                      */
-/* ----------------------------------------------------------------- */
-class MISRAC2023Module : public ClangTidyModule {
-public:
-  void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
+    /* ------------------------------------------------------------- */
+    /* MISRA C 2023                                                  */
+    /* ------------------------------------------------------------- */
 
     /* Directive
     ================================================================ */
@@ -245,15 +238,10 @@ public:
     CheckFactories.registerCheck<AvoidstdlibsystemcallCheck>(
         "misra-c2023-req-21.21");
     CheckFactories.registerCheck<AvoidStdlibRandCheck>("misra-c2023-req-21.24");
-  }
-};
 
-/* ----------------------------------------------------------------- */
-/* MISRA C 2012                                                      */
-/* ----------------------------------------------------------------- */
-class MISRAC2012Module : public ClangTidyModule {
-public:
-  void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
+    /* ------------------------------------------------------------- */
+    /* MISRA C 2012                                                  */
+    /* ------------------------------------------------------------- */
 
     /* Directive
     ================================================================ */
@@ -340,18 +328,9 @@ public:
 
 } // namespace misra
 
-// Register the MISRA Experimental Module using this statically initialized
-// variable.
-static ClangTidyModuleRegistry::Add<misra::MISRAExperimentalModule>
-    X("misra-x-module", "Adds MISRA experimental lint checks.");
-
-// Register the MISRA C2023 Module using this statically initialized variable.
-static ClangTidyModuleRegistry::Add<misra::MISRAC2023Module>
-    Y("misra-c2023-module", "Adds MISRA C 2023 lint checks.");
-
-// Register the MISRA C2023 Module using this statically initialized variable.
-static ClangTidyModuleRegistry::Add<misra::MISRAC2012Module>
-    Z("misra-c2012-module", "Adds MISRA C 2012 lint checks.");
+// Register the MISRA Module using this statically initialized variable.
+static ClangTidyModuleRegistry::Add<misra::MISRAModule>
+    X("misra-module", "Adds MISRA lint checks.");
 
 // This anchor is used to force the linker to link in the generated object file
 // and thus register the MisraModule.
