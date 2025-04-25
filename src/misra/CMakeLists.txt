@@ -53,6 +53,7 @@ add_clang_library(clangTidyMISRAModule
   UnterminatedEscapeSequenceCheck.cpp
   WrongNullPointerValueCheck.cpp
   WrongOrderDefaultInSwitchStatementCheck.cpp
+  unused-code/UnusedCodeModule.cpp
   unused-code/UnusedLabelCheck.cpp
   unused-code/UnusedMacroCheck.cpp
   unused-code/UnusedObjectDefinitionCheck.cpp

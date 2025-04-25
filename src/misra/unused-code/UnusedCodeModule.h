@@ -1,0 +1,25 @@
+//===--- UnusedCodeModule.h - clang-tidy ------------------------*- C++ -*-===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
+
+#ifndef LLVM_CLANG_TIDY_MISRA_UNUSEDCODEMODULE_H
+#define LLVM_CLANG_TIDY_MISRA_UNUSEDCODEMODULE_H
+
+#include "../../ClangTidy.h"
+#include "../../ClangTidyModule.h"
+#include "../../ClangTidyModuleRegistry.h"
+
+namespace clang::tidy::misra {
+
+class UnusedCodeModule {
+public:
+  static void addCheckFactories(ClangTidyCheckFactories &Factories);
+};
+
+} // namespace clang::tidy::misra
+
+#endif // LLVM_CLANG_TIDY_MISRA_UNUSEDCODEMODULE_H
