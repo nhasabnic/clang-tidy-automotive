@@ -19,10 +19,8 @@
 #include "AvoidCommaOperatorCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
-#include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
-#include "AvoidOctalNumberCheck.h"
 #include "AvoidSetjmpHeaderCheck.h"
 #include "AvoidSignalHeaderCheck.h"
 #include "AvoidStdargHeaderCheck.h"
@@ -52,6 +50,7 @@
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
 #include "decls-and-defs/DeclsAndDefsModule.h"
+#include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "types/TypesModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -82,21 +81,9 @@ public:
     CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
     CommentsModule::addCheckFactories(CheckFactories);
     DeclsAndDefsModule::addCheckFactories(CheckFactories);
+    LiteralsAndConstantsModule::addCheckFactories(CheckFactories);
     TypesModule::addCheckFactories(CheckFactories);
     UnusedCodeModule::addCheckFactories(CheckFactories);
-
-    /* 7.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2023-req-7.1");
-    CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
-        "misra-c2023-req-7.3");
-
-
-    /* 9.
-    ---------------------------------------------------------------- */
-
-    /* 10.
-    ---------------------------------------------------------------- */
 
     /* 11.
     ---------------------------------------------------------------- */
@@ -197,13 +184,6 @@ public:
 
     /* Rules
     ================================================================ */
-
-    /* 7.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2012-req-7.1");
-
-    /* 10.
-    ---------------------------------------------------------------- */
 
     /* 11.
     ---------------------------------------------------------------- */

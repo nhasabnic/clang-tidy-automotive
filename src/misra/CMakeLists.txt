@@ -6,6 +6,7 @@ set(LLVM_LINK_COMPONENTS
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comments)
 add_subdirectory(decls-and-defs)
+add_subdirectory(literals-and-constants)
 add_subdirectory(types)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
@@ -14,13 +15,11 @@ add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidBooleanInSwitchCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
-  AvoidLowercaseLiteralSuffixCheck.cpp
   AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
   AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
-  AvoidOctalNumberCheck.cpp
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
@@ -58,6 +57,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRACharSetsAndLexicalConvsModule
   clangTidyMISRACommentsModule
   clangTidyMISRADeclsAndDefsModule
+  clangTidyMISRALiteralsAndConstantsModule
   clangTidyMISRATypesModule
   clangTidyMISRAUnusedCodeModule
   clangTidyMISRAUtils
