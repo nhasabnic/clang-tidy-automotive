@@ -7,9 +7,11 @@ add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comments)
 add_subdirectory(decls-and-defs)
 add_subdirectory(literals-and-constants)
+add_subdirectory(pointer-type-conversations)
 add_subdirectory(types)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
+
 
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
@@ -23,7 +25,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
-  AvoidAtomicVoidPointerCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
   ImplicitFunctionDeclCheck.cpp
@@ -45,7 +46,6 @@ add_clang_library(clangTidyMISRAModule
   MultipleReturnStmtCheck.cpp
   PreprocessorFlowCheck.cpp
   UnstructuredSwitchCaseCheck.cpp
-  WrongNullPointerValueCheck.cpp
   WrongOrderDefaultInSwitchStatementCheck.cpp
 
   LINK_LIBS
@@ -58,6 +58,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRACommentsModule
   clangTidyMISRADeclsAndDefsModule
   clangTidyMISRALiteralsAndConstantsModule
+  clangTidyMISRAPointerTypeConversationsModule
   clangTidyMISRATypesModule
   clangTidyMISRAUnusedCodeModule
   clangTidyMISRAUtils

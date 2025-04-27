@@ -14,7 +14,6 @@
 #include "../misc/UnusedParametersCheck.h"
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
-#include "AvoidAtomicVoidPointerCheck.h"
 #include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidCommaOperatorCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
@@ -44,13 +43,13 @@
 #include "NoReturnVoidCheck.h"
 #include "PreprocessorFlowCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
-#include "WrongNullPointerValueCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
 
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
 #include "decls-and-defs/DeclsAndDefsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
+#include "pointer-type-conversations/PointerTypeConversationsModule.h"
 #include "types/TypesModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -82,15 +81,9 @@ public:
     CommentsModule::addCheckFactories(CheckFactories);
     DeclsAndDefsModule::addCheckFactories(CheckFactories);
     LiteralsAndConstantsModule::addCheckFactories(CheckFactories);
+    PointerTypeConversationsModule::addCheckFactories(CheckFactories);
     TypesModule::addCheckFactories(CheckFactories);
     UnusedCodeModule::addCheckFactories(CheckFactories);
-
-    /* 11.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
-        "misra-c2023-req-11.2");
-    CheckFactories.registerCheck<WrongNullPointerValueCheck>(
-        "misra-c2023-req-11.9");
 
     /* 12.
     ---------------------------------------------------------------- */
@@ -121,6 +114,8 @@ public:
 
     /* 16.
     ---------------------------------------------------------------- */
+    CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
+        "misra-c2023-req-16.3");
     CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
         "misra-c2023-req-16.4");
     CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
@@ -184,10 +179,6 @@ public:
 
     /* Rules
     ================================================================ */
-
-    /* 11.
-    ---------------------------------------------------------------- */
-    /* 11.10: Diagnostic error */
 
     /* 12.
     ---------------------------------------------------------------- */
