@@ -15,7 +15,6 @@
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
 #include "AvoidBooleanInSwitchCheck.h"
-#include "AvoidCommaOperatorCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidMacroNamedAsCkeywordCheck.h"
@@ -47,6 +46,7 @@
 
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
+#include "expressions/ExpressionsModule.h"
 #include "decls-and-defs/DeclsAndDefsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversations/PointerTypeConversationsModule.h"
@@ -84,11 +84,6 @@ public:
     PointerTypeConversationsModule::addCheckFactories(CheckFactories);
     TypesModule::addCheckFactories(CheckFactories);
     UnusedCodeModule::addCheckFactories(CheckFactories);
-
-    /* 12.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
-        "misra-c2023-adv-12.3");
 
     /* 13.
     ---------------------------------------------------------------- */
@@ -179,11 +174,6 @@ public:
 
     /* Rules
     ================================================================ */
-
-    /* 12.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
-        "misra-c2012-adv-12.3");
 
     /* 13.
     ---------------------------------------------------------------- */

@@ -6,6 +6,7 @@ set(LLVM_LINK_COMPONENTS
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comments)
 add_subdirectory(decls-and-defs)
+add_subdirectory(expressions)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversations)
 add_subdirectory(types)
@@ -20,7 +21,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
-  AvoidCommaOperatorCheck.cpp
   AvoidGotoCheck.cpp
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
@@ -57,6 +57,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRACharSetsAndLexicalConvsModule
   clangTidyMISRACommentsModule
   clangTidyMISRADeclsAndDefsModule
+  clangTidyMISRAExpressionsModule
   clangTidyMISRALiteralsAndConstantsModule
   clangTidyMISRAPointerTypeConversationsModule
   clangTidyMISRATypesModule
