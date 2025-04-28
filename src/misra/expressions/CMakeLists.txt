@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRAExpressionsModule STATIC
+add_clang_library(clangTidyMISRAExpressions STATIC
   AvoidCommaOperatorCheck.cpp
   ExpressionsModule.cpp
 )

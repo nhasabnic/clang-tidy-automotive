@@ -5,7 +5,7 @@ set(LLVM_LINK_COMPONENTS
 
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comments)
-add_subdirectory(decls-and-defs)
+add_subdirectory(declarations-and-definitions)
 add_subdirectory(expressions)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversations)
@@ -54,14 +54,14 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMiscModule
   clangTidyCERTModule
 
-  clangTidyMISRACharSetsAndLexicalConvsModule
-  clangTidyMISRACommentsModule
-  clangTidyMISRADeclsAndDefsModule
-  clangTidyMISRAExpressionsModule
-  clangTidyMISRALiteralsAndConstantsModule
-  clangTidyMISRAPointerTypeConversationsModule
-  clangTidyMISRATypesModule
-  clangTidyMISRAUnusedCodeModule
+  clangTidyMISRACharSetsAndLexicalConvs
+  clangTidyMISRAComments
+  clangTidyMISRADeclarationsAndDefinitions
+  clangTidyMISRAExpressions
+  clangTidyMISRALiteralsAndConstants
+  clangTidyMISRAPointerTypeConversations
+  clangTidyMISRATypes
+  clangTidyMISRAUnusedCode
   clangTidyMISRAUtils
 
   DEPENDS

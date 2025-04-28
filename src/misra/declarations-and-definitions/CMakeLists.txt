@@ -1,7 +1,7 @@
 
-add_clang_library(clangTidyMISRADeclsAndDefsModule STATIC
+add_clang_library(clangTidyMISRADeclarationsAndDefinitions STATIC
   AvoidRestrictTypeCheck.cpp
-  DeclsAndDefsModule.cpp
+  DeclarationsAndDefinitionsModule.cpp
   FunctionDeclarationMismatchCheck.cpp
   MissingExternalArraySizeCheck.cpp
   StaticInlineCheck.cpp

@@ -47,7 +47,7 @@
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
 #include "expressions/ExpressionsModule.h"
-#include "decls-and-defs/DeclsAndDefsModule.h"
+#include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversations/PointerTypeConversationsModule.h"
 #include "types/TypesModule.h"
@@ -79,7 +79,7 @@ public:
 
     CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
     CommentsModule::addCheckFactories(CheckFactories);
-    DeclsAndDefsModule::addCheckFactories(CheckFactories);
+    DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
     LiteralsAndConstantsModule::addCheckFactories(CheckFactories);
     PointerTypeConversationsModule::addCheckFactories(CheckFactories);
     TypesModule::addCheckFactories(CheckFactories);

@@ -1,4 +1,4 @@
-//===--- DeclsAndDefsModule.cpp - clang-tidy ------------------------------===//
+//===--- DeclarationsAndDefinitionsModule.cpp - clang-tidy ----------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "DeclsAndDefsModule.h"
+#include "DeclarationsAndDefinitionsModule.h"
 #include "AvoidRestrictTypeCheck.h"
 #include "FunctionDeclarationMismatchCheck.h"
 #include "MissingExternalArraySizeCheck.h"
@@ -16,7 +16,7 @@
 
 namespace clang::tidy::misra {
 
-void DeclsAndDefsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void DeclarationsAndDefinitionsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */

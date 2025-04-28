@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRATypesModule STATIC
+add_clang_library(clangTidyMISRATypes STATIC
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidSignedSingleBitFieldsCheck.cpp
   TypesModule.cpp
