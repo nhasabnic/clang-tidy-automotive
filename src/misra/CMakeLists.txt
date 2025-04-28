@@ -8,7 +8,7 @@ add_subdirectory(comments)
 add_subdirectory(declarations-and-definitions)
 add_subdirectory(expressions)
 add_subdirectory(literals-and-constants)
-add_subdirectory(pointer-type-conversations)
+add_subdirectory(pointer-type-conversions)
 add_subdirectory(types)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
@@ -59,7 +59,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRADeclarationsAndDefinitions
   clangTidyMISRAExpressions
   clangTidyMISRALiteralsAndConstants
-  clangTidyMISRAPointerTypeConversations
+  clangTidyMISRAPointerTypeConversions
   clangTidyMISRATypes
   clangTidyMISRAUnusedCode
   clangTidyMISRAUtils

@@ -1,4 +1,4 @@
-//===--- PointerTypeConversationsModule.cpp - clang-tidy ------------------===//
+//===--- PointerTypeConversionsModule.cpp - clang-tidy --------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,13 +6,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "PointerTypeConversationsModule.h"
+#include "PointerTypeConversionsModule.h"
 #include "AvoidAtomicVoidPointerCheck.h"
 #include "WrongNullPointerValueCheck.h"
 
 namespace clang::tidy::misra {
 
-void PointerTypeConversationsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void PointerTypeConversionsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */

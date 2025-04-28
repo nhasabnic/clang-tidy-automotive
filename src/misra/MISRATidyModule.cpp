@@ -49,7 +49,7 @@
 #include "expressions/ExpressionsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
-#include "pointer-type-conversations/PointerTypeConversationsModule.h"
+#include "pointer-type-conversions/PointerTypeConversionsModule.h"
 #include "types/TypesModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -73,17 +73,39 @@ public:
     CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
         "misra-x-req-20.4");
 
-    /* ------------------------------------------------------------- */
-    /* MISRA C 2023                                                  */
-    /* ------------------------------------------------------------- */
-
-    CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
-    CommentsModule::addCheckFactories(CheckFactories);
-    DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
-    LiteralsAndConstantsModule::addCheckFactories(CheckFactories);
-    PointerTypeConversationsModule::addCheckFactories(CheckFactories);
-    TypesModule::addCheckFactories(CheckFactories);
+    /* 2. Unused code
+    ---------------------------------------------------------------- */
     UnusedCodeModule::addCheckFactories(CheckFactories);
+
+    /* 3. Comments
+    ---------------------------------------------------------------- */
+    CommentsModule::addCheckFactories(CheckFactories);
+
+    /* 4. Character sets and lexical conversations
+    ---------------------------------------------------------------- */
+    CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
+
+    /* 6. Types
+    ---------------------------------------------------------------- */
+    TypesModule::addCheckFactories(CheckFactories);
+
+    /* 7. Literals and constants
+    ---------------------------------------------------------------- */
+    LiteralsAndConstantsModule::addCheckFactories(CheckFactories);
+
+    /* 8. Declarations and defintions
+    ---------------------------------------------------------------- */
+    DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
+
+    /* 11. Pointer type conversions
+    ---------------------------------------------------------------- */
+    PointerTypeConversionsModule::addCheckFactories(CheckFactories);
+
+
+
+
+
+
 
     /* 13.
     ---------------------------------------------------------------- */
