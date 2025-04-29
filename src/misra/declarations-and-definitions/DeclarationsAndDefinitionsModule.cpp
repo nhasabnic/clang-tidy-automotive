@@ -16,7 +16,8 @@
 
 namespace clang::tidy::misra {
 
-void DeclarationsAndDefinitionsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void DeclarationsAndDefinitionsModule::addCheckFactories(
+    ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
@@ -28,17 +29,14 @@ void DeclarationsAndDefinitionsModule::addCheckFactories(ClangTidyCheckFactories
   CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
       "misra-c2023-adv-8.11");
   CheckFactories.registerCheck<UniqueEnumValuesCheck>("misra-c2023-req-8.12");
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
-      "misra-c2023-req-8.14");
+  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("misra-c2023-req-8.14");
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
   /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
    * hasExternalFormalLinkage())) */
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
-      "misra-c2012-req-8.14");
-
+  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("misra-c2012-req-8.14");
 }
 
 } // namespace clang::tidy::misra

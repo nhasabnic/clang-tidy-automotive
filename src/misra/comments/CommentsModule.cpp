@@ -12,7 +12,8 @@
 
 namespace clang::tidy::misra {
 
-void CommentsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void CommentsModule::addCheckFactories(
+    ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
@@ -27,7 +28,6 @@ void CommentsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) 
       "misra-c2012-req-3.1");
   CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
       "misra-c2012-req-3.2");
-
 }
 
 } // namespace clang::tidy::misra

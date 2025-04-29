@@ -77,10 +77,9 @@ CKeywordSet::CKeywordSet(const clang::LangOptions &LangOpts) {
     ActiveKeywords = &C99KeywordSet;
     DeprecatedKeywords = &EmptyKeywordSet;
 
-  }  else {
+  } else {
     ActiveKeywords = &C23KeywordSet;
     DeprecatedKeywords = &EmptyKeywordSet;
-
   }
 }
 

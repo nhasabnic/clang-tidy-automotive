@@ -46,8 +46,8 @@
 
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
-#include "expressions/ExpressionsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
+#include "expressions/ExpressionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
 #include "types/TypesModule.h"
@@ -100,12 +100,6 @@ public:
     /* 11. Pointer type conversions
     ---------------------------------------------------------------- */
     PointerTypeConversionsModule::addCheckFactories(CheckFactories);
-
-
-
-
-
-
 
     /* 13.
     ---------------------------------------------------------------- */

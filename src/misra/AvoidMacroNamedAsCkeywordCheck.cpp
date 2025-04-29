@@ -18,16 +18,17 @@ namespace {
 
 class AvoidMacroNamedAsCkeywordPPCallbacks : public PPCallbacks {
 public:
-  AvoidMacroNamedAsCkeywordPPCallbacks(Preprocessor &PP, 
-                          ClangTidyCheck &Check)
+  AvoidMacroNamedAsCkeywordPPCallbacks(Preprocessor &PP, ClangTidyCheck &Check)
       : PP(PP), CKeywords(PP.getLangOpts()), Check(Check) {}
 
-  void MacroDefined(const Token &MacroNameTok, const MacroDirective *MD) override {
+  void MacroDefined(const Token &MacroNameTok,
+                    const MacroDirective *MD) override {
     StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
 
     if (CKeywords.isKeyword(MacroName)) {
       Check.diag(MacroNameTok.getLocation(),
-                 "macro name '%0' conflicts with C keyword") << MacroName;
+                 "macro name '%0' conflicts with C keyword")
+          << MacroName;
     }
   }
 
@@ -39,10 +40,10 @@ private:
 
 } // anonymous namespace
 
-void AvoidMacroNamedAsCkeywordCheck::registerPPCallbacks(const SourceManager &SM,
-                                           Preprocessor *PP,
-                                           Preprocessor *ModuleExpanderPP) {
-  PP->addPPCallbacks(std::make_unique<AvoidMacroNamedAsCkeywordPPCallbacks>(*PP, *this));
+void AvoidMacroNamedAsCkeywordCheck::registerPPCallbacks(
+    const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
+  PP->addPPCallbacks(
+      std::make_unique<AvoidMacroNamedAsCkeywordPPCallbacks>(*PP, *this));
 }
 
 } // namespace clang::tidy::misra

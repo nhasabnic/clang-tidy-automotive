@@ -12,7 +12,8 @@
 
 namespace clang::tidy::misra {
 
-void LiteralsAndConstantsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void LiteralsAndConstantsModule::addCheckFactories(
+    ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
@@ -23,7 +24,6 @@ void LiteralsAndConstantsModule::addCheckFactories(ClangTidyCheckFactories &Chec
   /* MISRA C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2012-req-7.1");
-
 }
 
 } // namespace clang::tidy::misra

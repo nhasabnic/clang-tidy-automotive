@@ -11,20 +11,20 @@
 
 namespace clang::tidy::misra {
 
-void CharSetsAndLexicalConvsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void CharSetsAndLexicalConvsModule::addCheckFactories(
+    ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
-    CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-        "misra-c2023-req-4.1");
-    /* req-4.2: -Wtrigraphs */
+  CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
+      "misra-c2023-req-4.1");
+  /* req-4.2: -Wtrigraphs */
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
-    CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-        "misra-c2012-req-4.1");
-    /* req-4.2: -Wtrigraphs */
-
+  CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
+      "misra-c2012-req-4.1");
+  /* req-4.2: -Wtrigraphs */
 }
 
 } // namespace clang::tidy::misra

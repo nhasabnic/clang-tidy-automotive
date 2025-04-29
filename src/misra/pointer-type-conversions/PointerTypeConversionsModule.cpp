@@ -12,17 +12,17 @@
 
 namespace clang::tidy::misra {
 
-void PointerTypeConversionsModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void PointerTypeConversionsModule::addCheckFactories(
+    ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<WrongNullPointerValueCheck>(
-        "misra-c2023-req-11.9");
+      "misra-c2023-req-11.9");
   /* 11.10: Diagnostic error */
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
-
 }
 
 } // namespace clang::tidy::misra
