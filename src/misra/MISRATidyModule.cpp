@@ -15,6 +15,7 @@
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
 #include "AvoidBooleanInSwitchCheck.h"
+#include "AvoidFlexibleArrayMemberCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
 #include "AvoidMacroNamedAsCkeywordCheck.h"
@@ -153,10 +154,9 @@ public:
 
     /* 18.
     ---------------------------------------------------------------- */
-    /* 18.7 m Inspiration:
-       varDecl(allOf(hasType(arrayType(incompleteArrayType())))) 18.8 m
-       Inspiration:  varDecl(allOf(hasType(arrayType(incompleteArrayType()))))
-*/
+    CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
+        "misra-c2023-req-18.7");
+    // Inspiration:  varDecl(allOf(hasType(arrayType(incompleteArrayType()))))
 
     /* 19.
     ---------------------------------------------------------------- */

@@ -17,6 +17,7 @@ add_subdirectory(utils)
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidBooleanInSwitchCheck.cpp
+  AvoidFlexibleArrayMemberCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
   AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
