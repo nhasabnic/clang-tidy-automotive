@@ -27,6 +27,7 @@
 #include "AvoidStdlibRandCheck.h"
 #include "AvoidUndefCheck.h"
 #include "AvoidUnionCheck.h"
+#include "AvoidVariableLengthArrayCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
@@ -63,7 +64,7 @@ class MISRAModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
-    /* TODO: Move this and name it properly. */
+    /* TODO: Move this and name it properly. */ 
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
     CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
@@ -156,7 +157,8 @@ public:
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
         "misra-c2023-req-18.7");
-    // Inspiration:  varDecl(allOf(hasType(arrayType(incompleteArrayType()))))
+    CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
+        "misra-c2023-req-18.8");
 
     /* 19.
     ---------------------------------------------------------------- */

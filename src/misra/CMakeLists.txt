@@ -26,6 +26,7 @@ add_clang_library(clangTidyMISRAModule
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
+  AvoidVariableLengthArrayCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
   ImplicitFunctionDeclCheck.cpp
