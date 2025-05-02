@@ -16,24 +16,25 @@ namespace clang::tidy::misra {
 static SourceLocation getLBrace(const TypeLoc *MatchedTypeLoc);
 
 void AvoidVariableLengthArrayCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(
-      typeLoc(loc(variableArrayType())).bind("vlaTypeLoc"),
-      this);
+  Finder->addMatcher(typeLoc(loc(variableArrayType())).bind("vlaTypeLoc"),
+                     this);
 }
 
-void AvoidVariableLengthArrayCheck::check(const MatchFinder::MatchResult &Result) {
+void AvoidVariableLengthArrayCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *MatchedTypeLoc = Result.Nodes.getNodeAs<TypeLoc>("vlaTypeLoc");
 
   if (!MatchedTypeLoc) {
     return;
   }
-      
+
   diag(getLBrace(MatchedTypeLoc), "avoid variable-length array");
 }
 
 static SourceLocation getLBrace(const TypeLoc *MatchedTypeLoc) {
-  SourceLocation LBracketLoc = MatchedTypeLoc->getAs<VariableArrayTypeLoc>().getLBracketLoc();
-  
+  SourceLocation LBracketLoc =
+      MatchedTypeLoc->getAs<VariableArrayTypeLoc>().getLBracketLoc();
+
   if (LBracketLoc.isValid()) {
     return LBracketLoc;
   } else {
