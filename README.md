@@ -18,12 +18,14 @@ Clang 19 (or compatible version)
    ```bash
    git clone https://github.com/PeterHallonmark/clang-tidy-misra.git
    cd clang-tidy-misra
+   ```
 
 2. Run the following setup scripts to build clang-tidy with MISRA support:
    ```bash
    ./setup.sh
    ./configure.sh
    ./build.sh
+   ```
 
 **Note:** The scripts will need to be adjusted to use a Docker container in
 the future. This is part of the TODO list.
@@ -34,8 +36,9 @@ To use the MISRA support in clang-tidy, enable the rules misra-c2023-* or misra-
 The example below assumes the avoid-goto.c test file and the root directory of clang-tidy-misra.
    ```bash
    ./build/bin/clang-tidy --checks="misra-c2023-*" c clang-tidy-misra/test/checkers/misra/c2023/avoid-goto.c -- 
+   ```
 
-See https://clang.llvm.org/extra/clang-tidy/ for more information.
+See [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) for more information.
 
 ## License
 
