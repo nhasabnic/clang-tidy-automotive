@@ -33,9 +33,9 @@ the future. This is part of the TODO list.
 To use the MISRA support in clang-tidy, enable the rules misra-c2023-* or misra-c2012-* when using clang-tidy.
 The example below assumes the avoid-goto.c test file and the root directory of clang-tidy-misra.
    ```bash
-   ./build/bin/clang-tidy --checks="misra-c2023-*" c clang-tidy-misra/test/checkers/misra/c2023/avoid-goto.c --
+   ./build/bin/clang-tidy --checks="misra-c2023-*" c clang-tidy-misra/test/checkers/misra/c2023/avoid-goto.c -- 
 
-See [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) for more information.
+See https://clang.llvm.org/extra/clang-tidy/ for more information.
 
 ## License
 
