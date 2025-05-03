@@ -1,4 +1,4 @@
-# clang-tidy MISRA Checks
+# Clang-Tidy MISRA support
 
 This repository is intended for developing clang-tidy checks for **MISRA
 C 2023** and **MISRA C 2012**. The goal is to provide as many clang-tidy
@@ -27,6 +27,15 @@ Clang 19 (or compatible version)
 
 **Note:** The scripts will need to be adjusted to use a Docker container in
 the future. This is part of the TODO list.
+
+## Usage
+
+To use the MISRA support in clang-tidy, enable the rules misra-c2023-* or misra-c2012-* when using clang-tidy.
+The example below assumes the avoid-goto.c test file and the root directory of clang-tidy-misra.
+   ```bash
+   ./build/bin/clang-tidy --checks="misra-c2023-*" c clang-tidy-misra/test/checkers/misra/c2023/avoid-goto.c --
+
+See [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) for more information.
 
 ## License
 
