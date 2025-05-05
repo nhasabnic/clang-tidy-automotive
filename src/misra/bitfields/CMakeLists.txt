@@ -1,7 +1,7 @@
 
-add_clang_library(clangTidyMISRATypes STATIC
+add_clang_library(clangTidyMISRABitfieldComponent STATIC
   AvoidBitfieldsInUnionsCheck.cpp
   AvoidSignedSingleBitFieldsCheck.cpp
-  TypesModule.cpp
+  BitfieldComponent.cpp
   WrongBitfieldTypeCheck.cpp
 )

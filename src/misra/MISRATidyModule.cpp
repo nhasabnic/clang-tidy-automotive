@@ -52,7 +52,7 @@
 #include "expressions/ExpressionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
-#include "types/TypesModule.h"
+#include "bitfields/BitfieldComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -89,7 +89,7 @@ public:
 
     /* 6. Types
     ---------------------------------------------------------------- */
-    TypesModule::addCheckFactories(CheckFactories);
+    BitfieldComponent::addCheckFactories(CheckFactories);
 
     /* 7. Literals and constants
     ---------------------------------------------------------------- */

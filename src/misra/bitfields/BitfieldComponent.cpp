@@ -1,4 +1,4 @@
-//===--- TypesModule.cpp - clang-tidy ------------------------------------===//
+//===--- BitfieldComponent.cpp - clang-tidy --------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,14 +6,14 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "TypesModule.h"
+#include "BitfieldComponent.h"
 #include "AvoidBitfieldsInUnionsCheck.h"
 #include "AvoidSignedSingleBitFieldsCheck.h"
 #include "WrongBitfieldTypeCheck.h"
 
 namespace clang::tidy::misra {
 
-void TypesModule::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void BitfieldComponent::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
