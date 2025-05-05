@@ -10,13 +10,13 @@ add_subdirectory(expressions)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversions)
 add_subdirectory(bitfields)
+add_subdirectory(switch-statements)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
 
 
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
-  AvoidBooleanInSwitchCheck.cpp
   AvoidFlexibleArrayMemberCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
   AvoidMacroNamedAsCkeywordCheck.cpp
@@ -33,7 +33,6 @@ add_clang_library(clangTidyMISRAModule
   ImplicitIntCheck.cpp
   InvariantControlCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
-  MissingBreakInSwitchCheck.cpp
   MissingReturnValueHandlingCheck.cpp
   NoReturnVoidCheck.cpp
   AtoXCheck.cpp
@@ -43,12 +42,9 @@ add_clang_library(clangTidyMISRAModule
   ForwardGotoLabelCheck.cpp
   MISRATidyModule.cpp
   MissingCompoundCheck.cpp
-  MissingDefaultInSwitchStatementCheck.cpp
   MissingElseCheck.cpp
   MultipleReturnStmtCheck.cpp
   PreprocessorFlowCheck.cpp
-  UnstructuredSwitchCaseCheck.cpp
-  WrongOrderDefaultInSwitchStatementCheck.cpp
 
   LINK_LIBS
   clangTidy
@@ -63,6 +59,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRALiteralsAndConstants
   clangTidyMISRAPointerTypeConversions
   clangTidyMISRABitfieldComponent
+  clangTidyMISRASwitchStatementComponent
   clangTidyMISRAUnusedCode
   clangTidyMISRAUtils
 

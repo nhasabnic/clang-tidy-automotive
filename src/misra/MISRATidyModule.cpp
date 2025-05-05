@@ -14,7 +14,6 @@
 #include "../misc/UnusedParametersCheck.h"
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
-#include "AvoidBooleanInSwitchCheck.h"
 #include "AvoidFlexibleArrayMemberCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
@@ -34,17 +33,13 @@
 #include "ImplicitFunctionDeclCheck.h"
 #include "ImplicitIntCheck.h"
 #include "InvariantControlCheck.h"
-#include "MissingBreakInSwitchCheck.h"
 #include "MissingCompoundCheck.h"
-#include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
 #include "MissingReturnValueHandlingCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoReturnVoidCheck.h"
 #include "PreprocessorFlowCheck.h"
-#include "UnstructuredSwitchCaseCheck.h"
-#include "WrongOrderDefaultInSwitchStatementCheck.h"
 
 #include "bitfields/BitfieldComponent.h"
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
@@ -53,6 +48,7 @@
 #include "expressions/ExpressionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
+#include "switch-statements/SwitchStatementComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -70,8 +66,6 @@ public:
     CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
 
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
-    CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>(
-        "misra-x-req-16.2");
     CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
         "misra-x-req-20.4");
 
@@ -127,17 +121,7 @@ public:
 
     /* 16.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
-        "misra-c2023-req-16.3");
-    CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
-        "misra-c2023-req-16.4");
-    CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
-        "misra-c2023-req-16.5");
-    CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
-        "misra-c2023-req-16.7");
-
-    /* 16.2 Inspiration: m
-     * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
+    SwitchStatementComponent::addCheckFactories(CheckFactories);
 
     /* 17.
     ---------------------------------------------------------------- */
@@ -216,10 +200,6 @@ public:
 
     /* 16.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
-        "misra-c2012-req-16.4");
-    CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
-        "misra-c2012-req-16.5");
   }
 };
 

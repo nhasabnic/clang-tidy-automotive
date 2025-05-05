@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidBooleanInSwitchCheck.h"
-#include "utils/ASTMatchers.h"
+#include "../utils/ASTMatchers.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
 using namespace clang::ast_matchers;
