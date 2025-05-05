@@ -1,4 +1,5 @@
-//===--- BitfieldComponent.cpp - clang-tidy --------------------------------===//
+//===--- BitfieldComponent.cpp - clang-tidy
+//--------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -13,7 +14,8 @@
 
 namespace clang::tidy::misra {
 
-void BitfieldComponent::addCheckFactories(ClangTidyCheckFactories &CheckFactories) {
+void BitfieldComponent::addCheckFactories(
+    ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */

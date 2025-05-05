@@ -46,13 +46,13 @@
 #include "UnstructuredSwitchCaseCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
 
+#include "bitfields/BitfieldComponent.h"
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comments/CommentsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "expressions/ExpressionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
-#include "bitfields/BitfieldComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
