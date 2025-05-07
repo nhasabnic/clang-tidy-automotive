@@ -1,6 +1,6 @@
 
-add_clang_library(clangTidyMISRAComments STATIC
+add_clang_library(clangTidyMISRACommentComponent STATIC
   AvoidCommentWithinCommentCheck.cpp
   AvoidLinesplicingWithinCommentCheck.cpp
-  CommentsModule.cpp
+  CommentComponent.cpp
 )

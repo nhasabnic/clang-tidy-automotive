@@ -1,4 +1,4 @@
-//===--- CommentsModule.h - clang-tidy --------------------------*- C++ -*-===//
+//===--- CommentComponent.h - clang-tidy ------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TIDY_MISRA_COMMENTSMODULE_H
-#define LLVM_CLANG_TIDY_MISRA_COMMENTSMODULE_H
+#ifndef LLVM_CLANG_TIDY_MISRA_COMMENTCOMPONENT_H
+#define LLVM_CLANG_TIDY_MISRA_COMMENTCOMPONENT_H
 
 #include "../../ClangTidy.h"
 #include "../../ClangTidyModule.h"
@@ -15,11 +15,11 @@
 
 namespace clang::tidy::misra {
 
-class CommentsModule {
+class CommentComponent {
 public:
   static void addCheckFactories(ClangTidyCheckFactories &CheckFactories);
 };
 
 } // namespace clang::tidy::misra
 
-#endif // LLVM_CLANG_TIDY_MISRA_COMMENTSMODULE_H
+#endif // LLVM_CLANG_TIDY_MISRA_COMMENTCOMPONENT_H

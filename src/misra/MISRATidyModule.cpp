@@ -41,9 +41,9 @@
 #include "NoReturnVoidCheck.h"
 #include "PreprocessorFlowCheck.h"
 
-#include "bitfields/BitfieldComponent.h"
+#include "bitfield/BitfieldComponent.h"
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
-#include "comments/CommentsModule.h"
+#include "comment/CommentComponent.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "expressions/ExpressionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
@@ -75,7 +75,7 @@ public:
 
     /* 3. Comments
     ---------------------------------------------------------------- */
-    CommentsModule::addCheckFactories(CheckFactories);
+    CommentComponent::addCheckFactories(CheckFactories);
 
     /* 4. Character sets and lexical conversations
     ---------------------------------------------------------------- */
