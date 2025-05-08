@@ -1,4 +1,4 @@
-//===--- ExpressionsModule.cpp - clang-tidy -------------------------------===//
+//===--- OperatorComponent.cpp - clang-tidy -------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,12 +6,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "ExpressionsModule.h"
+#include "OperatorComponent.h"
 #include "AvoidCommaOperatorCheck.h"
 
 namespace clang::tidy::misra {
 
-void ExpressionsModule::addCheckFactories(
+void OperatorComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023

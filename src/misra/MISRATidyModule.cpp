@@ -45,10 +45,10 @@
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comment/CommentComponent.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
-#include "expressions/ExpressionsModule.h"
+#include "operator/OperatorComponent.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
-#include "switch-statements/SwitchStatementComponent.h"
+#include "switch-statement/SwitchStatementComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;

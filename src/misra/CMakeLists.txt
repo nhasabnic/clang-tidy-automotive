@@ -6,7 +6,7 @@ set(LLVM_LINK_COMPONENTS
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comment)
 add_subdirectory(declarations-and-definitions)
-add_subdirectory(expressions)
+add_subdirectory(operator)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversions)
 add_subdirectory(bitfield)
@@ -56,7 +56,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRACharSetsAndLexicalConvs
   clangTidyMISRACommentComponent
   clangTidyMISRADeclarationsAndDefinitions
-  clangTidyMISRAExpressions
+  clangTidyMISRAOperatorComponent
   clangTidyMISRALiteralsAndConstants
   clangTidyMISRAPointerTypeConversions
   clangTidyMISRASwitchStatementComponent
