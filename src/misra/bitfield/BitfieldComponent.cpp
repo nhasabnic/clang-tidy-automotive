@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "BitfieldComponent.h"
-#include "AvoidBitfieldsInUnionsCheck.h"
-#include "AvoidSignedSingleBitFieldsCheck.h"
+#include "AvoidBitfieldInUnionCheck.h"
+#include "AvoidSignedSingleBitFieldCheck.h"
 #include "WrongBitfieldTypeCheck.h"
 
 namespace clang::tidy::misra {
@@ -19,15 +19,15 @@ void BitfieldComponent::addCheckFactories(
   /* MISRA C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2023-req-6.1");
-  CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
+  CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
       "misra-c2023-req-6.2");
-  CheckFactories.registerCheck<AvoidBitfieldsInUnionsCheck>(
+  CheckFactories.registerCheck<AvoidBitfieldInUnionCheck>(
       "misra-c2023-req-6.3");
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2012-req-6.1");
-  CheckFactories.registerCheck<AvoidSignedSingleBitFieldsCheck>(
+  CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
       "misra-c2012-req-6.2");
 }
 

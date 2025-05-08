@@ -1,4 +1,4 @@
-//===--- AvoidSignedSingleBitFieldsCheck.cpp - clang-tidy -----------------===//
+//===--- AvoidSignedSingleBitFieldCheck.cpp - clang-tidy ------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "AvoidSignedSingleBitFieldsCheck.h"
+#include "AvoidSignedSingleBitFieldCheck.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
@@ -14,14 +14,14 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
-void AvoidSignedSingleBitFieldsCheck::registerMatchers(MatchFinder *Finder) {
+void AvoidSignedSingleBitFieldCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(fieldDecl(allOf(isBitField(), hasType(isSignedInteger()),
                                      hasDescendant(integerLiteral(equals(1)))))
                          .bind("signedBitField"),
                      this);
 }
 
-void AvoidSignedSingleBitFieldsCheck::check(
+void AvoidSignedSingleBitFieldCheck::check(
     const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl = Result.Nodes.getNodeAs<FieldDecl>("signedBitField");
 
