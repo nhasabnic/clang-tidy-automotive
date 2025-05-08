@@ -10,7 +10,7 @@ add_subdirectory(expressions)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversions)
 add_subdirectory(bitfield)
-add_subdirectory(switch-statements)
+add_subdirectory(switch-statement)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
 
