@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidLinesplicingWithinCommentCheck.h"
-#include "../utils/CommentMatch.h"
+#include "CommentMatch.h"
 
 namespace clang::tidy::misra {
 

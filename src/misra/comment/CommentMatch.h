@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_COMMENTMATCH_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_COMMENTMATCH_H
 
-#include "IgnoreLineSpliceRef.h"
+#include "../utils/IgnoreLineSpliceRef.h"
 #include "llvm/ADT/StringRef.h"
 
 namespace clang::tidy::misra {
