@@ -10,6 +10,7 @@ add_subdirectory(operator)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversions)
 add_subdirectory(bitfield)
+add_subdirectory(preprocessor)
 add_subdirectory(switch-statement)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
@@ -19,7 +20,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
   AvoidFlexibleArrayMemberCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
-  preprocessor/AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
   AvoidGotoCheck.cpp
@@ -36,7 +36,6 @@ add_clang_library(clangTidyMISRAModule
   MissingReturnValueHandlingCheck.cpp
   NoReturnVoidCheck.cpp
   AtoXCheck.cpp
-  preprocessor/AvoidUndefCheck.cpp
   AvoidUnionCheck.cpp
   ExitCheck.cpp
   ForwardGotoLabelCheck.cpp
@@ -44,8 +43,6 @@ add_clang_library(clangTidyMISRAModule
   MissingCompoundCheck.cpp
   MissingElseCheck.cpp
   MultipleReturnStmtCheck.cpp
-  preprocessor/PreprocessorFlowCheck.cpp
-  preprocessor/UnusedMacroCheck.cpp
 
   LINK_LIBS
   clangTidy
@@ -60,6 +57,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRAOperatorComponent
   clangTidyMISRALiteralsAndConstants
   clangTidyMISRAPointerTypeConversions
+  clangTidyMISRAPreprocessorComponent
   clangTidyMISRASwitchStatementComponent
   clangTidyMISRAUnusedCode
   clangTidyMISRAUtils

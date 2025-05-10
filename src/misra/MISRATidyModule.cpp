@@ -48,6 +48,7 @@
 #include "operator/OperatorComponent.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
+#include "preprocessor/PreprocessorComponent.h"
 #include "switch-statement/SwitchStatementComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -68,6 +69,8 @@ public:
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
     CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
         "misra-x-req-20.4");
+
+    PreprocessorComponent::addCheckFactories(CheckFactories);
 
     /* 2. Unused code
     ---------------------------------------------------------------- */
