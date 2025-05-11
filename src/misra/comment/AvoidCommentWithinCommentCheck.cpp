@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "AvoidCommentWithinCommentCheck.h"
-#include "CommentMatch.h"
 #include "../utils/IgnoreLineSpliceRef.h"
+#include "CommentMatch.h"
 
 using namespace clang::ast_matchers;
 

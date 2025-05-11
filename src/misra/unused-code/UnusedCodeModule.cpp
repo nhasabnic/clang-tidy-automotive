@@ -8,7 +8,7 @@
 
 #include "UnusedCodeModule.h"
 #include "UnusedLabelCheck.h"
-//#include "UnusedMacroCheck.h"
+// #include "UnusedMacroCheck.h"
 #include "UnusedObjectDefinitionCheck.h"
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"

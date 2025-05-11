@@ -20,8 +20,7 @@ void AvoidBitfieldInUnionCheck::registerMatchers(MatchFinder *Finder) {
                      this);
 }
 
-void AvoidBitfieldInUnionCheck::check(
-    const MatchFinder::MatchResult &Result) {
+void AvoidBitfieldInUnionCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *MatchedDecl =
       Result.Nodes.getNodeAs<RecordDecl>("unionWithBitfield");
 

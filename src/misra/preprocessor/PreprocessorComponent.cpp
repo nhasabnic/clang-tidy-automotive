@@ -17,7 +17,7 @@ void PreprocessorComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
   CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
-       "misra-x-req-20.4");
+      "misra-x-req-20.4");
   CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
 
   /* MISRA C 2023

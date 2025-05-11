@@ -43,7 +43,6 @@
 #include "preprocessor/PreprocessorComponent.h"
 #include "switch-statement/SwitchStatementComponent.h"
 
-
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "literals-and-constants/LiteralsAndConstantsModule.h"
@@ -70,6 +69,18 @@ public:
     PreprocessorComponent::addCheckFactories(CheckFactories);
     OperatorComponent::addCheckFactories(CheckFactories);
     SwitchStatementComponent::addCheckFactories(CheckFactories);
+
+    /* MISRA C 2023
+    ---------------------------------------------------------------- */
+    CheckFactories.registerCheck<cert::FloatLoopCounter>(
+        "misra-c2023-req-14.1");
+    CheckFactories.registerCheck<misc::NoRecursionCheck>(
+        "misra-c2023-req-17.2");
+
+    /* MISRA C 2012
+    ---------------------------------------------------------------- */
+    CheckFactories.registerCheck<cert::FloatLoopCounter>(
+        "misra-c2012-req-14.1");
 
     /* 2. Unused code
     ---------------------------------------------------------------- */
@@ -98,8 +109,6 @@ public:
 
     /* 14.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<cert::FloatLoopCounter>(
-        "misra-c2023-req-14.1");
     CheckFactories.registerCheck<InvariantControlCheck>("misra-c2023-req-14.3");
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "misra-c2023-req-14.4");
@@ -117,8 +126,6 @@ public:
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidStdargHeaderCheck>(
         "misra-c2023-req-17.1");
-    CheckFactories.registerCheck<misc::NoRecursionCheck>(
-        "misra-c2023-req-17.2");
     CheckFactories.registerCheck<ImplicitFunctionDeclCheck>(
         "misra-c2023-man-17.3");
     CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
@@ -146,25 +153,12 @@ public:
         "misra-c2023-req-21.21");
     CheckFactories.registerCheck<AvoidStdlibRandCheck>("misra-c2023-req-21.24");
 
-    /* ------------------------------------------------------------- */
-    /* MISRA C 2012                                                  */
-    /* ------------------------------------------------------------- */
-
-    /* Directive
-    ================================================================ */
-
-    /* Rules
-    ================================================================ */
-
-    /* 13.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
-        "misra-c2012-adv-13.4");
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
+        CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
+            "misra-c2012-adv-13.4");
 
     /* 14.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<cert::FloatLoopCounter>(
-        "misra-c2012-req-14.1");
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "misra-c2012-req-14.4");
 

@@ -17,10 +17,10 @@ void ArrayComponent::addCheckFactories(
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
-    CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
-        "misra-c2023-req-18.7");
-    CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
-        "misra-c2023-req-18.8");
+  CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
+      "misra-c2023-req-18.7");
+  CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
+      "misra-c2023-req-18.8");
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
