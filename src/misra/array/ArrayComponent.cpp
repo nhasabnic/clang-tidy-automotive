@@ -1,4 +1,4 @@
-//===--- PreprocessorComponent.cpp - clang-tidy ---------------------------===//
+//===--- ArrayComponent.cpp - clang-tidy ----------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,23 +6,21 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "PreprocessorComponent.h"
-#include "AvoidMacroNamedAsCkeywordCheck.h"
-#include "AvoidUndefCheck.h"
-#include "PreprocessorFlowCheck.h"
+#include "ArrayComponent.h"
+#include "AvoidFlexibleArrayMemberCheck.h"
+#include "AvoidVariableLengthArrayCheck.h"
 
 namespace clang::tidy::misra {
 
-void PreprocessorComponent::addCheckFactories(
+void ArrayComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
-
-  CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
-       "misra-x-req-20.4");
-  CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidUndefCheck>("misra-c2023-adv-20.5");
+    CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
+        "misra-c2023-req-18.7");
+    CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
+        "misra-c2023-req-18.8");
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */

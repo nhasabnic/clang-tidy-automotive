@@ -14,19 +14,15 @@
 #include "../misc/UnusedParametersCheck.h"
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
-#include "AvoidFlexibleArrayMemberCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidGotoCheck.h"
-#include "preprocessor/AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
 #include "AvoidSetjmpHeaderCheck.h"
 #include "AvoidSignalHeaderCheck.h"
 #include "AvoidStdargHeaderCheck.h"
 #include "AvoidStdlibMemoryCheck.h"
 #include "AvoidStdlibRandCheck.h"
-#include "preprocessor/AvoidUndefCheck.h"
 #include "AvoidUnionCheck.h"
-#include "AvoidVariableLengthArrayCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
 #include "ExitCheck.h"
 #include "ForwardGotoLabelCheck.h"
@@ -39,8 +35,8 @@
 #include "MissingStaticInternalLinkageCheck.h"
 #include "MultipleReturnStmtCheck.h"
 #include "NoReturnVoidCheck.h"
-#include "preprocessor/PreprocessorFlowCheck.h"
 
+#include "array/ArrayComponent.h"
 #include "bitfield/BitfieldComponent.h"
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comment/CommentComponent.h"
@@ -64,29 +60,20 @@ public:
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
-    CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
-
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
-    CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
-        "misra-x-req-20.4");
 
+    ArrayComponent::addCheckFactories(CheckFactories);
+    BitfieldComponent::addCheckFactories(CheckFactories);
     PreprocessorComponent::addCheckFactories(CheckFactories);
+    CommentComponent::addCheckFactories(CheckFactories);
 
     /* 2. Unused code
     ---------------------------------------------------------------- */
     UnusedCodeModule::addCheckFactories(CheckFactories);
 
-    /* 3. Comments
-    ---------------------------------------------------------------- */
-    CommentComponent::addCheckFactories(CheckFactories);
-
     /* 4. Character sets and lexical conversations
     ---------------------------------------------------------------- */
     CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
-
-    /* 6. Types
-    ---------------------------------------------------------------- */
-    BitfieldComponent::addCheckFactories(CheckFactories);
 
     /* 7. Literals and constants
     ---------------------------------------------------------------- */
@@ -140,20 +127,9 @@ public:
         "misra-c2023-adv-17.8");
     CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
 
-    /* 18.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
-        "misra-c2023-req-18.7");
-    CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
-        "misra-c2023-req-18.8");
-
     /* 19.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidUnionCheck>("misra-c2023-adv-19.2");
-
-    /* 20.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidUndefCheck>("misra-c2023-adv-20.5");
 
     /* 21.
     ---------------------------------------------------------------- */

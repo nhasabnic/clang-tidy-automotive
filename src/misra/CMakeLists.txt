@@ -3,6 +3,7 @@ set(LLVM_LINK_COMPONENTS
   support
   )
 
+add_subdirectory(array)
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comment)
 add_subdirectory(declarations-and-definitions)
@@ -18,7 +19,6 @@ add_subdirectory(utils)
 
 add_clang_library(clangTidyMISRAModule
   AvoidApiCheck.cpp
-  AvoidFlexibleArrayMemberCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
@@ -26,7 +26,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
-  AvoidVariableLengthArrayCheck.cpp
   AvoidstdlibsystemcallCheck.cpp
   AvoidStdlibRandCheck.cpp
   ImplicitFunctionDeclCheck.cpp
@@ -50,6 +49,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMiscModule
   clangTidyCERTModule
 
+  clangTidyMISRAArrayComponent
   clangTidyMISRABitfieldComponent
   clangTidyMISRACharSetsAndLexicalConvs
   clangTidyMISRACommentComponent
