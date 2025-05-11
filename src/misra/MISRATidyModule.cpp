@@ -38,14 +38,16 @@
 
 #include "array/ArrayComponent.h"
 #include "bitfield/BitfieldComponent.h"
-#include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "comment/CommentComponent.h"
-#include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "operator/OperatorComponent.h"
-#include "literals-and-constants/LiteralsAndConstantsModule.h"
-#include "pointer-type-conversions/PointerTypeConversionsModule.h"
 #include "preprocessor/PreprocessorComponent.h"
 #include "switch-statement/SwitchStatementComponent.h"
+
+
+#include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
+#include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
+#include "literals-and-constants/LiteralsAndConstantsModule.h"
+#include "pointer-type-conversions/PointerTypeConversionsModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -64,8 +66,10 @@ public:
 
     ArrayComponent::addCheckFactories(CheckFactories);
     BitfieldComponent::addCheckFactories(CheckFactories);
-    PreprocessorComponent::addCheckFactories(CheckFactories);
     CommentComponent::addCheckFactories(CheckFactories);
+    PreprocessorComponent::addCheckFactories(CheckFactories);
+    OperatorComponent::addCheckFactories(CheckFactories);
+    SwitchStatementComponent::addCheckFactories(CheckFactories);
 
     /* 2. Unused code
     ---------------------------------------------------------------- */
@@ -108,10 +112,6 @@ public:
         "misra-c2023-adv-15.5");
     CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2023-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("misra-c2023-req-15.7");
-
-    /* 16.
-    ---------------------------------------------------------------- */
-    SwitchStatementComponent::addCheckFactories(CheckFactories);
 
     /* 17.
     ---------------------------------------------------------------- */
