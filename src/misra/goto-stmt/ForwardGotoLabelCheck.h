@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_FORWARDGOTOLABELCHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_FORWARDGOTOLABELCHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 #include "clang/Basic/SourceLocation.h"
 #include "llvm/ADT/DenseMap.h"
 

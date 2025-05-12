@@ -7,8 +7,6 @@
 //===----------------------------------------------------------------------===//
 
 #include "UnusedCodeModule.h"
-#include "UnusedLabelCheck.h"
-// #include "UnusedMacroCheck.h"
 #include "UnusedObjectDefinitionCheck.h"
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
@@ -21,7 +19,6 @@ void UnusedCodeModule::addCheckFactories(
   /* MISRA C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
-  CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
   // CheckFactories.registerCheck<misc::UnusedParametersCheck>(
   //     "misra-c2023-adv-2.7");
   CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
@@ -30,7 +27,7 @@ void UnusedCodeModule::addCheckFactories(
   /* MISRA C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2012-adv-2.3");
-  CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2012-adv-2.6");
+
   // CheckFactories.registerCheck<misc::UnusedParametersCheck>(
   //     "misra-c2012-adv-2.7");
 

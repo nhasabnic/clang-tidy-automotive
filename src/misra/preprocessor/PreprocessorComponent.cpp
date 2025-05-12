@@ -10,6 +10,7 @@
 #include "AvoidMacroNamedAsCkeywordCheck.h"
 #include "AvoidUndefCheck.h"
 #include "PreprocessorFlowCheck.h"
+#include "UnusedMacroCheck.h"
 
 namespace clang::tidy::misra {
 

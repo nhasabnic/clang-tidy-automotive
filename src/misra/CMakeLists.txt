@@ -7,12 +7,14 @@ add_subdirectory(array)
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comment)
 add_subdirectory(declarations-and-definitions)
+add_subdirectory(goto-stmt)
 add_subdirectory(operator)
 add_subdirectory(literals-and-constants)
 add_subdirectory(pointer-type-conversions)
 add_subdirectory(bitfield)
 add_subdirectory(preprocessor)
-add_subdirectory(switch-statement)
+add_subdirectory(return-stmt)
+add_subdirectory(switch-stmt)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
 
@@ -22,7 +24,6 @@ add_clang_library(clangTidyMISRAModule
   AvoidFunctionParameterModificationCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidSetjmpHeaderCheck.cpp
-  AvoidGotoCheck.cpp
   AvoidSignalHeaderCheck.cpp
   AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
@@ -32,16 +33,12 @@ add_clang_library(clangTidyMISRAModule
   ImplicitIntCheck.cpp
   InvariantControlCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
-  MissingReturnValueHandlingCheck.cpp
-  NoReturnVoidCheck.cpp
   AtoXCheck.cpp
   AvoidUnionCheck.cpp
   ExitCheck.cpp
-  ForwardGotoLabelCheck.cpp
   MISRATidyModule.cpp
   MissingCompoundCheck.cpp
   MissingElseCheck.cpp
-  MultipleReturnStmtCheck.cpp
 
   LINK_LIBS
   clangTidy
@@ -54,11 +51,13 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRACharSetsAndLexicalConvs
   clangTidyMISRACommentComponent
   clangTidyMISRADeclarationsAndDefinitions
+  clangTidyMISRAGotoStmtComponent
   clangTidyMISRAOperatorComponent
   clangTidyMISRALiteralsAndConstants
   clangTidyMISRAPointerTypeConversions
   clangTidyMISRAPreprocessorComponent
-  clangTidyMISRASwitchStatementComponent
+  clangTidyMISRAReturnStmtComponent
+  clangTidyMISRASwitchStmtComponent
   clangTidyMISRAUnusedCode
   clangTidyMISRAUtils
 

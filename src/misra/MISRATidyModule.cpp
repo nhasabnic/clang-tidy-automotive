@@ -15,7 +15,6 @@
 #include "AtoXCheck.h"
 #include "AvoidAssignmentInExpressionCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
-#include "AvoidGotoCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
 #include "AvoidSetjmpHeaderCheck.h"
 #include "AvoidSignalHeaderCheck.h"
@@ -25,23 +24,19 @@
 #include "AvoidUnionCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
 #include "ExitCheck.h"
-#include "ForwardGotoLabelCheck.h"
 #include "ImplicitFunctionDeclCheck.h"
 #include "ImplicitIntCheck.h"
 #include "InvariantControlCheck.h"
 #include "MissingCompoundCheck.h"
 #include "MissingElseCheck.h"
-#include "MissingReturnValueHandlingCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
-#include "MultipleReturnStmtCheck.h"
-#include "NoReturnVoidCheck.h"
 
 #include "array/ArrayComponent.h"
 #include "bitfield/BitfieldComponent.h"
 #include "comment/CommentComponent.h"
 #include "operator/OperatorComponent.h"
 #include "preprocessor/PreprocessorComponent.h"
-#include "switch-statement/SwitchStatementComponent.h"
+#include "switch-stmt/SwitchStmtComponent.h"
 
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
@@ -68,7 +63,7 @@ public:
     CommentComponent::addCheckFactories(CheckFactories);
     PreprocessorComponent::addCheckFactories(CheckFactories);
     OperatorComponent::addCheckFactories(CheckFactories);
-    SwitchStatementComponent::addCheckFactories(CheckFactories);
+    SwitchStmtComponent::addCheckFactories(CheckFactories);
 
     /* MISRA C 2023
     ---------------------------------------------------------------- */
@@ -115,10 +110,6 @@ public:
 
     /* 15.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2023-adv-15.1");
-    CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2023-req-15.2");
-    CheckFactories.registerCheck<MultipleReturnStmtCheck>(
-        "misra-c2023-adv-15.5");
     CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2023-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("misra-c2023-req-15.7");
 
@@ -128,11 +119,8 @@ public:
         "misra-c2023-req-17.1");
     CheckFactories.registerCheck<ImplicitFunctionDeclCheck>(
         "misra-c2023-man-17.3");
-    CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
-        "misra-c2023-req-17.7");
     CheckFactories.registerCheck<AvoidFunctionParameterModificationCheck>(
         "misra-c2023-adv-17.8");
-    CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
 
     /* 19.
     ---------------------------------------------------------------- */
@@ -153,9 +141,8 @@ public:
         "misra-c2023-req-21.21");
     CheckFactories.registerCheck<AvoidStdlibRandCheck>("misra-c2023-req-21.24");
 
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-        CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
-            "misra-c2012-adv-13.4");
+    CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
+         "misra-c2012-adv-13.4");
 
     /* 14.
     ---------------------------------------------------------------- */
@@ -164,10 +151,6 @@ public:
 
     /* 15.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2012-adv-15.1");
-    CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2012-req-15.2");
-    CheckFactories.registerCheck<MultipleReturnStmtCheck>(
-        "misra-c2012-adv-15.5");
     CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2012-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("misra-c2012-req-15.7");
 
