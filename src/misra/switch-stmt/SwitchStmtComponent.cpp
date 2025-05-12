@@ -1,4 +1,4 @@
-//===--- SwitchStatementComponent.cpp - clang-tidy ------------------------===//
+//===--- SwitchStmtComponent.cpp - clang-tidy -----------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "SwitchStatementComponent.h"
+#include "SwitchStmtComponent.h"
 #include "AvoidBooleanInSwitchCheck.h"
 #include "MissingBreakInSwitchCheck.h"
 #include "MissingDefaultInSwitchStatementCheck.h"
@@ -15,7 +15,7 @@
 
 namespace clang::tidy::misra {
 
-void SwitchStatementComponent::addCheckFactories(
+void SwitchStmtComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023
