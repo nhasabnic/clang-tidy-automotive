@@ -8,6 +8,7 @@
 
 #include "PreprocessorComponent.h"
 #include "AvoidMacroNamedAsCkeywordCheck.h"
+#include "AvoidPreprocessorHashOperatorCheck.h"
 #include "AvoidUndefCheck.h"
 #include "PreprocessorFlowCheck.h"
 #include "UnusedMacroCheck.h"
@@ -25,6 +26,8 @@ void PreprocessorComponent::addCheckFactories(
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
   CheckFactories.registerCheck<AvoidUndefCheck>("misra-c2023-adv-20.5");
+  CheckFactories.registerCheck<AvoidPreprocessorHashOperatorCheck>(
+      "misra-c2023-adv-20.10");
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
