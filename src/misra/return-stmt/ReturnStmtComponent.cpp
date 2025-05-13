@@ -18,16 +18,14 @@ void ReturnStmtComponent::addCheckFactories(
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>(
-      "misra-c2023-adv-15.5");
+  CheckFactories.registerCheck<MultipleReturnStmtCheck>("misra-c2023-adv-15.5");
   CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
       "misra-c2023-req-17.7");
   CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
 
   /* MISRA C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>(
-      "misra-c2012-adv-15.5");
+  CheckFactories.registerCheck<MultipleReturnStmtCheck>("misra-c2012-adv-15.5");
 }
 
 } // namespace clang::tidy::misra
