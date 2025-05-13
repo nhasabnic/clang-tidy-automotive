@@ -32,6 +32,8 @@ void PreprocessorComponent::addCheckFactories(
   /* MISRA C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2012-adv-2.5");
+  CheckFactories.registerCheck<AvoidPreprocessorHashOperatorCheck>(
+      "misra-c2012-adv-20.10");
 }
 
 } // namespace clang::tidy::misra
