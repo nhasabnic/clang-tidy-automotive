@@ -1,4 +1,4 @@
-//===--- AvoidPreprocessorHashOperatorCheck.cpp - clang-tidy --------------===//
+//===--- AvoidHashOperatorCheck.cpp - clang-tidy --------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "AvoidPreprocessorHashOperatorCheck.h"
+#include "AvoidHashOperatorCheck.h"
 #include "clang/Basic/TokenKinds.h"
 #include "clang/Lex/PPCallbacks.h"
 #include "clang/Lex/Preprocessor.h"
@@ -17,9 +17,9 @@ namespace clang::tidy::misra {
 
 namespace {
 
-class AvoidPreprocessorHashOperatorCallbacks : public PPCallbacks {
+class AvoidHashOperatorPPCallbacks : public PPCallbacks {
 public:
-  AvoidPreprocessorHashOperatorCallbacks(ClangTidyCheck &Check,
+  AvoidHashOperatorPPCallbacks(ClangTidyCheck &Check,
                                          clang::Preprocessor &PP)
       : Check(Check), SourceMgr(PP.getSourceManager()) {}
 
@@ -45,10 +45,10 @@ private:
 
 } // namespace
 
-void AvoidPreprocessorHashOperatorCheck::registerPPCallbacks(
+void AvoidHashOperatorCheck::registerPPCallbacks(
     const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
   PP->addPPCallbacks(
-      std::make_unique<AvoidPreprocessorHashOperatorCallbacks>(*this, *PP));
+      std::make_unique<AvoidHashOperatorPPCallbacks>(*this, *PP));
 }
 
 } // namespace clang::tidy::misra

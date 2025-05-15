@@ -1,4 +1,4 @@
-//===--- AvoidPreprocessorHashOperatorCheck.h - clang-tidy ------*- C++ -*-===//
+//===--- AvoidMultipleHashOperatorsCheck.h - clang-tidy ---------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDPREPROCESSORHASHOPERATORCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDPREPROCESSORHASHOPERATORCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDMULTIPLEHASHOPERATORSCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDMULTIPLEHASHOPERATORSCHECK_H
 
 #include "../../ClangTidyCheck.h"
 
@@ -17,9 +17,9 @@ namespace clang::tidy::misra {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/Avoid-Preprocessor-Hash-Operator.html
-class AvoidPreprocessorHashOperatorCheck : public ClangTidyCheck {
+class AvoidMultipleHashOperatorsCheck : public ClangTidyCheck {
 public:
-  AvoidPreprocessorHashOperatorCheck(StringRef Name, ClangTidyContext *Context)
+  AvoidMultipleHashOperatorsCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
 
   void registerPPCallbacks(const SourceManager &SM, Preprocessor *PP,
@@ -28,4 +28,4 @@ public:
 
 } // namespace clang::tidy::misra
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDPREPROCESSORHASHOPERATORCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDMULTIPLEHASHOPERATORSCHECK_H

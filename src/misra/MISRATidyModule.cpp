@@ -54,7 +54,6 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
     /* TODO: Move this and name it properly. */
-
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "misra-x-Missing-Static-Internal-Linkage");
     CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");

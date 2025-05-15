@@ -1,7 +1,8 @@
 
 add_clang_library(clangTidyMISRAPreprocessorComponent STATIC
+  AvoidHashOperatorCheck.cpp
   AvoidMacroNamedAsCkeywordCheck.cpp
-  AvoidPreprocessorHashOperatorCheck.cpp
+  AvoidMultipleHashOperatorsCheck.cpp
   AvoidUndefCheck.cpp
   PreprocessorComponent.cpp
   PreprocessorFlowCheck.cpp
