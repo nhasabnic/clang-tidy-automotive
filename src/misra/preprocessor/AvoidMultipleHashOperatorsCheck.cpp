@@ -20,7 +20,7 @@ namespace {
 class AvoidMultipleHashOperatorsPPCallbacks : public PPCallbacks {
 public:
   AvoidMultipleHashOperatorsPPCallbacks(ClangTidyCheck &Check,
-                                         clang::Preprocessor &PP)
+                                        clang::Preprocessor &PP)
       : Check(Check), SourceMgr(PP.getSourceManager()) {}
 
   void MacroDefined(const Token &MacroNameTok,
@@ -38,16 +38,17 @@ public:
           SourceLocation TokLoc = Tok.getLocation();
           SourceLocation PrevTokLoc = PrevTok->getLocation();
           auto TokSpelling = clang::tok::getPunctuatorSpelling(Tok.getKind());
-          auto PrevTokSpelling = clang::tok::getPunctuatorSpelling(PrevTok->getKind());
+          auto PrevTokSpelling =
+              clang::tok::getPunctuatorSpelling(PrevTok->getKind());
 
-          Check.diag(TokLoc, "avoid '%0' operator after '%1' operator") <<
-              TokSpelling << PrevTokSpelling;
-          Check.diag(PrevTokLoc, "location of '%0' operator", DiagnosticIDs::Note) <<
-              PrevTokSpelling;
+          Check.diag(TokLoc, "avoid '%0' operator after '%1' operator")
+              << TokSpelling << PrevTokSpelling;
+          Check.diag(PrevTokLoc, "location of '%0' operator",
+                     DiagnosticIDs::Note)
+              << PrevTokSpelling;
         }
         PrevTok = &Tok;
       }
-
     }
   }
 

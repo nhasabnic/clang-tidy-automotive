@@ -19,8 +19,7 @@ namespace {
 
 class AvoidHashOperatorPPCallbacks : public PPCallbacks {
 public:
-  AvoidHashOperatorPPCallbacks(ClangTidyCheck &Check,
-                                         clang::Preprocessor &PP)
+  AvoidHashOperatorPPCallbacks(ClangTidyCheck &Check, clang::Preprocessor &PP)
       : Check(Check), SourceMgr(PP.getSourceManager()) {}
 
   void MacroDefined(const Token &MacroNameTok,
