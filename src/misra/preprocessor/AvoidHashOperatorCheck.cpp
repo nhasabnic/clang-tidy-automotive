@@ -11,7 +11,7 @@
 #include "clang/Lex/PPCallbacks.h"
 #include "clang/Lex/Preprocessor.h"
 
-using namespace clang::ast_matchers;
+using namespace clang::tok;
 
 namespace clang::tidy::misra {
 
@@ -19,35 +19,36 @@ namespace {
 
 class AvoidHashOperatorPPCallbacks : public PPCallbacks {
 public:
-  AvoidHashOperatorPPCallbacks(ClangTidyCheck &Check, clang::Preprocessor &PP)
-      : Check(Check), SourceMgr(PP.getSourceManager()) {}
+  AvoidHashOperatorPPCallbacks(ClangTidyCheck &Check) : Check(Check) {}
 
   void MacroDefined(const Token &MacroNameTok,
-                    const MacroDirective *MD) override {
-    const MacroInfo *MI = MD->getMacroInfo();
-    if (!MI)
-      return;
-
-    for (const Token &Tok : MI->tokens()) {
-      if (Tok.is(tok::hash) || Tok.is(tok::hashhash)) {
-        SourceLocation Loc = Tok.getLocation();
-        Check.diag(Loc, "avoid preprocessor operator '%0'")
-            << clang::tok::getPunctuatorSpelling(Tok.getKind());
-      }
-    }
-  }
+                    const MacroDirective *MD) override;
 
 private:
   ClangTidyCheck &Check;
-  const SourceManager &SourceMgr;
 };
 
-} // namespace
+void AvoidHashOperatorPPCallbacks::MacroDefined(const Token &MacroNameTok,
+                                                const MacroDirective *MD) {
+  const MacroInfo *Info = MD->getMacroInfo();
+
+  if (Info) {
+    for (const Token &Tok : Info->tokens()) {
+
+      if (Tok.isOneOf(tok::hash, tok::hashhash)) {
+        SourceLocation Loc = Tok.getLocation();
+        Check.diag(Loc, "avoid preprocessor operator '%0'")
+            << getPunctuatorSpelling(Tok.getKind());
+      }
+    }
+  }
+}
+
+} // anonymous namespace
 
 void AvoidHashOperatorCheck::registerPPCallbacks(
     const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
-  PP->addPPCallbacks(
-      std::make_unique<AvoidHashOperatorPPCallbacks>(*this, *PP));
+  PP->addPPCallbacks(std::make_unique<AvoidHashOperatorPPCallbacks>(*this));
 }
 
 } // namespace clang::tidy::misra

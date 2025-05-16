@@ -11,7 +11,7 @@
 #include "clang/Lex/PPCallbacks.h"
 #include "clang/Lex/Preprocessor.h"
 
-using namespace clang::ast_matchers;
+using namespace clang::tok;
 
 namespace clang::tidy::misra {
 
@@ -19,27 +19,31 @@ namespace {
 
 class AvoidMultipleHashOperatorsPPCallbacks : public PPCallbacks {
 public:
-  AvoidMultipleHashOperatorsPPCallbacks(ClangTidyCheck &Check,
-                                        clang::Preprocessor &PP)
-      : Check(Check), SourceMgr(PP.getSourceManager()) {}
+  AvoidMultipleHashOperatorsPPCallbacks(ClangTidyCheck &Check) : Check(Check) {}
 
   void MacroDefined(const Token &MacroNameTok,
-                    const MacroDirective *MD) override {
-    const MacroInfo *MI = MD->getMacroInfo();
-    if (!MI) {
-      return;
-    }
+                    const MacroDirective *MD) override;
 
+private:
+  ClangTidyCheck &Check;
+};
+
+void AvoidMultipleHashOperatorsPPCallbacks::MacroDefined(
+    const Token &MacroNameTok, const MacroDirective *MD) {
+
+  const MacroInfo *Info = MD->getMacroInfo();
+
+  if (Info) {
     const Token *PrevTok = nullptr;
 
-    for (const Token &Tok : MI->tokens()) {
-      if ((Tok.is(tok::hash)) || (Tok.is(tok::hashhash))) {
+    for (const Token &Tok : Info->tokens()) {
+
+      if (Tok.isOneOf(tok::hash, tok::hashhash)) {
         if (PrevTok) {
           SourceLocation TokLoc = Tok.getLocation();
           SourceLocation PrevTokLoc = PrevTok->getLocation();
-          auto TokSpelling = clang::tok::getPunctuatorSpelling(Tok.getKind());
-          auto PrevTokSpelling =
-              clang::tok::getPunctuatorSpelling(PrevTok->getKind());
+          auto TokSpelling = getPunctuatorSpelling(Tok.getKind());
+          auto PrevTokSpelling = getPunctuatorSpelling(PrevTok->getKind());
 
           Check.diag(TokLoc, "avoid '%0' operator after '%1' operator")
               << TokSpelling << PrevTokSpelling;
@@ -51,18 +55,14 @@ public:
       }
     }
   }
+}
 
-private:
-  ClangTidyCheck &Check;
-  const SourceManager &SourceMgr;
-};
-
-} // namespace
+} // anonymous namespace
 
 void AvoidMultipleHashOperatorsCheck::registerPPCallbacks(
     const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
   PP->addPPCallbacks(
-      std::make_unique<AvoidMultipleHashOperatorsPPCallbacks>(*this, *PP));
+      std::make_unique<AvoidMultipleHashOperatorsPPCallbacks>(*this));
 }
 
 } // namespace clang::tidy::misra

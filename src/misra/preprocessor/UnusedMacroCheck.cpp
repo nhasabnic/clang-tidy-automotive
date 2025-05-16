@@ -20,41 +20,52 @@ public:
       : Check(Check), SM(SM) {}
 
   void MacroDefined(const Token &MacroNameTok,
-                    const MacroDirective *MD) override {
-    StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
-    SourceLocation Loc = MacroNameTok.getLocation();
-    MacroUsage[MacroName] = {false, Loc};
-  }
-
+                    const MacroDirective *MD) override;
   void MacroExpands(const Token &MacroNameTok, const MacroDefinition &MD,
-                    SourceRange Range, const MacroArgs *Args) override {
-    StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
-    MacroUsage[MacroName].first = true;
-  }
-
+                    SourceRange Range, const MacroArgs *Args) override;
   void MacroUndefined(const Token &MacroNameTok, const MacroDefinition &MD,
-                      const MacroDirective *Undef) override {
-    StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
-    MacroUsage[MacroName].first = true;
-  }
-
-  void EndOfMainFile() override {
-    for (const auto &Entry : MacroUsage) {
-      if (!Entry.getValue().first) {
-        SourceLocation Loc = Entry.getValue().second;
-
-        if (SM.isWrittenInMainFile(Loc) && !SM.isInSystemHeader(Loc)) {
-          Check.diag(Loc, "unused macro definition '%0'") << Entry.getKey();
-        }
-      }
-    }
-  }
+                      const MacroDirective *Undef) override;
+  void EndOfMainFile() override;
 
 private:
   UnusedMacroCheck &Check;
   const SourceManager &SM;
   llvm::StringMap<std::pair<bool, SourceLocation>> MacroUsage;
 };
+
+void UnusedMacroPPCallbacks::MacroDefined(const Token &MacroNameTok,
+                                          const MacroDirective *MD) {
+  StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
+  SourceLocation Loc = MacroNameTok.getLocation();
+  MacroUsage[MacroName] = {false, Loc};
+}
+
+void UnusedMacroPPCallbacks::MacroExpands(const Token &MacroNameTok,
+                                          const MacroDefinition &MD,
+                                          SourceRange Range,
+                                          const MacroArgs *Args) {
+  StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
+  MacroUsage[MacroName].first = true;
+}
+
+void UnusedMacroPPCallbacks::MacroUndefined(const Token &MacroNameTok,
+                                            const MacroDefinition &MD,
+                                            const MacroDirective *Undef) {
+  StringRef MacroName = MacroNameTok.getIdentifierInfo()->getName();
+  MacroUsage[MacroName].first = true;
+}
+
+void UnusedMacroPPCallbacks::EndOfMainFile() {
+  for (const auto &Entry : MacroUsage) {
+    if (!Entry.getValue().first) {
+      SourceLocation Loc = Entry.getValue().second;
+
+      if (SM.isWrittenInMainFile(Loc) && !SM.isInSystemHeader(Loc)) {
+        Check.diag(Loc, "unused macro definition '%0'") << Entry.getKey();
+      }
+    }
+  }
+}
 
 } // anonymous namespace
 

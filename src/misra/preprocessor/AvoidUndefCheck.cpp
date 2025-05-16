@@ -14,6 +14,8 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::misra {
 
+namespace {
+
 class AvoidUndefPPCallbacks : public PPCallbacks {
 public:
   AvoidUndefPPCallbacks(ClangTidyCheck &Check) : Check(Check) {}
@@ -33,6 +35,8 @@ void AvoidUndefPPCallbacks::MacroUndefined(const Token &MacroNameTok,
     Check.diag(Undef->getLocation(), "avoid #undef");
   }
 }
+
+} // anonymous namespace
 
 void AvoidUndefCheck::registerPPCallbacks(const SourceManager &SM,
                                           Preprocessor *PP,
