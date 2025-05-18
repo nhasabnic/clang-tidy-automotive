@@ -8,6 +8,7 @@
 
 #include "ArrayComponent.h"
 #include "AvoidFlexibleArrayMemberCheck.h"
+#include "AvoidPartialArrayInitCheck.h"
 #include "AvoidVariableLengthArrayCheck.h"
 
 namespace clang::tidy::misra {
@@ -17,6 +18,9 @@ void ArrayComponent::addCheckFactories(
 
   /* MISRA C 2023
   ------------------------------------------------------------------ */
+  CheckFactories.registerCheck<AvoidPartialArrayInitCheck>(
+      "misra-c2023-req-9.3");
+
   CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
       "misra-c2023-req-18.7");
   CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(

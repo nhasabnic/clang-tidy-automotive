@@ -88,6 +88,16 @@ AST_MATCHER_P(SwitchStmt, hasBody, clang::ast_matchers::internal::Matcher<Stmt>,
   return (Body != nullptr && InnerMatcher.matches(*Body, Finder, Builder));
 }
 
+AST_MATCHER(InitListExpr, isZeroInitializer) {
+  return Node.getNumInits() == 1 &&
+         llvm::isa<IntegerLiteral>(Node.getInit(0)) &&
+         llvm::cast<IntegerLiteral>(Node.getInit(0))->getValue() == 0;
+}
+
+AST_MATCHER(InitListExpr, isStringLiteralInit) {
+  return Node.isStringLiteralInit();
+}
+
 } // namespace ast_matchers
 
 namespace misra = ast_matchers;
