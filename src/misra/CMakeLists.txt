@@ -17,25 +17,17 @@ add_subdirectory(return-stmt)
 add_subdirectory(switch-stmt)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
-
+add_subdirectory(stdlib)
 
 add_clang_library(clangTidyMISRAModule
-  AvoidApiCheck.cpp
   AvoidFunctionParameterModificationCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
-  AvoidSetjmpHeaderCheck.cpp
-  AvoidSignalHeaderCheck.cpp
-  AvoidStdargHeaderCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
-  AvoidstdlibsystemcallCheck.cpp
-  AvoidStdlibRandCheck.cpp
   ImplicitFunctionDeclCheck.cpp
   ImplicitIntCheck.cpp
   InvariantControlCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
-  AtoXCheck.cpp
   AvoidUnionCheck.cpp
-  ExitCheck.cpp
   MISRATidyModule.cpp
   MissingCompoundCheck.cpp
   MissingElseCheck.cpp
@@ -57,6 +49,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRAPointerTypeConversions
   clangTidyMISRAPreprocessorComponent
   clangTidyMISRAReturnStmtComponent
+  clangTidyMISRAStdlibComponent
   clangTidyMISRASwitchStmtComponent
   clangTidyMISRAUnusedCode
   clangTidyMISRAUtils

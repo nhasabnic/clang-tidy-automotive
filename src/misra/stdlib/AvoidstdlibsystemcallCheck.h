@@ -1,4 +1,4 @@
-//===--- AvoidStdlibRandCheck.h - clang-tidy ----------.---------*- C++ -*-===//
+//===--- AvoidstdlibsystemcallCheck.h - clang-tidy --------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBRANDCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBRANDCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBSYSTEMCALLCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBSYSTEMCALLCHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 
 namespace clang::tidy::misra {
 
@@ -17,9 +17,9 @@ namespace clang::tidy::misra {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/AvoidStdlibSystemCall.html
-class AvoidStdlibRandCheck : public ClangTidyCheck {
+class AvoidstdlibsystemcallCheck : public ClangTidyCheck {
 public:
-  AvoidStdlibRandCheck(StringRef Name, ClangTidyContext *Context)
+  AvoidstdlibsystemcallCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
@@ -27,4 +27,4 @@ public:
 
 } // namespace clang::tidy::misra
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBRANDCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDSTDLIBSYSTEMCALLCHECK_H

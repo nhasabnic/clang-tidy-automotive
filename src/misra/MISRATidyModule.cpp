@@ -12,18 +12,11 @@
 #include "../cert/FloatLoopCounter.h"
 #include "../misc/NoRecursionCheck.h"
 #include "../misc/UnusedParametersCheck.h"
-#include "AtoXCheck.h"
+
 #include "AvoidAssignmentInExpressionCheck.h"
 #include "AvoidFunctionParameterModificationCheck.h"
 #include "AvoidNonBooleanInConditionCheck.h"
-#include "AvoidSetjmpHeaderCheck.h"
-#include "AvoidSignalHeaderCheck.h"
-#include "AvoidStdargHeaderCheck.h"
-#include "AvoidStdlibMemoryCheck.h"
-#include "AvoidStdlibRandCheck.h"
 #include "AvoidUnionCheck.h"
-#include "AvoidstdlibsystemcallCheck.h"
-#include "ExitCheck.h"
 #include "ImplicitFunctionDeclCheck.h"
 #include "ImplicitIntCheck.h"
 #include "InvariantControlCheck.h"
@@ -37,6 +30,7 @@
 #include "literal/LiteralComponent.h"
 #include "operator/OperatorComponent.h"
 #include "preprocessor/PreprocessorComponent.h"
+#include "stdlib/StdlibComponent.h"
 #include "switch-stmt/SwitchStmtComponent.h"
 
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
@@ -64,6 +58,7 @@ public:
     LiteralComponent::addCheckFactories(CheckFactories);
     PreprocessorComponent::addCheckFactories(CheckFactories);
     OperatorComponent::addCheckFactories(CheckFactories);
+    StdlibComponent::addCheckFactories(CheckFactories);
     SwitchStmtComponent::addCheckFactories(CheckFactories);
 
     /* MISRA C 2023
@@ -112,8 +107,6 @@ public:
 
     /* 17.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidStdargHeaderCheck>(
-        "misra-c2023-req-17.1");
     CheckFactories.registerCheck<ImplicitFunctionDeclCheck>(
         "misra-c2023-man-17.3");
     CheckFactories.registerCheck<AvoidFunctionParameterModificationCheck>(
@@ -125,19 +118,6 @@ public:
 
     /* 21.
     ---------------------------------------------------------------- */
-    // CheckFactories.registerCheck<AvoidStdlibMemoryCheck>(
-    //     "misra-c2023-req-21.3");
-    CheckFactories.registerCheck<AvoidSetjmpHeaderCheck>(
-        "misra-c2023-req-21.4");
-    CheckFactories.registerCheck<AvoidSignalHeaderCheck>(
-        "misra-c2023-req-21.5");
-    CheckFactories.registerCheck<AtoXCheck>("misra-c2023-req-21.7");
-    CheckFactories.registerCheck<ExitCheck>("misra-c2023-req-21.8");
-
-    CheckFactories.registerCheck<AvoidstdlibsystemcallCheck>(
-        "misra-c2023-req-21.21");
-    CheckFactories.registerCheck<AvoidStdlibRandCheck>("misra-c2023-req-21.24");
-
     CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
         "misra-c2012-adv-13.4");
 
