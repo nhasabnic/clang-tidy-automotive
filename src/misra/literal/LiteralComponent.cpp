@@ -1,4 +1,4 @@
-//===--- LiteralsAndConstantsModule.cpp - clang-tidy ----------------------===//
+//===--- LiteralComponent.cpp - clang-tidy --------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,13 +6,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "LiteralsAndConstantsModule.h"
+#include "LiteralComponent.h"
 #include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidOctalNumberCheck.h"
 
 namespace clang::tidy::misra {
 
-void LiteralsAndConstantsModule::addCheckFactories(
+void LiteralComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
   /* MISRA C 2023

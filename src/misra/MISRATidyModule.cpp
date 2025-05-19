@@ -34,13 +34,13 @@
 #include "array/ArrayComponent.h"
 #include "bitfield/BitfieldComponent.h"
 #include "comment/CommentComponent.h"
+#include "literal/LiteralComponent.h"
 #include "operator/OperatorComponent.h"
 #include "preprocessor/PreprocessorComponent.h"
 #include "switch-stmt/SwitchStmtComponent.h"
 
 #include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
-#include "literals-and-constants/LiteralsAndConstantsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
@@ -61,6 +61,7 @@ public:
     ArrayComponent::addCheckFactories(CheckFactories);
     BitfieldComponent::addCheckFactories(CheckFactories);
     CommentComponent::addCheckFactories(CheckFactories);
+    LiteralComponent::addCheckFactories(CheckFactories);
     PreprocessorComponent::addCheckFactories(CheckFactories);
     OperatorComponent::addCheckFactories(CheckFactories);
     SwitchStmtComponent::addCheckFactories(CheckFactories);
@@ -84,10 +85,6 @@ public:
     /* 4. Character sets and lexical conversations
     ---------------------------------------------------------------- */
     CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
-
-    /* 7. Literals and constants
-    ---------------------------------------------------------------- */
-    LiteralsAndConstantsModule::addCheckFactories(CheckFactories);
 
     /* 8. Declarations and defintions
     ---------------------------------------------------------------- */

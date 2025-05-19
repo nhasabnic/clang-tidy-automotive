@@ -9,7 +9,7 @@ add_subdirectory(comment)
 add_subdirectory(declarations-and-definitions)
 add_subdirectory(goto-stmt)
 add_subdirectory(operator)
-add_subdirectory(literals-and-constants)
+add_subdirectory(literal)
 add_subdirectory(pointer-type-conversions)
 add_subdirectory(bitfield)
 add_subdirectory(preprocessor)
@@ -53,7 +53,7 @@ add_clang_library(clangTidyMISRAModule
   clangTidyMISRADeclarationsAndDefinitions
   clangTidyMISRAGotoStmtComponent
   clangTidyMISRAOperatorComponent
-  clangTidyMISRALiteralsAndConstants
+  clangTidyMISRALiteralComponent
   clangTidyMISRAPointerTypeConversions
   clangTidyMISRAPreprocessorComponent
   clangTidyMISRAReturnStmtComponent
