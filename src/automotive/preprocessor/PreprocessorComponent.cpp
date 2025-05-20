@@ -27,14 +27,16 @@ void PreprocessorComponent::addCheckFactories(
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedMacroCheck>("automotive-c23-adv-2.5");
   CheckFactories.registerCheck<AvoidUndefCheck>("automotive-c23-adv-20.5");
-  CheckFactories.registerCheck<AvoidHashOperatorCheck>("automotive-c23-adv-20.10");
+  CheckFactories.registerCheck<AvoidHashOperatorCheck>(
+      "automotive-c23-adv-20.10");
   CheckFactories.registerCheck<AvoidMultipleHashOperatorsCheck>(
       "automotive-c23-req-20.11");
 
   /* C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedMacroCheck>("automotive-c12-adv-2.5");
-  CheckFactories.registerCheck<AvoidHashOperatorCheck>("automotive-c12-adv-20.10");
+  CheckFactories.registerCheck<AvoidHashOperatorCheck>(
+      "automotive-c12-adv-20.10");
 }
 
 } // namespace clang::tidy::automotive

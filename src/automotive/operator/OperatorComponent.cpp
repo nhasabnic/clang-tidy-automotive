@@ -16,11 +16,13 @@ void OperatorComponent::addCheckFactories(
 
   /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidCommaOperatorCheck>("automotive-c23-adv-12.3");
+  CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
+      "automotive-c23-adv-12.3");
 
   /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidCommaOperatorCheck>("automotive-c12-adv-12.3");
+  CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
+      "automotive-c12-adv-12.3");
 }
 
 } // namespace clang::tidy::automotive

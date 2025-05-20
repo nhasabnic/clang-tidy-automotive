@@ -18,7 +18,8 @@ void BitfieldComponent::addCheckFactories(
 
   /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<WrongBitfieldTypeCheck>("automotive-c23-req-6.1");
+  CheckFactories.registerCheck<WrongBitfieldTypeCheck>(
+      "automotive-c23-req-6.1");
   CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
       "automotive-c23-req-6.2");
   CheckFactories.registerCheck<AvoidBitfieldInUnionCheck>(
@@ -26,7 +27,8 @@ void BitfieldComponent::addCheckFactories(
 
   /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<WrongBitfieldTypeCheck>("automotive-c12-req-6.1");
+  CheckFactories.registerCheck<WrongBitfieldTypeCheck>(
+      "automotive-c12-req-6.1");
   CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
       "automotive-c12-req-6.2");
 }

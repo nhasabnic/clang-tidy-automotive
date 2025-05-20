@@ -17,20 +17,18 @@ namespace clang::tidy::automotive {
 
 void AvoidNonBooleanInConditionCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
-      ifStmt(hasCondition(
-                 expr(unless(automotive::isEssentiallyBoolean())).bind("condition")))
+      ifStmt(hasCondition(expr(unless(automotive::isEssentiallyBoolean()))
+                              .bind("condition")))
           .bind("ifStmt"),
       this);
   Finder->addMatcher(
-      whileStmt(
-          hasCondition(
-              expr(unless(automotive::isEssentiallyBoolean())).bind("condition")))
+      whileStmt(hasCondition(expr(unless(automotive::isEssentiallyBoolean()))
+                                 .bind("condition")))
           .bind("whileStmt"),
       this);
   Finder->addMatcher(
-      forStmt(
-          hasCondition(
-              expr(unless(automotive::isEssentiallyBoolean())).bind("condition")))
+      forStmt(hasCondition(expr(unless(automotive::isEssentiallyBoolean()))
+                               .bind("condition")))
           .bind("forStmt"),
       this);
 }

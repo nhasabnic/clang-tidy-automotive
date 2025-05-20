@@ -16,9 +16,9 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::automotive {
 
 void AvoidRestrictTypeCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(
-      typeLoc(loc(qualType(automotive::isRestrictType()))).bind("restrictTypeLoc"),
-      this);
+  Finder->addMatcher(typeLoc(loc(qualType(automotive::isRestrictType())))
+                         .bind("restrictTypeLoc"),
+                     this);
 }
 
 void AvoidRestrictTypeCheck::check(const MatchFinder::MatchResult &Result) {

@@ -28,15 +28,18 @@ void DeclarationsAndDefinitionsModule::addCheckFactories(
   CheckFactories.registerCheck<StaticInlineCheck>("automotive-c23-req-8.10");
   CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
       "automotive-c23-adv-8.11");
-  CheckFactories.registerCheck<UniqueEnumValuesCheck>("automotive-c23-req-8.12");
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("automotive-c23-req-8.14");
+  CheckFactories.registerCheck<UniqueEnumValuesCheck>(
+      "automotive-c23-req-8.12");
+  CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
+      "automotive-c23-req-8.14");
 
   /* C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<StaticInlineCheck>("automotive-c12-req-8.10");
   /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
    * hasExternalFormalLinkage())) */
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("automotive-c12-req-8.14");
+  CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
+      "automotive-c12-req-8.14");
 }
 
 } // namespace clang::tidy::automotive

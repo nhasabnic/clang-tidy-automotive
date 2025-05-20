@@ -16,10 +16,11 @@ namespace clang::tidy::automotive {
 
 void AvoidPartialArrayInitCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
-      varDecl(hasType(arrayType()),
-              hasInitializer(initListExpr(unless(automotive::isZeroInitializer()),
-                                          unless(automotive::isStringLiteralInit()))
-                                 .bind("init")))
+      varDecl(
+          hasType(arrayType()),
+          hasInitializer(initListExpr(unless(automotive::isZeroInitializer()),
+                                      unless(automotive::isStringLiteralInit()))
+                             .bind("init")))
           .bind("arrayVar"),
       this);
 }

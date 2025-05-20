@@ -20,13 +20,15 @@ void GotoStmtComponent::addCheckFactories(
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedLabelCheck>("automotive-c23-adv-2.6");
   CheckFactories.registerCheck<AvoidGotoCheck>("automotive-c23-adv-15.1");
-  CheckFactories.registerCheck<ForwardGotoLabelCheck>("automotive-c23-req-15.2");
+  CheckFactories.registerCheck<ForwardGotoLabelCheck>(
+      "automotive-c23-req-15.2");
 
   /* C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnusedLabelCheck>("automotive-c12-adv-2.6");
   CheckFactories.registerCheck<AvoidGotoCheck>("automotive-c12-adv-15.1");
-  CheckFactories.registerCheck<ForwardGotoLabelCheck>("automotive-c12-req-15.2");
+  CheckFactories.registerCheck<ForwardGotoLabelCheck>(
+      "automotive-c12-req-15.2");
 }
 
 } // namespace clang::tidy::automotive

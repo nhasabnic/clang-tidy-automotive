@@ -23,17 +23,21 @@ void StdlibComponent::addCheckFactories(
 
   /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidStdargHeaderCheck>("automotive-c23-req-17.1");
+  CheckFactories.registerCheck<AvoidStdargHeaderCheck>(
+      "automotive-c23-req-17.1");
   // CheckFactories.registerCheck<AvoidStdlibMemoryCheck>(
   //     "automotive-c23-req-21.3");
-  CheckFactories.registerCheck<AvoidSetjmpHeaderCheck>("automotive-c23-req-21.4");
-  CheckFactories.registerCheck<AvoidSignalHeaderCheck>("automotive-c23-req-21.5");
+  CheckFactories.registerCheck<AvoidSetjmpHeaderCheck>(
+      "automotive-c23-req-21.4");
+  CheckFactories.registerCheck<AvoidSignalHeaderCheck>(
+      "automotive-c23-req-21.5");
   CheckFactories.registerCheck<AtoXCheck>("automotive-c23-req-21.7");
   CheckFactories.registerCheck<ExitCheck>("automotive-c23-req-21.8");
 
   CheckFactories.registerCheck<AvoidstdlibsystemcallCheck>(
       "automotive-c23-req-21.21");
-  CheckFactories.registerCheck<AvoidStdlibRandCheck>("automotive-c23-req-21.24");
+  CheckFactories.registerCheck<AvoidStdlibRandCheck>(
+      "automotive-c23-req-21.24");
 
   /* C 2012
   ------------------------------------------------------------------ */

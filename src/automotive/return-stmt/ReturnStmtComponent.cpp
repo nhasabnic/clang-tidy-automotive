@@ -18,14 +18,16 @@ void ReturnStmtComponent::addCheckFactories(
 
   /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>("automotive-c23-adv-15.5");
+  CheckFactories.registerCheck<MultipleReturnStmtCheck>(
+      "automotive-c23-adv-15.5");
   CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
       "automotive-c23-req-17.7");
   CheckFactories.registerCheck<NoReturnVoidCheck>("automotive-c23-req-17.10");
 
   /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>("automotive-c12-adv-15.5");
+  CheckFactories.registerCheck<MultipleReturnStmtCheck>(
+      "automotive-c12-adv-15.5");
 }
 
 } // namespace clang::tidy::automotive

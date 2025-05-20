@@ -18,7 +18,8 @@ namespace clang::tidy::automotive {
 void MissingDefaultInSwitchStatementCheck::registerMatchers(
     MatchFinder *Finder) {
   Finder->addMatcher(
-      switchStmt(unless(automotive::hasDefaultStmt())).bind("switchStmt"), this);
+      switchStmt(unless(automotive::hasDefaultStmt())).bind("switchStmt"),
+      this);
 }
 
 void MissingDefaultInSwitchStatementCheck::check(

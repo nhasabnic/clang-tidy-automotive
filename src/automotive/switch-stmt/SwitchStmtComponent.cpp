@@ -28,7 +28,8 @@ void SwitchStmtComponent::addCheckFactories(
       "automotive-c23-req-16.5");
   CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
       "automotive-c23-req-16.7");
-  CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>("automotive-x-req-16.2");
+  CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>(
+      "automotive-x-req-16.2");
   /* 16.2 Inspiration: m
    * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
 

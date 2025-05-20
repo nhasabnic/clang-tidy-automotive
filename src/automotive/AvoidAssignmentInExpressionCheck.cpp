@@ -16,10 +16,10 @@ using namespace clang::ast_matchers;
 namespace clang::tidy::automotive {
 
 void AvoidAssignmentInExpressionCheck::registerMatchers(MatchFinder *Finder) {
-  Finder->addMatcher(
-      binaryOperator(isAssignmentOperator(), automotive::isAssignmentResultUsed())
-          .bind("assignment"),
-      this);
+  Finder->addMatcher(binaryOperator(isAssignmentOperator(),
+                                    automotive::isAssignmentResultUsed())
+                         .bind("assignment"),
+                     this);
 }
 
 void AvoidAssignmentInExpressionCheck::check(

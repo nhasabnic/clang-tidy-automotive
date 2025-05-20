@@ -96,13 +96,15 @@ public:
 
     /* 14.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<InvariantControlCheck>("automotive-c23-req-14.3");
+    CheckFactories.registerCheck<InvariantControlCheck>(
+        "automotive-c23-req-14.3");
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
         "automotive-c23-req-14.4");
 
     /* 15.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>("automotive-c23-req-15.6");
+    CheckFactories.registerCheck<MissingCompoundCheck>(
+        "automotive-c23-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
 
     /* 17.
@@ -128,7 +130,8 @@ public:
 
     /* 15.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>("automotive-c12-req-15.6");
+    CheckFactories.registerCheck<MissingCompoundCheck>(
+        "automotive-c12-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("automotive-c12-req-15.7");
 
     /* 16.
