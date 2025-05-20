@@ -14,7 +14,7 @@
 #include "AvoidStdlibMemoryCheck.h"
 #include "AvoidStdlibRandCheck.h"
 #include "AvoidstdlibsystemcallCheck.h"
-#include "ExitCheck.h"'
+#include "ExitCheck.h"
 
 namespace clang::tidy::misra {
 
