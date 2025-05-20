@@ -1,4 +1,4 @@
-//===--- MISRATidyModule.cpp - clang-tidy --------------------------------===//
+//===--- AutomotiveTidyModule.cpp - clang-tidy ----------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -43,7 +43,7 @@
 namespace clang::tidy {
 namespace misra {
 
-class MISRAModule : public ClangTidyModule {
+class AutomotiveModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 
@@ -138,12 +138,12 @@ public:
 
 } // namespace misra
 
-// Register the MISRA Module using this statically initialized variable.
-static ClangTidyModuleRegistry::Add<misra::MISRAModule>
-    X("misra-module", "Adds MISRA lint checks.");
+// Register the Automotive Module using this statically initialized variable.
+static ClangTidyModuleRegistry::Add<misra::AutomotiveModule>
+    X("automotive-module", "Adds automotive lint checks.");
 
 // This anchor is used to force the linker to link in the generated object file
-// and thus register the MisraModule.
-volatile int MISRAModuleAnchorSource = 0;
+// and thus register the AutomotiveModule.
+volatile int AutomotiveModuleAnchorSource = 0;
 
 } // namespace clang::tidy

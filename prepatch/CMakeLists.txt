@@ -82,6 +82,7 @@ set(ALL_CLANG_TIDY_CHECKS
   clangTidyAndroidModule
   clangTidyAbseilModule
   clangTidyAlteraModule
+  clangTidyAutomotiveModule
   clangTidyBoostModule
   clangTidyBugproneModule
   clangTidyCERTModule
@@ -95,7 +96,6 @@ set(ALL_CLANG_TIDY_CHECKS
   clangTidyLLVMModule
   clangTidyLLVMLibcModule
   clangTidyMiscModule
-  clangTidyMISRAModule
   clangTidyModernizeModule
   clangTidyObjCModule
   clangTidyOpenMPModule

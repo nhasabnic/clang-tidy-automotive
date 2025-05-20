@@ -19,7 +19,7 @@ add_subdirectory(unused-code)
 add_subdirectory(utils)
 add_subdirectory(stdlib)
 
-add_clang_library(clangTidyMISRAModule
+add_clang_library(clangTidyAutomotiveModule
   AvoidFunctionParameterModificationCheck.cpp
   AvoidNonBooleanInConditionCheck.cpp
   AvoidAssignmentInExpressionCheck.cpp
@@ -28,7 +28,7 @@ add_clang_library(clangTidyMISRAModule
   InvariantControlCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
   AvoidUnionCheck.cpp
-  MISRATidyModule.cpp
+  AutomotiveTidyModule.cpp
   MissingCompoundCheck.cpp
   MissingElseCheck.cpp
 
@@ -58,7 +58,7 @@ add_clang_library(clangTidyMISRAModule
   ClangDriverOptions
   )
 
-clang_target_link_libraries(clangTidyMISRAModule
+clang_target_link_libraries(clangTidyAutomotiveModule
   PRIVATE
   clangAnalysis
   clangAST

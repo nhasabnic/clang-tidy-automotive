@@ -29,6 +29,11 @@ extern volatile int AndroidModuleAnchorSource;
 static int LLVM_ATTRIBUTE_UNUSED AndroidModuleAnchorDestination =
     AndroidModuleAnchorSource;
 
+// This anchor is used to force the linker to link the AutomotiveModule.
+extern volatile int AutomotiveModuleAnchorSource;
+static int LLVM_ATTRIBUTE_UNUSED AutomotiveModuleAnchorDestination =
+    AutomotiveModuleAnchorSource;
+
 // This anchor is used to force the linker to link the BoostModule.
 extern volatile int BoostModuleAnchorSource;
 static int LLVM_ATTRIBUTE_UNUSED BoostModuleAnchorDestination =
@@ -93,11 +98,6 @@ static int LLVM_ATTRIBUTE_UNUSED LLVMLibcModuleAnchorDestination =
 extern volatile int MiscModuleAnchorSource;
 static int LLVM_ATTRIBUTE_UNUSED MiscModuleAnchorDestination =
     MiscModuleAnchorSource;
-
-// This anchor is used to force the linker to link the MiscModule.
-extern volatile int MISRAModuleAnchorSource;
-static int LLVM_ATTRIBUTE_UNUSED MISRAModuleAnchorDestination =
-    MISRAModuleAnchorSource;
 
 // This anchor is used to force the linker to link the ModernizeModule.
 extern volatile int ModernizeModuleAnchorSource;
