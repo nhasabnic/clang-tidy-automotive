@@ -5,7 +5,7 @@ wget https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-19.1.7.tar.g
 tar xzvf llvmorg-19.1.7.tar.gz
 
 # Create symbolic links from the clang-tidy-misra source tree into LLVM.
-ln -f -s ../../../src/misra/ llvm-project-llvmorg-19.1.7/clang-tools-extra/clang-tidy/
+ln -f -s ../../../src/automotive/ llvm-project-llvmorg-19.1.7/clang-tools-extra/clang-tidy/
 ln -f -s ../../../../../test/checkers/misra llvm-project-llvmorg-19.1.7/clang-tools-extra/test/clang-tidy/checkers/misra
 
 # Create symlinks in the src directory.
