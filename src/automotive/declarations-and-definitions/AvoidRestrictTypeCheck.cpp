@@ -13,11 +13,11 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidRestrictTypeCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
-      typeLoc(loc(qualType(misra::isRestrictType()))).bind("restrictTypeLoc"),
+      typeLoc(loc(qualType(automotive::isRestrictType()))).bind("restrictTypeLoc"),
       this);
 }
 
@@ -33,4 +33,4 @@ void AvoidRestrictTypeCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

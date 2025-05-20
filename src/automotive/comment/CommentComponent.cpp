@@ -10,24 +10,24 @@
 #include "AvoidCommentWithinCommentCheck.h"
 #include "AvoidLinesplicingWithinCommentCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void CommentComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
-      "misra-c2023-req-3.1");
+      "automotive-c23-req-3.1");
   CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
-      "misra-c2023-req-3.2");
+      "automotive-c23-req-3.2");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
-      "misra-c2012-req-3.1");
+      "automotive-c12-req-3.1");
   CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
-      "misra-c2012-req-3.2");
+      "automotive-c12-req-3.2");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

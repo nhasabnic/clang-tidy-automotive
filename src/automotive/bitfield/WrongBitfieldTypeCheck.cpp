@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void WrongBitfieldTypeCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
@@ -35,4 +35,4 @@ void WrongBitfieldTypeCheck::check(const MatchFinder::MatchResult &Result) {
   diag(MatchedBitField->getLocation(), "wrong type in bitfield");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

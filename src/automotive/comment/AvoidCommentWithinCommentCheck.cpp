@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 static constexpr std::initializer_list<const char *> DefaultProtocols = {
     "http", "https", "ftp", "ftps", "ssh", "file", "sftp", "svn", "git"};
@@ -168,4 +168,4 @@ static constexpr State stateExpectCommentEnd(char Ch) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -10,19 +10,19 @@
 #include "AvoidAtomicVoidPointerCheck.h"
 #include "WrongNullPointerValueCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void PointerTypeConversionsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<WrongNullPointerValueCheck>(
-      "misra-c2023-req-11.9");
+      "automotive-c23-req-11.9");
   /* 11.10: Diagnostic error */
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

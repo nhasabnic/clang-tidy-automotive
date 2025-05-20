@@ -41,7 +41,7 @@
 // using namespace clang::ast_matchers;
 
 namespace clang::tidy {
-namespace misra {
+namespace automotive {
 
 class AutomotiveModule : public ClangTidyModule {
 public:
@@ -49,8 +49,8 @@ public:
 
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
-        "misra-x-Missing-Static-Internal-Linkage");
-    CheckFactories.registerCheck<ImplicitIntCheck>("misra-x-req-8.1");
+        "automotive-x-Missing-Static-Internal-Linkage");
+    CheckFactories.registerCheck<ImplicitIntCheck>("automotive-x-req-8.1");
 
     ArrayComponent::addCheckFactories(CheckFactories);
     BitfieldComponent::addCheckFactories(CheckFactories);
@@ -61,17 +61,17 @@ public:
     StdlibComponent::addCheckFactories(CheckFactories);
     SwitchStmtComponent::addCheckFactories(CheckFactories);
 
-    /* MISRA C 2023
+    /* C 2023
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
-        "misra-c2023-req-14.1");
+        "automotive-c23-req-14.1");
     CheckFactories.registerCheck<misc::NoRecursionCheck>(
-        "misra-c2023-req-17.2");
+        "automotive-c23-req-17.2");
 
-    /* MISRA C 2012
+    /* C 2012
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<cert::FloatLoopCounter>(
-        "misra-c2012-req-14.1");
+        "automotive-c12-req-14.1");
 
     /* 2. Unused code
     ---------------------------------------------------------------- */
@@ -92,54 +92,54 @@ public:
     /* 13.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
-        "misra-c2023-adv-13.4");
+        "automotive-c23-adv-13.4");
 
     /* 14.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<InvariantControlCheck>("misra-c2023-req-14.3");
+    CheckFactories.registerCheck<InvariantControlCheck>("automotive-c23-req-14.3");
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
-        "misra-c2023-req-14.4");
+        "automotive-c23-req-14.4");
 
     /* 15.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2023-req-15.6");
-    CheckFactories.registerCheck<MissingElseCheck>("misra-c2023-req-15.7");
+    CheckFactories.registerCheck<MissingCompoundCheck>("automotive-c23-req-15.6");
+    CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
 
     /* 17.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<ImplicitFunctionDeclCheck>(
-        "misra-c2023-man-17.3");
+        "automotive-c23-man-17.3");
     CheckFactories.registerCheck<AvoidFunctionParameterModificationCheck>(
-        "misra-c2023-adv-17.8");
+        "automotive-c23-adv-17.8");
 
     /* 19.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidUnionCheck>("misra-c2023-adv-19.2");
+    CheckFactories.registerCheck<AvoidUnionCheck>("automotive-c23-adv-19.2");
 
     /* 21.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
-        "misra-c2012-adv-13.4");
+        "automotive-c12-adv-13.4");
 
     /* 14.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
-        "misra-c2012-req-14.4");
+        "automotive-c12-req-14.4");
 
     /* 15.
     ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>("misra-c2012-req-15.6");
-    CheckFactories.registerCheck<MissingElseCheck>("misra-c2012-req-15.7");
+    CheckFactories.registerCheck<MissingCompoundCheck>("automotive-c12-req-15.6");
+    CheckFactories.registerCheck<MissingElseCheck>("automotive-c12-req-15.7");
 
     /* 16.
     ---------------------------------------------------------------- */
   }
 };
 
-} // namespace misra
+} // namespace automotive
 
 // Register the Automotive Module using this statically initialized variable.
-static ClangTidyModuleRegistry::Add<misra::AutomotiveModule>
+static ClangTidyModuleRegistry::Add<automotive::AutomotiveModule>
     X("automotive-module", "Adds automotive lint checks.");
 
 // This anchor is used to force the linker to link in the generated object file

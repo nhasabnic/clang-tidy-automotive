@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void MissingElseCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
@@ -28,4 +28,4 @@ void MissingElseCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

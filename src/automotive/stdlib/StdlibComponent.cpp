@@ -16,27 +16,27 @@
 #include "AvoidstdlibsystemcallCheck.h"
 #include "ExitCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void StdlibComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidStdargHeaderCheck>("misra-c2023-req-17.1");
+  CheckFactories.registerCheck<AvoidStdargHeaderCheck>("automotive-c23-req-17.1");
   // CheckFactories.registerCheck<AvoidStdlibMemoryCheck>(
-  //     "misra-c2023-req-21.3");
-  CheckFactories.registerCheck<AvoidSetjmpHeaderCheck>("misra-c2023-req-21.4");
-  CheckFactories.registerCheck<AvoidSignalHeaderCheck>("misra-c2023-req-21.5");
-  CheckFactories.registerCheck<AtoXCheck>("misra-c2023-req-21.7");
-  CheckFactories.registerCheck<ExitCheck>("misra-c2023-req-21.8");
+  //     "automotive-c23-req-21.3");
+  CheckFactories.registerCheck<AvoidSetjmpHeaderCheck>("automotive-c23-req-21.4");
+  CheckFactories.registerCheck<AvoidSignalHeaderCheck>("automotive-c23-req-21.5");
+  CheckFactories.registerCheck<AtoXCheck>("automotive-c23-req-21.7");
+  CheckFactories.registerCheck<ExitCheck>("automotive-c23-req-21.8");
 
   CheckFactories.registerCheck<AvoidstdlibsystemcallCheck>(
-      "misra-c2023-req-21.21");
-  CheckFactories.registerCheck<AvoidStdlibRandCheck>("misra-c2023-req-21.24");
+      "automotive-c23-req-21.21");
+  CheckFactories.registerCheck<AvoidStdlibRandCheck>("automotive-c23-req-21.24");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidAtomicVoidPointerCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(varDecl(hasType(pointerType(pointee(atomicType()))))
@@ -28,4 +28,4 @@ void AvoidAtomicVoidPointerCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

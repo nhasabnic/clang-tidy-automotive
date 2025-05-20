@@ -9,7 +9,7 @@
 #include "AvoidStdargHeaderCheck.h"
 // #include "AvoidApiPPCallbacks.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 static const std::initializer_list<llvm::StringRef> ForbiddenMacroNames = {
     "va_start", "va_copy", "va_arg", "va_end"};
@@ -21,4 +21,4 @@ void AvoidStdargHeaderCheck::registerPPCallbacks(
   //      *this, *PP, "stdarg.h", ForbiddenMacroNames));
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -13,24 +13,24 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidNonBooleanInConditionCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
       ifStmt(hasCondition(
-                 expr(unless(misra::isEssentiallyBoolean())).bind("condition")))
+                 expr(unless(automotive::isEssentiallyBoolean())).bind("condition")))
           .bind("ifStmt"),
       this);
   Finder->addMatcher(
       whileStmt(
           hasCondition(
-              expr(unless(misra::isEssentiallyBoolean())).bind("condition")))
+              expr(unless(automotive::isEssentiallyBoolean())).bind("condition")))
           .bind("whileStmt"),
       this);
   Finder->addMatcher(
       forStmt(
           hasCondition(
-              expr(unless(misra::isEssentiallyBoolean())).bind("condition")))
+              expr(unless(automotive::isEssentiallyBoolean())).bind("condition")))
           .bind("forStmt"),
       this);
 }
@@ -45,4 +45,4 @@ void AvoidNonBooleanInConditionCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

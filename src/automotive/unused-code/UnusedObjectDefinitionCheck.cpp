@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UnusedObjectDefinitionCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(varDecl(isDefinition(), hasLocalStorage(),
@@ -39,4 +39,4 @@ void UnusedObjectDefinitionCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

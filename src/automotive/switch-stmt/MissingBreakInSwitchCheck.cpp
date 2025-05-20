@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void MissingBreakInSwitchCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(switchStmt().bind("switchStmt"), this);
@@ -66,4 +66,4 @@ void MissingBreakInSwitchCheck::checkCase(const Stmt *Case,
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

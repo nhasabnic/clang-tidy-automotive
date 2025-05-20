@@ -20,7 +20,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void ImplicitIntCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(varDecl().bind("var"), this);
@@ -75,4 +75,4 @@ void ImplicitIntCheck::checkImplicitInt(SourceLocation StartLoc,
   llvm::outs() << "--------------\n";
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -6,15 +6,15 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDAPICHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDAPICHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDAPICHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDAPICHECK_H
 
 #include "../../ClangTidyCheck.h"
 #include "AvoidApiHandler.h"
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/StringRef.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 /// FIXME: Write a short description.
 ///
@@ -45,6 +45,6 @@ private:
   StringRef HeaderName;
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDAPICHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDAPICHECK_H

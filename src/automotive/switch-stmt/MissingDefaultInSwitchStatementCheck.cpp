@@ -13,12 +13,12 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void MissingDefaultInSwitchStatementCheck::registerMatchers(
     MatchFinder *Finder) {
   Finder->addMatcher(
-      switchStmt(unless(misra::hasDefaultStmt())).bind("switchStmt"), this);
+      switchStmt(unless(automotive::hasDefaultStmt())).bind("switchStmt"), this);
 }
 
 void MissingDefaultInSwitchStatementCheck::check(
@@ -30,4 +30,4 @@ void MissingDefaultInSwitchStatementCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

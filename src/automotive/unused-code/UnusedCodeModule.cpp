@@ -11,29 +11,29 @@
 #include "UnusedTagCheck.h"
 #include "UnusedTypeCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UnusedCodeModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2023-adv-2.3");
+  CheckFactories.registerCheck<UnusedTypeCheck>("automotive-c23-adv-2.3");
   // CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-  //     "misra-c2023-adv-2.7");
+  //     "automotive-c23-adv-2.7");
   CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
-      "misra-c2023-adv-2.8");
+      "automotive-c23-adv-2.8");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedTypeCheck>("misra-c2012-adv-2.3");
+  CheckFactories.registerCheck<UnusedTypeCheck>("automotive-c12-adv-2.3");
 
   // CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-  //     "misra-c2012-adv-2.7");
+  //     "automotive-c12-adv-2.7");
 
   /* Experimental
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedTagCheck>("misra-x-adv-2.4");
+  CheckFactories.registerCheck<UnusedTagCheck>("automotive-x-adv-2.4");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

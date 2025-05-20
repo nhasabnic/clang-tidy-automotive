@@ -6,13 +6,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDLINESPLICINGWITHINCOMMENTCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDLINESPLICINGWITHINCOMMENTCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDLINESPLICINGWITHINCOMMENTCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDLINESPLICINGWITHINCOMMENTCHECK_H
 
 #include "../../ClangTidyCheck.h"
 #include "clang/Lex/Preprocessor.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 /// FIXME: Write a short description.
 ///
@@ -42,6 +42,6 @@ private:
   InternalCommentHandler Handler;
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_AVOIDLINESPLICINGWITHINCOMMENTCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDLINESPLICINGWITHINCOMMENTCHECK_H

@@ -6,12 +6,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_SETJMPCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_SETJMPCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_SETJMPCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_SETJMPCHECK_H
 
 #include "AvoidApiCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 /// FIXME: Write a short description.
 ///
@@ -22,6 +22,6 @@ public:
   AvoidSetjmpHeaderCheck(StringRef Name, ClangTidyContext *Context);
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_SETJMPCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_SETJMPCHECK_H

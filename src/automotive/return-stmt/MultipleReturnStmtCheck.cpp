@@ -13,7 +13,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void MultipleReturnStmtCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
@@ -43,4 +43,4 @@ void MultipleReturnStmtCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

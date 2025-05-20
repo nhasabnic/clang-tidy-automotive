@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 StatementMatcher matchUnstructuredSwitch() {
   return allOf(unless(hasParent(compoundStmt(hasParent(switchStmt())))),
@@ -53,4 +53,4 @@ void UnstructuredSwitchCaseCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

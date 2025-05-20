@@ -14,7 +14,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void MissingCompoundCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
@@ -41,7 +41,7 @@ void MissingCompoundCheck::registerMatchers(MatchFinder *Finder) {
       this);
 
   Finder->addMatcher(
-      switchStmt(misra::hasBody(stmt(unless(compoundStmt())).bind("body")))
+      switchStmt(automotive::hasBody(stmt(unless(compoundStmt())).bind("body")))
           .bind("parent"),
       this);
 }
@@ -59,4 +59,4 @@ void MissingCompoundCheck::check(const MatchFinder::MatchResult &Result) {
 
 void MissingCompoundCheck::diagBody(const Stmt *Body) {}
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

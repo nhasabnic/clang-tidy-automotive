@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidCommaOperatorCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(binaryOperator(hasOperatorName(",")).bind("commaOp"),
@@ -28,4 +28,4 @@ void AvoidCommaOperatorCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

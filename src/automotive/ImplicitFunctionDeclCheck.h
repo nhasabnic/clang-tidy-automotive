@@ -6,13 +6,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_IMPLICITFUNCTIONDECLCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_IMPLICITFUNCTIONDECLCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_IMPLICITFUNCTIONDECLCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_IMPLICITFUNCTIONDECLCHECK_H
 
 #include "../ClangTidyCheck.h"
 #include "Utils.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 /// FIXME: Write a short description.
 ///
@@ -30,6 +30,6 @@ public:
   }
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_IMPLICITFUNCTIONDECLCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_IMPLICITFUNCTIONDECLCHECK_H

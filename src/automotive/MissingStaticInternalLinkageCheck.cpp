@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 AST_MATCHER(NamedDecl, hasInternalLinkage) {
   return Node.getFormalLinkage() == Linkage::None;
@@ -43,4 +43,4 @@ void MissingStaticInternalLinkageCheck::check(
 #endif
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -9,22 +9,22 @@
 #include "CharSetsAndLexicalConvsModule.h"
 #include "UnterminatedEscapeSequenceCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void CharSetsAndLexicalConvsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-      "misra-c2023-req-4.1");
+      "automotive-c23-req-4.1");
   /* req-4.2: -Wtrigraphs */
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-      "misra-c2012-req-4.1");
+      "automotive-c12-req-4.1");
   /* req-4.2: -Wtrigraphs */
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -12,7 +12,7 @@
 #include "clang/Lex/PPCallbacks.h"
 #include "clang/Lex/Preprocessor.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 using namespace clang::ast_matchers;
 
@@ -87,4 +87,4 @@ void AvoidApiPPCallbacks::MacroExpands(const Token &MacroNameTok,
   //  }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -6,15 +6,15 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_CKEYWORDSET_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_CKEYWORDSET_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_CKEYWORDSET_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_CKEYWORDSET_H
 
 #include "clang/Basic/LangOptions.h"
 #include "clang/Basic/LangStandard.h"
 #include "llvm/ADT/DenseSet.h"
 #include "llvm/ADT/StringRef.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 class CKeywordSet {
 public:
@@ -28,6 +28,6 @@ private:
   const llvm::DenseSet<llvm::StringRef> *DeprecatedKeywords;
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_CKEYWORDSET_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_CKEYWORDSET_H

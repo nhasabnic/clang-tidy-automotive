@@ -6,20 +6,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TIDY_MISRA_POINTERTYPECONVERSIONSMODULE_H
-#define LLVM_CLANG_TIDY_MISRA_POINTERTYPECONVERSIONSMODULE_H
+#ifndef LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERTYPECONVERSIONSMODULE_H
+#define LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERTYPECONVERSIONSMODULE_H
 
 #include "../../ClangTidy.h"
 #include "../../ClangTidyModule.h"
 #include "../../ClangTidyModuleRegistry.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 class PointerTypeConversionsModule {
 public:
   static void addCheckFactories(ClangTidyCheckFactories &CheckFactories);
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TIDY_MISRA_POINTERTYPECONVERSIONSMODULE_H
+#endif // LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERTYPECONVERSIONSMODULE_H

@@ -13,31 +13,31 @@
 #include "UnstructuredSwitchCaseCheck.h"
 #include "WrongOrderDefaultInSwitchStatementCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void SwitchStmtComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<MissingBreakInSwitchCheck>(
-      "misra-c2023-req-16.3");
+      "automotive-c23-req-16.3");
   CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
-      "misra-c2023-req-16.4");
+      "automotive-c23-req-16.4");
   CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
-      "misra-c2023-req-16.5");
+      "automotive-c23-req-16.5");
   CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
-      "misra-c2023-req-16.7");
-  CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>("misra-x-req-16.2");
+      "automotive-c23-req-16.7");
+  CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>("automotive-x-req-16.2");
   /* 16.2 Inspiration: m
    * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
-      "misra-c2012-req-16.4");
+      "automotive-c12-req-16.4");
   CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
-      "misra-c2012-req-16.5");
+      "automotive-c12-req-16.5");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

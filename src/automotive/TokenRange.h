@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_TOKENRANGE_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_TOKENRANGE_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_TOKENRANGE_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_TOKENRANGE_H
 
 #include "clang/Basic/AttrKinds.h"
 #include "clang/Basic/CharInfo.h"
@@ -18,7 +18,7 @@
 #include "clang/Lex/Lexer.h"
 #include <optional>
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 class TokenRange {
 public:
@@ -95,6 +95,6 @@ private:
   TokenIterator EndIterator;
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_TOKENRANGE_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_TOKENRANGE_H

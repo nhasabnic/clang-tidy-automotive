@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UnusedTypeCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(typedefDecl().bind("typedef"), this);
@@ -36,4 +36,4 @@ void UnusedTypeCheck::check(const MatchFinder::MatchResult &Result) {
       << MatchedDecl->getName();
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -6,12 +6,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UTILS_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UTILS_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UTILS_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UTILS_H
 
 #include "clang/ASTMatchers/ASTMatchers.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 namespace utils {
 
@@ -22,6 +22,6 @@ static bool isLanguageC90(const LangOptions &LangOpts) {
 
 } // namespace utils
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_UTILS_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UTILS_H

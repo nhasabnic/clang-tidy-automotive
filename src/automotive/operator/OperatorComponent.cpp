@@ -9,18 +9,18 @@
 #include "OperatorComponent.h"
 #include "AvoidCommaOperatorCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void OperatorComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidCommaOperatorCheck>("misra-c2023-adv-12.3");
+  CheckFactories.registerCheck<AvoidCommaOperatorCheck>("automotive-c23-adv-12.3");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidCommaOperatorCheck>("misra-c2012-adv-12.3");
+  CheckFactories.registerCheck<AvoidCommaOperatorCheck>("automotive-c12-adv-12.3");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

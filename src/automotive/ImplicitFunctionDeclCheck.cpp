@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void ImplicitFunctionDeclCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(callExpr(callee(functionDecl().bind("func"))).bind("call"),
@@ -33,4 +33,4 @@ void ImplicitFunctionDeclCheck::check(const MatchFinder::MatchResult &Result) {
       << MatchedFunc->getName();
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

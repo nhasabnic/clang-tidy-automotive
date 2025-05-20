@@ -12,13 +12,13 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidPartialArrayInitCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
       varDecl(hasType(arrayType()),
-              hasInitializer(initListExpr(unless(misra::isZeroInitializer()),
-                                          unless(misra::isStringLiteralInit()))
+              hasInitializer(initListExpr(unless(automotive::isZeroInitializer()),
+                                          unless(automotive::isStringLiteralInit()))
                                  .bind("init")))
           .bind("arrayVar"),
       this);
@@ -45,4 +45,4 @@ void AvoidPartialArrayInitCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

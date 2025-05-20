@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidBitfieldInUnionCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(recordDecl(allOf(isUnion(), has(fieldDecl(isBitField()))))
@@ -29,4 +29,4 @@ void AvoidBitfieldInUnionCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

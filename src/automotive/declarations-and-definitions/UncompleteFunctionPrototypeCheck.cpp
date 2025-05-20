@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UncompleteFunctionPrototypeCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(functionDecl().bind("func"), this);
@@ -40,4 +40,4 @@ void UncompleteFunctionPrototypeCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

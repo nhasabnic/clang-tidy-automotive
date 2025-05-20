@@ -6,13 +6,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_COMMENTMATCH_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_COMMENTMATCH_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_COMMENTMATCH_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_COMMENTMATCH_H
 
 #include "../utils/IgnoreLineSpliceRef.h"
 #include "llvm/ADT/StringRef.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 enum class CommentKind { None, SingleLine, MultiLine };
 
@@ -57,6 +57,6 @@ inline CommentMatch matchComment(StringRef CommentText) {
   return {};
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_COMMENTMATCH_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_COMMENTMATCH_H

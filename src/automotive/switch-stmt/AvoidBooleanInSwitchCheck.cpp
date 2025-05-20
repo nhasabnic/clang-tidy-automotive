@@ -12,11 +12,11 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidBooleanInSwitchCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
-      switchStmt(hasCondition(expr(misra::isEssentiallyBoolean())))
+      switchStmt(hasCondition(expr(automotive::isEssentiallyBoolean())))
           .bind("switchExpr"),
       this);
 }
@@ -30,4 +30,4 @@ void AvoidBooleanInSwitchCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

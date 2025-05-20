@@ -11,24 +11,24 @@
 #include "AvoidSignedSingleBitFieldCheck.h"
 #include "WrongBitfieldTypeCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void BitfieldComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2023-req-6.1");
+  CheckFactories.registerCheck<WrongBitfieldTypeCheck>("automotive-c23-req-6.1");
   CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
-      "misra-c2023-req-6.2");
+      "automotive-c23-req-6.2");
   CheckFactories.registerCheck<AvoidBitfieldInUnionCheck>(
-      "misra-c2023-req-6.3");
+      "automotive-c23-req-6.3");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<WrongBitfieldTypeCheck>("misra-c2012-req-6.1");
+  CheckFactories.registerCheck<WrongBitfieldTypeCheck>("automotive-c12-req-6.1");
   CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
-      "misra-c2012-req-6.2");
+      "automotive-c12-req-6.2");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

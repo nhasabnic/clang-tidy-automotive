@@ -13,7 +13,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidGotoCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(gotoStmt().bind("goto"), this);
@@ -24,4 +24,4 @@ void AvoidGotoCheck::check(const MatchFinder::MatchResult &Result) {
   diag(MatchedDecl->getGotoLoc(), "avoid goto statement");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

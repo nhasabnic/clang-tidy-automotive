@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void NoReturnVoidCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(functionDecl(isNoReturn(), unless(hasReturnTypeLoc(
@@ -29,4 +29,4 @@ void NoReturnVoidCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

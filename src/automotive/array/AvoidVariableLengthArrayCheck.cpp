@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 static SourceLocation getLBrace(const TypeLoc *MatchedTypeLoc);
 
@@ -42,4 +42,4 @@ static SourceLocation getLBrace(const TypeLoc *MatchedTypeLoc) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

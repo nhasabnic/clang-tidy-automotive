@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void InvariantControlCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
@@ -55,4 +55,4 @@ void InvariantControlCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

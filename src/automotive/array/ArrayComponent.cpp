@@ -11,23 +11,23 @@
 #include "AvoidPartialArrayInitCheck.h"
 #include "AvoidVariableLengthArrayCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void ArrayComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidPartialArrayInitCheck>(
-      "misra-c2023-req-9.3");
+      "automotive-c23-req-9.3");
 
   CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
-      "misra-c2023-req-18.7");
+      "automotive-c23-req-18.7");
   CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
-      "misra-c2023-req-18.8");
+      "automotive-c23-req-18.8");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

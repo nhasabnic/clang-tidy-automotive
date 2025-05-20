@@ -9,7 +9,7 @@
 #include "AvoidLinesplicingWithinCommentCheck.h"
 #include "CommentMatch.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 bool AvoidLinesplicingWithinCommentCheck::InternalCommentHandler::HandleComment(
     Preprocessor &PP, SourceRange Comment) {
@@ -66,4 +66,4 @@ void AvoidLinesplicingWithinCommentCheck::registerPPCallbacks(
   PP->addCommentHandler(&Handler);
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

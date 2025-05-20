@@ -8,7 +8,7 @@
 
 #include "AvoidSetjmpHeaderCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 static const StringRef AvoidFunctions[] = {"setjmp", "longjmp"};
 
@@ -16,4 +16,4 @@ AvoidSetjmpHeaderCheck::AvoidSetjmpHeaderCheck(StringRef Name,
                                                ClangTidyContext *Context)
     : AvoidApiCheck(Name, Context, "setjmp.h", AvoidFunctions) {}
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

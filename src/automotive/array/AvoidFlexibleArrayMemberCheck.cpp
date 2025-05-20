@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidFlexibleArrayMemberCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
@@ -27,4 +27,4 @@ void AvoidFlexibleArrayMemberCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

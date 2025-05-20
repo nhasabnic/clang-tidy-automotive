@@ -13,11 +13,11 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidAssignmentInExpressionCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
-      binaryOperator(isAssignmentOperator(), misra::isAssignmentResultUsed())
+      binaryOperator(isAssignmentOperator(), automotive::isAssignmentResultUsed())
           .bind("assignment"),
       this);
 }
@@ -33,4 +33,4 @@ void AvoidAssignmentInExpressionCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

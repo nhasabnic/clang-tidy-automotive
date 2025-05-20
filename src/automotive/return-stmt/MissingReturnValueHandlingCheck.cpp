@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void MissingReturnValueHandlingCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(callExpr(hasParent(compoundStmt()),
@@ -31,4 +31,4 @@ void MissingReturnValueHandlingCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

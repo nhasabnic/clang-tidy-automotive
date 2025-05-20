@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidFunctionParameterModificationCheck::registerMatchers(
     MatchFinder *Finder) {
@@ -55,4 +55,4 @@ void AvoidFunctionParameterModificationCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

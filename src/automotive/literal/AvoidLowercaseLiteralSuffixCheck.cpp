@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidLowercaseLiteralSuffixCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(expr(anyOf(integerLiteral().bind("literal"),
@@ -50,4 +50,4 @@ void AvoidLowercaseLiteralSuffixCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

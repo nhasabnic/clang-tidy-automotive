@@ -14,27 +14,27 @@
 #include "PreprocessorFlowCheck.h"
 #include "UnusedMacroCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void PreprocessorComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
   CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
-      "misra-x-req-20.4");
-  CheckFactories.registerCheck<PreprocessorFlowCheck>("misra-x-req-20.14");
+      "automotive-x-req-20.4");
+  CheckFactories.registerCheck<PreprocessorFlowCheck>("automotive-x-req-20.14");
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2023-adv-2.5");
-  CheckFactories.registerCheck<AvoidUndefCheck>("misra-c2023-adv-20.5");
-  CheckFactories.registerCheck<AvoidHashOperatorCheck>("misra-c2023-adv-20.10");
+  CheckFactories.registerCheck<UnusedMacroCheck>("automotive-c23-adv-2.5");
+  CheckFactories.registerCheck<AvoidUndefCheck>("automotive-c23-adv-20.5");
+  CheckFactories.registerCheck<AvoidHashOperatorCheck>("automotive-c23-adv-20.10");
   CheckFactories.registerCheck<AvoidMultipleHashOperatorsCheck>(
-      "misra-c2023-req-20.11");
+      "automotive-c23-req-20.11");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedMacroCheck>("misra-c2012-adv-2.5");
-  CheckFactories.registerCheck<AvoidHashOperatorCheck>("misra-c2012-adv-20.10");
+  CheckFactories.registerCheck<UnusedMacroCheck>("automotive-c12-adv-2.5");
+  CheckFactories.registerCheck<AvoidHashOperatorCheck>("automotive-c12-adv-20.10");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

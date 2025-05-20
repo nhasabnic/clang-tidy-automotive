@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UniqueEnumValuesCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(enumDecl().bind("enum"), this);
@@ -51,4 +51,4 @@ void UniqueEnumValuesCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

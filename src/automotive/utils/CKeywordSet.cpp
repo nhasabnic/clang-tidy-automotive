@@ -10,7 +10,7 @@
 #include "clang/Basic/LangOptions.h"
 #include "clang/Basic/LangStandard.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 using namespace clang;
 
@@ -117,4 +117,4 @@ makeKeywordSet(std::initializer_list<llvm::ArrayRef<llvm::StringRef>> Lists,
   return Result;
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

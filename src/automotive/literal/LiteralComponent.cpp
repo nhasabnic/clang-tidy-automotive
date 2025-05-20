@@ -10,20 +10,20 @@
 #include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidOctalNumberCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void LiteralComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2023-req-7.1");
+  CheckFactories.registerCheck<AvoidOctalNumberCheck>("automotive-c23-req-7.1");
   CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
-      "misra-c2023-req-7.3");
+      "automotive-c23-req-7.3");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidOctalNumberCheck>("misra-c2012-req-7.1");
+  CheckFactories.registerCheck<AvoidOctalNumberCheck>("automotive-c12-req-7.1");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

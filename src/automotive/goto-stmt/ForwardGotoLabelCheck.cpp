@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 static const LabelStmt *getLabelStmt(const GotoStmt *Goto);
 
@@ -49,4 +49,4 @@ static const LabelStmt *getLabelStmt(const GotoStmt *Goto) {
   return nullptr;
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

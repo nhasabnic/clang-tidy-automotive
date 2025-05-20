@@ -6,20 +6,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TIDY_MISRA_DECLARATIONSANDDEFINITIONSMODULE_H
-#define LLVM_CLANG_TIDY_MISRA_DECLARATIONSANDDEFINITIONSMODULE_H
+#ifndef LLVM_CLANG_TIDY_AUTOMOTIVE_DECLARATIONSANDDEFINITIONSMODULE_H
+#define LLVM_CLANG_TIDY_AUTOMOTIVE_DECLARATIONSANDDEFINITIONSMODULE_H
 
 #include "../../ClangTidy.h"
 #include "../../ClangTidyModule.h"
 #include "../../ClangTidyModuleRegistry.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 class DeclarationsAndDefinitionsModule {
 public:
   static void addCheckFactories(ClangTidyCheckFactories &CheckFactories);
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TIDY_MISRA_DECLARATIONSANDDEFINITIONSMODULE_H
+#endif // LLVM_CLANG_TIDY_AUTOMOTIVE_DECLARATIONSANDDEFINITIONSMODULE_H

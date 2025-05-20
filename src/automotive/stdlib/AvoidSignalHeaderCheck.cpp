@@ -11,7 +11,7 @@
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 using namespace clang::ast_matchers;
 
@@ -50,4 +50,4 @@ void AvoidSignalHeaderCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

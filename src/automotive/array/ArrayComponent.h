@@ -6,20 +6,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TIDY_MISRA_ARRAYCOMPONENT_H
-#define LLVM_CLANG_TIDY_MISRA_ARRAYCOMPONENT_H
+#ifndef LLVM_CLANG_TIDY_AUTOMOTIVE_ARRAYCOMPONENT_H
+#define LLVM_CLANG_TIDY_AUTOMOTIVE_ARRAYCOMPONENT_H
 
 #include "../../ClangTidy.h"
 #include "../../ClangTidyModule.h"
 #include "../../ClangTidyModuleRegistry.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 class ArrayComponent {
 public:
   static void addCheckFactories(ClangTidyCheckFactories &CheckFactories);
 };
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TIDY_MISRA_ARRAYCOMPONENT_H
+#endif // LLVM_CLANG_TIDY_AUTOMOTIVE_ARRAYCOMPONENT_H

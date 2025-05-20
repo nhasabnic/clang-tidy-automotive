@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void AvoidSignedSingleBitFieldCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(fieldDecl(allOf(isBitField(), hasType(isSignedInteger()),
@@ -31,4 +31,4 @@ void AvoidSignedSingleBitFieldCheck::check(
   }
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

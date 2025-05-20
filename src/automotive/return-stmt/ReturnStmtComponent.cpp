@@ -11,21 +11,21 @@
 #include "MultipleReturnStmtCheck.h"
 #include "NoReturnVoidCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void ReturnStmtComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>("misra-c2023-adv-15.5");
+  CheckFactories.registerCheck<MultipleReturnStmtCheck>("automotive-c23-adv-15.5");
   CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
-      "misra-c2023-req-17.7");
-  CheckFactories.registerCheck<NoReturnVoidCheck>("misra-c2023-req-17.10");
+      "automotive-c23-req-17.7");
+  CheckFactories.registerCheck<NoReturnVoidCheck>("automotive-c23-req-17.10");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>("misra-c2012-adv-15.5");
+  CheckFactories.registerCheck<MultipleReturnStmtCheck>("automotive-c12-adv-15.5");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

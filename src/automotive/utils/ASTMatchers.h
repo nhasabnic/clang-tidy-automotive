@@ -6,12 +6,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_ASTMATCHERS_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_ASTMATCHERS_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_ASTMATCHERS_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_ASTMATCHERS_H
 
 #include "clang/ASTMatchers/ASTMatchers.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 namespace ast_matchers {
 
@@ -100,8 +100,8 @@ AST_MATCHER(InitListExpr, isStringLiteralInit) {
 
 } // namespace ast_matchers
 
-namespace misra = ast_matchers;
+namespace automotive = ast_matchers;
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_MISRA_ASTMATCHERS_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_ASTMATCHERS_H

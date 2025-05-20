@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 namespace {
 
@@ -44,4 +44,4 @@ void AvoidUndefCheck::registerPPCallbacks(const SourceManager &SM,
   PP->addPPCallbacks(::std::make_unique<AvoidUndefPPCallbacks>(*this));
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

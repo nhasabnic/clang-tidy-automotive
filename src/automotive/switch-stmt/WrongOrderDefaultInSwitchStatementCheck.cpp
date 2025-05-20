@@ -12,7 +12,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void WrongOrderDefaultInSwitchStatementCheck::registerMatchers(
     MatchFinder *Finder) {
@@ -38,4 +38,4 @@ void WrongOrderDefaultInSwitchStatementCheck::check(
   PrevSwitch = MatchSwitch;
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

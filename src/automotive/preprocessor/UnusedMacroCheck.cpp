@@ -9,7 +9,7 @@
 #include "UnusedMacroCheck.h"
 #include "clang/Lex/Preprocessor.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 namespace {
 
@@ -75,4 +75,4 @@ void UnusedMacroCheck::registerPPCallbacks(const SourceManager &SM,
   PP->addPPCallbacks(std::make_unique<UnusedMacroPPCallbacks>(*this, SM));
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

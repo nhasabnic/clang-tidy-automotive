@@ -13,7 +13,7 @@
 
 using namespace clang::tok;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 namespace {
 
@@ -65,4 +65,4 @@ void AvoidMultipleHashOperatorsCheck::registerPPCallbacks(
       std::make_unique<AvoidMultipleHashOperatorsPPCallbacks>(*this));
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

@@ -13,7 +13,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UnterminatedEscapeSequenceCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(stringLiteral().bind("stringLiteral"), this);
@@ -46,4 +46,4 @@ void UnterminatedEscapeSequenceCheck::checkEscapeSequences(
   diag(StartLoc, "'%0'") << Str;
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

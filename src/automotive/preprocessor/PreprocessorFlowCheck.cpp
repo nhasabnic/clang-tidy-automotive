@@ -12,10 +12,10 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void PreprocessorFlowCheck::registerPPCallbacks(
     const SourceManager &SM, Preprocessor *PP, Preprocessor *ModuleExpanderPP) {
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

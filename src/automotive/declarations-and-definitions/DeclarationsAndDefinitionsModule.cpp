@@ -14,29 +14,29 @@
 #include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void DeclarationsAndDefinitionsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
-      "misra-c2023-req-8.2");
+      "automotive-c23-req-8.2");
   CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
-      "misra-c2023-req-8.3");
-  CheckFactories.registerCheck<StaticInlineCheck>("misra-c2023-req-8.10");
+      "automotive-c23-req-8.3");
+  CheckFactories.registerCheck<StaticInlineCheck>("automotive-c23-req-8.10");
   CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
-      "misra-c2023-adv-8.11");
-  CheckFactories.registerCheck<UniqueEnumValuesCheck>("misra-c2023-req-8.12");
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("misra-c2023-req-8.14");
+      "automotive-c23-adv-8.11");
+  CheckFactories.registerCheck<UniqueEnumValuesCheck>("automotive-c23-req-8.12");
+  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("automotive-c23-req-8.14");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<StaticInlineCheck>("misra-c2012-req-8.10");
+  CheckFactories.registerCheck<StaticInlineCheck>("automotive-c12-req-8.10");
   /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
    * hasExternalFormalLinkage())) */
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("misra-c2012-req-8.14");
+  CheckFactories.registerCheck<AvoidRestrictTypeCheck>("automotive-c12-req-8.14");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

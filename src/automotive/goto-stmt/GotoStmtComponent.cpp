@@ -11,22 +11,22 @@
 #include "ForwardGotoLabelCheck.h"
 #include "UnusedLabelCheck.h"
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void GotoStmtComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* MISRA C 2023
+  /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2023-adv-2.6");
-  CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2023-adv-15.1");
-  CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2023-req-15.2");
+  CheckFactories.registerCheck<UnusedLabelCheck>("automotive-c23-adv-2.6");
+  CheckFactories.registerCheck<AvoidGotoCheck>("automotive-c23-adv-15.1");
+  CheckFactories.registerCheck<ForwardGotoLabelCheck>("automotive-c23-req-15.2");
 
-  /* MISRA C 2012
+  /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedLabelCheck>("misra-c2012-adv-2.6");
-  CheckFactories.registerCheck<AvoidGotoCheck>("misra-c2012-adv-15.1");
-  CheckFactories.registerCheck<ForwardGotoLabelCheck>("misra-c2012-req-15.2");
+  CheckFactories.registerCheck<UnusedLabelCheck>("automotive-c12-adv-2.6");
+  CheckFactories.registerCheck<AvoidGotoCheck>("automotive-c12-adv-15.1");
+  CheckFactories.registerCheck<ForwardGotoLabelCheck>("automotive-c12-req-15.2");
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

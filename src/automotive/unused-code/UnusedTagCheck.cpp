@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UnusedTagCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(tagDecl(unless(isExpansionInSystemHeader())).bind("tag"),
@@ -36,4 +36,4 @@ void UnusedTagCheck::check(const MatchFinder::MatchResult &Result) {
   diag(MatchedDecl->getLocation(), "unused tag '%0'") << MatchedDecl->getName();
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive

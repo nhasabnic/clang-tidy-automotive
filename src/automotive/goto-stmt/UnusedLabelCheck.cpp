@@ -11,7 +11,7 @@
 
 using namespace clang::ast_matchers;
 
-namespace clang::tidy::misra {
+namespace clang::tidy::automotive {
 
 void UnusedLabelCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(labelStmt().bind("label"), this);
@@ -32,4 +32,4 @@ void UnusedLabelCheck::check(const MatchFinder::MatchResult &Result) {
       << MatchedLabel->getName();
 }
 
-} // namespace clang::tidy::misra
+} // namespace clang::tidy::automotive
