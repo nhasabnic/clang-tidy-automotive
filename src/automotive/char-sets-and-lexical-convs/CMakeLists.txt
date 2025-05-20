@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRACharSetsAndLexicalConvs STATIC
+add_clang_library(clangTidyAutomotiveCharSetsAndLexicalConvs STATIC
   CharSetsAndLexicalConvsModule.cpp
   UnterminatedEscapeSequenceCheck.cpp
 )

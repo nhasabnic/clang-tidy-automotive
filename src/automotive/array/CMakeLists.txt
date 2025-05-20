@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRAArrayComponent STATIC
+add_clang_library(clangTidyAutomotiveArrayComponent STATIC
   ArrayComponent.cpp
   AvoidFlexibleArrayMemberCheck.cpp
   AvoidPartialArrayInitCheck.cpp

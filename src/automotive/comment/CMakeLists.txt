@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRACommentComponent STATIC
+add_clang_library(clangTidyAutomotiveCommentComponent STATIC
   AvoidCommentWithinCommentCheck.cpp
   AvoidLinesplicingWithinCommentCheck.cpp
   CommentComponent.cpp

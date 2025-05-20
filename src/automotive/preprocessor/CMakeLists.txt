@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRAPreprocessorComponent STATIC
+add_clang_library(clangTidyAutomotivePreprocessorComponent STATIC
   AvoidHashOperatorCheck.cpp
   AvoidMacroNamedAsCkeywordCheck.cpp
   AvoidMultipleHashOperatorsCheck.cpp

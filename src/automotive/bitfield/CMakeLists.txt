@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRABitfieldComponent STATIC
+add_clang_library(clangTidyAutomotiveBitfieldComponent STATIC
   AvoidBitfieldInUnionCheck.cpp
   AvoidSignedSingleBitFieldCheck.cpp
   BitfieldComponent.cpp

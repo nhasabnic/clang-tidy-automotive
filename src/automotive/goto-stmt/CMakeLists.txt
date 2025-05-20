@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRAGotoStmtComponent STATIC
+add_clang_library(clangTidyAutomotiveGotoStmtComponent STATIC
   AvoidGotoCheck.cpp  
   ForwardGotoLabelCheck.cpp  
   GotoStmtComponent.cpp

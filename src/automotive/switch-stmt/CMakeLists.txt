@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRASwitchStmtComponent STATIC
+add_clang_library(clangTidyAutomotiveSwitchStmtComponent STATIC
   AvoidBooleanInSwitchCheck.cpp  
   MissingBreakInSwitchCheck.cpp
   MissingDefaultInSwitchStatementCheck.cpp

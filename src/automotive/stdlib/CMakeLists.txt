@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRAStdlibComponent STATIC
+add_clang_library(clangTidyAutomotiveStdlibComponent STATIC
   AtoXCheck.cpp
   AvoidApiCheck.cpp
   AvoidSetjmpHeaderCheck.cpp

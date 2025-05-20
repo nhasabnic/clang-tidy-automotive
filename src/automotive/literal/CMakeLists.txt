@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRALiteralComponent STATIC
+add_clang_library(clangTidyAutomotiveLiteralComponent STATIC
   AvoidLowercaseLiteralSuffixCheck.cpp
   AvoidOctalNumberCheck.cpp
   LiteralComponent.cpp

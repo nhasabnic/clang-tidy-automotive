@@ -38,21 +38,21 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyMiscModule
   clangTidyCERTModule
 
-  clangTidyMISRAArrayComponent
-  clangTidyMISRABitfieldComponent
-  clangTidyMISRACharSetsAndLexicalConvs
-  clangTidyMISRACommentComponent
-  clangTidyMISRADeclarationsAndDefinitions
-  clangTidyMISRAGotoStmtComponent
-  clangTidyMISRAOperatorComponent
-  clangTidyMISRALiteralComponent
-  clangTidyMISRAPointerTypeConversions
-  clangTidyMISRAPreprocessorComponent
-  clangTidyMISRAReturnStmtComponent
-  clangTidyMISRAStdlibComponent
-  clangTidyMISRASwitchStmtComponent
-  clangTidyMISRAUnusedCode
-  clangTidyMISRAUtils
+  clangTidyAutomotiveArrayComponent
+  clangTidyAutomotiveBitfieldComponent
+  clangTidyAutomotiveCharSetsAndLexicalConvs
+  clangTidyAutomotiveCommentComponent
+  clangTidyAutomotiveDeclarationsAndDefinitions
+  clangTidyAutomotiveGotoStmtComponent
+  clangTidyAutomotiveOperatorComponent
+  clangTidyAutomotiveLiteralComponent
+  clangTidyAutomotivePointerTypeConversions
+  clangTidyAutomotivePreprocessorComponent
+  clangTidyAutomotiveReturnStmtComponent
+  clangTidyAutomotiveStdlibComponent
+  clangTidyAutomotiveSwitchStmtComponent
+  clangTidyAutomotiveUnusedCode
+  clangTidyAutomotiveUtils
 
   DEPENDS
   ClangDriverOptions

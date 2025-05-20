@@ -1,5 +1,5 @@
 
-add_clang_library(clangTidyMISRAPointerTypeConversions STATIC
+add_clang_library(clangTidyAutomotivePointerTypeConversions STATIC
   AvoidAtomicVoidPointerCheck.cpp    
   PointerTypeConversionsModule.cpp  
   WrongNullPointerValueCheck.cpp
