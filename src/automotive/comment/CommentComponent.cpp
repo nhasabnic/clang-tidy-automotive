@@ -15,19 +15,10 @@ namespace clang::tidy::automotive {
 void CommentComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
-      "automotive-c23-req-3.1");
+      "automotive-avoid-comment-within-comment");
   CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
-      "automotive-c23-req-3.2");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidCommentWithinCommentCheck>(
-      "automotive-c12-req-3.1");
-  CheckFactories.registerCheck<AvoidLinesplicingWithinCommentCheck>(
-      "automotive-c12-req-3.2");
+      "automotive-avoid-line-splicing-within-comment");
 }
 
 } // namespace clang::tidy::automotive

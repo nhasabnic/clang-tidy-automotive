@@ -10,6 +10,7 @@
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDCOMMENTWITHINCOMMENTCHECK_H
 
 #include "../../ClangTidyCheck.h"
+#include "../AutomotiveTidyCheck.h"
 #include "clang/Lex/Preprocessor.h"
 #include "llvm/ADT/StringSet.h"
 
@@ -19,10 +20,10 @@ namespace clang::tidy::automotive {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/comment-within-comment.html
-class AvoidCommentWithinCommentCheck : public ClangTidyCheck {
+class AvoidCommentWithinCommentCheck : public AutomotiveTidyCheck {
 public:
   AvoidCommentWithinCommentCheck(StringRef Name, ClangTidyContext *Context)
-      : ClangTidyCheck(Name, Context), Handler(*this) {}
+      : AutomotiveTidyCheck(Name, Context), Handler(*this) {}
 
   void registerPPCallbacks(const SourceManager &SM, Preprocessor *PP,
                            Preprocessor *ModuleExpanderPP) override;
