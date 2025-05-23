@@ -10,10 +10,6 @@ is put into a separate repository, see
 [Clang-Tidy MISRA](https://github.com/PeterHallonmark/clang-tidy-misra/tree/main)
 for more information.
 
-**Note**: Official MISRA documents must be purchased and are protected 
-by copyright. This project is independent and is not affiliated with or 
-endorsed by the MISRA Consortium.
-
 ## Getting Started
 
 To build clang-tidy Automotive, follow these steps:
