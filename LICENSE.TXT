@@ -1,5 +1,5 @@
 ==============================================================================
-The clang-tidy-misra plugin is under the Apache License v2.0 with LLVM 
+The clang-tidy-automotive plugin is under the Apache License v2.0 with LLVM 
 Exceptions:
 ==============================================================================
 
