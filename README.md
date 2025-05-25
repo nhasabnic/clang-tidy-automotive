@@ -7,7 +7,7 @@ and MISRA C:2012.
 The project does **not** reproduce any MISRA copyright content, including 
 rule names, rule texts, or associated documentation. All the MISRA mapping
 is put into a separate repository, see
-[Clang-Tidy MISRA](https://github.com/PeterHallonmark/clang-tidy-misra/tree/main)
+[Clang-Tidy MISRA](https://github.com/PeterHallonmark/clang-tidy-misra)
 for more information.
 
 ## Getting Started
