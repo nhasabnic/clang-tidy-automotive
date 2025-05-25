@@ -19,12 +19,12 @@ void ArrayComponent::addCheckFactories(
   /* C 2023
   ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidPartialArrayInitCheck>(
-      "automotive-c23-req-9.3");
+      "automotive-Avoid-Partial-Array-Init");
 
   CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
-      "automotive-c23-req-18.7");
+      "automotive-Avoid-Flexible-Array-Member");
   CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
-      "automotive-c23-req-18.8");
+      "automotive-Avoid-Variable-Length-Array");
 
   /* C 2012
   ------------------------------------------------------------------ */
