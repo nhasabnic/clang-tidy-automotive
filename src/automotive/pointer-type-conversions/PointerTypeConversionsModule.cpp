@@ -15,14 +15,9 @@ namespace clang::tidy::automotive {
 void PointerTypeConversionsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<WrongNullPointerValueCheck>(
-      "automotive-c23-req-11.9");
+      "automotive-wrong-null-pointer-value");
   /* 11.10: Diagnostic error */
-
-  /* C 2012
-  ------------------------------------------------------------------ */
 }
 
 } // namespace clang::tidy::automotive

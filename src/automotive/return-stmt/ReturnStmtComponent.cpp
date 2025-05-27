@@ -16,18 +16,11 @@ namespace clang::tidy::automotive {
 void ReturnStmtComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<MultipleReturnStmtCheck>(
-      "automotive-c23-adv-15.5");
+      "automotive-avoid-multiple-return-stmt");
   CheckFactories.registerCheck<MissingReturnValueHandlingCheck>(
-      "automotive-c23-req-17.7");
-  CheckFactories.registerCheck<NoReturnVoidCheck>("automotive-c23-req-17.10");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<MultipleReturnStmtCheck>(
-      "automotive-c12-adv-15.5");
+      "automotive-missing-return-value-handling");
+  CheckFactories.registerCheck<NoReturnVoidCheck>("automotive-no-return-void");
 }
 
 } // namespace clang::tidy::automotive

@@ -14,15 +14,8 @@ namespace clang::tidy::automotive {
 void OperatorComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
-      "automotive-c23-adv-12.3");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidCommaOperatorCheck>(
-      "automotive-c12-adv-12.3");
+      "automotive-avoid-comma-operator");
 }
 
 } // namespace clang::tidy::automotive

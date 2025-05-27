@@ -16,19 +16,10 @@ namespace clang::tidy::automotive {
 void GotoStmtComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedLabelCheck>("automotive-c23-adv-2.6");
-  CheckFactories.registerCheck<AvoidGotoCheck>("automotive-c23-adv-15.1");
+  CheckFactories.registerCheck<UnusedLabelCheck>("automotive-unused-label");
+  CheckFactories.registerCheck<AvoidGotoCheck>("automotive-avoid-goto");
   CheckFactories.registerCheck<ForwardGotoLabelCheck>(
-      "automotive-c23-req-15.2");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedLabelCheck>("automotive-c12-adv-2.6");
-  CheckFactories.registerCheck<AvoidGotoCheck>("automotive-c12-adv-15.1");
-  CheckFactories.registerCheck<ForwardGotoLabelCheck>(
-      "automotive-c12-req-15.2");
+      "automotive-forward-goto-label");
 }
 
 } // namespace clang::tidy::automotive

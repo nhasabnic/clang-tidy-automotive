@@ -15,15 +15,10 @@ namespace clang::tidy::automotive {
 void LiteralComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidOctalNumberCheck>("automotive-c23-req-7.1");
+  CheckFactories.registerCheck<AvoidOctalNumberCheck>(
+      "automotive-avoid-octal-number");
   CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
-      "automotive-c23-req-7.3");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<AvoidOctalNumberCheck>("automotive-c12-req-7.1");
+      "automotive-avoid-lowercase-literal-suffix");
 }
 
 } // namespace clang::tidy::automotive

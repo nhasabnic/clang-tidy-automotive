@@ -14,17 +14,8 @@ namespace clang::tidy::automotive {
 void CharSetsAndLexicalConvsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-      "automotive-c23-req-4.1");
-  /* req-4.2: -Wtrigraphs */
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
-      "automotive-c12-req-4.1");
-  /* req-4.2: -Wtrigraphs */
+      "automotive-unterminated-escape-sequence");
 }
 
 } // namespace clang::tidy::automotive

@@ -16,21 +16,12 @@ namespace clang::tidy::automotive {
 void BitfieldComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<WrongBitfieldTypeCheck>(
-      "automotive-c23-req-6.1");
+      "automotive-wrong-bitfield-type");
   CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
-      "automotive-c23-req-6.2");
+      "automotive-avoid-signed-single-bitfield");
   CheckFactories.registerCheck<AvoidBitfieldInUnionCheck>(
-      "automotive-c23-req-6.3");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<WrongBitfieldTypeCheck>(
-      "automotive-c12-req-6.1");
-  CheckFactories.registerCheck<AvoidSignedSingleBitFieldCheck>(
-      "automotive-c12-req-6.2");
+      "automotive-avoid-bitfield-in-union");
 }
 
 } // namespace clang::tidy::automotive

@@ -20,23 +20,15 @@ void PreprocessorComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
   CheckFactories.registerCheck<AvoidMacroNamedAsCkeywordCheck>(
-      "automotive-x-req-20.4");
-  CheckFactories.registerCheck<PreprocessorFlowCheck>("automotive-x-req-20.14");
+      "automotive-avoid-macro-named-as-ckeyword");
+  CheckFactories.registerCheck<PreprocessorFlowCheck>("preprocessor-flow");
 
-  /* C 2023
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedMacroCheck>("automotive-c23-adv-2.5");
-  CheckFactories.registerCheck<AvoidUndefCheck>("automotive-c23-adv-20.5");
+  CheckFactories.registerCheck<UnusedMacroCheck>("automotive-unused-macro");
+  CheckFactories.registerCheck<AvoidUndefCheck>("automotive-avoid-undef");
   CheckFactories.registerCheck<AvoidHashOperatorCheck>(
-      "automotive-c23-adv-20.10");
+      "automotive-avoid-hash-operator");
   CheckFactories.registerCheck<AvoidMultipleHashOperatorsCheck>(
-      "automotive-c23-req-20.11");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedMacroCheck>("automotive-c12-adv-2.5");
-  CheckFactories.registerCheck<AvoidHashOperatorCheck>(
-      "automotive-c12-adv-20.10");
+      "automotive-avoid-multiple-hash-operators");
 }
 
 } // namespace clang::tidy::automotive

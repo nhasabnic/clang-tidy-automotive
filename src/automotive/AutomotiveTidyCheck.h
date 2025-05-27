@@ -19,8 +19,8 @@ public:
       : ClangTidyCheck(Name, Context) {}
 
   virtual void registerMatchers(ast_matchers::MatchFinder *Finder) override {}
-  virtual void check(const ast_matchers::MatchFinder::MatchResult &Result) override {}
-
+  virtual void
+  check(const ast_matchers::MatchFinder::MatchResult &Result) override {}
 };
 
 } // namespace clang::tidy::automotive

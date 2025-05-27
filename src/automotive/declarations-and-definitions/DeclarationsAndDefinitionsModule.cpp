@@ -19,27 +19,17 @@ namespace clang::tidy::automotive {
 void DeclarationsAndDefinitionsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
-      "automotive-c23-req-8.2");
+      "automotive-uncomplete-function-prototype");
   CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
-      "automotive-c23-req-8.3");
-  CheckFactories.registerCheck<StaticInlineCheck>("automotive-c23-req-8.10");
+      "automotive-function-declaration-mismatch");
+  CheckFactories.registerCheck<StaticInlineCheck>("automotive-static-inline");
   CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
-      "automotive-c23-adv-8.11");
+      "automotive-missing-external-array-size");
   CheckFactories.registerCheck<UniqueEnumValuesCheck>(
-      "automotive-c23-req-8.12");
+      "automotive-unique-enum-values");
   CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
-      "automotive-c23-req-8.14");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<StaticInlineCheck>("automotive-c12-req-8.10");
-  /* 8.11 m varDecl(allOf(hasType(arrayType(incompleteArrayType())),
-   * hasExternalFormalLinkage())) */
-  CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
-      "automotive-c12-req-8.14");
+      "automotive-avoid-restrict-type");
 }
 
 } // namespace clang::tidy::automotive

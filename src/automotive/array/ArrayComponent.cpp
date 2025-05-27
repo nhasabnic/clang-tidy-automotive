@@ -16,18 +16,12 @@ namespace clang::tidy::automotive {
 void ArrayComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidPartialArrayInitCheck>(
-      "automotive-Avoid-Partial-Array-Init");
-
+      "automotive-avoid-partial-array-init");
   CheckFactories.registerCheck<AvoidFlexibleArrayMemberCheck>(
-      "automotive-Avoid-Flexible-Array-Member");
+      "automotive-avoid-flexible-array-member");
   CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
-      "automotive-Avoid-Variable-Length-Array");
-
-  /* C 2012
-  ------------------------------------------------------------------ */
+      "automotive-avoid-variable-length-array");
 }
 
 } // namespace clang::tidy::automotive
