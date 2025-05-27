@@ -4,4 +4,5 @@ add_clang_library(clangTidyAutomotiveArrayComponent STATIC
   AvoidFlexibleArrayMemberCheck.cpp
   AvoidPartialArrayInitCheck.cpp
   AvoidVariableLengthArrayCheck.cpp
+  MissingExternalArraySizeCheck.cpp
 )

@@ -9,7 +9,6 @@
 #include "DeclarationsAndDefinitionsModule.h"
 #include "AvoidRestrictTypeCheck.h"
 #include "FunctionDeclarationMismatchCheck.h"
-#include "MissingExternalArraySizeCheck.h"
 #include "StaticInlineCheck.h"
 #include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
@@ -24,8 +23,6 @@ void DeclarationsAndDefinitionsModule::addCheckFactories(
   CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
       "automotive-function-declaration-mismatch");
   CheckFactories.registerCheck<StaticInlineCheck>("automotive-static-inline");
-  CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
-      "automotive-missing-external-array-size");
   CheckFactories.registerCheck<UniqueEnumValuesCheck>(
       "automotive-unique-enum-values");
   CheckFactories.registerCheck<AvoidRestrictTypeCheck>(

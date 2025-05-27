@@ -10,6 +10,7 @@
 #include "AvoidFlexibleArrayMemberCheck.h"
 #include "AvoidPartialArrayInitCheck.h"
 #include "AvoidVariableLengthArrayCheck.h"
+#include "MissingExternalArraySizeCheck.h"
 
 namespace clang::tidy::automotive {
 
@@ -22,6 +23,8 @@ void ArrayComponent::addCheckFactories(
       "automotive-avoid-flexible-array-member");
   CheckFactories.registerCheck<AvoidVariableLengthArrayCheck>(
       "automotive-avoid-variable-length-array");
+  CheckFactories.registerCheck<MissingExternalArraySizeCheck>(
+      "automotive-missing-external-array-size");
 }
 
 } // namespace clang::tidy::automotive
