@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "MissingCompoundCheck.h"
-#include "utils/ASTMatchers.h"
+#include "../utils/ASTMatchers.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 #include "clang/ASTMatchers/ASTMatchers.h"

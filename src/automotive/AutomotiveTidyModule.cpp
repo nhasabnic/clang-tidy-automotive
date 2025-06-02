@@ -15,8 +15,6 @@
 
 #include "AvoidUnionCheck.h"
 #include "ImplicitIntCheck.h"
-#include "MissingCompoundCheck.h"
-#include "MissingElseCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
 
 #include "array/ArrayComponent.h"
@@ -26,7 +24,7 @@
 #include "operator/OperatorComponent.h"
 #include "preprocessor/PreprocessorComponent.h"
 #include "stdlib/StdlibComponent.h"
-#include "switch-stmt/SwitchStmtComponent.h"
+#include "statement/StatementComponent.h"
 
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "pointer/PointerComponent.h"
@@ -53,7 +51,7 @@ public:
     PreprocessorComponent::addCheckFactories(CheckFactories);
     OperatorComponent::addCheckFactories(CheckFactories);
     StdlibComponent::addCheckFactories(CheckFactories);
-    SwitchStmtComponent::addCheckFactories(CheckFactories);
+    StatementComponent::addCheckFactories(CheckFactories);
 
     /* C 2023
     ---------------------------------------------------------------- */
@@ -77,24 +75,10 @@ public:
 
     PointerComponent::addCheckFactories(CheckFactories);
 
-    /* 15.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>(
-        "automotive-c23-req-15.6");
-    CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
-
     /* 19.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidUnionCheck>("automotive-c23-adv-19.2");
 
-    /* 15.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>(
-        "automotive-c12-req-15.6");
-    CheckFactories.registerCheck<MissingElseCheck>("automotive-c12-req-15.7");
-
-    /* 16.
-    ---------------------------------------------------------------- */
   }
 };
 

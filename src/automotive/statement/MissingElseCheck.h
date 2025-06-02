@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGELSECHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGELSECHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 
 namespace clang::tidy::automotive {
 
