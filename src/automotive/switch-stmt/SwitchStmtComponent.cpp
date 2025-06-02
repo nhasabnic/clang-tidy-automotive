@@ -30,7 +30,6 @@ void SwitchStmtComponent::addCheckFactories(
       "automotive-x-req-16.2");
   /* 16.2 Inspiration: m
    * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
-
 }
 
 } // namespace clang::tidy::automotive

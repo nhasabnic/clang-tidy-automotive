@@ -9,6 +9,7 @@
 #include "LiteralComponent.h"
 #include "AvoidLowercaseLiteralSuffixCheck.h"
 #include "AvoidOctalNumberCheck.h"
+#include "UnterminatedEscapeSequenceCheck.h"
 
 namespace clang::tidy::automotive {
 
@@ -19,6 +20,8 @@ void LiteralComponent::addCheckFactories(
       "automotive-avoid-octal-number");
   CheckFactories.registerCheck<AvoidLowercaseLiteralSuffixCheck>(
       "automotive-avoid-lowercase-literal-suffix");
+  CheckFactories.registerCheck<UnterminatedEscapeSequenceCheck>(
+      "automotive-unterminated-escape-sequence");
 }
 
 } // namespace clang::tidy::automotive

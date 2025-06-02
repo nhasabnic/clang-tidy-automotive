@@ -7,11 +7,11 @@
 //===----------------------------------------------------------------------===//
 
 #include "FunctionComponent.h"
+#include "AvoidFunctionParameterModificationCheck.h"
 #include "FunctionDeclarationMismatchCheck.h"
+#include "ImplicitFunctionDeclCheck.h"
 #include "StaticInlineCheck.h"
 #include "UncompleteFunctionPrototypeCheck.h"
-#include "ImplicitFunctionDeclCheck.h"
-#include "AvoidFunctionParameterModificationCheck.h"
 
 namespace clang::tidy::automotive {
 

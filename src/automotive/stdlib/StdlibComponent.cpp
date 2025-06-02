@@ -36,7 +36,6 @@ void StdlibComponent::addCheckFactories(
       "automotive-avoid-stdlib-system-call");
   CheckFactories.registerCheck<AvoidStdlibRandCheck>(
       "automotive-avoid-stdlib-rand-call");
-
 }
 
 } // namespace clang::tidy::automotive

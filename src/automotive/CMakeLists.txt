@@ -4,7 +4,6 @@ set(LLVM_LINK_COMPONENTS
   )
 
 add_subdirectory(array)
-add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comment)
 add_subdirectory(declarations-and-definitions)
 add_subdirectory(expression)
@@ -37,7 +36,6 @@ add_clang_library(clangTidyAutomotiveModule
 
   clangTidyAutomotiveArrayComponent
   clangTidyAutomotiveBitfieldComponent
-  clangTidyAutomotiveCharSetsAndLexicalConvs
   clangTidyAutomotiveCommentComponent
   clangTidyAutomotiveDeclarationsAndDefinitions
   clangTidyAutomotiveExpressionComponent

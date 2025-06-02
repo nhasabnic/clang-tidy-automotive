@@ -13,8 +13,8 @@
 #include "../misc/NoRecursionCheck.h"
 #include "../misc/UnusedParametersCheck.h"
 
-#include "ImplicitIntCheck.h"
 #include "AvoidUnionCheck.h"
+#include "ImplicitIntCheck.h"
 #include "MissingCompoundCheck.h"
 #include "MissingElseCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
@@ -28,7 +28,6 @@
 #include "stdlib/StdlibComponent.h"
 #include "switch-stmt/SwitchStmtComponent.h"
 
-#include "char-sets-and-lexical-convs/CharSetsAndLexicalConvsModule.h"
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "pointer-type-conversions/PointerTypeConversionsModule.h"
 #include "unused-code/UnusedCodeModule.h"
@@ -72,10 +71,6 @@ public:
     ---------------------------------------------------------------- */
     UnusedCodeModule::addCheckFactories(CheckFactories);
 
-    /* 4. Character sets and lexical conversations
-    ---------------------------------------------------------------- */
-    CharSetsAndLexicalConvsModule::addCheckFactories(CheckFactories);
-
     /* 8. Declarations and defintions
     ---------------------------------------------------------------- */
     DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
@@ -83,7 +78,6 @@ public:
     /* 11. Pointer type conversions
     ---------------------------------------------------------------- */
     PointerTypeConversionsModule::addCheckFactories(CheckFactories);
-
 
     /* 15.
     ---------------------------------------------------------------- */
