@@ -29,7 +29,7 @@
 #include "switch-stmt/SwitchStmtComponent.h"
 
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
-#include "pointer-type-conversions/PointerTypeConversionsModule.h"
+#include "pointer/PointerComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -75,9 +75,7 @@ public:
     ---------------------------------------------------------------- */
     DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
 
-    /* 11. Pointer type conversions
-    ---------------------------------------------------------------- */
-    PointerTypeConversionsModule::addCheckFactories(CheckFactories);
+    PointerComponent::addCheckFactories(CheckFactories);
 
     /* 15.
     ---------------------------------------------------------------- */

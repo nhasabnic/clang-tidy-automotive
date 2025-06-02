@@ -11,7 +11,7 @@ add_subdirectory(function)
 add_subdirectory(goto-stmt)
 add_subdirectory(operator)
 add_subdirectory(literal)
-add_subdirectory(pointer-type-conversions)
+add_subdirectory(pointer)
 add_subdirectory(bitfield)
 add_subdirectory(preprocessor)
 add_subdirectory(return-stmt)
@@ -43,7 +43,7 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyAutomotiveGotoStmtComponent
   clangTidyAutomotiveOperatorComponent
   clangTidyAutomotiveLiteralComponent
-  clangTidyAutomotivePointerTypeConversions
+  clangTidyAutomotivePointerComponent
   clangTidyAutomotivePreprocessorComponent
   clangTidyAutomotiveReturnStmtComponent
   clangTidyAutomotiveStdlibComponent

@@ -1,4 +1,4 @@
-//===--- PointerTypeConversionsModule.h - clang-tidy ------------*- C++ -*-===//
+//===--- PointerComponent.h - clang-tidy ------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERTYPECONVERSIONSMODULE_H
-#define LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERTYPECONVERSIONSMODULE_H
+#ifndef LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERCOMPONENT_H
+#define LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERCOMPONENT_H
 
 #include "../../ClangTidy.h"
 #include "../../ClangTidyModule.h"
@@ -15,11 +15,11 @@
 
 namespace clang::tidy::automotive {
 
-class PointerTypeConversionsModule {
+class PointerComponent {
 public:
   static void addCheckFactories(ClangTidyCheckFactories &CheckFactories);
 };
 
 } // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERTYPECONVERSIONSMODULE_H
+#endif // LLVM_CLANG_TIDY_AUTOMOTIVE_POINTERCOMPONENT_H
