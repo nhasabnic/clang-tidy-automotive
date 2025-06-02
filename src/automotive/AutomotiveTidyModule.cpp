@@ -13,13 +13,8 @@
 #include "../misc/NoRecursionCheck.h"
 #include "../misc/UnusedParametersCheck.h"
 
-#include "AvoidAssignmentInExpressionCheck.h"
-#include "AvoidFunctionParameterModificationCheck.h"
-#include "AvoidNonBooleanInConditionCheck.h"
-#include "AvoidUnionCheck.h"
-#include "ImplicitFunctionDeclCheck.h"
 #include "ImplicitIntCheck.h"
-#include "InvariantControlCheck.h"
+#include "AvoidUnionCheck.h"
 #include "MissingCompoundCheck.h"
 #include "MissingElseCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
@@ -89,17 +84,6 @@ public:
     ---------------------------------------------------------------- */
     PointerTypeConversionsModule::addCheckFactories(CheckFactories);
 
-    /* 13.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
-        "automotive-c23-adv-13.4");
-
-    /* 14.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<InvariantControlCheck>(
-        "automotive-c23-req-14.3");
-    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
-        "automotive-c23-req-14.4");
 
     /* 15.
     ---------------------------------------------------------------- */
@@ -107,26 +91,9 @@ public:
         "automotive-c23-req-15.6");
     CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
 
-    /* 17.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<ImplicitFunctionDeclCheck>(
-        "automotive-c23-man-17.3");
-    CheckFactories.registerCheck<AvoidFunctionParameterModificationCheck>(
-        "automotive-c23-adv-17.8");
-
     /* 19.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidUnionCheck>("automotive-c23-adv-19.2");
-
-    /* 21.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidAssignmentInExpressionCheck>(
-        "automotive-c12-adv-13.4");
-
-    /* 14.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidNonBooleanInConditionCheck>(
-        "automotive-c12-req-14.4");
 
     /* 15.
     ---------------------------------------------------------------- */

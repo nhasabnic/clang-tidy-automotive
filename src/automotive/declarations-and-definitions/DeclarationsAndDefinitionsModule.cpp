@@ -8,9 +8,6 @@
 
 #include "DeclarationsAndDefinitionsModule.h"
 #include "AvoidRestrictTypeCheck.h"
-#include "FunctionDeclarationMismatchCheck.h"
-#include "StaticInlineCheck.h"
-#include "UncompleteFunctionPrototypeCheck.h"
 #include "UniqueEnumValuesCheck.h"
 
 namespace clang::tidy::automotive {
@@ -18,12 +15,7 @@ namespace clang::tidy::automotive {
 void DeclarationsAndDefinitionsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  CheckFactories.registerCheck<UncompleteFunctionPrototypeCheck>(
-      "automotive-uncomplete-function-prototype");
-  CheckFactories.registerCheck<FunctionDeclarationMismatchCheck>(
-      "automotive-function-declaration-mismatch");
-  CheckFactories.registerCheck<StaticInlineCheck>("automotive-static-inline");
-  CheckFactories.registerCheck<UniqueEnumValuesCheck>(
+ CheckFactories.registerCheck<UniqueEnumValuesCheck>(
       "automotive-unique-enum-values");
   CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
       "automotive-avoid-restrict-type");

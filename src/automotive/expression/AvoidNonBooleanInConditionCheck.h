@@ -1,4 +1,4 @@
-//===--- AvoidAssignmentInExpressionCheck.h - clang-tidy --------*- C++ -*-===//
+//===--- AvoidNonBooleanInConditionCheck.h - clang-tidy ---------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,20 +6,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDASSIGNMENTINEXPRESSIONCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDASSIGNMENTINEXPRESSIONCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDNONBOOLEANINCONDITIONCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDNONBOOLEANINCONDITIONCHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 
 namespace clang::tidy::automotive {
 
 /// FIXME: Write a short description.
 ///
 /// For the user-facing documentation see:
-/// http://clang.llvm.org/extra/clang-tidy/checks/misra/AvoidAssignmentInExpression.html
-class AvoidAssignmentInExpressionCheck : public ClangTidyCheck {
+/// http://clang.llvm.org/extra/clang-tidy/checks/misra/AvoidNonBooleanCondition.html
+class AvoidNonBooleanInConditionCheck : public ClangTidyCheck {
 public:
-  AvoidAssignmentInExpressionCheck(StringRef Name, ClangTidyContext *Context)
+  AvoidNonBooleanInConditionCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
@@ -27,4 +27,4 @@ public:
 
 } // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDASSIGNMENTINEXPRESSIONCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_AVOIDNONBOOLEANINCONDITIONCHECK_H

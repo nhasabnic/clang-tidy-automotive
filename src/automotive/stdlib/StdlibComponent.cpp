@@ -21,26 +21,22 @@ namespace clang::tidy::automotive {
 void StdlibComponent::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  /* C 2023
-  ------------------------------------------------------------------ */
   CheckFactories.registerCheck<AvoidStdargHeaderCheck>(
-      "automotive-c23-req-17.1");
+      "automotive-avoid-stdarg-header");
   // CheckFactories.registerCheck<AvoidStdlibMemoryCheck>(
-  //     "automotive-c23-req-21.3");
+  //     "automotive-avoid-stdlib-malloc-call");
   CheckFactories.registerCheck<AvoidSetjmpHeaderCheck>(
-      "automotive-c23-req-21.4");
+      "automotive-avoid-setjmp-header");
   CheckFactories.registerCheck<AvoidSignalHeaderCheck>(
-      "automotive-c23-req-21.5");
-  CheckFactories.registerCheck<AtoXCheck>("automotive-c23-req-21.7");
-  CheckFactories.registerCheck<ExitCheck>("automotive-c23-req-21.8");
+      "automotive-avoid-signal-header");
+  CheckFactories.registerCheck<AtoXCheck>("automotive-avoid-ascii-to-number");
+  CheckFactories.registerCheck<ExitCheck>("automotive-avoid-stdlib-exit-call");
 
   CheckFactories.registerCheck<AvoidstdlibsystemcallCheck>(
-      "automotive-c23-req-21.21");
+      "automotive-avoid-stdlib-system-call");
   CheckFactories.registerCheck<AvoidStdlibRandCheck>(
-      "automotive-c23-req-21.24");
+      "automotive-avoid-stdlib-rand-call");
 
-  /* C 2012
-  ------------------------------------------------------------------ */
 }
 
 } // namespace clang::tidy::automotive

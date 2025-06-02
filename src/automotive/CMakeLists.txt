@@ -7,6 +7,8 @@ add_subdirectory(array)
 add_subdirectory(char-sets-and-lexical-convs)
 add_subdirectory(comment)
 add_subdirectory(declarations-and-definitions)
+add_subdirectory(expression)
+add_subdirectory(function)
 add_subdirectory(goto-stmt)
 add_subdirectory(operator)
 add_subdirectory(literal)
@@ -20,12 +22,7 @@ add_subdirectory(utils)
 add_subdirectory(stdlib)
 
 add_clang_library(clangTidyAutomotiveModule
-  AvoidFunctionParameterModificationCheck.cpp
-  AvoidNonBooleanInConditionCheck.cpp
-  AvoidAssignmentInExpressionCheck.cpp
-  ImplicitFunctionDeclCheck.cpp
   ImplicitIntCheck.cpp
-  InvariantControlCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
   AvoidUnionCheck.cpp
   AutomotiveTidyModule.cpp
@@ -43,6 +40,8 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyAutomotiveCharSetsAndLexicalConvs
   clangTidyAutomotiveCommentComponent
   clangTidyAutomotiveDeclarationsAndDefinitions
+  clangTidyAutomotiveExpressionComponent
+  clangTidyAutomotiveFunctionComponent
   clangTidyAutomotiveGotoStmtComponent
   clangTidyAutomotiveOperatorComponent
   clangTidyAutomotiveLiteralComponent
