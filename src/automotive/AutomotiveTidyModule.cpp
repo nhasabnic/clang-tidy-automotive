@@ -23,8 +23,8 @@
 #include "literal/LiteralComponent.h"
 #include "operator/OperatorComponent.h"
 #include "preprocessor/PreprocessorComponent.h"
-#include "stdlib/StdlibComponent.h"
 #include "statement/StatementComponent.h"
+#include "stdlib/StdlibComponent.h"
 
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "pointer/PointerComponent.h"
@@ -78,7 +78,6 @@ public:
     /* 19.
     ---------------------------------------------------------------- */
     CheckFactories.registerCheck<AvoidUnionCheck>("automotive-c23-adv-19.2");
-
   }
 };
 

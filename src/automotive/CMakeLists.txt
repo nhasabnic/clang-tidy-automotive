@@ -13,7 +13,7 @@ add_subdirectory(literal)
 add_subdirectory(pointer)
 add_subdirectory(bitfield)
 add_subdirectory(preprocessor)
-add_subdirectory(return-stmt)
+add_subdirectory(return)
 add_subdirectory(statement)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
@@ -41,7 +41,7 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyAutomotiveLiteralComponent
   clangTidyAutomotivePointerComponent
   clangTidyAutomotivePreprocessorComponent
-  clangTidyAutomotiveReturnStmtComponent
+  clangTidyAutomotiveReturnComponent
   clangTidyAutomotiveStdlibComponent
   clangTidyAutomotiveStatementComponent
   clangTidyAutomotiveUnusedCode

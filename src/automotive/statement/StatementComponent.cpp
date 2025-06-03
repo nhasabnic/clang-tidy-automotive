@@ -8,15 +8,15 @@
 
 #include "StatementComponent.h"
 #include "AvoidBooleanInSwitchCheck.h"
-#include "MissingBreakInSwitchCheck.h"
-#include "MissingDefaultInSwitchStatementCheck.h"
-#include "UnstructuredSwitchCaseCheck.h"
-#include "WrongOrderDefaultInSwitchStatementCheck.h"
 #include "AvoidGotoCheck.h"
 #include "ForwardGotoLabelCheck.h"
-#include "UnusedLabelCheck.h"
+#include "MissingBreakInSwitchCheck.h"
 #include "MissingCompoundCheck.h"
+#include "MissingDefaultInSwitchStatementCheck.h"
 #include "MissingElseCheck.h"
+#include "UnstructuredSwitchCaseCheck.h"
+#include "UnusedLabelCheck.h"
+#include "WrongOrderDefaultInSwitchStatementCheck.h"
 
 namespace clang::tidy::automotive {
 
@@ -41,11 +41,10 @@ void StatementComponent::addCheckFactories(
   /* 16.2 Inspiration: m
    * caseStmt(unless(hasParent(compoundStmt(hasParent(switchStmt()))))) */
 
-    /* 15.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<MissingCompoundCheck>(
-        "automotive-c23-req-15.6");
-    CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
+  /* 15.
+  ---------------------------------------------------------------- */
+  CheckFactories.registerCheck<MissingCompoundCheck>("automotive-c23-req-15.6");
+  CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
 }
 
 } // namespace clang::tidy::automotive
