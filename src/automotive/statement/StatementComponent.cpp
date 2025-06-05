@@ -16,7 +16,7 @@
 #include "MissingElseCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
 #include "UnusedLabelCheck.h"
-#include "WrongOrderDefaultInSwitchStatementCheck.h"
+#include "WrongOrderInSwitchStmtCheck.h"
 
 namespace clang::tidy::automotive {
 
@@ -32,7 +32,7 @@ void StatementComponent::addCheckFactories(
       "automotive-missing-break-in-switch-stmt");
   CheckFactories.registerCheck<MissingDefaultInSwitchStatementCheck>(
       "automotive-missing-default-in-switch-stmt");
-  CheckFactories.registerCheck<WrongOrderDefaultInSwitchStatementCheck>(
+  CheckFactories.registerCheck<WrongOrderInSwitchStmtCheck>(
       "automotive-c23-req-16.5");
   CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
       "automotive-avoid-boolean-in-switch-stmt");

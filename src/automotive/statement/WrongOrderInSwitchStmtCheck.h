@@ -1,4 +1,4 @@
-//===--- WrongOrderDefaultInSwitchStatementCheck.h - clang-tidy -*- C++ -*-===//
+//===--- WrongOrderInSwitchStmtCheck.h - clang-tidy -*- C++ -*-===============//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_WRONGORDERDEFAULTINSWITCHSTATEMENTCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_WRONGORDERDEFAULTINSWITCHSTATEMENTCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_WRONGORDERINSWITCHSTMTCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_WRONGORDERINSWITCHSTMTCHECK_H
 
 #include "../../ClangTidyCheck.h"
 
@@ -17,9 +17,9 @@ namespace clang::tidy::automotive {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/WrongOrderDefaultInSwitchStatement.html
-class WrongOrderDefaultInSwitchStatementCheck : public ClangTidyCheck {
+class WrongOrderInSwitchStmtCheck : public ClangTidyCheck {
 public:
-  WrongOrderDefaultInSwitchStatementCheck(StringRef Name,
+  WrongOrderInSwitchStmtCheck(StringRef Name,
                                           ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
@@ -32,4 +32,4 @@ private:
 
 } // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_WRONGORDERDEFAULTINSWITCHSTATEMENTCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_WRONGORDERINSWITCHSTMTCHECK_H
