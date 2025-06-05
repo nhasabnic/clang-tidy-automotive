@@ -14,8 +14,7 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::automotive {
 
-void WrongOrderInSwitchStmtCheck::registerMatchers(
-    MatchFinder *Finder) {
+void WrongOrderInSwitchStmtCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(
       switchStmt(forEachSwitchCase(switchCase().bind("case"))).bind("switch"),
       this);

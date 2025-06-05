@@ -18,7 +18,8 @@ void MissingBreakInCaseStmtCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(switchStmt().bind("switchStmt"), this);
 }
 
-void MissingBreakInCaseStmtCheck::check(const MatchFinder::MatchResult &Result) {
+void MissingBreakInCaseStmtCheck::check(
+    const MatchFinder::MatchResult &Result) {
   const auto *Switch = Result.Nodes.getNodeAs<SwitchStmt>("switchStmt");
   if (!Switch)
     return;
@@ -38,10 +39,9 @@ void MissingBreakInCaseStmtCheck::check(const MatchFinder::MatchResult &Result) 
   }
 }
 
-void MissingBreakInCaseStmtCheck::checkCase(const Stmt *Case,
-                                          CompoundStmt::const_body_iterator It,
-                                          const CompoundStmt *Body,
-                                          ASTContext *Context) {
+void MissingBreakInCaseStmtCheck::checkCase(
+    const Stmt *Case, CompoundStmt::const_body_iterator It,
+    const CompoundStmt *Body, ASTContext *Context) {
   if (isa<CaseStmt>(Case) && Case->children().empty()) {
     return;
   }

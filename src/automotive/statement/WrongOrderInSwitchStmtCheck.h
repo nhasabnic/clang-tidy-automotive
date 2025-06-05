@@ -19,8 +19,7 @@ namespace clang::tidy::automotive {
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/WrongOrderDefaultInSwitchStatement.html
 class WrongOrderInSwitchStmtCheck : public ClangTidyCheck {
 public:
-  WrongOrderInSwitchStmtCheck(StringRef Name,
-                                          ClangTidyContext *Context)
+  WrongOrderInSwitchStmtCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
