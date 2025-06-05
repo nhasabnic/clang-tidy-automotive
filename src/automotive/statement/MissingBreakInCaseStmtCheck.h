@@ -1,4 +1,4 @@
-//===--- MissingBreakInSwitchCheck.h - clang-tidy ---------------*- C++ -*-===//
+//===--- MissingBreakInCaseStmtCheck.h - clang-tidy -------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGBREAKINSWITCHCHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGBREAKINSWITCHCHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGBREAKINCASESTMTCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGBREAKINCASESTMTCHECK_H
 
 #include "../../ClangTidyCheck.h"
 
@@ -17,9 +17,9 @@ namespace clang::tidy::automotive {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/MissingBreakInSwitch.html
-class MissingBreakInSwitchCheck : public ClangTidyCheck {
+class MissingBreakInCaseStmtCheck : public ClangTidyCheck {
 public:
-  MissingBreakInSwitchCheck(StringRef Name, ClangTidyContext *Context)
+  MissingBreakInCaseStmtCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
@@ -31,4 +31,4 @@ private:
 
 } // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGBREAKINSWITCHCHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_MISSINGBREAKINCASESTMTCHECK_H

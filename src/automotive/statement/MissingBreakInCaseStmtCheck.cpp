@@ -1,4 +1,4 @@
-//===--- MissingBreakInSwitchCheck.cpp - clang-tidy -----------------------===//
+//===--- MissingBreakInCaseStmtCheck.cpp - clang-tidy ---------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "MissingBreakInSwitchCheck.h"
+#include "MissingBreakInCaseStmtCheck.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
@@ -14,11 +14,11 @@ using namespace clang::ast_matchers;
 
 namespace clang::tidy::automotive {
 
-void MissingBreakInSwitchCheck::registerMatchers(MatchFinder *Finder) {
+void MissingBreakInCaseStmtCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(switchStmt().bind("switchStmt"), this);
 }
 
-void MissingBreakInSwitchCheck::check(const MatchFinder::MatchResult &Result) {
+void MissingBreakInCaseStmtCheck::check(const MatchFinder::MatchResult &Result) {
   const auto *Switch = Result.Nodes.getNodeAs<SwitchStmt>("switchStmt");
   if (!Switch)
     return;
@@ -38,7 +38,7 @@ void MissingBreakInSwitchCheck::check(const MatchFinder::MatchResult &Result) {
   }
 }
 
-void MissingBreakInSwitchCheck::checkCase(const Stmt *Case,
+void MissingBreakInCaseStmtCheck::checkCase(const Stmt *Case,
                                           CompoundStmt::const_body_iterator It,
                                           const CompoundStmt *Body,
                                           ASTContext *Context) {
