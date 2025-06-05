@@ -1,4 +1,4 @@
-//===--- UnstructuredSwitchCaseCheck.cpp - clang-tidy ---------------------===//
+//===--- UnstructuredSwitchStmtCheck.cpp - clang-tidy ---------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "UnstructuredSwitchCaseCheck.h"
+#include "UnstructuredSwitchStmtCheck.h"
 #include "clang/AST/ASTContext.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 
@@ -20,13 +20,13 @@ StatementMatcher matchUnstructuredSwitch() {
                              .bind("expectedCompound")));
 }
 
-void UnstructuredSwitchCaseCheck::registerMatchers(MatchFinder *Finder) {
+void UnstructuredSwitchStmtCheck::registerMatchers(MatchFinder *Finder) {
   Finder->addMatcher(caseStmt(matchUnstructuredSwitch()).bind("case"), this);
   Finder->addMatcher(defaultStmt(matchUnstructuredSwitch()).bind("default"),
                      this);
 }
 
-void UnstructuredSwitchCaseCheck::check(
+void UnstructuredSwitchStmtCheck::check(
     const MatchFinder::MatchResult &Result) {
   const auto *MatchedCase = Result.Nodes.getNodeAs<CaseStmt>("case");
   const auto *MatchedDefault = Result.Nodes.getNodeAs<DefaultStmt>("default");

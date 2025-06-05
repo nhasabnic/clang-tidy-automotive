@@ -4,7 +4,7 @@ add_clang_library(clangTidyAutomotiveStatementComponent STATIC
   MissingBreakInCaseStmtCheck.cpp
   MissingDefaultInSwitchStmtCheck.cpp
   StatementComponent.cpp
-  UnstructuredSwitchCaseCheck.cpp
+  UnstructuredSwitchStmtCheck.cpp
   WrongOrderInSwitchStmtCheck.cpp
   AvoidGotoCheck.cpp
   ForwardGotoLabelCheck.cpp

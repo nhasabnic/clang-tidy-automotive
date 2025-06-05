@@ -1,5 +1,4 @@
-//===--- UnstructuredSwitchCaseCheck.h - clang-tidy --------------*- C++
-//-*-===//
+//===--- UnstructuredSwitchStmtCheck.h - clang-tidy -------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -7,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UNSTRUCTUREDSWITCHCASECHECK_H
-#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UNSTRUCTUREDSWITCHCASECHECK_H
+#ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UNSTRUCTUREDSWITCHSTMTCHECK_H
+#define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UNSTRUCTUREDSWITCHSTMTCHECK_H
 
 #include "../../ClangTidyCheck.h"
 
@@ -18,9 +17,9 @@ namespace clang::tidy::automotive {
 ///
 /// For the user-facing documentation see:
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/UnstructuredCase.html
-class UnstructuredSwitchCaseCheck : public ClangTidyCheck {
+class UnstructuredSwitchStmtCheck : public ClangTidyCheck {
 public:
-  UnstructuredSwitchCaseCheck(StringRef Name, ClangTidyContext *Context)
+  UnstructuredSwitchStmtCheck(StringRef Name, ClangTidyContext *Context)
       : ClangTidyCheck(Name, Context) {}
   void registerMatchers(ast_matchers::MatchFinder *Finder) override;
   void check(const ast_matchers::MatchFinder::MatchResult &Result) override;
@@ -28,4 +27,4 @@ public:
 
 } // namespace clang::tidy::automotive
 
-#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UNSTRUCTUREDSWITCHCASECHECK_H
+#endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_UNSTRUCTUREDSWITCHSTMTCHECK_H
