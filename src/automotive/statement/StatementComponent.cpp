@@ -11,7 +11,7 @@
 #include "AvoidGotoCheck.h"
 #include "ForwardGotoLabelCheck.h"
 #include "MissingBreakInCaseStmtCheck.h"
-#include "MissingCompoundCheck.h"
+#include "MissingCompoundStmtCheck.h"
 #include "MissingDefaultInSwitchStmtCheck.h"
 #include "MissingElseCheck.h"
 #include "UnstructuredSwitchCaseCheck.h"
@@ -43,8 +43,10 @@ void StatementComponent::addCheckFactories(
 
   /* 15.
   ---------------------------------------------------------------- */
-  CheckFactories.registerCheck<MissingCompoundCheck>("automotive-c23-req-15.6");
-  CheckFactories.registerCheck<MissingElseCheck>("automotive-c23-req-15.7");
+  CheckFactories.registerCheck<MissingCompoundStmtCheck>(
+      "automotive-missing-compound-stmt");
+  CheckFactories.registerCheck<MissingElseCheck>(
+      "automotive-missing-else-stmt");
 }
 
 } // namespace clang::tidy::automotive

@@ -9,6 +9,6 @@ add_clang_library(clangTidyAutomotiveStatementComponent STATIC
   AvoidGotoCheck.cpp
   ForwardGotoLabelCheck.cpp
   UnusedLabelCheck.cpp
-  MissingCompoundCheck.cpp
+  MissingCompoundStmtCheck.cpp
   MissingElseCheck.cpp
 )
