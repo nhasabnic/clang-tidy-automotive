@@ -29,13 +29,13 @@ void StatementComponent::addCheckFactories(
       "automotive-forward-goto-label");
 
   CheckFactories.registerCheck<MissingBreakInCaseStmtCheck>(
-      "automotive-missing-break-in-case-stmt");
+      "automotive-missing-break-in-case");
   CheckFactories.registerCheck<MissingDefaultInSwitchStmtCheck>(
-      "automotive-missing-default-in-switch-stmt");
+      "automotive-missing-default-in-switch");
   CheckFactories.registerCheck<WrongOrderInSwitchStmtCheck>(
       "automotive-c23-req-16.5");
   CheckFactories.registerCheck<AvoidBooleanInSwitchCheck>(
-      "automotive-avoid-boolean-in-switch-stmt");
+      "automotive-avoid-boolean-in-switch");
   CheckFactories.registerCheck<UnstructuredSwitchCaseCheck>(
       "automotive-x-req-16.2");
   /* 16.2 Inspiration: m
@@ -44,9 +44,9 @@ void StatementComponent::addCheckFactories(
   /* 15.
   ---------------------------------------------------------------- */
   CheckFactories.registerCheck<MissingCompoundStmtCheck>(
-      "automotive-missing-compound-stmt");
+      "automotive-missing-compound");
   CheckFactories.registerCheck<MissingElseCheck>(
-      "automotive-missing-else-stmt");
+      "automotive-missing-else");
 }
 
 } // namespace clang::tidy::automotive
