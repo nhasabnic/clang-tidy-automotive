@@ -9,7 +9,7 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_IMPLICITINTCHECK_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_IMPLICITINTCHECK_H
 
-#include "../ClangTidyCheck.h"
+#include "../../ClangTidyCheck.h"
 
 namespace clang::tidy::automotive {
 

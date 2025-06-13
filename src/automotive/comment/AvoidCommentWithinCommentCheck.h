@@ -21,7 +21,8 @@ namespace clang::tidy::automotive {
 /// http://clang.llvm.org/extra/clang-tidy/checks/misra/comment-within-comment.html
 class AvoidCommentWithinCommentCheck : public ClangTidyCheck {
 public:
-  AvoidCommentWithinCommentCheck(StringRef Name, ClangTidyContext *Context)
+  AvoidCommentWithinCommentCheck(StringRef Name, ClangTidyContext *Context,
+                                 int x = 0)
       : ClangTidyCheck(Name, Context), Handler(*this) {}
 
   void registerPPCallbacks(const SourceManager &SM, Preprocessor *PP,

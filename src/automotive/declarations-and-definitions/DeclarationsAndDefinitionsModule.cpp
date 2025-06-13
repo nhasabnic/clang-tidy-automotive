@@ -8,15 +8,12 @@
 
 #include "DeclarationsAndDefinitionsModule.h"
 #include "AvoidRestrictTypeCheck.h"
-#include "UniqueEnumValuesCheck.h"
 
 namespace clang::tidy::automotive {
 
 void DeclarationsAndDefinitionsModule::addCheckFactories(
     ClangTidyCheckFactories &CheckFactories) {
 
-  CheckFactories.registerCheck<UniqueEnumValuesCheck>(
-      "automotive-unique-enum-values");
   CheckFactories.registerCheck<AvoidRestrictTypeCheck>(
       "automotive-avoid-restrict-type");
 }

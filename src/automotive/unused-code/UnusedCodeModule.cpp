@@ -9,7 +9,6 @@
 #include "UnusedCodeModule.h"
 #include "UnusedObjectDefinitionCheck.h"
 #include "UnusedTagCheck.h"
-#include "UnusedTypeCheck.h"
 
 namespace clang::tidy::automotive {
 
@@ -18,18 +17,11 @@ void UnusedCodeModule::addCheckFactories(
 
   /* C 2023
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedTypeCheck>("automotive-c23-adv-2.3");
-  // CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-  //     "automotive-c23-adv-2.7");
   CheckFactories.registerCheck<UnusedObjectDefinitionCheck>(
       "automotive-c23-adv-2.8");
 
   /* C 2012
   ------------------------------------------------------------------ */
-  CheckFactories.registerCheck<UnusedTypeCheck>("automotive-c12-adv-2.3");
-
-  // CheckFactories.registerCheck<misc::UnusedParametersCheck>(
-  //     "automotive-c12-adv-2.7");
 
   /* Experimental
   ------------------------------------------------------------------ */

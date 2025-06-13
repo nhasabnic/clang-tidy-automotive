@@ -13,21 +13,23 @@
 #include "../misc/NoRecursionCheck.h"
 #include "../misc/UnusedParametersCheck.h"
 
-#include "AvoidUnionCheck.h"
-#include "ImplicitIntCheck.h"
 #include "MissingStaticInternalLinkageCheck.h"
 
 #include "array/ArrayComponent.h"
 #include "bitfield/BitfieldComponent.h"
 #include "comment/CommentComponent.h"
+#include "expression/ExpressionComponent.h"
+#include "function/FunctionComponent.h"
 #include "literal/LiteralComponent.h"
 #include "operator/OperatorComponent.h"
+#include "pointer/PointerComponent.h"
 #include "preprocessor/PreprocessorComponent.h"
+#include "return/ReturnComponent.h"
 #include "statement/StatementComponent.h"
 #include "stdlib/StdlibComponent.h"
+#include "type/TypeComponent.h"
 
 #include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
-#include "pointer/PointerComponent.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -42,16 +44,20 @@ public:
     /* TODO: Move this and name it properly. */
     CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
         "automotive-x-Missing-Static-Internal-Linkage");
-    CheckFactories.registerCheck<ImplicitIntCheck>("automotive-x-req-8.1");
 
     ArrayComponent::addCheckFactories(CheckFactories);
     BitfieldComponent::addCheckFactories(CheckFactories);
     CommentComponent::addCheckFactories(CheckFactories);
+    ExpressionComponent::addCheckFactories(CheckFactories);
+    FunctionComponent::addCheckFactories(CheckFactories);
     LiteralComponent::addCheckFactories(CheckFactories);
-    PreprocessorComponent::addCheckFactories(CheckFactories);
     OperatorComponent::addCheckFactories(CheckFactories);
-    StdlibComponent::addCheckFactories(CheckFactories);
+    PointerComponent::addCheckFactories(CheckFactories);
+    PreprocessorComponent::addCheckFactories(CheckFactories);
+    ReturnComponent::addCheckFactories(CheckFactories);
     StatementComponent::addCheckFactories(CheckFactories);
+    StdlibComponent::addCheckFactories(CheckFactories);
+    TypeComponent::addCheckFactories(CheckFactories);
 
     /* C 2023
     ---------------------------------------------------------------- */
@@ -72,12 +78,6 @@ public:
     /* 8. Declarations and defintions
     ---------------------------------------------------------------- */
     DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
-
-    PointerComponent::addCheckFactories(CheckFactories);
-
-    /* 19.
-    ---------------------------------------------------------------- */
-    CheckFactories.registerCheck<AvoidUnionCheck>("automotive-c23-adv-19.2");
   }
 };
 

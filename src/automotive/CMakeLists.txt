@@ -15,14 +15,13 @@ add_subdirectory(bitfield)
 add_subdirectory(preprocessor)
 add_subdirectory(return)
 add_subdirectory(statement)
+add_subdirectory(stdlib)
+add_subdirectory(type)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
-add_subdirectory(stdlib)
 
 add_clang_library(clangTidyAutomotiveModule
-  ImplicitIntCheck.cpp
   MissingStaticInternalLinkageCheck.cpp
-  AvoidUnionCheck.cpp
   AutomotiveTidyModule.cpp
 
   LINK_LIBS
@@ -37,13 +36,14 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyAutomotiveDeclarationsAndDefinitions
   clangTidyAutomotiveExpressionComponent
   clangTidyAutomotiveFunctionComponent
-  clangTidyAutomotiveOperatorComponent
   clangTidyAutomotiveLiteralComponent
+  clangTidyAutomotiveOperatorComponent
   clangTidyAutomotivePointerComponent
   clangTidyAutomotivePreprocessorComponent
   clangTidyAutomotiveReturnComponent
-  clangTidyAutomotiveStdlibComponent
   clangTidyAutomotiveStatementComponent
+  clangTidyAutomotiveStdlibComponent
+  clangTidyAutomotiveTypeComponent
   clangTidyAutomotiveUnusedCode
   clangTidyAutomotiveUtils
 
