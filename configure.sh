@@ -6,5 +6,5 @@ cmake -G Ninja \
       -DCMAKE_BUILD_TYPE=Release \
       -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" \
       -DLLVM_TARGETS_TO_BUILD="X86" \
-      ../llvm-project-llvmorg-19.1.7/llvm
+      ../llvm-project-llvmorg-20.1.7/llvm
 cd ..

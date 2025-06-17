@@ -16,7 +16,7 @@ To build clang-tidy Automotive, follow these steps:
 
 ### Prerequisites 
 
-Clang 19 (or compatible version)
+Clang 20 (or compatible version)
 
 ### Setup Instructions
 
