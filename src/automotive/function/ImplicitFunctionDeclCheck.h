@@ -10,7 +10,7 @@
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_AUTOMOTIVE_IMPLICITFUNCTIONDECLCHECK_H
 
 #include "../../ClangTidyCheck.h"
-#include "../Utils.h"
+#include "../utils/Utils.h"
 
 namespace clang::tidy::automotive {
 
