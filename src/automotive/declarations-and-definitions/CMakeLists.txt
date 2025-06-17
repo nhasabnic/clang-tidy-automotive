@@ -1,5 +1,0 @@
-
-add_clang_library(clangTidyAutomotiveDeclarationsAndDefinitions STATIC
-  AvoidRestrictTypeCheck.cpp
-  DeclarationsAndDefinitionsModule.cpp
-)

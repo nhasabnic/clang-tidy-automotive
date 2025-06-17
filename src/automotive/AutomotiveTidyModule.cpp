@@ -12,9 +12,6 @@
 #include "../cert/FloatLoopCounter.h"
 #include "../misc/NoRecursionCheck.h"
 #include "../misc/UnusedParametersCheck.h"
-
-#include "MissingStaticInternalLinkageCheck.h"
-
 #include "array/ArrayComponent.h"
 #include "bitfield/BitfieldComponent.h"
 #include "comment/CommentComponent.h"
@@ -27,9 +24,9 @@
 #include "return/ReturnComponent.h"
 #include "statement/StatementComponent.h"
 #include "stdlib/StdlibComponent.h"
+#include "storage/StorageComponent.h"
 #include "type/TypeComponent.h"
 
-#include "declarations-and-definitions/DeclarationsAndDefinitionsModule.h"
 #include "unused-code/UnusedCodeModule.h"
 
 // using namespace clang::ast_matchers;
@@ -40,10 +37,6 @@ namespace automotive {
 class AutomotiveModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
-
-    /* TODO: Move this and name it properly. */
-    CheckFactories.registerCheck<MissingStaticInternalLinkageCheck>(
-        "automotive-x-Missing-Static-Internal-Linkage");
 
     ArrayComponent::addCheckFactories(CheckFactories);
     BitfieldComponent::addCheckFactories(CheckFactories);
@@ -57,6 +50,7 @@ public:
     ReturnComponent::addCheckFactories(CheckFactories);
     StatementComponent::addCheckFactories(CheckFactories);
     StdlibComponent::addCheckFactories(CheckFactories);
+    StorageComponent::addCheckFactories(CheckFactories);
     TypeComponent::addCheckFactories(CheckFactories);
 
     /* C 2023
@@ -74,10 +68,6 @@ public:
     /* 2. Unused code
     ---------------------------------------------------------------- */
     UnusedCodeModule::addCheckFactories(CheckFactories);
-
-    /* 8. Declarations and defintions
-    ---------------------------------------------------------------- */
-    DeclarationsAndDefinitionsModule::addCheckFactories(CheckFactories);
   }
 };
 

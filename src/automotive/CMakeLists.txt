@@ -5,7 +5,6 @@ set(LLVM_LINK_COMPONENTS
 
 add_subdirectory(array)
 add_subdirectory(comment)
-add_subdirectory(declarations-and-definitions)
 add_subdirectory(expression)
 add_subdirectory(function)
 add_subdirectory(operator)
@@ -16,12 +15,12 @@ add_subdirectory(preprocessor)
 add_subdirectory(return)
 add_subdirectory(statement)
 add_subdirectory(stdlib)
+add_subdirectory(storage)
 add_subdirectory(type)
 add_subdirectory(unused-code)
 add_subdirectory(utils)
 
 add_clang_library(clangTidyAutomotiveModule
-  MissingStaticInternalLinkageCheck.cpp
   AutomotiveTidyModule.cpp
 
   LINK_LIBS
@@ -33,7 +32,6 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyAutomotiveArrayComponent
   clangTidyAutomotiveBitfieldComponent
   clangTidyAutomotiveCommentComponent
-  clangTidyAutomotiveDeclarationsAndDefinitions
   clangTidyAutomotiveExpressionComponent
   clangTidyAutomotiveFunctionComponent
   clangTidyAutomotiveLiteralComponent
@@ -43,6 +41,7 @@ add_clang_library(clangTidyAutomotiveModule
   clangTidyAutomotiveReturnComponent
   clangTidyAutomotiveStatementComponent
   clangTidyAutomotiveStdlibComponent
+  clangTidyAutomotiveStorageComponent
   clangTidyAutomotiveTypeComponent
   clangTidyAutomotiveUnusedCode
   clangTidyAutomotiveUtils
