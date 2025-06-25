@@ -38,11 +38,11 @@ the future. This is part of the TODO list.
 
 ## Usage
 
-To use the Automotive support in clang-tidy, enable the rules automotive-c23-* 
-or automotive-c12-* when using clang-tidy. The example below assumes the 
-avoid-goto.c test file and the root directory of clang-tidy-automotive.
+To use the Automotive support in clang-tidy, enable the rules automotive-* 
+when using clang-tidy. The example below assumes the avoid-goto.c test file 
+and the root directory of clang-tidy-automotive.
    ```bash
-   ./build/bin/clang-tidy --checks="misra-c2023-*" test/checkers/misra/c2023/avoid-goto.c -- 
+   ./build/bin/clang-tidy --checks="automotive-avoid-goto" test/checkers/automotive/statement/avoid-goto.c -- 
    ```
 
 See [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) for more information.
