@@ -11,11 +11,10 @@
 
 namespace clang::tidy {
 
-void ClangTidyDiagnosticMapping::clear() {
-  DiagConsumer.clear();
-}
+void ClangTidyDiagnosticMapping::clear() { DiagConsumer.clear(); }
 
-void ClangTidyDiagnosticMapping::BeginSourceFile(const LangOptions &LangOpts, const Preprocessor *PP) {
+void ClangTidyDiagnosticMapping::BeginSourceFile(const LangOptions &LangOpts,
+                                                 const Preprocessor *PP) {
   DiagConsumer.BeginSourceFile(LangOpts, PP);
 }
 
@@ -23,11 +22,9 @@ void ClangTidyDiagnosticMapping::EndSourceFile() {
   DiagConsumer.EndSourceFile();
 }
 
-void ClangTidyDiagnosticMapping::finish() {
-  DiagConsumer.finish();
-}
+void ClangTidyDiagnosticMapping::finish() { DiagConsumer.finish(); }
 
-bool ClangTidyDiagnosticMapping::IncludeInDiagnosticCounts () const {
+bool ClangTidyDiagnosticMapping::IncludeInDiagnosticCounts() const {
   return DiagConsumer.IncludeInDiagnosticCounts();
 }
 

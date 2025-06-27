@@ -15,14 +15,15 @@ namespace clang::tidy {
 
 class ClangTidyDiagnosticMapping : public DiagnosticConsumer {
 public:
-  ClangTidyDiagnosticMapping(DiagnosticConsumer &Consumer) :
-                           Consumer(Consumer) {}
+  ClangTidyDiagnosticMapping(DiagnosticConsumer &DiagConsumer)
+      : DiagConsumer(DiagConsumer) {}
 
   void clear() override;
-  void BeginSourceFile(const LangOptions &LangOpts, const Preprocessor *PP=nullptr) override;
+  void BeginSourceFile(const LangOptions &LangOpts,
+                       const Preprocessor *PP = nullptr) override;
   void EndSourceFile() override;
   void finish() override;
-  bool IncludeInDiagnosticCounts () const override;
+  bool IncludeInDiagnosticCounts() const override;
   void HandleDiagnostic(DiagnosticsEngine::Level DiagLevel,
                         const Diagnostic &Info) override;
 
@@ -33,4 +34,3 @@ private:
 } // namespace clang::tidy
 
 #endif // LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_CLANGTIDYDIAGNOSTICMAPPING_H
-
