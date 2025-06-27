@@ -7,6 +7,8 @@ tar xzvf llvmorg-20.1.7.tar.gz
 # Create symbolic links from the clang-tidy-automotive source tree into LLVM.
 ln -f -s ../../../src/automotive/ llvm-project-llvmorg-20.1.7/clang-tools-extra/clang-tidy/
 ln -f -s ../../../../../test/checkers/automotive llvm-project-llvmorg-20.1.7/clang-tools-extra/test/clang-tidy/checkers/automotive
+ln -f -s ../../../src/ClangTidyDiagnosticMapping.cpp llvm-project-llvmorg-20.1.7/clang-tools-extra/clang-tidy/ClangTidyDiagnosticMapping.cpp
+ln -f -s ../../../src/ClangTidyDiagnosticMapping.h llvm-project-llvmorg-20.1.7/clang-tools-extra/clang-tidy/ClangTidyDiagnosticMapping.h
 
 # Create symlinks in the src directory.
 directories=(
