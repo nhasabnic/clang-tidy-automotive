@@ -1,9 +1,5 @@
 #!/usr/bin/bash
 
-# Download and extract LLVM
-wget https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-20.1.7.tar.gz
-tar xzvf llvmorg-20.1.7.tar.gz
-
 # Create symbolic links from the clang-tidy-automotive source tree into LLVM.
 ln -f -s ../../../src/automotive/ llvm-project-llvmorg-20.1.7/clang-tools-extra/clang-tidy/
 ln -f -s ../../../../../test/checkers/automotive llvm-project-llvmorg-20.1.7/clang-tools-extra/test/clang-tidy/checkers/automotive
