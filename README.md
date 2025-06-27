@@ -23,11 +23,12 @@ Clang 20 (or compatible version)
 1. Clone the repository:
    ```bash
    git clone https://github.com/PeterHallonmark/clang-tidy-automotive.git
-   cd clang-tidy-misra
+   cd clang-tidy-automotive
    ```
 
 2. Run the following setup scripts to build Clang-Tidy Automotive:
    ```bash
+   ./download.sh
    ./setup.sh
    ./configure.sh
    ./build.sh
