@@ -13,6 +13,7 @@ add_clang_library(clangTidy
   ClangTidyCheck.cpp
   ClangTidyModule.cpp
   ClangTidyDiagnosticConsumer.cpp
+  ClangTidyDiagnosticMapping.cpp
   ClangTidyOptions.cpp
   ClangTidyProfiling.cpp
   ExpandModularHeadersPPCallbacks.cpp
