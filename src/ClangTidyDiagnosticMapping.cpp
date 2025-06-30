@@ -8,6 +8,7 @@
 
 #include "ClangTidyDiagnosticMapping.h"
 #include "ClangTidy.h"
+#include "clang/Basic/DiagnosticIDs.h"
 
 namespace clang::tidy {
 
@@ -30,7 +31,19 @@ bool ClangTidyDiagnosticMapping::IncludeInDiagnosticCounts() const {
 
 void ClangTidyDiagnosticMapping::HandleDiagnostic(
     DiagnosticsEngine::Level DiagLevel, const Diagnostic &Info) {
+ 
+  if (Context.DiagEngine) {
+#if 0 //Broken
+     DiagnosticIDs::Level Level = DiagnosticIDs::Warning;
+     unsigned ID = Context.DiagEngine->getDiagnosticIDs()->getCustomDiagID(Level, llvm::StringRef("Testing Testing"));
+     Context.DiagEngine->Report(Info.getLocation(), ID);
 
+    llvm::outs() << Info.getID() << " " << Context.getCheckName(Info.getID()) << "\n";
+   
+  } else {
+    llvm::outs() << "Fail: " << Info.getID() << " " << "\n";
+  }
+#endif
   DiagConsumer.HandleDiagnostic(DiagLevel, Info);
   DiagnosticConsumer::HandleDiagnostic(DiagLevel, Info);
 }
