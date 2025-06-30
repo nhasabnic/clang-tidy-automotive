@@ -9,14 +9,15 @@
 #ifndef LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_CLANGTIDYDIAGNOSTICMAPPING_H
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_CLANGTIDYDIAGNOSTICMAPPING_H
 
-#include "clang/Basic/Diagnostic.h"
 #include "ClangTidyDiagnosticConsumer.h"
+#include "clang/Basic/Diagnostic.h"
 
 namespace clang::tidy {
 
 class ClangTidyDiagnosticMapping : public DiagnosticConsumer {
 public:
-  ClangTidyDiagnosticMapping(ClangTidyContext &Context, DiagnosticConsumer &DiagConsumer)
+  ClangTidyDiagnosticMapping(ClangTidyContext &Context,
+                             DiagnosticConsumer &DiagConsumer)
       : Context(Context), DiagConsumer(DiagConsumer) {}
 
   void clear() override;
