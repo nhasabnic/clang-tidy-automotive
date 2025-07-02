@@ -31,22 +31,24 @@ bool ClangTidyDiagnosticMapping::IncludeInDiagnosticCounts() const {
 
 void ClangTidyDiagnosticMapping::HandleDiagnostic(
     DiagnosticsEngine::Level DiagLevel, const Diagnostic &Info) {
-
+  
   if (Context.DiagEngine) {
-    DiagnosticIDs::Level Level = DiagnosticIDs::Warning;
-    unsigned ID = Context.DiagEngine->getDiagnosticIDs()->getCustomDiagID(
-        Level, llvm::StringRef("Testing Testing"));
-    // Context.DiagEngine->Report(Info.getLocation(), ID);
+      Context.DiagEngine->setClient(&DiagConsumer, false);
 
-    llvm::outs() << Info.getID() << " " << Context.getCheckName(Info.getID())
-                 << "\n";
+      Context.diag("automotive-avoid-line-splicing-within-comment", Info.getLocation(), "testing testing");
+
+      Context.DiagEngine->setClient(this, false);
+      
+      llvm::outs() << Info.getID() << " " << Context.getCheckName(Info.getID())
+                   << "\n";
 
   } else {
     llvm::outs() << "Fail: " << Info.getID() << " " << "\n";
   }
 
   DiagConsumer.HandleDiagnostic(DiagLevel, Info);
-  DiagnosticConsumer::HandleDiagnostic(DiagLevel, Info);
+  NumWarnings = DiagConsumer.getNumWarnings();
+  NumErrors = DiagConsumer.getNumErrors();
 }
 
 } // namespace clang::tidy
