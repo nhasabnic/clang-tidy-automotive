@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 cd build
-ninja clang-tidy clang-format
+ninja -j 2 clang-tidy clang-format
 cd ..

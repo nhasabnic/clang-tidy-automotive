@@ -26,6 +26,8 @@ Clang 20 (or compatible version)
    cd clang-tidy-automotive
    ```
 
+#### Building locally
+
 2. Run the following setup scripts to build Clang-Tidy Automotive:
    ```bash
    ./download.sh
@@ -33,6 +35,16 @@ Clang 20 (or compatible version)
    ./configure.sh
    ./build.sh
    ```
+
+#### Building inside docker
+
+```
+docker build . -t cm-clang-tidy-automative
+```
+
+This should complete successfully as:
+```
+```
 
 **Note:** The scripts will need to be adjusted to use a Docker container in
 the future. This is part of the TODO list.
@@ -42,9 +54,19 @@ the future. This is part of the TODO list.
 To use the Automotive support in clang-tidy, enable the rules automotive-* 
 when using clang-tidy. The example below assumes the avoid-goto.c test file 
 and the root directory of clang-tidy-automotive.
+
+### Running locally
+
    ```bash
    ./build/bin/clang-tidy --checks="automotive-avoid-goto" test/checkers/automotive/statement/avoid-goto.c -- 
    ```
+
+### Running in docker
+```
+docker run -it cm-clang-tidy-automative bash
+```
+
+Then try `clang-tidy` command above.
 
 See [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) for more information.
 
